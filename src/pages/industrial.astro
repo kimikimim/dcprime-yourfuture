@@ -1,0 +1,63 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const CATEGORIES = [
+  {
+    title: '최적화 및 운영과학',
+    subtitle: 'Operations Research',
+    terms: [
+      { ko: '선형계획법', en: 'Linear Programming', desc: '선형 제약 조건 아래에서 선형 목적함수를 최대/최소화하는 최적화 기법. 심플렉스법으로 해를 구하며, 생산·물류 계획에 널리 쓰임.' },
+      { ko: '정수계획법', en: 'Integer Programming', desc: '변수가 정수 값만 가져야 하는 최적화 문제. 분기한정법(Branch and Bound) 등으로 해결하며 스케줄링, 배치 문제에 활용됨.' },
+      { ko: '네트워크 최적화', en: 'Network Optimization', desc: '노드와 간선으로 이루어진 네트워크에서 최단 경로, 최대 유량 등을 구하는 문제. 물류, 통신망 설계에 응용됨.' },
+      { ko: '동적계획법', en: 'Dynamic Programming', desc: '복잡한 의사결정 문제를 단계별 부분 문제로 나누어 순차적으로 최적해를 구하는 기법. 재고, 설비투자 등 다단계 의사결정에 활용.' },
+    ],
+  },
+  {
+    title: '확률통계 및 시뮬레이션',
+    subtitle: 'Probability, Statistics & Simulation',
+    terms: [
+      { ko: '가설검정', en: 'Hypothesis Testing', desc: '표본 데이터를 바탕으로 모집단에 대한 주장(가설)이 통계적으로 유의한지 판단하는 절차. 품질 개선, 공정 비교의 기본 도구.' },
+      { ko: '회귀분석', en: 'Regression Analysis', desc: '변수들 사이의 관계를 수식으로 모델링해 예측하거나 인과관계를 분석하는 통계 기법.' },
+      { ko: '대기행렬이론', en: 'Queueing Theory', formula: '\\rho = \\lambda / \\mu', desc: '고객(작업)이 도착해 서비스를 기다리는 시스템을 확률적으로 모델링하는 이론. 콜센터, 생산라인, 병원 설계에 응용됨.' },
+      { ko: '몬테카를로 시뮬레이션', en: 'Monte Carlo Simulation', desc: '난수를 이용해 복잡한 확률적 시스템을 반복 시행으로 근사하는 방법. 해석적으로 풀기 어려운 문제의 성능을 추정할 때 사용.' },
+    ],
+  },
+  {
+    title: '생산 및 제조 시스템',
+    subtitle: 'Production & Manufacturing Systems',
+    terms: [
+      { ko: '린 생산방식', en: 'Lean Manufacturing', desc: '낭비를 최소화하고 필요한 만큼만 생산하는 도요타 생산방식에서 비롯된 생산 철학. 재고, 대기시간, 불량 등 7가지 낭비 제거를 추구.' },
+      { ko: '경제적 주문량', en: 'Economic Order Quantity (EOQ)', formula: 'Q^* = \\sqrt{\\frac{2DS}{H}}', desc: '주문 비용과 재고 유지 비용의 합을 최소화하는 최적 주문량을 구하는 재고관리 모델.' },
+      { ko: '작업 스케줄링', en: 'Job Scheduling', desc: '한정된 자원(기계, 인력)에 여러 작업을 어떤 순서로 배정할지 결정하는 문제. 납기 준수와 생산성 향상이 목표.' },
+      { ko: '공급사슬관리', en: 'Supply Chain Management (SCM)', desc: '원자재 조달부터 생산, 유통, 고객 전달까지 전체 흐름을 계획하고 조율하는 경영 기법.' },
+    ],
+  },
+  {
+    title: '품질관리',
+    subtitle: 'Quality Control',
+    terms: [
+      { ko: '통계적 공정관리', en: 'Statistical Process Control (SPC)', desc: '관리도(Control Chart)를 이용해 공정이 정상 범위 안에서 운영되는지 실시간으로 감시하는 품질관리 기법.' },
+      { ko: '6시그마', en: 'Six Sigma', desc: '공정의 결함률을 백만 개당 3.4개 이하로 낮추는 것을 목표로 하는 품질 경영 방법론. DMAIC 절차로 문제를 개선함.' },
+      { ko: '신뢰성 공학', en: 'Reliability Engineering', desc: '제품이나 시스템이 고장 없이 얼마나 오래 작동하는지를 정량적으로 분석하는 분야. 평균고장간격(MTBF) 등의 지표를 사용함.' },
+    ],
+  },
+  {
+    title: '인간공학 및 시스템공학',
+    subtitle: 'Human Factors & Systems Engineering',
+    terms: [
+      { ko: '인간공학', en: 'Ergonomics', desc: '사람의 신체적·인지적 특성에 맞춰 제품이나 작업환경을 설계하는 학문. 안전과 효율, 편의성을 동시에 추구함.' },
+      { ko: '시스템 신뢰도', en: 'System Reliability', desc: '여러 구성요소로 이루어진 시스템 전체가 고장 없이 작동할 확률. 구성요소가 직렬/병렬로 연결된 방식에 따라 계산법이 달라짐.' },
+      { ko: '작업연구', en: 'Time & Motion Study', desc: '작업 동작과 소요 시간을 분석해 표준 작업 시간을 정하고 비효율을 제거하는 산업공학의 고전적 기법.' },
+    ],
+  },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 산업공학 전공 맛보기 | 대치프라임"
+  metaDescription="대학 산업공학과에서 배우는 핵심 개념을 미리 만나보는 전공 맛보기 페이지입니다."
+  heading="산업공학 전공 맛보기"
+  descriptionPrefix={`산업공학과에 가면 실제로 배우게 될 최적화, 통계, 생산·품질 시스템의 핵심 개념들을 모아뒀습니다. 다 이해할 필요는 없고, 전공의 결을 느껴보는 용도예요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 선형계획법, EOQ, 6시그마)"
+  categories={CATEGORIES}
+/>

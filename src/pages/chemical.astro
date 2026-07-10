@@ -1,0 +1,65 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const CATEGORIES = [
+  {
+    title: '화공열역학',
+    subtitle: 'Chemical Thermodynamics',
+    terms: [
+      { ko: '깁스 자유에너지', en: 'Gibbs Free Energy', formula: 'G = H - TS', desc: '일정한 온도와 압력에서 반응이 자발적으로 일어나는지를 판단하는 열역학적 함수. $\\Delta G < 0$이면 자발적 반응.' },
+      { ko: '화학 퍼텐셜', en: 'Chemical Potential', desc: '어떤 성분의 물질량이 1몰 변할 때 계의 자유에너지가 변하는 정도. 상평형과 반응평형을 판단하는 기준.' },
+      { ko: '상평형과 라울의 법칙', en: "Phase Equilibrium & Raoult's Law", desc: '혼합물에서 각 성분의 증기압이 몰분율에 비례한다는 법칙. 증류 공정 설계의 이론적 기반.' },
+      { ko: '퓨개시티', en: 'Fugacity', desc: '실제 기체나 혼합물이 이상 기체에서 벗어나는 정도를 보정한 유효 압력 개념. 비이상적 계의 상평형 계산에 사용.' },
+    ],
+  },
+  {
+    title: '반응공학',
+    subtitle: 'Reaction Engineering',
+    terms: [
+      { ko: '아레니우스 식', en: 'Arrhenius Equation', formula: 'k = A e^{-E_a/RT}', desc: '반응 속도 상수가 온도에 따라 어떻게 변하는지를 나타내는 식. 활성화 에너지 $E_a$가 클수록 온도 민감도가 커짐.' },
+      { ko: '회분식 반응기', en: 'Batch Reactor', desc: '반응물을 한 번에 투입하고 반응이 끝날 때까지 배출하지 않는 반응기. 실험실 규모나 소량 생산에 주로 사용됨.' },
+      { ko: '연속교반탱크반응기', en: 'Continuous Stirred-Tank Reactor (CSTR)', desc: '반응물을 연속적으로 투입하고 완전히 혼합된 상태로 반응시켜 연속적으로 배출하는 반응기. 반응기 내부 농도가 균일함.' },
+      { ko: '플러그흐름반응기', en: 'Plug Flow Reactor (PFR)', desc: '유체가 관을 따라 흐르며 반응이 진행되는 반응기. 유체 요소가 서로 섞이지 않고 순서대로 흐른다고 가정함.' },
+      { ko: '반응차수', en: 'Reaction Order', desc: '반응 속도가 반응물 농도의 몇 제곱에 비례하는지를 나타내는 지수. 실험적으로 결정되며 반응 메커니즘을 추론하는 단서가 됨.' },
+    ],
+  },
+  {
+    title: '이동현상',
+    subtitle: 'Transport Phenomena',
+    terms: [
+      { ko: "픽의 확산 법칙", en: "Fick's Law of Diffusion", formula: 'J = -D\\frac{dC}{dx}', desc: '농도 기울기에 의해 물질이 이동하는 확산 속도를 기술하는 법칙. 분리 공정, 물질 전달 설계의 기본.' },
+      { ko: "푸리에 열전도 법칙", en: "Fourier's Law of Heat Conduction", formula: 'q = -k\\frac{dT}{dx}', desc: '온도 기울기에 의해 열이 전달되는 속도를 기술하는 법칙. 열교환기 설계의 기초.' },
+      { ko: '뉴턴의 점성 법칙', en: "Newton's Law of Viscosity", desc: '유체 내 속도 기울기에 비례해 전단응력이 발생한다는 법칙. 점성 유체의 운동량 전달을 기술함.' },
+      { ko: '경계층 이론', en: 'Boundary Layer Theory', desc: '고체 표면 근처에서 점성 효과가 두드러지게 나타나는 얇은 층을 다루는 이론. 열/물질 전달 계수 계산에 필수적.' },
+    ],
+  },
+  {
+    title: '분리공정',
+    subtitle: 'Separation Processes',
+    terms: [
+      { ko: '증류', en: 'Distillation', desc: '끓는점 차이를 이용해 혼합물을 성분별로 분리하는 공정. McCabe-Thiele 도해법으로 이론단수를 설계함.' },
+      { ko: '흡수', en: 'Absorption', desc: '기체 혼합물 중 특정 성분을 액체 용매에 녹여 분리하는 공정. 공정 가스 정제 등에 널리 쓰임.' },
+      { ko: '추출', en: 'Extraction', desc: '용해도 차이를 이용해 한 액체(또는 고체)에서 원하는 성분을 다른 용매로 옮겨 분리하는 공정.' },
+      { ko: '막분리', en: 'Membrane Separation', desc: '선택적으로 투과되는 막을 이용해 혼합물을 분리하는 공정. 해수 담수화의 역삼투가 대표적.' },
+    ],
+  },
+  {
+    title: '공정제어 및 설계',
+    subtitle: 'Process Control & Design',
+    terms: [
+      { ko: '물질수지와 에너지수지', en: 'Mass & Energy Balance', desc: '공정에 들어오고 나가는 물질과 에너지가 보존된다는 원리를 이용해 공정 변수를 계산하는 화공 설계의 가장 기본적인 도구.' },
+      { ko: '공정흐름도', en: 'Process Flow Diagram (PFD/P&ID)', desc: '공정 전체의 장치, 흐름, 계측/제어 요소를 표준 기호로 나타낸 도면. 플랜트 설계와 운영의 기본 문서.' },
+      { ko: '공정 제어 루프', en: 'Process Control Loop', desc: '센서로 측정한 변수를 목표값과 비교해 제어기가 밸브 등 조작 변수를 조정하는 피드백 구조. 온도, 압력, 유량 제어에 사용.' },
+    ],
+  },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 화학공학 전공 맛보기 | 대치프라임"
+  metaDescription="대학 화학공학과에서 배우는 핵심 개념을 미리 만나보는 전공 맛보기 페이지입니다."
+  heading="화학공학 전공 맛보기"
+  descriptionPrefix={`화학공학과에 가면 실제로 배우게 될 열역학, 반응공학, 이동현상, 공정설계의 핵심 개념들을 모아뒀습니다. 다 이해할 필요는 없고, 전공의 결을 느껴보는 용도예요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 아레니우스, 증류, CSTR)"
+  categories={CATEGORIES}
+/>

@@ -1,0 +1,178 @@
+---
+interface Term {
+  ko: string;
+  en: string;
+  formula?: string;
+  desc: string;
+}
+
+interface Category {
+  title: string;
+  subtitle: string;
+  terms: Term[];
+}
+
+interface Props {
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow?: string;
+  heading: string;
+  descriptionPrefix: string;
+  searchPlaceholder: string;
+  categories: Category[];
+}
+
+const {
+  metaTitle,
+  metaDescription,
+  eyebrow = 'Your Future',
+  heading,
+  descriptionPrefix,
+  searchPlaceholder,
+  categories,
+} = Astro.props;
+
+const totalCount = categories.reduce((sum, c) => sum + c.terms.length, 0);
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon-circle.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  </head>
+  <body class="bg-gray-50 font-sans">
+
+    <header class="border-b border-gray-200 bg-white">
+      <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="https://dcprime.co.kr" class="flex items-center gap-2">
+          <img src="/favicon-circle.png" alt="대치프라임" class="h-9 w-9 rounded-full object-cover" />
+          <span class="text-sm font-bold text-gray-900">대치프라임</span>
+        </a>
+        <a href="/" class="text-xs text-gray-400 hover:text-brand transition-colors">Your Future 홈으로 →</a>
+      </div>
+    </header>
+
+    <div class="min-h-screen">
+      <div class="border-b border-gray-200 bg-white">
+        <div class="container mx-auto px-4 py-10">
+          <p class="text-sm text-brand font-semibold mb-1">{eyebrow}</p>
+          <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">{heading}</h1>
+          <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+            {descriptionPrefix} 총 {totalCount}개 개념.
+          </p>
+        </div>
+      </div>
+
+      <div class="sticky top-0 z-40 bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4">
+          <div class="relative max-w-xl">
+            <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <input
+              id="term-search"
+              type="text"
+              placeholder={searchPlaceholder}
+              class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-brand"
+            />
+          </div>
+          <p id="search-empty" class="hidden text-sm text-gray-400 mt-3">검색 결과가 없습니다.</p>
+        </div>
+      </div>
+
+      <div class="container mx-auto px-4 py-10 max-w-4xl">
+        {categories.map((cat) => (
+          <div class="category-block mb-10">
+            <div class="mb-4">
+              <h2 class="text-lg font-bold text-gray-900">{cat.title}</h2>
+              <p class="text-xs text-gray-400">{cat.subtitle}</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              {cat.terms.map((t) => (
+                <div
+                  class="term-card bg-white rounded-xl border border-gray-100 p-4 shadow-sm"
+                  data-search={`${t.ko} ${t.en} ${t.desc}`.toLowerCase()}
+                >
+                  <p class="text-sm font-bold text-gray-900">{t.ko}</p>
+                  <p class="text-xs text-gray-400 mb-2">{t.en}</p>
+                  {t.formula && (
+                    <div class="katex-formula text-sm text-brand my-2 overflow-x-auto" data-formula={t.formula}></div>
+                  )}
+                  <p class="text-sm text-gray-600 leading-relaxed" set:html={t.desc.replace(/\$([^$]+)\$/g, '<span class="katex-inline" data-formula="$1"></span>')} />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <footer class="border-t border-gray-200 bg-white py-8">
+      <div class="container mx-auto px-4 text-center text-xs text-gray-400">
+        <p>문제 있으면 장곡관 튜터에게.</p>
+        <a href="https://github.com/kimikimim" class="text-brand hover:underline" target="_blank" rel="noopener noreferrer">github.com/kimikimim</a>
+      </div>
+    </footer>
+
+    <script>
+      async function loadKatex() {
+        if ((window as any).katex) return;
+        await new Promise<void>((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
+          script.onload = () => resolve();
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }
+
+      async function renderFormulas() {
+        await loadKatex();
+        const katex = (window as any).katex;
+        if (!katex) return;
+        document.querySelectorAll<HTMLElement>('.katex-formula, .katex-inline').forEach(el => {
+          const formula = el.dataset.formula;
+          if (!formula) return;
+          try {
+            katex.render(formula, el, { throwOnError: false, displayMode: el.classList.contains('katex-formula') });
+          } catch {
+            el.textContent = formula;
+          }
+        });
+      }
+
+      function initSearch() {
+        const input = document.getElementById('term-search') as HTMLInputElement | null;
+        const emptyMsg = document.getElementById('search-empty');
+        if (!input) return;
+
+        input.addEventListener('input', () => {
+          const q = input.value.trim().toLowerCase();
+          let anyVisible = false;
+
+          document.querySelectorAll<HTMLElement>('.category-block').forEach(block => {
+            let blockHasMatch = false;
+            block.querySelectorAll<HTMLElement>('.term-card').forEach(card => {
+              const match = !q || (card.dataset.search ?? '').includes(q);
+              card.classList.toggle('hidden', !match);
+              if (match) { blockHasMatch = true; anyVisible = true; }
+            });
+            block.classList.toggle('hidden', !blockHasMatch);
+          });
+
+          emptyMsg?.classList.toggle('hidden', anyVisible || !q);
+        });
+      }
+
+      renderFormulas();
+      initSearch();
+    </script>
+  </body>
+</html>
