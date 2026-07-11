@@ -1,0 +1,70 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '진단지원계열',
+    subtitle: '직접 수술·처방을 하기보다, 정확한 진단을 위한 검사와 영상·조직 판독을 전문으로 하는 진료과들',
+    careers: ['영상의학과 전문의', '진단검사의학과 전문의', '병리과 전문의'],
+    courses: [
+      {
+        name: '영상의학과',
+        nameEn: 'Radiology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: 'CT/MRI 판독', en: 'CT/MRI Interpretation', desc: '컴퓨터단층촬영(CT), 자기공명영상(MRI) 등 영상 검사 결과를 분석해 질병을 진단하는 분야.', example: '건강검진에서 찍은 CT 사진을 보고 이상 소견을 찾아내는 과정.' },
+          { ko: '인터벤션 시술', en: 'Interventional Radiology', desc: '영상 장비로 몸속을 보면서 가느다란 관을 혈관에 넣어 시술하는 최소침습 치료.', example: '피부를 크게 절개하지 않고 카테터로 막힌 혈관을 뚫는 시술.' },
+          { ko: '초음파검사', en: 'Ultrasound Imaging', desc: '방사선 노출 없이 음파로 장기와 태아 등을 실시간으로 관찰하는 검사.', example: '임신부가 매번 받는 태아 초음파 검사.' },
+        ],
+      },
+      {
+        name: '진단검사의학과',
+        nameEn: 'Laboratory Medicine',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '혈액검사 해석', en: 'Blood Test Interpretation', desc: '혈액 성분 분석을 통해 질병의 징후를 찾아내는 진단 지원 분야.', example: '건강검진 결과표의 각종 혈액 수치를 해석하는 근거를 제공.' },
+          { ko: '미생물배양검사', en: 'Microbial Culture Test', desc: '감염 원인균을 배양해 어떤 항생제가 효과적인지 확인하는 검사.', example: '폐렴 환자의 가래를 배양해 원인균과 효과적인 항생제를 찾는 검사.' },
+          { ko: '수혈의학', en: 'Transfusion Medicine', desc: '혈액형 검사와 교차시험을 통해 안전한 수혈을 관리하는 분야.', example: '수술 전 혈액형을 확인하고 안전한 수혈을 준비하는 과정.' },
+        ],
+      },
+      {
+        name: '핵의학과',
+        nameEn: 'Nuclear Medicine',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: 'PET-CT 검사', en: 'PET-CT Scan', desc: '방사성 의약품을 이용해 암세포의 대사 활동을 영상으로 찾아내는 정밀 검사.', example: '암 재발 여부를 전신에서 한 번에 확인하는 정밀 검사.' },
+          { ko: '갑상선 방사성요오드 치료', en: 'Radioactive Iodine Therapy for Thyroid', desc: '방사성 요오드를 이용해 갑상선암 세포나 항진된 갑상선 조직을 선택적으로 제거하는 치료.', example: '갑상선암 수술 후 남은 암세포를 제거하는 방사성요오드 치료.' },
+          { ko: '갑상선 스캔', en: 'Thyroid Scan', desc: '방사성동위원소로 갑상선의 기능과 형태를 영상으로 평가하는 검사.', example: '갑상선 결절이 양성인지 기능적으로 확인하는 핵의학 검사.' },
+        ],
+      },
+      {
+        name: '병리과',
+        nameEn: 'Pathology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '조직병리 진단', en: 'Histopathologic Diagnosis', desc: '수술이나 조직검사로 얻은 조직을 현미경으로 관찰해 암 여부를 최종 확진하는 분야.', example: '내시경으로 떼어낸 용종이 실제 암인지 최종 확진하는 검사.' },
+          { ko: '부검', en: 'Autopsy', desc: '사망 원인을 규명하기 위해 시신을 해부하여 조사하는 병리학적 절차.', example: '사망 원인이 불분명할 때 법적으로 시행되는 부검 절차.' },
+          { ko: '세포병리검사', en: 'Cytopathology', desc: '세포 단위 검체를 현미경으로 관찰해 암을 선별검사하는 방법.', example: '자궁경부암 검진에서 시행하는 팹 스미어(Pap smear) 검사.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/medicine', title: '의학과', subtitle: 'Medicine' },
+  { href: '/medicine/internal', title: '내과계열', subtitle: 'Internal Medicine Specialties' },
+  { href: '/medicine/surgical', title: '외과계열', subtitle: 'Surgical Specialties' },
+  { href: '/medicine/specialty', title: '특수진료계열', subtitle: 'Specialty Care' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 진단지원계열 진료과 맛보기 | 대치프라임"
+  metaDescription="영상의학과부터 병리과까지, 진단지원계열 4개 진료과의 핵심 개념을 재구성한 맛보기 페이지입니다."
+  heading="진단지원계열"
+  descriptionPrefix={`환자를 직접 진료하기보다, 다른 진료과가 정확히 진단·치료할 수 있도록 검사와 판독을 전문으로 하는 진료과 4개를 모아뒀어요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: PET-CT, 조직병리, 미생물배양)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

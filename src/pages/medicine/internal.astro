@@ -1,0 +1,164 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '내과계열',
+    subtitle: '신체 내부 장기의 질환을 수술 없이 약물과 처치로 진단·치료하는 진료과들',
+    careers: ['내과 전문의', '신경과 전문의', '소아청소년과 전문의'],
+    courses: [
+      {
+        name: '소화기내과',
+        nameEn: 'Gastroenterology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '상부위장관내시경', en: 'Upper GI Endoscopy', desc: '입을 통해 위·식도까지 카메라를 넣어 위염, 위궤양, 위암을 직접 관찰·조직검사하는 시술.', example: '건강검진에서 흔히 받는 위내시경 검사가 바로 이 진료의 일부.' },
+          { ko: '간경변 및 간암 관리', en: 'Liver Cirrhosis & Hepatocellular Carcinoma Management', desc: 'B형·C형간염, 알코올성 간질환이 간경변으로 진행하는 과정을 관리하고 간암을 조기발견하는 진료.', example: 'B형간염 보유자가 정기적으로 받는 간초음파·혈액검사 추적관찰.' },
+          { ko: '염증성장질환(IBD)', en: 'Inflammatory Bowel Disease', desc: '크론병, 궤양성대장염처럼 면역계가 장을 지속적으로 공격하는 만성질환을 관리하는 진료.', example: '젊은 나이에 만성 설사와 복통이 반복될 때 의심하는 대표 질환.' },
+        ],
+      },
+      {
+        name: '순환기내과',
+        nameEn: 'Cardiology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '관상동맥질환 및 스텐트시술', en: 'Coronary Artery Disease & Stent Procedure', desc: '심장혈관이 좁아지는 협심증·심근경색을 진단하고, 카테터로 스텐트를 넣어 혈관을 넓히는 시술.', example: '가슴 통증으로 응급실에 온 급성심근경색 환자에게 즉시 시행하는 시술.' },
+          { ko: '부정맥 진단(심전도/홀터)', en: 'Arrhythmia Diagnosis (ECG/Holter)', desc: '심장이 불규칙하게 뛰는 부정맥을 심전도와 24시간 홀터 검사로 진단하는 과정.', example: '가슴이 갑자기 두근거리는 증상으로 24시간 심전도 기기를 달고 생활하는 검사.' },
+          { ko: '심부전 관리', en: 'Heart Failure Management', desc: '심장의 펌프 기능이 저하된 심부전 환자를 약물과 생활습관 관리로 치료하는 진료.', example: '계단을 오르면 숨이 많이 차는 노년층 환자의 심장 기능을 약물로 관리.' },
+        ],
+      },
+      {
+        name: '호흡기내과',
+        nameEn: 'Pulmonology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '폐기능검사', en: 'Pulmonary Function Test', desc: '폐활량, 기도 저항 등을 측정해 천식·만성폐쇄성폐질환(COPD)을 진단하는 검사.', example: '"후~ 불어보세요"라고 하며 실린더에 숨을 불어넣는 검사.' },
+          { ko: '천식 및 COPD 관리', en: 'Asthma & COPD Management', desc: '기도가 좁아지는 천식과, 흡연 등으로 폐 기능이 서서히 저하되는 COPD를 흡입제 등으로 관리하는 진료.', example: '흡입기(인헬러)를 처방받아 매일 사용하는 만성 호흡기질환 관리.' },
+          { ko: '폐암 진단', en: 'Lung Cancer Diagnosis', desc: '흉부CT와 기관지내시경으로 폐암을 조기 발견하고 병기를 결정하는 진료.', example: '흡연력이 긴 환자의 정기 흉부CT에서 발견된 결절을 정밀검사.' },
+        ],
+      },
+      {
+        name: '내분비대사내과',
+        nameEn: 'Endocrinology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '당뇨병 합병증 관리', en: 'Diabetes Complication Management', desc: '혈당 조절 실패가 신장, 눈, 신경에 미치는 합병증을 예방·관리하는 진료.', example: '당뇨병성 망막증, 신증을 예방하기 위한 정기 안과·신장 검사 연계.' },
+          { ko: '갑상선기능이상', en: 'Thyroid Dysfunction', desc: '갑상선호르몬이 과다·부족한 갑상선기능항진증/저하증을 진단하고 치료하는 진료.', example: '이유 없이 살이 빠지고 심장이 두근거릴 때 확인하는 갑상선기능항진증 검사.' },
+          { ko: '골다공증 관리', en: 'Osteoporosis Management', desc: '뼈 밀도가 감소해 골절 위험이 커지는 골다공증을 검사하고 약물로 예방하는 진료.', example: '폐경 후 여성이 정기적으로 받는 골밀도 검사(DEXA).' },
+        ],
+      },
+      {
+        name: '신장내과',
+        nameEn: 'Nephrology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '만성콩팥병 병기분류', en: 'Chronic Kidney Disease Staging', desc: '신장 기능 저하 정도를 사구체여과율(eGFR)로 1~5단계로 나누어 관리하는 체계.', example: '건강검진 크레아티닌 수치로 신장 기능 저하 단계를 확인하는 기준.' },
+          { ko: '혈액투석 관리', en: 'Hemodialysis Management', desc: '신장 기능을 상실한 환자의 혈액을 인공적으로 걸러주는 투석 치료를 관리하는 진료.', example: '신장이식 전까지 주 3회 병원에 방문해 받는 혈액투석 치료.' },
+        ],
+      },
+      {
+        name: '혈액종양내과',
+        nameEn: 'Hematology-Oncology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '항암화학요법', en: 'Chemotherapy', desc: '암세포를 죽이거나 증식을 억제하는 약물을 투여하는 치료. 부작용 관리가 핵심.', example: '암 진단 후 병원에서 정기적으로 맞는 항암제 주사 치료.' },
+          { ko: '백혈병 및 림프종 진단', en: 'Leukemia & Lymphoma Diagnosis', desc: '골수검사, 혈액검사로 혈액암을 진단하고 아형을 분류하는 진료.', example: '원인 모를 발열과 림프절 부종이 지속될 때 시행하는 골수검사.' },
+        ],
+      },
+      {
+        name: '감염내과',
+        nameEn: 'Infectious Diseases',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '항생제 내성 관리', en: 'Antibiotic Resistance Management', desc: '세균이 항생제에 내성을 갖게 되는 문제를 다루며 적절한 항생제를 선택하는 진료.', example: '코로나19, 슈퍼박테리아 감염처럼 적절한 항생제 선택이 중요한 진료.' },
+          { ko: '패혈증 대응', en: 'Sepsis Management', desc: '감염이 전신으로 퍼져 생명이 위험해지는 패혈증을 조기에 발견하고 신속히 치료하는 진료.', example: '감염이 전신으로 퍼져 혈압이 떨어지는 응급 상황에 신속한 항생제 투여.' },
+        ],
+      },
+      {
+        name: '류마티스내과',
+        nameEn: 'Rheumatology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '자가면역질환 관리', en: 'Autoimmune Disease Management', desc: '루푸스, 류마티스관절염처럼 면역계가 자기 몸을 공격하는 질환을 관리하는 진료.', example: '온몸 관절이 붓고 아픈 류마티스관절염 환자의 장기 약물 관리.' },
+          { ko: '관절염 감별진단', en: 'Arthritis Differential Diagnosis', desc: '통풍, 류마티스관절염, 퇴행성관절염 등 다양한 관절염을 구분해 진단하는 과정.', example: '엄지발가락이 갑자기 심하게 아픈 통풍과 다른 관절염을 구분하는 진료.' },
+        ],
+      },
+      {
+        name: '알레르기내과',
+        nameEn: 'Allergy',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '알레르기 피부반응검사', en: 'Allergy Skin Prick Test', desc: '특정 물질에 대한 알레르기 반응 여부를 피부에 소량 노출시켜 확인하는 검사.', example: '특정 음식이나 꽃가루 알레르기 원인을 찾기 위한 피부 검사.' },
+          { ko: '아나필락시스 응급대응', en: 'Anaphylaxis Emergency Management', desc: '급격한 전신 알레르기 반응으로 생명이 위험해지는 상황에 에피네프린 등으로 신속히 대응하는 진료.', example: '견과류를 먹고 갑자기 호흡곤란이 온 경우의 응급 에피네프린 주사.' },
+        ],
+      },
+      {
+        name: '신경과',
+        nameEn: 'Neurology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '뇌졸중 급성기 치료', en: 'Acute Stroke Treatment', desc: '뇌혈관이 막히거나 터지는 뇌졸중 발생 시 골든타임 안에 혈전용해제 등으로 치료하는 진료.', example: '한쪽 팔다리에 갑자기 힘이 빠지면 3시간 이내 병원에 가야 하는 이유.' },
+          { ko: '뇌전증 관리', en: 'Epilepsy Management', desc: '뇌의 비정상적 전기 활동으로 발작이 반복되는 뇌전증을 항경련제로 관리하는 진료.', example: '반복적인 발작(경련)을 조절하기 위한 장기 약물 복용 관리.' },
+          { ko: '치매 감별진단', en: 'Dementia Differential Diagnosis', desc: '알츠하이머병 등 다양한 원인의 인지기능 저하를 감별해 진단하는 과정.', example: '기억력 저하를 호소하는 환자가 받는 인지기능검사(MMSE 등).' },
+        ],
+      },
+      {
+        name: '정신건강의학과',
+        nameEn: 'Psychiatry',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '우울장애 진단과 치료', en: 'Depressive Disorder Diagnosis & Treatment', desc: '기분과 의욕 저하가 지속되는 우울장애를 상담과 약물로 치료하는 분야.', example: '학업·직장 스트레스로 인한 우울증 상담 및 약물 치료.' },
+          { ko: '불안장애', en: 'Anxiety Disorders', desc: '과도한 불안과 공포 반응을 다루는 정신과 진료 영역.', example: '시험이나 발표 전 극심한 불안을 겪는 공황장애 치료.' },
+          { ko: '조현병 관리', en: 'Schizophrenia Management', desc: '환각, 망상 등 정신병적 증상을 약물과 재활치료로 관리하는 진료.', example: '환청·망상 증상이 있는 환자를 장기적으로 관리하는 항정신병약물 치료.' },
+        ],
+      },
+      {
+        name: '소아청소년과',
+        nameEn: 'Pediatrics',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '예방접종 스케줄', en: 'Immunization Schedule', desc: '영유아기부터 청소년기까지 감염병을 예방하기 위한 백신 접종 일정을 관리하는 진료.', example: '신생아부터 시작되는 국가필수예방접종(BCG, DTaP 등) 관리.' },
+          { ko: '성장발달평가', en: 'Growth & Development Assessment', desc: '신체·인지 발달이 또래 기준에 맞게 진행되는지 평가하는 소아과 진료의 핵심.', example: '영유아 건강검진에서 키·몸무게 백분위수를 확인하는 과정.' },
+          { ko: '소아 감염병 관리', en: 'Pediatric Infectious Disease Management', desc: '수족구병, 독감 등 소아에서 흔한 감염병을 진단하고 치료하는 진료.', example: '어린이집·유치원에서 유행하는 수족구병, 독감 진료.' },
+        ],
+      },
+      {
+        name: '피부과',
+        nameEn: 'Dermatology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '아토피피부염 관리', en: 'Atopic Dermatitis Management', desc: '만성 염증성 피부질환을 진단하고 관리하는 진료.', example: '소아와 성인 모두에게 흔한 만성 피부질환 관리.' },
+          { ko: '피부암 조기진단', en: 'Skin Cancer Early Detection', desc: '점과 반점의 모양 변화를 관찰해 흑색종 등 피부암을 조기에 발견하는 진료.', example: '모양이 바뀌는 점을 조직검사로 확인하는 과정.' },
+          { ko: '여드름 치료', en: 'Acne Treatment', desc: '피지선의 염증으로 발생하는 여드름을 약물, 레이저 등으로 치료하는 진료.', example: '청소년기 얼굴 여드름을 약물이나 레이저로 치료하는 진료.' },
+        ],
+      },
+      {
+        name: '재활의학과',
+        nameEn: 'Rehabilitation Medicine',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '뇌졸중 후 재활', en: 'Post-Stroke Rehabilitation', desc: '뇌졸중으로 손상된 운동·언어 기능을 물리치료, 작업치료로 회복시키는 진료.', example: '뇌졸중 후 마비된 팔다리 기능을 되찾기 위한 물리치료·작업치료.' },
+          { ko: '근골격계 재활', en: 'Musculoskeletal Rehabilitation', desc: '수술 후나 부상 후 근육과 관절 기능을 회복시키는 재활 치료.', example: '십자인대 수술 후 운동선수가 복귀 전 받는 재활 프로그램.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/medicine', title: '의학과', subtitle: 'Medicine' },
+  { href: '/medicine/surgical', title: '외과계열', subtitle: 'Surgical Specialties' },
+  { href: '/medicine/diagnostic', title: '진단지원계열', subtitle: 'Diagnostic Support' },
+  { href: '/medicine/specialty', title: '특수진료계열', subtitle: 'Specialty Care' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 내과계열 진료과 맛보기 | 대치프라임"
+  metaDescription="소화기내과부터 재활의학과까지, 내과계열 14개 진료과의 핵심 개념을 재구성한 맛보기 페이지입니다."
+  heading="내과계열"
+  descriptionPrefix={`본과를 마치고 인턴을 거치면 특정 진료과 레지던트가 됩니다. 내과계열 14개 진료과를 모아뒀어요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 스텐트, 뇌졸중, 당뇨)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

@@ -1,0 +1,119 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '외과계열',
+    subtitle: '질환 부위를 수술로 직접 제거하거나 교정하는 진료과들',
+    careers: ['외과 전문의', '정형외과 전문의', '산부인과 전문의'],
+    courses: [
+      {
+        name: '외과 (위장관·유방·갑상선 등)',
+        nameEn: 'General Surgery',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '위암 수술', en: 'Gastric Cancer Surgery', desc: '위의 일부 또는 전체를 절제하고 림프절을 함께 제거하는 위암 근치 수술.', example: '국가암검진 위내시경에서 조기 위암이 발견됐을 때 시행하는 수술.' },
+          { ko: '유방암 수술', en: 'Breast Cancer Surgery', desc: '유방을 보존하며 종양만 제거하는 유방보존술과, 유방 전체를 제거하는 전절제술.', example: '유방암 진단 후 종양 크기에 따라 유방을 보존할지 결정하는 수술.' },
+          { ko: '갑상선암 수술', en: 'Thyroid Cancer Surgery', desc: '목 앞쪽의 갑상선에 생긴 암을 절제하는 수술. 국내에서 매우 흔한 암 수술 중 하나.', example: '건강검진에서 우연히 발견되는 갑상선 결절 중 암으로 확진된 경우의 수술.' },
+        ],
+      },
+      {
+        name: '정형외과',
+        nameEn: 'Orthopedic Surgery',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '골절 정복술', en: 'Fracture Reduction', desc: '부러진 뼈를 제자리로 맞추고 고정하는 치료.', example: '스포츠 부상이나 교통사고로 인한 골절 치료.' },
+          { ko: '인공관절치환술', en: 'Joint Replacement Surgery', desc: '손상된 관절을 인공 관절로 교체하는 수술.', example: '퇴행성관절염이 심한 고령 환자의 무릎 인공관절 수술.' },
+          { ko: '척추측만증 교정', en: 'Scoliosis Correction', desc: '척추가 옆으로 휘는 척추측만증을 보조기나 수술로 교정하는 치료.', example: '청소년 건강검진에서 발견되는 척추측만증의 보조기·수술 치료.' },
+        ],
+      },
+      {
+        name: '신경외과',
+        nameEn: 'Neurosurgery',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '뇌종양 절제술', en: 'Brain Tumor Resection', desc: '뇌 안의 종양을 최대한 정상 뇌조직 손상 없이 제거하는 고난도 수술.', example: '뇌 MRI에서 발견된 종양을 현미경 수술로 제거하는 과정.' },
+          { ko: '척추수술', en: 'Spinal Surgery', desc: '디스크 탈출, 척추관 협착 등을 치료하는 척추 관련 수술.', example: '허리디스크가 심해 다리 저림이 지속될 때 시행하는 수술.' },
+          { ko: '뇌동맥류 클립결찰술', en: 'Cerebral Aneurysm Clipping', desc: '뇌혈관이 풍선처럼 부풀어 터질 위험이 있는 동맥류를 클립으로 막아 파열을 막는 수술.', example: '극심한 두통(벼락두통) 후 CT에서 발견된 뇌동맥류 파열 위험 수술.' },
+        ],
+      },
+      {
+        name: '흉부외과',
+        nameEn: 'Thoracic & Cardiovascular Surgery',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '관상동맥우회술', en: 'Coronary Artery Bypass Graft (CABG)', desc: '막힌 심장 혈관을 대체할 새로운 혈관 경로를 만들어주는 심장 수술.', example: '심근경색 고위험군 환자에게 시행되는 대표적 심장수술.' },
+          { ko: '심장이식', en: 'Heart Transplantation', desc: '기능을 잃은 심장을 공여자의 건강한 심장으로 교체하는 최후의 치료법.', example: '말기 심부전 환자에게 시행되는 최후의 수술적 치료.' },
+          { ko: '판막치환술', en: 'Heart Valve Replacement', desc: '손상된 심장 판막을 인공 판막으로 교체하는 수술.', example: '심장 판막이 좁아지거나 새는 노년층 환자의 인공판막 교체 수술.' },
+        ],
+      },
+      {
+        name: '성형외과',
+        nameEn: 'Plastic Surgery',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '재건성형', en: 'Reconstructive Surgery', desc: '화상, 사고, 선천적 기형 등으로 손상된 신체 부위의 형태와 기능을 복원하는 수술.', example: '유방암 수술 후 시행하는 유방재건술, 화상 환자의 피부 이식.' },
+          { ko: '미용성형', en: 'Aesthetic (Cosmetic) Surgery', desc: '신체의 미적 개선을 목적으로 하는 수술 분야.', example: '눈, 코 등 얼굴 윤곽을 다듬는 미용 목적의 수술.' },
+          { ko: '화상 치료', en: 'Burn Treatment', desc: '화상으로 손상된 피부를 이식하거나 재생을 돕는 전문 치료.', example: '화재나 뜨거운 물에 의한 심한 화상 환자의 피부이식 치료.' },
+        ],
+      },
+      {
+        name: '산부인과',
+        nameEn: 'Obstetrics & Gynecology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '산전관리', en: 'Prenatal Care', desc: '임신부터 출산까지 태아와 산모의 건강을 관리하는 진료.', example: '임신부가 정기적으로 받는 초음파 검사와 기형아 선별검사.' },
+          { ko: '자궁경부암 검진', en: 'Cervical Cancer Screening', desc: '세포진 검사(팹 스미어)로 자궁경부암을 조기 발견하는 검진.', example: '국가암검진 프로그램에 포함된 정기 부인과 검진.' },
+          { ko: '제왕절개술', en: 'Cesarean Section', desc: '자연분만이 어려운 경우 복부를 절개해 아기를 출산시키는 수술.', example: '태아가 거꾸로 있거나 난산이 예상될 때 시행하는 수술적 분만.' },
+        ],
+      },
+      {
+        name: '안과',
+        nameEn: 'Ophthalmology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '백내장 수술', en: 'Cataract Surgery', desc: '혼탁해진 수정체를 인공 수정체로 교체하는 수술.', example: '고령 인구에서 가장 흔하게 시행되는 안과 수술.' },
+          { ko: '라식/라섹 수술', en: 'LASIK/LASEK Surgery', desc: '각막을 레이저로 깎아 시력을 교정하는 굴절교정수술.', example: '안경·렌즈 없이 시력을 교정하려는 성인들이 받는 대표적 수술.' },
+          { ko: '녹내장 관리', en: 'Glaucoma Management', desc: '안압이 높아져 시신경이 손상되는 녹내장을 조기 발견하고 안압을 낮춰 실명을 예방하는 진료.', example: '눈 건강검진에서 안압이 높게 측정된 경우의 정기 관리.' },
+        ],
+      },
+      {
+        name: '이비인후과',
+        nameEn: 'Otorhinolaryngology (ENT)',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '편도선 수술', en: 'Tonsillectomy', desc: '반복적으로 염증이 생기는 편도를 제거하는 수술.', example: '소아에서 편도가 자주 붓고 코를 심하게 골 때 시행.' },
+          { ko: '청력검사 및 보청기 처방', en: 'Hearing Test & Hearing Aid Prescription', desc: '난청을 진단하고 청각 재활을 돕는 진료.', example: '노인성 난청 환자의 보청기 처방 전 청력 정밀검사.' },
+          { ko: '부비동염 수술', en: 'Sinusitis Surgery', desc: '코 주변 부비동에 만성 염증이 생기는 축농증을 내시경으로 치료하는 수술.', example: '오래된 코막힘과 누런 콧물이 지속되는 축농증의 내시경 수술.' },
+        ],
+      },
+      {
+        name: '비뇨의학과',
+        nameEn: 'Urology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '전립선비대증 치료', en: 'Benign Prostatic Hyperplasia Treatment', desc: '나이가 들며 전립선이 커져 배뇨 장애를 일으키는 질환을 약물·수술로 치료.', example: '고령 남성이 소변 줄기가 약해지고 자주 화장실을 가는 증상의 치료.' },
+          { ko: '요로결석 제거술', en: 'Urinary Stone Removal', desc: '신장이나 요관에 생긴 결석을 체외충격파나 내시경으로 제거하는 시술.', example: '갑작스러운 극심한 옆구리 통증을 유발하는 요로결석의 체외충격파 치료.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/medicine', title: '의학과', subtitle: 'Medicine' },
+  { href: '/medicine/internal', title: '내과계열', subtitle: 'Internal Medicine Specialties' },
+  { href: '/medicine/diagnostic', title: '진단지원계열', subtitle: 'Diagnostic Support' },
+  { href: '/medicine/specialty', title: '특수진료계열', subtitle: 'Specialty Care' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 외과계열 진료과 맛보기 | 대치프라임"
+  metaDescription="외과부터 비뇨의학과까지, 외과계열 9개 진료과의 핵심 개념을 재구성한 맛보기 페이지입니다."
+  heading="외과계열"
+  descriptionPrefix={`몸을 직접 열거나 절개해 질환을 치료하는 수술 중심 진료과 9개를 모아뒀어요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 인공관절, 제왕절개, 백내장)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

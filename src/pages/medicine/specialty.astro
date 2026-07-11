@@ -1,0 +1,86 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '특수진료계열',
+    subtitle: '응급·마취·방사선치료처럼 특정 상황에 특화되거나, 병원 밖 공중보건·1차의료를 다루는 진료과들',
+    careers: ['응급의학과 전문의', '가정의학과 전문의', '예방의학과 전문의'],
+    courses: [
+      {
+        name: '응급의학과',
+        nameEn: 'Emergency Medicine',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '중증도 분류(트리아지)', en: 'Triage', desc: '응급실에 온 환자들을 위급 정도에 따라 우선순위를 매겨 진료 순서를 정하는 시스템.', example: '대형 재난 상황에서 한정된 의료자원으로 최대한 많은 생명을 살리는 원칙.' },
+          { ko: '심폐소생술', en: 'Cardiopulmonary Resuscitation (CPR)', desc: '심정지 환자의 순환과 호흡을 회복시키기 위한 응급 처치.', example: '길거리에서 갑자기 쓰러진 사람에게 시행하는 응급처치.' },
+          { ko: '외상소생술(ATLS)', en: 'Advanced Trauma Life Support', desc: '교통사고 등 중증 외상 환자를 표준화된 순서로 신속히 평가·처치하는 프로토콜.', example: '교통사고 환자가 응급실에 도착했을 때 정해진 순서로 신속히 평가하는 과정.' },
+        ],
+      },
+      {
+        name: '마취통증의학과',
+        nameEn: 'Anesthesiology & Pain Medicine',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '전신마취 관리', en: 'General Anesthesia Management', desc: '수술 중 환자의 의식과 통증을 조절하고 활력징후를 실시간으로 감시하는 진료.', example: '모든 전신마취 수술에서 반드시 함께하는 전문의.' },
+          { ko: '만성통증치료', en: 'Chronic Pain Management', desc: '허리통증, 신경통 등 만성적인 통증을 신경차단술 등으로 관리하는 분야.', example: '디스크 수술 없이 신경주사로 허리 통증을 관리하는 치료.' },
+          { ko: '수술 중 활력징후 감시', en: 'Intraoperative Vital Sign Monitoring', desc: '수술 내내 환자의 심박수, 혈압, 산소포화도를 실시간으로 감시해 위험을 예방하는 진료.', example: '전신마취 수술 내내 환자 옆에서 모니터를 지켜보는 마취과 전문의의 역할.' },
+        ],
+      },
+      {
+        name: '방사선종양학과',
+        nameEn: 'Radiation Oncology',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '방사선치료 계획', en: 'Radiation Therapy Planning', desc: '암세포에는 최대한 많은 방사선을, 정상조직에는 최소한의 방사선을 조사하도록 정밀하게 설계하는 과정.', example: '유방암 수술 후 재발 방지를 위해 시행하는 방사선치료 스케줄 설계.' },
+          { ko: '정위방사선수술(사이버나이프 등)', en: 'Stereotactic Radiosurgery', desc: '칼을 대지 않고 고정밀 방사선을 한 점에 집중시켜 종양을 파괴하는 비수술적 치료.', example: '수술 없이 뇌종양을 정밀하게 방사선으로 제거하는 치료.' },
+        ],
+      },
+      {
+        name: '가정의학과',
+        nameEn: 'Family Medicine',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '만성질환 통합관리', en: 'Chronic Disease Integrated Management', desc: '고혈압, 당뇨 등 여러 만성질환을 한 명의 주치의가 종합적으로 관리하는 1차 진료.', example: '고혈압과 당뇨를 동시에 앓는 환자를 한 명의 주치의가 종합 관리.' },
+          { ko: '건강검진 설계', en: 'Health Screening Design', desc: '연령과 위험요인에 맞춰 필요한 건강검진 항목을 계획하는 진료.', example: '회사 건강검진에서 나이·성별에 맞는 검사 항목을 구성하는 과정.' },
+        ],
+      },
+      {
+        name: '직업환경의학과',
+        nameEn: 'Occupational & Environmental Medicine',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '산업재해 평가', en: 'Occupational Injury/Disease Assessment', desc: '특정 직업 환경이 원인이 되어 발생한 질병이나 부상을 평가하고 인정하는 진료.', example: '공장 근무 중 소음성 난청이 생긴 근로자의 산재 인정 평가.' },
+          { ko: '근골격계 유해요인 평가', en: 'Ergonomic Hazard Assessment', desc: '반복 작업 등으로 인한 근골격계 질환의 작업환경 위험 요인을 평가하는 활동.', example: '반복 작업이 많은 물류센터 근로자의 손목터널증후군 예방 평가.' },
+        ],
+      },
+      {
+        name: '예방의학과',
+        nameEn: 'Preventive Medicine',
+        year: '전공의 3~4년차',
+        terms: [
+          { ko: '역학조사', en: 'Epidemiological Investigation', desc: '감염병 등이 어떻게, 왜 퍼지는지를 통계적으로 추적·분석하는 활동.', example: '식중독 집단 발생 시 감염 경로를 추적하는 보건소의 역학조사.' },
+          { ko: '국가검진·예방접종 정책', en: 'National Screening & Immunization Policy', desc: '인구 집단 전체의 건강을 위해 검진과 백신 접종 정책을 설계·평가하는 분야.', example: '국가암검진, 영유아 필수예방접종 항목을 설계하는 정책 분야.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/medicine', title: '의학과', subtitle: 'Medicine' },
+  { href: '/medicine/internal', title: '내과계열', subtitle: 'Internal Medicine Specialties' },
+  { href: '/medicine/surgical', title: '외과계열', subtitle: 'Surgical Specialties' },
+  { href: '/medicine/diagnostic', title: '진단지원계열', subtitle: 'Diagnostic Support' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 특수진료계열 진료과 맛보기 | 대치프라임"
+  metaDescription="응급의학과부터 예방의학과까지, 특수진료계열 6개 진료과의 핵심 개념을 재구성한 맛보기 페이지입니다."
+  heading="특수진료계열"
+  descriptionPrefix={`응급·마취·방사선치료처럼 특정 상황에 특화되거나, 병원 밖에서 공중보건과 1차의료를 다루는 진료과 6개를 모아뒀어요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 트리아지, 방사선치료, 역학조사)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>
