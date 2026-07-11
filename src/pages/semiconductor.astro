@@ -1,57 +1,87 @@
 ---
 import GlossaryLayout from '../layouts/GlossaryLayout.astro';
 
-const CATEGORIES = [
+const TRACKS = [
   {
-    title: '고체물리 및 에너지밴드',
-    subtitle: 'Solid State Physics & Band Theory',
-    terms: [
-      { ko: '에너지 밴드 이론', en: 'Energy Band Theory', desc: '결정 안의 전자가 가질 수 있는 에너지가 띠(밴드) 형태로 나뉜다는 이론. 전도띠와 가전자띠 사이 간격(밴드갭)으로 도체·반도체·절연체가 구분됨.' },
-      { ko: '페르미 준위', en: 'Fermi Level', desc: '절대 0도에서 전자가 채워질 수 있는 가장 높은 에너지 준위. 반도체의 도핑 상태와 소자 동작을 이해하는 기준점.' },
-      { ko: '유효질량', en: 'Effective Mass', desc: '결정 격자 안에서 전자가 마치 다른 질량을 가진 자유 입자처럼 움직이는 것을 기술하기 위해 도입한 개념.' },
-      { ko: '상태밀도', en: 'Density of States', desc: '단위 에너지 구간에 존재할 수 있는 전자 상태의 개수. 캐리어 농도와 전도 특성을 계산하는 데 필수적.' },
+    title: '소자물리',
+    subtitle: 'Device Physics',
+    courses: [
+      {
+        name: '고체물리학',
+        nameEn: 'Solid State Physics',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '에너지 밴드 이론', en: 'Energy Band Theory', desc: '결정 안의 전자가 가질 수 있는 에너지가 띠(밴드) 형태로 나뉜다는 이론. 전도띠와 가전자띠 사이 간격(밴드갭)으로 도체·반도체·절연체가 구분됨.' },
+          { ko: '페르미 준위', en: 'Fermi Level', desc: '절대 0도에서 전자가 채워질 수 있는 가장 높은 에너지 준위. 반도체의 도핑 상태와 소자 동작을 이해하는 기준점.' },
+          { ko: '유효질량', en: 'Effective Mass', desc: '결정 격자 안에서 전자가 마치 다른 질량을 가진 자유 입자처럼 움직이는 것을 기술하기 위해 도입한 개념.' },
+          { ko: '상태밀도', en: 'Density of States', desc: '단위 에너지 구간에 존재할 수 있는 전자 상태의 개수. 캐리어 농도와 전도 특성을 계산하는 데 필수적.' },
+        ],
+      },
+      {
+        name: '반도체소자',
+        nameEn: 'Semiconductor Devices',
+        year: '3학년 1학기',
+        terms: [
+          { ko: 'PN 접합', en: 'PN Junction', desc: 'p형과 n형 반도체를 접합시켜 만든 구조. 다이오드의 기본이며, 정류 작용과 발광(LED) 등 대부분의 반도체 소자 동작의 출발점.' },
+          { ko: '공핍층', en: 'Depletion Region', desc: 'PN 접합에서 캐리어가 재결합해 사라져 전하가 고갈된 영역. 내장 전위가 형성되어 소자의 전기적 특성을 결정함.' },
+          { ko: 'MOSFET 문턱전압', en: 'Threshold Voltage', desc: 'MOSFET이 켜지기 시작해 채널이 형성되는 최소 게이트-소스 전압. 소자 스케일링과 전력 소모에 직결되는 핵심 파라미터.' },
+          { ko: '캐리어 이동도', en: 'Carrier Mobility', desc: '전기장 안에서 전자나 정공이 얼마나 빠르게 이동하는지를 나타내는 값. 이동도가 높을수록 소자의 스위칭 속도가 빨라짐.' },
+          { ko: '소수 캐리어 확산', en: 'Minority Carrier Diffusion', desc: '농도 차이에 의해 소수 캐리어(예: p형에서의 전자)가 이동하는 현상. 바이폴라 소자와 태양전지 동작의 핵심 메커니즘.' },
+        ],
+      },
     ],
   },
   {
-    title: '반도체 소자 물리',
-    subtitle: 'Semiconductor Device Physics',
-    terms: [
-      { ko: 'PN 접합', en: 'PN Junction', desc: 'p형과 n형 반도체를 접합시켜 만든 구조. 다이오드의 기본이며, 정류 작용과 발광(LED) 등 대부분의 반도체 소자 동작의 출발점.' },
-      { ko: '공핍층', en: 'Depletion Region', desc: 'PN 접합에서 캐리어가 재결합해 사라져 전하가 고갈된 영역. 내장 전위가 형성되어 소자의 전기적 특성을 결정함.' },
-      { ko: 'MOSFET 문턱전압', en: 'Threshold Voltage', desc: 'MOSFET이 켜지기 시작해 채널이 형성되는 최소 게이트-소스 전압. 소자 스케일링과 전력 소모에 직결되는 핵심 파라미터.' },
-      { ko: '캐리어 이동도', en: 'Carrier Mobility', desc: '전기장 안에서 전자나 정공이 얼마나 빠르게 이동하는지를 나타내는 값. 이동도가 높을수록 소자의 스위칭 속도가 빨라짐.' },
-      { ko: '소수 캐리어 확산', en: 'Minority Carrier Diffusion', desc: '농도 차이에 의해 소수 캐리어(예: p형에서의 전자)가 이동하는 현상. 바이폴라 소자와 태양전지 동작의 핵심 메커니즘.' },
-    ],
-  },
-  {
-    title: '반도체 공정',
+    title: '반도체공정',
     subtitle: 'Semiconductor Fabrication',
-    terms: [
-      { ko: '포토리소그래피', en: 'Photolithography', desc: '빛에 반응하는 감광액(포토레지스트)을 이용해 웨이퍼 위에 회로 패턴을 새기는 공정. 반도체 미세화의 핵심 병목 공정.' },
-      { ko: '이온 주입', en: 'Ion Implantation', desc: '고에너지로 가속한 불순물 이온을 웨이퍼에 주입해 도핑 영역을 형성하는 공정. 정밀한 농도와 깊이 조절이 가능함.' },
-      { ko: '화학기상증착', en: 'Chemical Vapor Deposition (CVD)', desc: '기체 상태의 반응물을 화학 반응시켜 웨이퍼 표면에 얇은 막을 증착하는 공정. 절연막, 금속막 형성에 널리 쓰임.' },
-      { ko: '식각 공정', en: 'Etching (Wet/Dry)', desc: '웨이퍼 표면의 불필요한 물질을 화학적(습식) 또는 플라즈마(건식) 방식으로 제거해 패턴을 완성하는 공정.' },
-      { ko: '어닐링', en: 'Annealing', desc: '이온 주입 등으로 손상된 결정 구조를 회복하고 불순물을 활성화하기 위해 고온으로 열처리하는 공정.' },
+    courses: [
+      {
+        name: '반도체공정1',
+        nameEn: 'Semiconductor Process 1',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '포토리소그래피', en: 'Photolithography', desc: '빛에 반응하는 감광액(포토레지스트)을 이용해 웨이퍼 위에 회로 패턴을 새기는 공정. 반도체 미세화의 핵심 병목 공정.' },
+          { ko: '이온 주입', en: 'Ion Implantation', desc: '고에너지로 가속한 불순물 이온을 웨이퍼에 주입해 도핑 영역을 형성하는 공정. 정밀한 농도와 깊이 조절이 가능함.' },
+          { ko: '화학기상증착', en: 'Chemical Vapor Deposition (CVD)', desc: '기체 상태의 반응물을 화학 반응시켜 웨이퍼 표면에 얇은 막을 증착하는 공정. 절연막, 금속막 형성에 널리 쓰임.' },
+        ],
+      },
+      {
+        name: '반도체공정2',
+        nameEn: 'Semiconductor Process 2',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '식각 공정', en: 'Etching (Wet/Dry)', desc: '웨이퍼 표면의 불필요한 물질을 화학적(습식) 또는 플라즈마(건식) 방식으로 제거해 패턴을 완성하는 공정.' },
+          { ko: '어닐링', en: 'Annealing', desc: '이온 주입 등으로 손상된 결정 구조를 회복하고 불순물을 활성화하기 위해 고온으로 열처리하는 공정.' },
+        ],
+      },
     ],
   },
   {
-    title: '집적회로 설계',
-    subtitle: 'VLSI / IC Design',
-    terms: [
-      { ko: 'CMOS 인버터', en: 'CMOS Inverter', desc: 'PMOS와 NMOS를 상보적으로 배치해 정적 전력 소모가 거의 없는 논리 게이트를 구현한 구조. 현대 디지털 회로의 기본 단위.' },
-      { ko: '무어의 법칙', en: "Moore's Law", desc: '집적회로 위 트랜지스터 집적도가 약 2년마다 두 배로 증가한다는 경험적 관찰. 반도체 산업의 발전 속도를 설명해온 지표.' },
-      { ko: '래치업', en: 'Latch-up', desc: 'CMOS 구조 내 기생 바이폴라 소자가 서로 되먹임을 일으켜 저항이 급격히 낮아지고 큰 전류가 흐르는 고장 현상.' },
-      { ko: '클럭 스큐', en: 'Clock Skew', desc: '동일한 클럭 신호가 칩의 서로 다른 위치에 도달하는 시간 차이. 심하면 회로의 타이밍 오류를 일으킴.' },
-    ],
-  },
-  {
-    title: '패키징 및 신뢰성',
-    subtitle: 'Packaging & Reliability',
-    terms: [
-      { ko: '웨이퍼', en: 'Wafer', desc: '반도체 소자를 만드는 얇은 원판 형태의 단결정 실리콘 기판. 이 위에 수백~수천 개의 칩(다이)이 동시에 제작됨.' },
-      { ko: '수율', en: 'Yield', desc: '한 웨이퍼에서 생산된 전체 칩 중 정상 동작하는 칩의 비율. 반도체 제조 원가와 수익성을 좌우하는 핵심 지표.' },
-      { ko: '일렉트로마이그레이션', en: 'Electromigration', desc: '금속 배선에 높은 전류밀도가 지속적으로 흐를 때 금속 원자가 이동해 배선이 끊어지거나 단락되는 신뢰성 열화 현상.' },
-      { ko: '핫 캐리어 열화', en: 'Hot Carrier Injection', desc: '고전계에서 가속된 캐리어가 게이트 산화막에 포획되어 트랜지스터 특성을 서서히 열화시키는 현상.' },
+    title: '집적회로설계 및 신뢰성',
+    subtitle: 'IC Design & Reliability',
+    courses: [
+      {
+        name: 'VLSI설계',
+        nameEn: 'VLSI Design',
+        year: '4학년 1학기',
+        terms: [
+          { ko: 'CMOS 인버터', en: 'CMOS Inverter', desc: 'PMOS와 NMOS를 상보적으로 배치해 정적 전력 소모가 거의 없는 논리 게이트를 구현한 구조. 현대 디지털 회로의 기본 단위.' },
+          { ko: '무어의 법칙', en: "Moore's Law", desc: '집적회로 위 트랜지스터 집적도가 약 2년마다 두 배로 증가한다는 경험적 관찰. 반도체 산업의 발전 속도를 설명해온 지표.' },
+          { ko: '래치업', en: 'Latch-up', desc: 'CMOS 구조 내 기생 바이폴라 소자가 서로 되먹임을 일으켜 저항이 급격히 낮아지고 큰 전류가 흐르는 고장 현상.' },
+          { ko: '클럭 스큐', en: 'Clock Skew', desc: '동일한 클럭 신호가 칩의 서로 다른 위치에 도달하는 시간 차이. 심하면 회로의 타이밍 오류를 일으킴.' },
+        ],
+      },
+      {
+        name: '반도체소자 신뢰성',
+        nameEn: 'Semiconductor Device Reliability',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '웨이퍼', en: 'Wafer', desc: '반도체 소자를 만드는 얇은 원판 형태의 단결정 실리콘 기판. 이 위에 수백~수천 개의 칩(다이)이 동시에 제작됨.' },
+          { ko: '수율', en: 'Yield', desc: '한 웨이퍼에서 생산된 전체 칩 중 정상 동작하는 칩의 비율. 반도체 제조 원가와 수익성을 좌우하는 핵심 지표.' },
+          { ko: '일렉트로마이그레이션', en: 'Electromigration', desc: '금속 배선에 높은 전류밀도가 지속적으로 흐를 때 금속 원자가 이동해 배선이 끊어지거나 단락되는 신뢰성 열화 현상.' },
+          { ko: '핫 캐리어 열화', en: 'Hot Carrier Injection', desc: '고전계에서 가속된 캐리어가 게이트 산화막에 포획되어 트랜지스터 특성을 서서히 열화시키는 현상.' },
+        ],
+      },
     ],
   },
 ];
@@ -59,9 +89,9 @@ const CATEGORIES = [
 
 <GlossaryLayout
   metaTitle="Your Future - 반도체공학 전공 맛보기 | 대치프라임"
-  metaDescription="대학 반도체공학과에서 배우는 핵심 개념을 미리 만나보는 전공 맛보기 페이지입니다."
-  heading="반도체공학 전공 맛보기"
-  descriptionPrefix={`반도체공학과에 가면 실제로 배우게 될 소자물리, 공정, 회로설계의 핵심 개념들을 모아뒀습니다. 다 이해할 필요는 없고, 전공의 결을 느껴보는 용도예요.`}
+  metaDescription="대학 반도체공학과 커리큘럼을 기반으로 재구성한 전공 맛보기 페이지입니다."
+  heading="반도체공학"
+  descriptionPrefix={`반도체공학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
   searchPlaceholder="개념 이름으로 검색 (예: 포토리소그래피, 문턱전압, 수율)"
-  categories={CATEGORIES}
+  tracks={TRACKS}
 />

@@ -1,12 +1,32 @@
 ---
 import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 const SCIENCE_CONTENTS = [
   {
     href: '/math',
-    title: '대학수학 개념 사전',
-    subtitle: 'Math Glossary',
-    desc: '전공을 정하기 전, 대학 수학이 어떤 걸 다루는지 가볍게 훑어보는 페이지입니다.',
+    title: '수학',
+    subtitle: 'Mathematics',
+    desc: '해석학, 대수학, 위상수학 등 핵심 과목 맛보기.',
+  },
+  {
+    href: '/physics',
+    title: '물리학',
+    subtitle: 'Physics',
+    desc: '고전역학, 전자기학, 현대물리학의 핵심 과목 맛보기.',
+  },
+  {
+    href: '/chemistry',
+    title: '화학',
+    subtitle: 'Chemistry',
+    desc: '물리화학, 유기화학, 분석/무기화학의 핵심 과목 맛보기.',
+  },
+  {
+    href: '/statistics',
+    title: '통계학',
+    subtitle: 'Statistics',
+    desc: '확률론, 통계적 추론, 데이터과학의 핵심 과목 맛보기.',
   },
 ];
 
@@ -15,56 +35,56 @@ const ENGINEERING_CONTENTS = [
     href: '/cs',
     title: '컴퓨터공학',
     subtitle: 'Computer Science',
-    desc: '알고리즘, 시스템, 이론전산학의 핵심 개념 맛보기.',
+    desc: '알고리즘, 시스템, 이론전산학의 핵심 과목 맛보기.',
   },
   {
     href: '/ee',
-    title: '전자공학',
-    subtitle: 'Electrical Engineering',
-    desc: '회로, 전자기학, 신호처리, 제어의 핵심 개념 맛보기.',
+    title: '전기전자공학',
+    subtitle: 'Electrical & Electronic Engineering',
+    desc: '회로, 전자기학, 신호·통신·제어의 핵심 과목 맛보기.',
   },
   {
     href: '/semiconductor',
     title: '반도체공학',
     subtitle: 'Semiconductor Engineering',
-    desc: '소자물리, 공정, 집적회로 설계의 핵심 개념 맛보기.',
+    desc: '소자물리, 공정, 집적회로 설계의 핵심 과목 맛보기.',
   },
   {
     href: '/mechanical',
     title: '기계공학',
     subtitle: 'Mechanical Engineering',
-    desc: '역학, 열역학, 유체역학, 설계의 핵심 개념 맛보기.',
+    desc: '역학, 열역학, 유체역학, 설계의 핵심 과목 맛보기.',
   },
   {
     href: '/chemical',
     title: '화학공학',
     subtitle: 'Chemical Engineering',
-    desc: '열역학, 반응공학, 이동현상, 공정설계의 핵심 개념 맛보기.',
+    desc: '열역학, 반응공학, 이동현상, 공정설계의 핵심 과목 맛보기.',
   },
   {
     href: '/materials',
     title: '신소재공학',
     subtitle: 'Materials Science & Engineering',
-    desc: '결정구조, 상변태, 물성, 공정의 핵심 개념 맛보기.',
+    desc: '결정구조, 상변태, 물성, 공정의 핵심 과목 맛보기.',
   },
   {
     href: '/industrial',
     title: '산업공학',
     subtitle: 'Industrial Engineering',
-    desc: '최적화, 통계, 생산·품질 시스템의 핵심 개념 맛보기.',
+    desc: '최적화, 통계, 생산·품질 시스템의 핵심 과목 맛보기.',
   },
   {
     href: '/architecture',
     title: '건축공학',
     subtitle: 'Architectural Engineering',
-    desc: '구조, 시공, 건축계획의 핵심 개념 맛보기.',
+    desc: '구조, 시공, 건축계획의 핵심 과목 맛보기.',
     comingSoon: true,
   },
   {
     href: '/aerospace',
     title: '항공우주공학',
     subtitle: 'Aerospace Engineering',
-    desc: '공기역학, 추진, 궤도역학의 핵심 개념 맛보기.',
+    desc: '공기역학, 추진, 궤도역학의 핵심 과목 맛보기.',
     comingSoon: true,
   },
 ];
@@ -83,33 +103,25 @@ const ENGINEERING_CONTENTS = [
   </head>
   <body class="bg-gray-50 font-sans">
 
-    <header class="border-b border-gray-200 bg-white">
-      <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="https://dcprime.co.kr" class="flex items-center gap-2">
-          <img src="/favicon-circle.png" alt="대치프라임" class="h-9 w-9 rounded-full object-cover" />
-          <span class="text-sm font-bold text-gray-900">대치프라임</span>
-        </a>
-        <a href="https://dcprime.co.kr" class="text-xs text-gray-400 hover:text-brand transition-colors">dcprime.co.kr 로 돌아가기 →</a>
-      </div>
-    </header>
+    <SiteHeader backHref="https://dcprime.co.kr" backLabel="dcprime.co.kr 로 돌아가기 →" />
 
     <div class="min-h-screen">
       <div class="border-b border-gray-200 bg-white">
-        <div class="container mx-auto px-4 py-14 text-center">
+        <div class="container mx-auto px-4 py-10 sm:py-14 text-center">
           <p class="text-sm text-brand font-semibold mb-2">Your Future</p>
-          <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">대학 이후를 가볍게 미리 만나보세요</h1>
+          <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">대학 이후를 가볍게 미리 만나보세요</h1>
           <p class="text-sm text-gray-500 mt-3 leading-relaxed max-w-xl mx-auto">
             전공을 정하기 전, 대학에서 만나게 될 학문의 세계를 가볍게 훑어보는 대치프라임의 콘텐츠 모음입니다.
           </p>
         </div>
       </div>
 
-      <div class="container mx-auto px-4 py-10 max-w-4xl">
+      <div class="container mx-auto px-4 py-8 sm:py-10 max-w-5xl">
         <div class="mb-4">
-          <h2 class="text-lg font-bold text-gray-900">자연과학</h2>
+          <h2 class="text-base sm:text-lg font-bold text-gray-900">자연과학</h2>
           <p class="text-xs text-gray-400">Natural Sciences</p>
         </div>
-        <div class="grid sm:grid-cols-2 gap-4 mb-12">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {SCIENCE_CONTENTS.map((c) => (
             <a
               href={c.href}
@@ -124,10 +136,10 @@ const ENGINEERING_CONTENTS = [
         </div>
 
         <div class="mb-4">
-          <h2 class="text-lg font-bold text-gray-900">공과대학</h2>
+          <h2 class="text-base sm:text-lg font-bold text-gray-900">공과대학</h2>
           <p class="text-xs text-gray-400">Engineering</p>
         </div>
-        <div class="grid sm:grid-cols-2 gap-4">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {ENGINEERING_CONTENTS.map((c) => (
             c.comingSoon ? (
               <div class="block bg-white rounded-xl border border-gray-100 p-6 shadow-sm opacity-60">
@@ -152,11 +164,6 @@ const ENGINEERING_CONTENTS = [
       </div>
     </div>
 
-    <footer class="border-t border-gray-200 bg-white py-8">
-      <div class="container mx-auto px-4 text-center text-xs text-gray-400">
-        <p>문제 있으면 장곡관 튜터에게.</p>
-        <a href="https://github.com/kimikimim" class="text-brand hover:underline" target="_blank" rel="noopener noreferrer">github.com/kimikimim</a>
-      </div>
-    </footer>
+    <SiteFooter />
   </body>
 </html>

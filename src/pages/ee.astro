@@ -1,76 +1,114 @@
 ---
 import GlossaryLayout from '../layouts/GlossaryLayout.astro';
 
-const CATEGORIES = [
+const TRACKS = [
   {
-    title: '회로이론',
-    subtitle: 'Circuit Theory',
-    terms: [
-      { ko: '키르히호프 법칙', en: "Kirchhoff's Laws", formula: '\\sum I_{in} = \\sum I_{out}, \\quad \\sum V = 0', desc: '전류 법칙(KCL, 마디에 들어오고 나가는 전류의 합은 0)과 전압 법칙(KVL, 폐회로의 전압 강하 합은 0)으로 구성된 회로 해석의 기본 법칙.' },
-      { ko: '테브난 정리', en: "Thevenin's Theorem", desc: '복잡한 선형 회로를 하나의 등가 전압원과 직렬 저항으로 단순화할 수 있다는 정리. 부하 저항 변화에 따른 해석을 쉽게 해줌.' },
-      { ko: '노턴 정리', en: "Norton's Theorem", desc: '테브난 정리의 쌍대 개념으로, 회로를 하나의 등가 전류원과 병렬 저항으로 단순화하는 정리.' },
-      { ko: 'RLC 공진', en: 'RLC Resonance', formula: '\\omega_0 = \\frac{1}{\\sqrt{LC}}', desc: '인덕터와 커패시터의 리액턴스가 서로 상쇄되어 회로가 순저항처럼 동작하는 주파수. 필터, 튜너 설계의 핵심.' },
-      { ko: '중첩의 원리', en: 'Superposition Theorem', desc: '여러 개의 독립 전원이 있는 선형 회로에서, 각 전원이 단독으로 있을 때의 응답을 합산하면 전체 응답과 같다는 원리.' },
+    title: '회로 및 소자',
+    subtitle: 'Circuits & Devices',
+    courses: [
+      {
+        name: '회로이론',
+        nameEn: 'Circuit Theory',
+        year: '1학년 2학기',
+        terms: [
+          { ko: '키르히호프 법칙', en: "Kirchhoff's Laws", formula: '\\sum I_{in} = \\sum I_{out}, \\quad \\sum V = 0', desc: '전류 법칙(KCL, 마디에 들어오고 나가는 전류의 합은 0)과 전압 법칙(KVL, 폐회로의 전압 강하 합은 0)으로 구성된 회로 해석의 기본 법칙.' },
+          { ko: '테브난 정리', en: "Thevenin's Theorem", desc: '복잡한 선형 회로를 하나의 등가 전압원과 직렬 저항으로 단순화할 수 있다는 정리. 부하 저항 변화에 따른 해석을 쉽게 해줌.' },
+          { ko: '노턴 정리', en: "Norton's Theorem", desc: '테브난 정리의 쌍대 개념으로, 회로를 하나의 등가 전류원과 병렬 저항으로 단순화하는 정리.' },
+          { ko: '중첩의 원리', en: 'Superposition Theorem', desc: '여러 개의 독립 전원이 있는 선형 회로에서, 각 전원이 단독으로 있을 때의 응답을 합산하면 전체 응답과 같다는 원리.' },
+          { ko: 'RLC 공진', en: 'RLC Resonance', formula: '\\omega_0 = \\frac{1}{\\sqrt{LC}}', desc: '인덕터와 커패시터의 리액턴스가 서로 상쇄되어 회로가 순저항처럼 동작하는 주파수. 필터, 튜너 설계의 핵심.' },
+        ],
+      },
+      {
+        name: '논리설계',
+        nameEn: 'Digital Logic Design',
+        year: '2학년 1학기',
+        terms: [
+          { ko: '부울대수', en: 'Boolean Algebra', desc: '참/거짓 두 값과 AND, OR, NOT 연산으로 논리를 다루는 대수 체계. 디지털 회로 설계의 수학적 기초.' },
+          { ko: '카르노 맵', en: 'Karnaugh Map', desc: '논리식을 시각적으로 배열해 최소항을 묶어냄으로써 부울식을 간소화하는 도구.' },
+          { ko: '플립플롭', en: 'Flip-Flop', desc: '1비트의 정보를 저장할 수 있는 순차 논리 회로의 기본 소자. 레지스터, 카운터 등 순차회로 구성의 기본 단위.' },
+        ],
+      },
+      {
+        name: '전자회로',
+        nameEn: 'Electronic Circuits',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '연산증폭기', en: 'Operational Amplifier (Op-amp)', desc: '두 입력 단자 전압 차를 매우 큰 이득으로 증폭하는 소자. 부궤환 회로에서는 가상 단락(Virtual Short) 개념으로 해석함.' },
+          { ko: 'MOSFET 동작 영역', en: 'MOSFET Operating Regions', desc: '게이트-소스 전압에 따라 차단, 삼극(Triode), 포화(Saturation) 영역으로 나뉘는 트랜지스터의 동작 상태. 증폭과 스위칭의 기반.' },
+        ],
+      },
     ],
   },
   {
     title: '전자기학',
     subtitle: 'Electromagnetics',
-    terms: [
-      { ko: '맥스웰 방정식', en: "Maxwell's Equations", formula: '\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}', desc: '전기장과 자기장의 관계를 기술하는 4개의 방정식. 전자기파의 존재와 빛의 속도를 예측함으로써 전자기학을 완성시킴.' },
-      { ko: '가우스 법칙', en: "Gauss's Law", desc: '임의의 폐곡면을 통과하는 전기선속은 그 안에 있는 전하량에 비례한다는 법칙. 대칭성이 좋은 전하 분포의 전기장을 쉽게 구할 수 있게 해줌.' },
-      { ko: '패러데이 유도 법칙', en: "Faraday's Law of Induction", formula: '\\varepsilon = -\\frac{d\\Phi_B}{dt}', desc: '시간에 따라 변하는 자기선속이 기전력을 유도한다는 법칙. 발전기, 변압기 동작의 원리.' },
-      { ko: '포인팅 벡터', en: 'Poynting Vector', desc: '전자기장이 단위 시간, 단위 면적당 운반하는 에너지의 양과 방향을 나타내는 벡터. 전자기파의 에너지 흐름을 기술함.' },
+    courses: [
+      {
+        name: '전자기학1',
+        nameEn: 'Electromagnetics 1',
+        year: '2학년 1학기',
+        terms: [
+          { ko: '가우스 법칙', en: "Gauss's Law", desc: '임의의 폐곡면을 통과하는 전기선속은 그 안에 있는 전하량에 비례한다는 법칙. 대칭성이 좋은 전하 분포의 전기장을 쉽게 구할 수 있게 해줌.' },
+          { ko: '패러데이 유도 법칙', en: "Faraday's Law of Induction", formula: '\\varepsilon = -\\frac{d\\Phi_B}{dt}', desc: '시간에 따라 변하는 자기선속이 기전력을 유도한다는 법칙. 발전기, 변압기 동작의 원리.' },
+        ],
+      },
+      {
+        name: '전자기학2',
+        nameEn: 'Electromagnetics 2',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '맥스웰 방정식', en: "Maxwell's Equations", formula: '\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}', desc: '전기장과 자기장의 관계를 기술하는 4개의 방정식. 전자기파의 존재와 빛의 속도를 예측함으로써 전자기학을 완성시킴.' },
+          { ko: '포인팅 벡터', en: 'Poynting Vector', desc: '전자기장이 단위 시간, 단위 면적당 운반하는 에너지의 양과 방향을 나타내는 벡터. 전자기파의 에너지 흐름을 기술함.' },
+        ],
+      },
     ],
   },
   {
-    title: '신호 및 시스템',
-    subtitle: 'Signals & Systems',
-    terms: [
-      { ko: '표본화 정리', en: 'Sampling Theorem (Nyquist)', formula: 'f_s \\ge 2f_{max}', desc: '아날로그 신호를 왜곡 없이 디지털로 복원하려면, 표본화 주파수가 신호 최대 주파수의 2배 이상이어야 한다는 정리.' },
-      { ko: '컨볼루션', en: 'Convolution', desc: '두 함수를 하나로 합성해 시스템의 출력을 구하는 연산. 선형 시불변(LTI) 시스템의 입출력 관계를 정의하는 핵심 도구.' },
-      { ko: '임펄스 응답', en: 'Impulse Response', desc: '단위 임펄스 신호를 입력했을 때 시스템이 내놓는 출력. LTI 시스템의 특성을 완전히 결정짓는 함수.' },
-      { ko: 'z-변환', en: 'Z-Transform', desc: '이산 시간 신호를 복소 주파수 영역으로 변환하는 도구. 디지털 필터 설계와 이산 시스템의 안정도 해석에 사용됨.' },
-    ],
-  },
-  {
-    title: '아날로그 및 디지털 회로',
-    subtitle: 'Analog & Digital Circuits',
-    terms: [
-      { ko: '연산증폭기', en: 'Operational Amplifier (Op-amp)', desc: '두 입력 단자 전압 차를 매우 큰 이득으로 증폭하는 소자. 부궤환 회로에서는 가상 단락(Virtual Short) 개념으로 해석함.' },
-      { ko: 'MOSFET 동작 영역', en: 'MOSFET Operating Regions', desc: '게이트-소스 전압에 따라 차단, 삼극(Triode), 포화(Saturation) 영역으로 나뉘는 트랜지스터의 동작 상태. 증폭과 스위칭의 기반.' },
-      { ko: '부울대수', en: 'Boolean Algebra', desc: '참/거짓 두 값과 AND, OR, NOT 연산으로 논리를 다루는 대수 체계. 디지털 회로 설계의 수학적 기초.' },
-      { ko: '카르노 맵', en: 'Karnaugh Map', desc: '논리식을 시각적으로 배열해 최소항을 묶어냄으로써 부울식을 간소화하는 도구.' },
-      { ko: '플립플롭', en: 'Flip-Flop', desc: '1비트의 정보를 저장할 수 있는 순차 논리 회로의 기본 소자. 레지스터, 카운터 등 순차회로 구성의 기본 단위.' },
-    ],
-  },
-  {
-    title: '제어공학',
-    subtitle: 'Control Systems',
-    terms: [
-      { ko: '전달함수', en: 'Transfer Function', desc: '시스템의 입력과 출력 사이의 관계를 라플라스 영역에서 나타낸 함수. 시스템의 동적 특성을 대수적으로 다룰 수 있게 해줌.' },
-      { ko: '근궤적법', en: 'Root Locus', desc: '이득 값이 변할 때 폐루프 시스템의 극점이 s-평면 위에서 이동하는 궤적을 그려 안정도를 분석하는 방법.' },
-      { ko: '보드 선도', en: 'Bode Plot', desc: '시스템의 주파수 응답을 크기와 위상으로 나누어 로그 스케일로 나타낸 그래프. 이득 여유와 위상 여유를 통해 안정도를 판단함.' },
-      { ko: 'PID 제어', en: 'PID Control', formula: 'u(t) = K_p e(t) + K_i \\int e(t)\\,dt + K_d \\frac{de(t)}{dt}', desc: '오차의 비례, 적분, 미분 항을 조합해 제어 입력을 계산하는 가장 널리 쓰이는 피드백 제어 방식.' },
-    ],
-  },
-  {
-    title: '통신공학',
-    subtitle: 'Communications',
-    terms: [
-      { ko: '샤논의 채널 용량', en: "Shannon's Channel Capacity", formula: 'C = B \\log_2(1 + S/N)', desc: '잡음이 있는 채널에서 오류 없이 전송 가능한 최대 정보량을 대역폭과 신호대잡음비로 나타낸 정보이론의 핵심 정리.' },
-      { ko: '변조', en: 'Modulation (AM/FM)', desc: '정보 신호를 전송에 적합한 반송파에 실어보내는 과정. 진폭을 바꾸면 AM, 주파수를 바꾸면 FM.' },
-      { ko: '비트오류율', en: 'Bit Error Rate (BER)', desc: '전송된 비트 중 잘못 수신된 비트의 비율. 통신 시스템의 품질을 평가하는 핵심 지표.' },
+    title: '신호·통신·제어',
+    subtitle: 'Signals, Communications & Control',
+    courses: [
+      {
+        name: '신호및시스템',
+        nameEn: 'Signals and Systems',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '표본화 정리', en: 'Sampling Theorem (Nyquist)', formula: 'f_s \\ge 2f_{max}', desc: '아날로그 신호를 왜곡 없이 디지털로 복원하려면, 표본화 주파수가 신호 최대 주파수의 2배 이상이어야 한다는 정리.' },
+          { ko: '컨볼루션', en: 'Convolution', desc: '두 함수를 하나로 합성해 시스템의 출력을 구하는 연산. 선형 시불변(LTI) 시스템의 입출력 관계를 정의하는 핵심 도구.' },
+          { ko: '임펄스 응답', en: 'Impulse Response', desc: '단위 임펄스 신호를 입력했을 때 시스템이 내놓는 출력. LTI 시스템의 특성을 완전히 결정짓는 함수.' },
+          { ko: 'z-변환', en: 'Z-Transform', desc: '이산 시간 신호를 복소 주파수 영역으로 변환하는 도구. 디지털 필터 설계와 이산 시스템의 안정도 해석에 사용됨.' },
+        ],
+      },
+      {
+        name: '통신공학',
+        nameEn: 'Communication Engineering',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '샤논의 채널 용량', en: "Shannon's Channel Capacity", formula: 'C = B \\log_2(1 + S/N)', desc: '잡음이 있는 채널에서 오류 없이 전송 가능한 최대 정보량을 대역폭과 신호대잡음비로 나타낸 정보이론의 핵심 정리.' },
+          { ko: '변조', en: 'Modulation (AM/FM)', desc: '정보 신호를 전송에 적합한 반송파에 실어보내는 과정. 진폭을 바꾸면 AM, 주파수를 바꾸면 FM.' },
+          { ko: '비트오류율', en: 'Bit Error Rate (BER)', desc: '전송된 비트 중 잘못 수신된 비트의 비율. 통신 시스템의 품질을 평가하는 핵심 지표.' },
+        ],
+      },
+      {
+        name: '제어시스템',
+        nameEn: 'Control Systems',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '전달함수', en: 'Transfer Function', desc: '시스템의 입력과 출력 사이의 관계를 라플라스 영역에서 나타낸 함수. 시스템의 동적 특성을 대수적으로 다룰 수 있게 해줌.' },
+          { ko: '근궤적법', en: 'Root Locus', desc: '이득 값이 변할 때 폐루프 시스템의 극점이 s-평면 위에서 이동하는 궤적을 그려 안정도를 분석하는 방법.' },
+          { ko: '보드 선도', en: 'Bode Plot', desc: '시스템의 주파수 응답을 크기와 위상으로 나누어 로그 스케일로 나타낸 그래프. 이득 여유와 위상 여유를 통해 안정도를 판단함.' },
+          { ko: 'PID 제어', en: 'PID Control', formula: 'u(t) = K_p e(t) + K_i \\int e(t)\\,dt + K_d \\frac{de(t)}{dt}', desc: '오차의 비례, 적분, 미분 항을 조합해 제어 입력을 계산하는 가장 널리 쓰이는 피드백 제어 방식.' },
+        ],
+      },
     ],
   },
 ];
 ---
 
 <GlossaryLayout
-  metaTitle="Your Future - 전자공학 전공 맛보기 | 대치프라임"
-  metaDescription="대학 전자공학과에서 배우는 핵심 개념을 미리 만나보는 전공 맛보기 페이지입니다."
-  heading="전자공학 전공 맛보기"
-  descriptionPrefix={`전자공학과에 가면 실제로 배우게 될 회로, 전자기학, 신호처리, 제어의 핵심 개념들을 모아뒀습니다. 다 이해할 필요는 없고, 전공의 결을 느껴보는 용도예요.`}
+  metaTitle="Your Future - 전기전자공학 전공 맛보기 | 대치프라임"
+  metaDescription="대학 전기전자공학과 커리큘럼을 기반으로 재구성한 전공 맛보기 페이지입니다."
+  heading="전기전자공학"
+  descriptionPrefix={`전기전자공학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
   searchPlaceholder="개념 이름으로 검색 (예: 맥스웰, PID, MOSFET)"
-  categories={CATEGORIES}
+  tracks={TRACKS}
 />

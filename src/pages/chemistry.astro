@@ -1,0 +1,102 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '물리화학',
+    subtitle: 'Physical Chemistry',
+    courses: [
+      {
+        name: '일반화학1',
+        nameEn: 'General Chemistry 1',
+        year: '1학년 1학기',
+        terms: [
+          { ko: '몰과 화학양론', en: 'Mole & Stoichiometry', desc: '아보가드로수만큼의 입자 묶음인 몰(mol) 단위를 기준으로, 화학반응식 속 반응물과 생성물의 양적 관계를 계산하는 화학의 가장 기본적인 도구.' },
+          { ko: '이상기체 법칙', en: 'Ideal Gas Law', formula: 'PV = nRT', desc: '기체의 압력, 부피, 몰수, 온도 사이의 관계를 나타내는 법칙. 실제 기체를 근사하는 기준점.' },
+          { ko: '산화-환원 반응', en: 'Redox Reaction', desc: '전자의 이동을 동반하는 반응으로, 전자를 잃는 산화와 얻는 환원이 동시에 일어남. 전지, 부식, 대사 반응 전반의 기초.' },
+        ],
+      },
+      {
+        name: '물리화학1',
+        nameEn: 'Physical Chemistry 1',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '열역학 제1·2법칙', en: 'First & Second Laws of Thermodynamics', desc: '화학반응에서 에너지 보존(제1법칙)과 엔트로피 증가 방향성(제2법칙)을 기술하는 법칙. 반응의 진행 방향을 예측하는 근거.' },
+          { ko: '깁스 자유에너지와 반응 자발성', en: 'Gibbs Free Energy & Spontaneity', formula: '\\Delta G = \\Delta H - T\\Delta S', desc: '일정 온도·압력에서 $\\Delta G < 0$이면 반응이 자발적으로 진행된다는 판단 기준.' },
+          { ko: '화학평형과 르샤틀리에 원리', en: "Chemical Equilibrium & Le Chatelier's Principle", desc: '정반응과 역반응 속도가 같아지는 평형 상태와, 외부 조건 변화에 계가 그 변화를 상쇄하는 방향으로 반응한다는 원리.' },
+        ],
+      },
+      {
+        name: '물리화학2',
+        nameEn: 'Physical Chemistry 2',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '반응속도론', en: 'Chemical Kinetics', desc: '반응이 얼마나 빠르게 진행되는지를 농도, 온도, 촉매 등의 함수로 다루는 분야. 반응 메커니즘 규명의 핵심 도구.' },
+          { ko: '화학평형 상수', en: 'Equilibrium Constant', formula: 'K = \\frac{[C]^c[D]^d}{[A]^a[B]^b}', desc: '평형 상태에서 생성물과 반응물의 농도비로 정의되는 상수. 값이 클수록 생성물 쪽으로 평형이 치우침.' },
+          { ko: '촉매 작용', en: 'Catalysis', desc: '반응의 활성화 에너지를 낮춰 반응 속도를 높이지만 반응 전후 자신은 변하지 않는 물질의 작용. 효소, 산업 촉매 공정의 기반.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '유기화학',
+    subtitle: 'Organic Chemistry',
+    courses: [
+      {
+        name: '유기화학1',
+        nameEn: 'Organic Chemistry 1',
+        year: '2학년 1학기',
+        terms: [
+          { ko: '작용기', en: 'Functional Group', desc: '유기분자의 화학적 성질을 결정하는 특징적인 원자 그룹(하이드록시기, 카보닐기 등). 유기화학 분류 체계의 기본 단위.' },
+          { ko: '카이랄성과 입체화학', en: 'Chirality & Stereochemistry', desc: '거울상이 서로 겹쳐지지 않는 분자의 성질(카이랄성)과 이로 인한 광학이성질체 문제를 다루는 분야. 의약품 설계에서 매우 중요함.' },
+          { ko: '공명 구조', en: 'Resonance Structure', desc: '하나의 분자를 여러 개의 루이스 구조로 나타낼 수 있을 때, 실제 구조는 이들의 혼성이라는 개념. 분자의 안정성과 반응성을 설명함.' },
+        ],
+      },
+      {
+        name: '유기화학2',
+        nameEn: 'Organic Chemistry 2',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '친핵성 치환반응', en: 'Nucleophilic Substitution (SN1/SN2)', desc: '친핵체가 이탈기를 밀어내며 결합을 형성하는 반응. 반응 메커니즘(1차/2차)에 따라 반응 속도와 입체화학적 결과가 달라짐.' },
+          { ko: '첨가반응과 제거반응', en: 'Addition & Elimination Reactions', desc: '이중/삼중 결합에 원자단이 더해지는 첨가반응과, 분자에서 원자단이 떨어져 나가며 이중결합이 생기는 제거반응.' },
+          { ko: '방향족성과 휴켈 규칙', en: "Aromaticity & Hückel's Rule", formula: '4n+2', desc: '벤젠처럼 고리 모양의 비편재화된 파이 전자계가 특별한 안정성을 갖는 조건을 정량화한 규칙.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '분석 및 무기화학',
+    subtitle: 'Analytical & Inorganic Chemistry',
+    courses: [
+      {
+        name: '분석화학',
+        nameEn: 'Analytical Chemistry',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '적정과 당량점', en: 'Titration & Equivalence Point', desc: '농도를 아는 표준용액으로 미지 시료의 농도를 구하는 정량분석법. 산-염기, 산화환원 적정 등이 있음.' },
+          { ko: 'pH와 완충 용액', en: 'pH & Buffer Solution', formula: 'pH = -\\log[H^+]', desc: '수소이온 농도를 나타내는 pH 척도와, 산·염기를 첨가해도 pH 변화를 완화하는 완충 용액의 원리.' },
+          { ko: '분광법', en: 'Spectroscopy (UV-Vis)', desc: '물질이 특정 파장의 빛을 흡수·방출하는 정도를 측정해 화합물의 구조와 농도를 분석하는 기법.' },
+        ],
+      },
+      {
+        name: '무기화학',
+        nameEn: 'Inorganic Chemistry',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '배위 화합물과 리간드', en: 'Coordination Compounds & Ligands', desc: '중심 금속 이온을 전자쌍을 제공하는 리간드가 배위 결합으로 둘러싼 화합물. 촉매, 색소, 생체분자(헤모글로빈 등)에서 핵심적 역할.' },
+          { ko: '결정장 이론', en: 'Crystal Field Theory', desc: '배위 화합물에서 리간드가 만드는 전기장에 의해 중심 금속의 d 오비탈 에너지 준위가 갈라지는 현상을 설명하는 이론. 전이금속 화합물의 색과 자성을 설명함.' },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 화학 전공 맛보기 | 대치프라임"
+  metaDescription="대학 화학과 커리큘럼을 기반으로 재구성한 전공 맛보기 페이지입니다."
+  heading="화학"
+  descriptionPrefix={`화학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 깁스, 반응속도론, SN2)"
+  tracks={TRACKS}
+/>

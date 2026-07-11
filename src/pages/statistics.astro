@@ -1,0 +1,93 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '확률론',
+    subtitle: 'Probability Theory',
+    courses: [
+      {
+        name: '확률론1',
+        nameEn: 'Probability Theory 1',
+        year: '2학년 1학기',
+        terms: [
+          { ko: '확률변수와 분포함수', en: 'Random Variable & Distribution Function', desc: '표본공간의 결과를 실수로 대응시키는 확률변수와, 그 값이 특정 범위에 속할 확률을 나타내는 분포함수(CDF/PDF)의 개념.' },
+          { ko: '기댓값과 분산', en: 'Expectation & Variance', formula: '\\text{Var}(X) = E[(X-\\mu)^2]', desc: '확률변수의 중심 경향(기댓값)과 흩어진 정도(분산)를 나타내는 가장 기본적인 통계량.' },
+          { ko: '베이즈 정리', en: "Bayes' Theorem", formula: 'P(A|B) = \\frac{P(B|A)P(A)}{P(B)}', desc: '새로운 증거(B)가 주어졌을 때 사전 확률을 사후 확률로 갱신하는 정리. 베이지안 통계, 스팸 필터, 의료 진단 등에 광범위하게 응용됨.' },
+        ],
+      },
+      {
+        name: '확률론2',
+        nameEn: 'Probability Theory 2',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '중심극한정리', en: 'Central Limit Theorem', desc: '모집단의 분포와 무관하게, 표본 크기가 커지면 표본평균의 분포가 정규분포에 가까워진다는 정리. 통계적 추론 전체의 이론적 기반.' },
+          { ko: '대수의 법칙', en: 'Law of Large Numbers', desc: '시행 횟수가 많아질수록 표본평균이 모평균에 확률적으로 수렴한다는 법칙. 보험, 도박 확률 계산의 근거.' },
+          { ko: '결합분포와 공분산', en: 'Joint Distribution & Covariance', formula: '\\text{Cov}(X,Y) = E[(X-\\mu_X)(Y-\\mu_Y)]', desc: '두 개 이상의 확률변수가 함께 어떻게 분포하는지, 그리고 서로 얼마나 같이 변하는지를 나타내는 척도.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '통계적 추론',
+    subtitle: 'Statistical Inference',
+    courses: [
+      {
+        name: '수리통계학',
+        nameEn: 'Mathematical Statistics',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '최대우도추정법', en: 'Maximum Likelihood Estimation', desc: '관측된 데이터가 나타날 확률(우도)을 최대화하는 모수 값을 추정값으로 선택하는 방법. 통계적 추정의 가장 표준적인 방법론.' },
+          { ko: '신뢰구간', en: 'Confidence Interval', desc: '표본으로부터 모수가 포함될 것으로 기대되는 범위를 특정 신뢰수준(예: 95%)으로 제시하는 구간 추정 방법.' },
+          { ko: '가설검정과 p값', en: 'Hypothesis Testing & p-value', desc: '귀무가설이 참이라는 가정 하에 관측된 결과 이상으로 극단적인 값이 나올 확률(p값)을 계산해 가설의 기각 여부를 판단하는 절차.' },
+        ],
+      },
+      {
+        name: '회귀분석',
+        nameEn: 'Regression Analysis',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '선형회귀모형', en: 'Linear Regression Model', formula: 'Y = \\beta_0 + \\beta_1 X + \\epsilon', desc: '종속변수와 독립변수 사이의 관계를 직선으로 모델링하는 통계 기법.' },
+          { ko: '최소제곱법', en: 'Ordinary Least Squares', desc: '실제 관측값과 모형의 예측값 사이 오차의 제곱합을 최소화하는 방식으로 회귀계수를 추정하는 방법.' },
+          { ko: '다중공선성', en: 'Multicollinearity', desc: '회귀모형에서 독립변수들끼리 강한 상관관계를 가져 계수 추정이 불안정해지는 문제.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '데이터과학',
+    subtitle: 'Data Science',
+    courses: [
+      {
+        name: '통계적기계학습',
+        nameEn: 'Statistical Machine Learning',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '베이즈 분류기', en: 'Naive Bayes Classifier', desc: '베이즈 정리와 변수 간 독립 가정을 이용해 각 클래스에 속할 확률을 계산하는 간단하고 강력한 분류 모델.' },
+          { ko: '교차검증', en: 'Cross-Validation', desc: '데이터를 여러 부분으로 나누어 모델을 반복 학습·평가함으로써 일반화 성능을 안정적으로 추정하는 검증 기법.' },
+          { ko: '정규화 (릿지/라쏘)', en: 'Ridge/Lasso Regularization', desc: '회귀계수의 크기에 페널티를 부과해 과적합을 방지하는 기법. 릿지는 L2, 라쏘는 L1 페널티를 사용하며 라쏘는 변수 선택 효과도 있음.' },
+        ],
+      },
+      {
+        name: '시계열분석',
+        nameEn: 'Time Series Analysis',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '정상성', en: 'Stationarity', desc: '시계열의 평균과 분산 등 통계적 성질이 시간에 따라 변하지 않는 성질. 대부분의 시계열 모형이 성립하기 위한 전제 조건.' },
+          { ko: '자기상관', en: 'Autocorrelation', desc: '시계열 데이터가 자기 자신의 과거 값과 얼마나 상관관계를 갖는지를 나타내는 척도. ACF/PACF로 시각화해 모형 차수를 결정함.' },
+          { ko: 'ARIMA 모형', en: 'ARIMA Model', desc: '자기회귀(AR), 차분(I), 이동평균(MA)을 결합해 시계열의 추세와 패턴을 모델링하고 예측하는 대표적 시계열 분석 기법.' },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 통계학 전공 맛보기 | 대치프라임"
+  metaDescription="대학 통계학과 커리큘럼을 기반으로 재구성한 전공 맛보기 페이지입니다."
+  heading="통계학"
+  descriptionPrefix={`통계학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 베이즈, 중심극한정리, ARIMA)"
+  tracks={TRACKS}
+/>

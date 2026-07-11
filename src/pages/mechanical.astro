@@ -1,66 +1,97 @@
 ---
 import GlossaryLayout from '../layouts/GlossaryLayout.astro';
 
-const CATEGORIES = [
+const TRACKS = [
   {
-    title: '정역학 및 재료역학',
-    subtitle: 'Statics & Mechanics of Materials',
-    terms: [
-      { ko: '응력과 변형률', en: 'Stress & Strain', formula: '\\sigma = \\frac{F}{A}, \\quad \\varepsilon = \\frac{\\Delta L}{L}', desc: '외력을 받은 재료 내부에 생기는 단위 면적당 힘(응력)과 그로 인한 길이 변화율(변형률). 재료 거동 해석의 출발점.' },
-      { ko: '훅의 법칙', en: "Hooke's Law", formula: '\\sigma = E \\varepsilon', desc: '탄성 영역 안에서 응력과 변형률이 비례한다는 법칙. 비례상수 $E$는 탄성계수(영률).' },
-      { ko: '모어의 원', en: "Mohr's Circle", desc: '평면 위 한 점에서의 응력 상태를 원으로 표현해, 임의 방향의 수직/전단 응력과 주응력을 기하학적으로 구하는 도구.' },
-      { ko: '좌굴', en: 'Buckling', formula: 'P_{cr} = \\frac{\\pi^2 EI}{L^2}', desc: '가늘고 긴 기둥이 압축력을 받을 때 재료 강도보다 낮은 하중에서 갑자기 휘어지며 불안정해지는 현상.' },
-      { ko: '단면 2차 모멘트', en: 'Moment of Inertia (Area)', desc: '단면의 형상이 굽힘이나 비틀림에 얼마나 잘 저항하는지를 나타내는 기하학적 성질. 보의 처짐, 좌굴 계산에 필수.' },
+    title: '고체역학',
+    subtitle: 'Solid Mechanics',
+    courses: [
+      {
+        name: '정역학',
+        nameEn: 'Statics',
+        year: '1학년 2학기',
+        terms: [
+          { ko: '응력과 변형률', en: 'Stress & Strain', formula: '\\sigma = \\frac{F}{A}, \\quad \\varepsilon = \\frac{\\Delta L}{L}', desc: '외력을 받은 재료 내부에 생기는 단위 면적당 힘(응력)과 그로 인한 길이 변화율(변형률). 재료 거동 해석의 출발점.' },
+          { ko: '훅의 법칙', en: "Hooke's Law", formula: '\\sigma = E \\varepsilon', desc: '탄성 영역 안에서 응력과 변형률이 비례한다는 법칙. 비례상수 $E$는 탄성계수(영률).' },
+          { ko: '단면 2차 모멘트', en: 'Moment of Inertia (Area)', desc: '단면의 형상이 굽힘이나 비틀림에 얼마나 잘 저항하는지를 나타내는 기하학적 성질. 보의 처짐, 좌굴 계산에 필수.' },
+        ],
+      },
+      {
+        name: '재료역학',
+        nameEn: 'Mechanics of Materials',
+        year: '2학년 1학기',
+        terms: [
+          { ko: '모어의 원', en: "Mohr's Circle", desc: '평면 위 한 점에서의 응력 상태를 원으로 표현해, 임의 방향의 수직/전단 응력과 주응력을 기하학적으로 구하는 도구.' },
+          { ko: '좌굴', en: 'Buckling', formula: 'P_{cr} = \\frac{\\pi^2 EI}{L^2}', desc: '가늘고 긴 기둥이 압축력을 받을 때 재료 강도보다 낮은 하중에서 갑자기 휘어지며 불안정해지는 현상.' },
+        ],
+      },
+      {
+        name: '동역학',
+        nameEn: 'Dynamics',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '뉴턴의 운동법칙', en: "Newton's Laws of Motion", formula: 'F = ma', desc: '관성, 가속도, 작용-반작용을 기술하는 고전역학의 기초 법칙. 모든 동역학 해석의 출발점.' },
+          { ko: '각운동량 보존', en: 'Conservation of Angular Momentum', desc: '외부 토크가 작용하지 않으면 회전계의 각운동량이 일정하게 유지된다는 법칙. 회전체, 자이로스코프 해석에 사용.' },
+          { ko: '라그랑주 역학', en: 'Lagrangian Mechanics', formula: '\\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot{q}} - \\frac{\\partial L}{\\partial q} = 0', desc: '운동 에너지와 위치 에너지의 차(라그랑지안)로부터 운동 방정식을 유도하는 해석역학의 방법. 복잡한 다물체 시스템에 유리함.' },
+          { ko: '진동 및 공진', en: 'Vibration & Resonance', desc: '외력의 진동수가 계의 고유진동수와 일치할 때 진폭이 급격히 커지는 현상. 기계 설계에서 반드시 피해야 하는 조건.' },
+        ],
+      },
     ],
   },
   {
-    title: '동역학',
-    subtitle: 'Dynamics',
-    terms: [
-      { ko: '뉴턴의 운동법칙', en: "Newton's Laws of Motion", formula: 'F = ma', desc: '관성, 가속도, 작용-반작용을 기술하는 고전역학의 기초 법칙. 모든 동역학 해석의 출발점.' },
-      { ko: '각운동량 보존', en: 'Conservation of Angular Momentum', desc: '외부 토크가 작용하지 않으면 회전계의 각운동량이 일정하게 유지된다는 법칙. 회전체, 자이로스코프 해석에 사용.' },
-      { ko: '라그랑주 역학', en: 'Lagrangian Mechanics', formula: '\\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot{q}} - \\frac{\\partial L}{\\partial q} = 0', desc: '운동 에너지와 위치 에너지의 차(라그랑지안)로부터 운동 방정식을 유도하는 해석역학의 방법. 복잡한 다물체 시스템에 유리함.' },
-      { ko: '진동 및 공진', en: 'Vibration & Resonance', desc: '외력의 진동수가 계의 고유진동수와 일치할 때 진폭이 급격히 커지는 현상. 기계 설계에서 반드시 피해야 하는 조건.' },
+    title: '열유체',
+    subtitle: 'Thermo-Fluids',
+    courses: [
+      {
+        name: '열역학',
+        nameEn: 'Thermodynamics',
+        year: '2학년 1학기',
+        terms: [
+          { ko: '열역학 제1법칙', en: 'First Law of Thermodynamics', formula: '\\Delta U = Q - W', desc: '에너지는 새로 생기거나 사라지지 않고 형태만 바뀐다는 에너지 보존 법칙을 열과 일에 적용한 것.' },
+          { ko: '열역학 제2법칙과 엔트로피', en: 'Second Law & Entropy', desc: '고립계의 엔트로피는 절대 감소하지 않는다는 법칙. 열은 스스로 저온에서 고온으로 흐르지 않음을 규정함.' },
+          { ko: '카르노 사이클', en: 'Carnot Cycle', desc: '두 개의 등온 과정과 두 개의 단열 과정으로 이루어진, 주어진 두 온도 사이에서 이론상 최고 효율을 갖는 이상적 열기관 사이클.' },
+          { ko: '랭킨 사이클', en: 'Rankine Cycle', desc: '증기를 작동유체로 사용하는 발전소의 기본 열역학 사이클. 보일러, 터빈, 응축기, 펌프로 구성됨.' },
+          { ko: '오토 사이클', en: 'Otto Cycle', desc: '가솔린 엔진의 이론적 모델이 되는 열역학 사이클. 정적 상태에서 열이 공급/방출되는 것이 특징.' },
+        ],
+      },
+      {
+        name: '유체역학',
+        nameEn: 'Fluid Mechanics',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '베르누이 방정식', en: "Bernoulli's Equation", formula: 'P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{const}', desc: '비압축성, 비점성, 정상 흐름을 따라 압력, 속도, 높이 사이에 성립하는 에너지 보존 관계식.' },
+          { ko: '나비에-스토크스 방정식', en: 'Navier-Stokes Equations', desc: '점성 유체의 운동을 기술하는 편미분방정식. 대부분의 실제 유동 문제 해석의 근본이 되지만 해석적으로 풀기 매우 어려움.' },
+          { ko: '레이놀즈수', en: 'Reynolds Number', formula: 'Re = \\frac{\\rho v L}{\\mu}', desc: '관성력과 점성력의 비로, 유동이 층류인지 난류인지를 판단하는 무차원수.' },
+          { ko: '연속 방정식', en: 'Continuity Equation', desc: '유체의 질량이 보존된다는 원리를 유동장에 적용한 방정식. 단면적이 줄면 유속이 빨라지는 관계를 설명함.' },
+        ],
+      },
     ],
   },
   {
-    title: '열역학',
-    subtitle: 'Thermodynamics',
-    terms: [
-      { ko: '열역학 제1법칙', en: 'First Law of Thermodynamics', formula: '\\Delta U = Q - W', desc: '에너지는 새로 생기거나 사라지지 않고 형태만 바뀐다는 에너지 보존 법칙을 열과 일에 적용한 것.' },
-      { ko: '열역학 제2법칙과 엔트로피', en: 'Second Law & Entropy', desc: '고립계의 엔트로피는 절대 감소하지 않는다는 법칙. 열은 스스로 저온에서 고온으로 흐르지 않음을 규정함.' },
-      { ko: '카르노 사이클', en: 'Carnot Cycle', desc: '두 개의 등온 과정과 두 개의 단열 과정으로 이루어진, 주어진 두 온도 사이에서 이론상 최고 효율을 갖는 이상적 열기관 사이클.' },
-      { ko: '랭킨 사이클', en: 'Rankine Cycle', desc: '증기를 작동유체로 사용하는 발전소의 기본 열역학 사이클. 보일러, 터빈, 응축기, 펌프로 구성됨.' },
-      { ko: '오토 사이클', en: 'Otto Cycle', desc: '가솔린 엔진의 이론적 모델이 되는 열역학 사이클. 정적 상태에서 열이 공급/방출되는 것이 특징.' },
-    ],
-  },
-  {
-    title: '유체역학',
-    subtitle: 'Fluid Mechanics',
-    terms: [
-      { ko: '베르누이 방정식', en: "Bernoulli's Equation", formula: 'P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{const}', desc: '비압축성, 비점성, 정상 흐름을 따라 압력, 속도, 높이 사이에 성립하는 에너지 보존 관계식.' },
-      { ko: '나비에-스토크스 방정식', en: 'Navier-Stokes Equations', desc: '점성 유체의 운동을 기술하는 편미분방정식. 대부분의 실제 유동 문제 해석의 근본이 되지만 해석적으로 풀기 매우 어려움.' },
-      { ko: '레이놀즈수', en: 'Reynolds Number', formula: 'Re = \\frac{\\rho v L}{\\mu}', desc: '관성력과 점성력의 비로, 유동이 층류인지 난류인지를 판단하는 무차원수.' },
-      { ko: '연속 방정식', en: 'Continuity Equation', desc: '유체의 질량이 보존된다는 원리를 유동장에 적용한 방정식. 단면적이 줄면 유속이 빨라지는 관계를 설명함.' },
-    ],
-  },
-  {
-    title: '기계설계 및 재료',
-    subtitle: 'Machine Design & Materials',
-    terms: [
-      { ko: '피로 파괴', en: 'Fatigue Failure', desc: '반복 하중이 재료의 항복강도보다 훨씬 작아도, 반복 횟수가 누적되면 균열이 생겨 파괴에 이르는 현상. S-N 선도로 수명을 예측함.' },
-      { ko: '안전율', en: 'Factor of Safety', desc: '재료가 견딜 수 있는 최대 하중과 실제 설계 하중의 비율. 불확실성에 대비한 여유를 정량화한 값.' },
-      { ko: '열처리', en: 'Heat Treatment', desc: '금속을 가열하고 냉각하는 과정을 조절해 경도, 강도, 인성 등 기계적 성질을 원하는 대로 바꾸는 공정.' },
-      { ko: '기어비', en: 'Gear Ratio', desc: '맞물린 두 기어의 잇수 비율. 회전 속도와 토크를 변환하는 동력 전달 설계의 핵심 개념.' },
-    ],
-  },
-  {
-    title: '제어 및 로보틱스',
-    subtitle: 'Control & Robotics',
-    terms: [
-      { ko: '순기구학과 역기구학', en: 'Forward & Inverse Kinematics', desc: '관절 각도로부터 말단 장치의 위치를 구하는 것(순기구학)과, 원하는 말단 위치로부터 필요한 관절 각도를 구하는 것(역기구학).' },
-      { ko: '자유도', en: 'Degrees of Freedom (DOF)', desc: '시스템의 상태를 완전히 기술하는 데 필요한 독립적인 변수의 개수. 로봇 팔이나 기구의 움직임 범위를 나타내는 지표.' },
-      { ko: '피드백 제어', en: 'Feedback Control', desc: '시스템의 출력을 측정해 입력을 조정함으로써 원하는 상태를 유지하는 제어 방식. 로봇, 자동차, 공정 제어 전반의 기본 원리.' },
+    title: '설계 및 제어',
+    subtitle: 'Design & Control',
+    courses: [
+      {
+        name: '기계설계',
+        nameEn: 'Machine Design',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '피로 파괴', en: 'Fatigue Failure', desc: '반복 하중이 재료의 항복강도보다 훨씬 작아도, 반복 횟수가 누적되면 균열이 생겨 파괴에 이르는 현상. S-N 선도로 수명을 예측함.' },
+          { ko: '안전율', en: 'Factor of Safety', desc: '재료가 견딜 수 있는 최대 하중과 실제 설계 하중의 비율. 불확실성에 대비한 여유를 정량화한 값.' },
+          { ko: '열처리', en: 'Heat Treatment', desc: '금속을 가열하고 냉각하는 과정을 조절해 경도, 강도, 인성 등 기계적 성질을 원하는 대로 바꾸는 공정.' },
+          { ko: '기어비', en: 'Gear Ratio', desc: '맞물린 두 기어의 잇수 비율. 회전 속도와 토크를 변환하는 동력 전달 설계의 핵심 개념.' },
+        ],
+      },
+      {
+        name: '로보틱스 및 제어',
+        nameEn: 'Robotics & Control',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '순기구학과 역기구학', en: 'Forward & Inverse Kinematics', desc: '관절 각도로부터 말단 장치의 위치를 구하는 것(순기구학)과, 원하는 말단 위치로부터 필요한 관절 각도를 구하는 것(역기구학).' },
+          { ko: '자유도', en: 'Degrees of Freedom (DOF)', desc: '시스템의 상태를 완전히 기술하는 데 필요한 독립적인 변수의 개수. 로봇 팔이나 기구의 움직임 범위를 나타내는 지표.' },
+          { ko: '피드백 제어', en: 'Feedback Control', desc: '시스템의 출력을 측정해 입력을 조정함으로써 원하는 상태를 유지하는 제어 방식. 로봇, 자동차, 공정 제어 전반의 기본 원리.' },
+        ],
+      },
     ],
   },
 ];
@@ -68,9 +99,9 @@ const CATEGORIES = [
 
 <GlossaryLayout
   metaTitle="Your Future - 기계공학 전공 맛보기 | 대치프라임"
-  metaDescription="대학 기계공학과에서 배우는 핵심 개념을 미리 만나보는 전공 맛보기 페이지입니다."
-  heading="기계공학 전공 맛보기"
-  descriptionPrefix={`기계공학과에 가면 실제로 배우게 될 역학, 열역학, 유체역학, 설계의 핵심 개념들을 모아뒀습니다. 다 이해할 필요는 없고, 전공의 결을 느껴보는 용도예요.`}
+  metaDescription="대학 기계공학과 커리큘럼을 기반으로 재구성한 전공 맛보기 페이지입니다."
+  heading="기계공학"
+  descriptionPrefix={`기계공학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
   searchPlaceholder="개념 이름으로 검색 (예: 좌굴, 베르누이, 레이놀즈)"
-  categories={CATEGORIES}
+  tracks={TRACKS}
 />

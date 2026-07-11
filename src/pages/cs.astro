@@ -1,73 +1,137 @@
 ---
 import GlossaryLayout from '../layouts/GlossaryLayout.astro';
 
-const CATEGORIES = [
+const TRACKS = [
   {
     title: '자료구조 및 알고리즘',
     subtitle: 'Data Structures & Algorithms',
-    terms: [
-      { ko: '빅오 표기법', en: 'Big-O Notation', formula: 'O(n \\log n)', desc: '입력 크기 $n$이 커질 때 알고리즘의 실행 시간이나 메모리 사용량이 늘어나는 정도를 점근적으로 표현하는 표기법.' },
-      { ko: '이진 탐색 트리', en: 'Binary Search Tree', desc: '왼쪽 자식은 부모보다 작고 오른쪽 자식은 부모보다 큰 규칙을 가진 트리 구조. 평균 탐색/삽입/삭제가 $O(\\log n)$.' },
-      { ko: '다익스트라 알고리즘', en: "Dijkstra's Algorithm", desc: '음의 가중치가 없는 그래프에서 한 정점으로부터 다른 모든 정점까지의 최단 경로를 구하는 그리디 알고리즘.' },
-      { ko: '동적 계획법', en: 'Dynamic Programming', desc: '문제를 겹치는 부분 문제로 나누고, 한 번 계산한 결과를 저장(메모이제이션)해 재사용함으로써 효율적으로 푸는 기법.' },
-      { ko: '해시 테이블', en: 'Hash Table', desc: '키를 해시 함수로 변환한 값을 인덱스로 사용해 평균 $O(1)$의 탐색/삽입을 가능하게 하는 자료구조. 충돌 처리가 성능의 핵심.' },
-      { ko: 'NP-완전', en: 'NP-Completeness', desc: '다항 시간 안에 해를 검증할 수는 있지만(NP), 다항 시간 안에 푸는 알고리즘이 알려지지 않은 문제들의 집합. 외판원 문제가 대표적.' },
-      { ko: '분할 정복', en: 'Divide and Conquer', desc: '문제를 작은 부분 문제로 나누어 각각 해결한 뒤 그 결과를 합쳐 전체 문제를 해결하는 설계 전략. 병합 정렬, 퀵 정렬의 기반.' },
+    courses: [
+      {
+        name: '자료구조',
+        nameEn: 'Data Structures',
+        year: '2학년 1학기',
+        terms: [
+          { ko: '이진 탐색 트리', en: 'Binary Search Tree', desc: '왼쪽 자식은 부모보다 작고 오른쪽 자식은 부모보다 큰 규칙을 가진 트리 구조. 평균 탐색/삽입/삭제가 $O(\\log n)$.' },
+          { ko: '해시 테이블', en: 'Hash Table', desc: '키를 해시 함수로 변환한 값을 인덱스로 사용해 평균 $O(1)$의 탐색/삽입을 가능하게 하는 자료구조. 충돌 처리가 성능의 핵심.' },
+        ],
+      },
+      {
+        name: '알고리즘',
+        nameEn: 'Algorithms',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '빅오 표기법', en: 'Big-O Notation', formula: 'O(n \\log n)', desc: '입력 크기 $n$이 커질 때 알고리즘의 실행 시간이나 메모리 사용량이 늘어나는 정도를 점근적으로 표현하는 표기법.' },
+          { ko: '다익스트라 알고리즘', en: "Dijkstra's Algorithm", desc: '음의 가중치가 없는 그래프에서 한 정점으로부터 다른 모든 정점까지의 최단 경로를 구하는 그리디 알고리즘.' },
+          { ko: '동적 계획법', en: 'Dynamic Programming', desc: '문제를 겹치는 부분 문제로 나누고, 한 번 계산한 결과를 저장(메모이제이션)해 재사용함으로써 효율적으로 푸는 기법.' },
+          { ko: '분할 정복', en: 'Divide and Conquer', desc: '문제를 작은 부분 문제로 나누어 각각 해결한 뒤 그 결과를 합쳐 전체 문제를 해결하는 설계 전략. 병합 정렬, 퀵 정렬의 기반.' },
+          { ko: 'NP-완전', en: 'NP-Completeness', desc: '다항 시간 안에 해를 검증할 수는 있지만(NP), 다항 시간 안에 푸는 알고리즘이 알려지지 않은 문제들의 집합. 외판원 문제가 대표적.' },
+        ],
+      },
     ],
   },
   {
-    title: '컴퓨터 구조 및 운영체제',
-    subtitle: 'Computer Architecture & Operating Systems',
-    terms: [
-      { ko: '파이프라이닝', en: 'Pipelining', desc: 'CPU 명령어 처리 과정을 여러 단계로 나누어 겹쳐 실행함으로써 처리량을 높이는 기법. 분기 예측 실패 시 파이프라인 스톨이 발생.' },
-      { ko: '캐시 메모리', en: 'Cache Memory', desc: 'CPU와 주기억장치 사이 속도 차이를 줄이기 위한 고속 저장장치. 시간/공간 지역성(Locality)을 이용해 적중률을 높임.' },
-      { ko: '가상 메모리', en: 'Virtual Memory', desc: '물리 메모리보다 큰 주소 공간을 프로세스에 제공하는 기법. 페이징을 통해 실제 메모리와 디스크 사이를 관리함.' },
-      { ko: '교착상태', en: 'Deadlock', desc: '두 개 이상의 프로세스가 서로가 점유한 자원을 기다리며 무한정 대기하는 상태. 상호배제, 점유대기, 비선점, 순환대기 네 조건이 모두 성립해야 발생.' },
-      { ko: '프로세스 스케줄링', en: 'Process Scheduling', desc: 'CPU를 어떤 프로세스에 언제 할당할지 결정하는 정책. FCFS, SJF, 라운드로빈 등이 있음.' },
-      { ko: '세마포어와 뮤텍스', en: 'Semaphore & Mutex', desc: '여러 프로세스/스레드가 공유 자원에 동시 접근하는 것을 제어하는 동기화 도구. 뮤텍스는 상호배제, 세마포어는 개수 제한 접근을 다룸.' },
+    title: '시스템',
+    subtitle: 'Computer Systems',
+    courses: [
+      {
+        name: '컴퓨터구조',
+        nameEn: 'Computer Architecture',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '파이프라이닝', en: 'Pipelining', desc: 'CPU 명령어 처리 과정을 여러 단계로 나누어 겹쳐 실행함으로써 처리량을 높이는 기법. 분기 예측 실패 시 파이프라인 스톨이 발생.' },
+          { ko: '캐시 메모리', en: 'Cache Memory', desc: 'CPU와 주기억장치 사이 속도 차이를 줄이기 위한 고속 저장장치. 시간/공간 지역성(Locality)을 이용해 적중률을 높임.' },
+        ],
+      },
+      {
+        name: '운영체제',
+        nameEn: 'Operating Systems',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '가상 메모리', en: 'Virtual Memory', desc: '물리 메모리보다 큰 주소 공간을 프로세스에 제공하는 기법. 페이징을 통해 실제 메모리와 디스크 사이를 관리함.' },
+          { ko: '교착상태', en: 'Deadlock', desc: '두 개 이상의 프로세스가 서로가 점유한 자원을 기다리며 무한정 대기하는 상태. 상호배제, 점유대기, 비선점, 순환대기 네 조건이 모두 성립해야 발생.' },
+          { ko: '프로세스 스케줄링', en: 'Process Scheduling', desc: 'CPU를 어떤 프로세스에 언제 할당할지 결정하는 정책. FCFS, SJF, 라운드로빈 등이 있음.' },
+          { ko: '세마포어와 뮤텍스', en: 'Semaphore & Mutex', desc: '여러 프로세스/스레드가 공유 자원에 동시 접근하는 것을 제어하는 동기화 도구. 뮤텍스는 상호배제, 세마포어는 개수 제한 접근을 다룸.' },
+        ],
+      },
     ],
   },
   {
-    title: '이론전산학 및 프로그래밍 언어',
+    title: '이론전산학 및 프로그래밍언어',
     subtitle: 'Theory of Computation & Programming Languages',
-    terms: [
-      { ko: '튜링 머신', en: 'Turing Machine', desc: '무한한 테이프와 상태 전이 규칙으로 계산 가능성을 정의하는 수학적 모델. "계산 가능하다"의 표준 기준.' },
-      { ko: '유한 오토마타', en: 'Finite Automata', desc: '유한한 개수의 상태만으로 문자열을 인식하는 계산 모델. 결정적(DFA)과 비결정적(NFA)이 있으며 정규 언어를 인식함.' },
-      { ko: '문맥 자유 문법', en: 'Context-Free Grammar', desc: '프로그래밍 언어의 구문(Syntax)을 정의하는 데 쓰이는 생성 규칙 체계. 컴파일러의 파싱 단계에서 사용됨.' },
-      { ko: '람다 대수', en: 'Lambda Calculus', desc: '함수 정의와 적용만으로 계산을 표현하는 형식 체계. 함수형 프로그래밍 언어 이론의 기반.' },
-      { ko: '타입 시스템', en: 'Type System', desc: '프로그램의 값들을 타입으로 분류하고 검사해 오류를 사전에 방지하는 체계. 커리-하워드 대응을 통해 논리학과 연결됨.' },
+    courses: [
+      {
+        name: '이론전산학',
+        nameEn: 'Theory of Computation',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '튜링 머신', en: 'Turing Machine', desc: '무한한 테이프와 상태 전이 규칙으로 계산 가능성을 정의하는 수학적 모델. "계산 가능하다"의 표준 기준.' },
+          { ko: '유한 오토마타', en: 'Finite Automata', desc: '유한한 개수의 상태만으로 문자열을 인식하는 계산 모델. 결정적(DFA)과 비결정적(NFA)이 있으며 정규 언어를 인식함.' },
+          { ko: '문맥 자유 문법', en: 'Context-Free Grammar', desc: '프로그래밍 언어의 구문(Syntax)을 정의하는 데 쓰이는 생성 규칙 체계. 컴파일러의 파싱 단계에서 사용됨.' },
+        ],
+      },
+      {
+        name: '프로그래밍언어론',
+        nameEn: 'Programming Language Theory',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '람다 대수', en: 'Lambda Calculus', desc: '함수 정의와 적용만으로 계산을 표현하는 형식 체계. 함수형 프로그래밍 언어 이론의 기반.' },
+          { ko: '타입 시스템', en: 'Type System', desc: '프로그램의 값들을 타입으로 분류하고 검사해 오류를 사전에 방지하는 체계. 커리-하워드 대응을 통해 논리학과 연결됨.' },
+        ],
+      },
     ],
   },
   {
-    title: '네트워크',
-    subtitle: 'Computer Networks',
-    terms: [
-      { ko: 'TCP 3-way 핸드셰이크', en: 'TCP 3-Way Handshake', desc: 'SYN, SYN-ACK, ACK 세 번의 패킷 교환으로 신뢰성 있는 연결을 수립하는 TCP의 연결 설정 절차.' },
-      { ko: 'OSI 7계층', en: 'OSI 7-Layer Model', desc: '네트워크 통신을 물리, 데이터링크, 네트워크, 전송, 세션, 표현, 응용 7개 계층으로 나눈 개념 모델.' },
-      { ko: 'CSMA/CD', en: 'CSMA/CD', desc: '이더넷에서 신호 충돌을 감지하고 회피하기 위해 전송 전 회선을 감지하고, 충돌 시 재전송하는 접근 방식.' },
-      { ko: '라우팅 프로토콜', en: 'Routing Protocol (BGP/OSPF)', desc: '네트워크 간 최적 경로를 결정하는 프로토콜. OSPF는 링크 상태 기반, BGP는 인터넷 전체를 잇는 경로 벡터 기반.' },
-      { ko: 'DNS', en: 'Domain Name System', desc: '사람이 읽는 도메인 이름을 IP 주소로 변환해주는 분산 계층형 조회 시스템.' },
-    ],
-  },
-  {
-    title: '데이터베이스',
-    subtitle: 'Database Systems',
-    terms: [
-      { ko: 'ACID', en: 'ACID Properties', desc: '트랜잭션이 안전하게 처리되기 위해 보장해야 할 원자성(Atomicity), 일관성(Consistency), 고립성(Isolation), 지속성(Durability).' },
-      { ko: '정규화', en: 'Normalization', desc: '데이터 중복과 이상 현상을 줄이기 위해 테이블을 분해하는 과정. 1NF부터 BCNF까지 단계적으로 진행.' },
-      { ko: '트랜잭션 격리 수준', en: 'Transaction Isolation Levels', desc: '동시에 실행되는 트랜잭션들이 서로에게 미치는 영향을 어느 정도까지 허용할지 정하는 수준 (Read Uncommitted ~ Serializable).' },
-      { ko: 'B+ 트리 인덱스', en: 'B+ Tree Index', desc: '데이터베이스에서 대용량 데이터를 빠르게 탐색하기 위해 사용하는 균형 트리 구조 인덱스. 리프 노드끼리 연결되어 범위 탐색에 유리함.' },
+    title: '네트워크 및 데이터베이스',
+    subtitle: 'Networks & Databases',
+    courses: [
+      {
+        name: '컴퓨터네트워크',
+        nameEn: 'Computer Networks',
+        year: '3학년 1학기',
+        terms: [
+          { ko: 'TCP 3-way 핸드셰이크', en: 'TCP 3-Way Handshake', desc: 'SYN, SYN-ACK, ACK 세 번의 패킷 교환으로 신뢰성 있는 연결을 수립하는 TCP의 연결 설정 절차.' },
+          { ko: 'OSI 7계층', en: 'OSI 7-Layer Model', desc: '네트워크 통신을 물리, 데이터링크, 네트워크, 전송, 세션, 표현, 응용 7개 계층으로 나눈 개념 모델.' },
+          { ko: 'CSMA/CD', en: 'CSMA/CD', desc: '이더넷에서 신호 충돌을 감지하고 회피하기 위해 전송 전 회선을 감지하고, 충돌 시 재전송하는 접근 방식.' },
+          { ko: '라우팅 프로토콜', en: 'Routing Protocol (BGP/OSPF)', desc: '네트워크 간 최적 경로를 결정하는 프로토콜. OSPF는 링크 상태 기반, BGP는 인터넷 전체를 잇는 경로 벡터 기반.' },
+          { ko: 'DNS', en: 'Domain Name System', desc: '사람이 읽는 도메인 이름을 IP 주소로 변환해주는 분산 계층형 조회 시스템.' },
+        ],
+      },
+      {
+        name: '데이터베이스',
+        nameEn: 'Database Systems',
+        year: '3학년 2학기',
+        terms: [
+          { ko: 'ACID', en: 'ACID Properties', desc: '트랜잭션이 안전하게 처리되기 위해 보장해야 할 원자성(Atomicity), 일관성(Consistency), 고립성(Isolation), 지속성(Durability).' },
+          { ko: '정규화', en: 'Normalization', desc: '데이터 중복과 이상 현상을 줄이기 위해 테이블을 분해하는 과정. 1NF부터 BCNF까지 단계적으로 진행.' },
+          { ko: '트랜잭션 격리 수준', en: 'Transaction Isolation Levels', desc: '동시에 실행되는 트랜잭션들이 서로에게 미치는 영향을 어느 정도까지 허용할지 정하는 수준 (Read Uncommitted ~ Serializable).' },
+          { ko: 'B+ 트리 인덱스', en: 'B+ Tree Index', desc: '데이터베이스에서 대용량 데이터를 빠르게 탐색하기 위해 사용하는 균형 트리 구조 인덱스. 리프 노드끼리 연결되어 범위 탐색에 유리함.' },
+        ],
+      },
     ],
   },
   {
     title: '인공지능 및 기계학습',
     subtitle: 'Artificial Intelligence & Machine Learning',
-    terms: [
-      { ko: '경사하강법', en: 'Gradient Descent', formula: '\\theta_{t+1} = \\theta_t - \\eta \\nabla L(\\theta_t)', desc: '손실 함수의 기울기 반대 방향으로 파라미터를 조금씩 이동시켜 최솟값을 찾아가는 최적화 알고리즘.' },
-      { ko: '역전파', en: 'Backpropagation', desc: '연쇄법칙(Chain Rule)을 이용해 신경망의 각 가중치에 대한 손실 함수의 기울기를 출력층에서 입력층 방향으로 계산하는 알고리즘.' },
-      { ko: '과적합과 정규화', en: 'Overfitting & Regularization', desc: '모델이 학습 데이터에만 지나치게 맞춰져 일반화 성능이 떨어지는 현상(과적합)과, 이를 막기 위한 L1/L2 페널티, 드롭아웃 등의 기법.' },
-      { ko: '서포트 벡터 머신', en: 'Support Vector Machine', desc: '두 클래스를 가장 큰 마진으로 분리하는 초평면을 찾는 지도학습 분류 모델. 커널 트릭으로 비선형 분류도 가능.' },
-      { ko: '어텐션 메커니즘', en: 'Attention Mechanism', desc: '입력 시퀀스의 각 부분에 다른 가중치를 부여해 중요한 정보에 집중하는 방식. 트랜스포머 구조의 핵심 아이디어.' },
+    courses: [
+      {
+        name: '기계학습',
+        nameEn: 'Machine Learning',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '경사하강법', en: 'Gradient Descent', formula: '\\theta_{t+1} = \\theta_t - \\eta \\nabla L(\\theta_t)', desc: '손실 함수의 기울기 반대 방향으로 파라미터를 조금씩 이동시켜 최솟값을 찾아가는 최적화 알고리즘.' },
+          { ko: '과적합과 정규화', en: 'Overfitting & Regularization', desc: '모델이 학습 데이터에만 지나치게 맞춰져 일반화 성능이 떨어지는 현상(과적합)과, 이를 막기 위한 L1/L2 페널티, 드롭아웃 등의 기법.' },
+          { ko: '서포트 벡터 머신', en: 'Support Vector Machine', desc: '두 클래스를 가장 큰 마진으로 분리하는 초평면을 찾는 지도학습 분류 모델. 커널 트릭으로 비선형 분류도 가능.' },
+        ],
+      },
+      {
+        name: '딥러닝',
+        nameEn: 'Deep Learning',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '역전파', en: 'Backpropagation', desc: '연쇄법칙(Chain Rule)을 이용해 신경망의 각 가중치에 대한 손실 함수의 기울기를 출력층에서 입력층 방향으로 계산하는 알고리즘.' },
+          { ko: '어텐션 메커니즘', en: 'Attention Mechanism', desc: '입력 시퀀스의 각 부분에 다른 가중치를 부여해 중요한 정보에 집중하는 방식. 트랜스포머 구조의 핵심 아이디어.' },
+        ],
+      },
     ],
   },
 ];
@@ -75,9 +139,9 @@ const CATEGORIES = [
 
 <GlossaryLayout
   metaTitle="Your Future - 컴퓨터공학 전공 맛보기 | 대치프라임"
-  metaDescription="대학 컴퓨터공학과에서 배우는 핵심 개념을 미리 만나보는 전공 맛보기 페이지입니다."
-  heading="컴퓨터공학 전공 맛보기"
-  descriptionPrefix={`컴퓨터공학과에 가면 실제로 배우게 될 알고리즘, 시스템, 이론전산학의 핵심 개념들을 모아뒀습니다. 다 이해할 필요는 없고, 전공의 결을 느껴보는 용도예요.`}
+  metaDescription="대학 컴퓨터공학과 커리큘럼을 기반으로 재구성한 전공 맛보기 페이지입니다."
+  heading="컴퓨터공학"
+  descriptionPrefix={`컴퓨터공학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
   searchPlaceholder="개념 이름으로 검색 (예: 다익스트라, TCP, 역전파)"
-  categories={CATEGORIES}
+  tracks={TRACKS}
 />

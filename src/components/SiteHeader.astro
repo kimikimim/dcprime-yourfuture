@@ -1,0 +1,18 @@
+---
+interface Props {
+  backHref: string;
+  backLabel: string;
+}
+
+const { backHref, backLabel } = Astro.props;
+---
+
+<header class="border-b border-gray-200 bg-white">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-3">
+    <a href="https://dcprime.co.kr" class="flex items-center gap-2 shrink-0">
+      <img src="/favicon-circle.png" alt="대치프라임" class="h-9 w-9 rounded-full object-cover" />
+      <span class="text-sm font-bold text-gray-900">대치프라임</span>
+    </a>
+    <a href={backHref} class="text-xs text-gray-400 hover:text-brand transition-colors text-right">{backLabel}</a>
+  </div>
+</header>

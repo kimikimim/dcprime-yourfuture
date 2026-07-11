@@ -1,4 +1,7 @@
 ---
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
 interface Term {
   ko: string;
   en: string;
@@ -6,10 +9,17 @@ interface Term {
   desc: string;
 }
 
-interface Category {
+interface Course {
+  name: string;
+  nameEn: string;
+  year: string;
+  terms: Term[];
+}
+
+interface Track {
   title: string;
   subtitle: string;
-  terms: Term[];
+  courses: Course[];
 }
 
 interface Props {
@@ -19,7 +29,7 @@ interface Props {
   heading: string;
   descriptionPrefix: string;
   searchPlaceholder: string;
-  categories: Category[];
+  tracks: Track[];
 }
 
 const {
@@ -29,10 +39,11 @@ const {
   heading,
   descriptionPrefix,
   searchPlaceholder,
-  categories,
+  tracks,
 } = Astro.props;
 
-const totalCount = categories.reduce((sum, c) => sum + c.terms.length, 0);
+const totalCourseCount = tracks.reduce((sum, t) => sum + t.courses.length, 0);
+const totalTermCount = tracks.reduce((sum, t) => sum + t.courses.reduce((s, c) => s + c.terms.length, 0), 0);
 ---
 
 <!doctype html>
@@ -49,29 +60,21 @@ const totalCount = categories.reduce((sum, c) => sum + c.terms.length, 0);
   </head>
   <body class="bg-gray-50 font-sans">
 
-    <header class="border-b border-gray-200 bg-white">
-      <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="https://dcprime.co.kr" class="flex items-center gap-2">
-          <img src="/favicon-circle.png" alt="대치프라임" class="h-9 w-9 rounded-full object-cover" />
-          <span class="text-sm font-bold text-gray-900">대치프라임</span>
-        </a>
-        <a href="/" class="text-xs text-gray-400 hover:text-brand transition-colors">Your Future 홈으로 →</a>
-      </div>
-    </header>
+    <SiteHeader backHref="/" backLabel="Your Future 홈으로 →" />
 
     <div class="min-h-screen">
       <div class="border-b border-gray-200 bg-white">
-        <div class="container mx-auto px-4 py-10">
+        <div class="container mx-auto px-4 py-8 sm:py-10">
           <p class="text-sm text-brand font-semibold mb-1">{eyebrow}</p>
-          <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">{heading}</h1>
+          <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">{heading}</h1>
           <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-            {descriptionPrefix} 총 {totalCount}개 개념.
+            {descriptionPrefix} 과목 {totalCourseCount}개 · 개념 {totalTermCount}개.
           </p>
         </div>
       </div>
 
       <div class="sticky top-0 z-40 bg-white border-b border-gray-200">
-        <div class="container mx-auto px-4 py-4">
+        <div class="container mx-auto px-4 py-3 sm:py-4">
           <div class="relative max-w-xl">
             <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
@@ -80,33 +83,54 @@ const totalCount = categories.reduce((sum, c) => sum + c.terms.length, 0);
               id="term-search"
               type="text"
               placeholder={searchPlaceholder}
-              class="w-full pl-11 pr-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-brand"
+              class="w-full pl-11 pr-4 py-2.5 sm:py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-brand"
             />
           </div>
           <p id="search-empty" class="hidden text-sm text-gray-400 mt-3">검색 결과가 없습니다.</p>
         </div>
       </div>
 
-      <div class="container mx-auto px-4 py-10 max-w-4xl">
-        {categories.map((cat) => (
-          <div class="category-block mb-10">
+      <div class="container mx-auto px-4 py-8 sm:py-10 max-w-5xl">
+        {tracks.map((track) => (
+          <div class="track-block mb-10">
             <div class="mb-4">
-              <h2 class="text-lg font-bold text-gray-900">{cat.title}</h2>
-              <p class="text-xs text-gray-400">{cat.subtitle}</p>
+              <h2 class="text-base sm:text-lg font-bold text-gray-900">{track.title}</h2>
+              <p class="text-xs text-gray-400">{track.subtitle}</p>
             </div>
-            <div class="grid sm:grid-cols-2 gap-3">
-              {cat.terms.map((t) => (
-                <div
-                  class="term-card bg-white rounded-xl border border-gray-100 p-4 shadow-sm"
-                  data-search={`${t.ko} ${t.en} ${t.desc}`.toLowerCase()}
-                >
-                  <p class="text-sm font-bold text-gray-900">{t.ko}</p>
-                  <p class="text-xs text-gray-400 mb-2">{t.en}</p>
-                  {t.formula && (
-                    <div class="katex-formula text-sm text-brand my-2 overflow-x-auto" data-formula={t.formula}></div>
-                  )}
-                  <p class="text-sm text-gray-600 leading-relaxed" set:html={t.desc.replace(/\$([^$]+)\$/g, '<span class="katex-inline" data-formula="$1"></span>')} />
-                </div>
+            <div class="space-y-3">
+              {track.courses.map((course) => (
+                <details class="course-block group bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                  <summary class="list-none [&::-webkit-details-marker]:hidden flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4 cursor-pointer select-none hover:bg-gray-50 transition-colors">
+                    <div class="min-w-0">
+                      <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-sm sm:text-base font-bold text-gray-900">{course.name}</span>
+                        <span class="text-[10px] sm:text-xs text-brand bg-brand-light px-2 py-0.5 rounded-full shrink-0">{course.year}</span>
+                      </div>
+                      <p class="text-xs text-gray-400 mt-0.5">{course.nameEn}</p>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0 text-gray-400">
+                      <span class="text-xs hidden sm:inline">{course.terms.length}개 개념</span>
+                      <svg class="w-4 h-4 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </div>
+                  </summary>
+                  <div class="border-t border-gray-100 px-4 py-4 sm:px-5 sm:py-5 grid sm:grid-cols-2 gap-3">
+                    {course.terms.map((t) => (
+                      <div
+                        class="term-card bg-gray-50 rounded-lg border border-gray-100 p-4"
+                        data-search={`${t.ko} ${t.en} ${t.desc}`.toLowerCase()}
+                      >
+                        <p class="text-sm font-bold text-gray-900">{t.ko}</p>
+                        <p class="text-xs text-gray-400 mb-2">{t.en}</p>
+                        {t.formula && (
+                          <div class="katex-formula text-sm text-brand my-2 overflow-x-auto" data-formula={t.formula}></div>
+                        )}
+                        <p class="text-sm text-gray-600 leading-relaxed" set:html={t.desc.replace(/\$([^$]+)\$/g, '<span class="katex-inline" data-formula="$1"></span>')} />
+                      </div>
+                    ))}
+                  </div>
+                </details>
               ))}
             </div>
           </div>
@@ -114,12 +138,7 @@ const totalCount = categories.reduce((sum, c) => sum + c.terms.length, 0);
       </div>
     </div>
 
-    <footer class="border-t border-gray-200 bg-white py-8">
-      <div class="container mx-auto px-4 text-center text-xs text-gray-400">
-        <p>문제 있으면 장곡관 튜터에게.</p>
-        <a href="https://github.com/kimikimim" class="text-brand hover:underline" target="_blank" rel="noopener noreferrer">github.com/kimikimim</a>
-      </div>
-    </footer>
+    <SiteFooter />
 
     <script>
       async function loadKatex() {
@@ -157,14 +176,25 @@ const totalCount = categories.reduce((sum, c) => sum + c.terms.length, 0);
           const q = input.value.trim().toLowerCase();
           let anyVisible = false;
 
-          document.querySelectorAll<HTMLElement>('.category-block').forEach(block => {
-            let blockHasMatch = false;
-            block.querySelectorAll<HTMLElement>('.term-card').forEach(card => {
-              const match = !q || (card.dataset.search ?? '').includes(q);
-              card.classList.toggle('hidden', !match);
-              if (match) { blockHasMatch = true; anyVisible = true; }
+          document.querySelectorAll<HTMLElement>('.track-block').forEach(track => {
+            let trackHasMatch = false;
+
+            track.querySelectorAll<HTMLDetailsElement>('.course-block').forEach(course => {
+              let courseHasMatch = false;
+
+              course.querySelectorAll<HTMLElement>('.term-card').forEach(card => {
+                const match = !q || (card.dataset.search ?? '').includes(q);
+                card.classList.toggle('hidden', !match);
+                if (match) courseHasMatch = true;
+              });
+
+              course.classList.toggle('hidden', !courseHasMatch);
+              course.open = q ? courseHasMatch : false;
+              if (courseHasMatch) trackHasMatch = true;
             });
-            block.classList.toggle('hidden', !blockHasMatch);
+
+            track.classList.toggle('hidden', !trackHasMatch);
+            if (trackHasMatch) anyVisible = true;
           });
 
           emptyMsg?.classList.toggle('hidden', anyVisible || !q);
