@@ -183,6 +183,17 @@ const TRACKS = [
     ],
   },
 ];
+
+const RELATED_MAJORS = [
+  { href: '/cs', title: '컴퓨터공학', subtitle: 'Computer Science' },
+  { href: '/ee', title: '전기전자공학', subtitle: 'Electrical & Electronic Engineering' },
+  { href: '/semiconductor', title: '반도체공학', subtitle: 'Semiconductor Engineering' },
+  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
+  { href: '/chemical', title: '화학공학', subtitle: 'Chemical Engineering' },
+  { href: '/industrial', title: '산업공학', subtitle: 'Industrial Engineering' },
+  { href: '/architecture', title: '건축토목공학부', subtitle: 'Architecture & Civil Engineering' },
+  { href: '/aerospace', title: '항공우주공학과', subtitle: 'Aerospace Engineering' },
+];
 ---
 
 <GlossaryLayout
@@ -192,4 +203,5 @@ const TRACKS = [
   descriptionPrefix={`신소재공학부에 가면 실제로 배우게 될 내용을 공통 기초 과목과 6개 세부 전공(금속, 세라믹, 전자재료, 나노소재, 생체재료, 복합재료)으로 나누어뒀습니다.`}
   searchPlaceholder="개념 이름으로 검색 (예: 전위, 그래핀, CFRP)"
   tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
 />

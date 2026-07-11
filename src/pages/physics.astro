@@ -168,6 +168,12 @@ const TRACKS = [
     ],
   },
 ];
+
+const RELATED_MAJORS = [
+  { href: '/math', title: '수학', subtitle: 'Mathematics' },
+  { href: '/chemistry', title: '화학', subtitle: 'Chemistry' },
+  { href: '/statistics', title: '통계학', subtitle: 'Statistics' },
+];
 ---
 
 <GlossaryLayout
@@ -177,4 +183,5 @@ const TRACKS = [
   descriptionPrefix={`물리학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
   searchPlaceholder="개념 이름으로 검색 (예: 슈뢰딩거, 맥스웰, 라그랑주)"
   tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
 />

@@ -173,6 +173,17 @@ const TRACKS = [
     ],
   },
 ];
+
+const RELATED_MAJORS = [
+  { href: '/cs', title: '컴퓨터공학', subtitle: 'Computer Science' },
+  { href: '/ee', title: '전기전자공학', subtitle: 'Electrical & Electronic Engineering' },
+  { href: '/semiconductor', title: '반도체공학', subtitle: 'Semiconductor Engineering' },
+  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
+  { href: '/chemical', title: '화학공학', subtitle: 'Chemical Engineering' },
+  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
+  { href: '/architecture', title: '건축토목공학부', subtitle: 'Architecture & Civil Engineering' },
+  { href: '/aerospace', title: '항공우주공학과', subtitle: 'Aerospace Engineering' },
+];
 ---
 
 <GlossaryLayout
@@ -182,4 +193,5 @@ const TRACKS = [
   descriptionPrefix={`산업공학과에 가면 실제로 배우게 될 내용을 7개 세부 트랙(생산관리·제조, 데이터사이언스·BA, 경영공학, 품질경영·신뢰성, 인간공학·UX, 물류·유통, 시스템공학)으로 나누어뒀습니다.`}
   searchPlaceholder="개념 이름으로 검색 (예: EOQ, 6시그마, VRP)"
   tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
 />
