@@ -1,0 +1,43 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '생체재료공학과',
+    subtitle: 'Biomaterials Engineering',
+    careers: ['의료기기 제조사', '임플란트 기업(오스템임플란트)', '바이오 헬스케어 연구소'],
+    courses: [
+      {
+        name: '생체재료공학',
+        nameEn: 'Biomaterials Engineering',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '생체적합성', en: 'Biocompatibility', desc: '재료가 인체 조직과 접촉했을 때 면역거부반응이나 독성을 일으키지 않고 잘 어우러지는 성질. 의료용 재료 선택의 최우선 기준.' },
+          { ko: '임플란트 재료', en: 'Implant Materials', desc: '인공 관절, 치아 임플란트 등 인체에 이식되는 티타늄 합금, 세라믹 등의 재료. 강도와 생체적합성을 동시에 만족해야 함.' },
+          { ko: '의료용 고분자', en: 'Medical Polymers', desc: '인체 내에서 안전하게 사용할 수 있도록 설계된 고분자 재료. 봉합사, 인공혈관 등에 사용됨.' },
+          { ko: '약물전달시스템용 지지체', en: 'Scaffolds for Drug Delivery Systems (DDS)', desc: '약물을 원하는 부위에, 원하는 속도로 방출하도록 설계된 재료 기반 지지 구조체.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
+  { href: '/materials/metal', title: '금속공학', subtitle: 'Metallurgical Engineering' },
+  { href: '/materials/ceramic', title: '세라믹공학', subtitle: 'Ceramic Engineering' },
+  { href: '/materials/electronic', title: '전자재료공학', subtitle: 'Electronic Materials Engineering' },
+  { href: '/materials/nano', title: '나노소재공학', subtitle: 'Nanomaterials Engineering' },
+  { href: '/materials/composite', title: '복합재료공학', subtitle: 'Composite Materials Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 생체재료공학 전공 맛보기 | 대치프라임"
+  metaDescription="임플란트, 의료용 고분자, 약물전달시스템까지 생체재료공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="생체재료공학과"
+  descriptionPrefix={`신소재공학부 안에서 인체에 사용되는 재료를 다루는 학과예요. 임플란트, 인공혈관, 약물전달시스템까지 다룹니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 임플란트, 생체적합성, DDS)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

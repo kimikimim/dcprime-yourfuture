@@ -1,0 +1,43 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '금속공학과',
+    subtitle: 'Metallurgical Engineering',
+    careers: ['철강사(POSCO·현대제철)', '금속 가공 및 가전/자동차 부품 기업'],
+    courses: [
+      {
+        name: '금속공학',
+        nameEn: 'Metallurgical Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '금속 조직학', en: 'Metallography', desc: '금속 내부의 결정립 구조와 상 분포를 광학·전자현미경으로 관찰해 물성과의 관계를 분석하는 학문.' },
+          { ko: '합금 설계', en: 'Alloy Design', desc: '두 가지 이상의 금속(또는 금속과 비금속)을 배합해 원하는 강도, 내식성, 가공성을 갖도록 설계하는 기술.' },
+          { ko: '열처리 및 표면공학', en: 'Heat Treatment & Surface Engineering', desc: '담금질, 뜨임 등으로 금속의 기계적 성질을 조절하고, 표면 코팅으로 내마모성·내식성을 높이는 기술.' },
+          { ko: '철강 및 비철금속 제조공정', en: 'Ferrous & Non-Ferrous Metal Manufacturing', desc: '제철·제강 공정으로 철강을 만들거나, 알루미늄·구리 등 비철금속을 정련·가공하는 제조 공정.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
+  { href: '/materials/ceramic', title: '세라믹공학', subtitle: 'Ceramic Engineering' },
+  { href: '/materials/electronic', title: '전자재료공학', subtitle: 'Electronic Materials Engineering' },
+  { href: '/materials/nano', title: '나노소재공학', subtitle: 'Nanomaterials Engineering' },
+  { href: '/materials/bio', title: '생체재료공학', subtitle: 'Biomaterials Engineering' },
+  { href: '/materials/composite', title: '복합재료공학', subtitle: 'Composite Materials Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 금속공학 전공 맛보기 | 대치프라임"
+  metaDescription="금속 조직학, 합금 설계, 제철 공정까지 금속공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="금속공학과"
+  descriptionPrefix={`신소재공학부 안에서 철강과 비철금속을 다루는 가장 전통적인 학과예요. 조직 관찰부터 합금 설계, 제조 공정까지 배웁니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 합금설계, 열처리, 제강)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

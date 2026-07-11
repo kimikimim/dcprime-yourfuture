@@ -1,0 +1,42 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '복합재료공학과',
+    subtitle: 'Composite Materials Engineering',
+    careers: ['방산 및 우주항공 기업', '스포츠 용품(골프채·자전거 등) 제조사', '슈퍼카 외장재 개발 부서'],
+    courses: [
+      {
+        name: '복합재료공학',
+        nameEn: 'Composite Materials Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '탄소섬유강화플라스틱', en: 'Carbon Fiber Reinforced Plastic (CFRP)', desc: '탄소섬유와 플라스틱 수지를 결합해 강철보다 가볍고 강한 물성을 얻는 대표적인 복합재료.' },
+          { ko: '이종재료 접합기술', en: 'Dissimilar Materials Joining', desc: '서로 다른 종류의 재료(금속과 복합재료 등)를 안정적으로 접합시키는 기술.' },
+          { ko: '경량화 구조재료 역학', en: 'Lightweight Structural Materials Mechanics', desc: '무게는 최소화하면서 강성과 강도는 유지하는 구조 설계를 위한 재료 역학.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
+  { href: '/materials/metal', title: '금속공학', subtitle: 'Metallurgical Engineering' },
+  { href: '/materials/ceramic', title: '세라믹공학', subtitle: 'Ceramic Engineering' },
+  { href: '/materials/electronic', title: '전자재료공학', subtitle: 'Electronic Materials Engineering' },
+  { href: '/materials/nano', title: '나노소재공학', subtitle: 'Nanomaterials Engineering' },
+  { href: '/materials/bio', title: '생체재료공학', subtitle: 'Biomaterials Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 복합재료공학 전공 맛보기 | 대치프라임"
+  metaDescription="CFRP, 경량화 구조재료까지 복합재료공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="복합재료공학과"
+  descriptionPrefix={`신소재공학부 안에서 서로 다른 재료를 결합해 더 강하고 가벼운 소재를 만드는 학과예요. 항공우주, 방산, 스포츠 용품 산업과 밀접합니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: CFRP, 경량화, 접합기술)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

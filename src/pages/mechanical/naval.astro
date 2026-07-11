@@ -1,0 +1,42 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '조선해양공학과',
+    subtitle: 'Naval Architecture & Ocean Engineering',
+    careers: ['대형 조선사(HD현대중공업·한화오션·삼성중공업)', '선박 검사 기관(한국선급)'],
+    courses: [
+      {
+        name: '조선해양공학',
+        nameEn: 'Naval Architecture & Ocean Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '선박유체역학', en: 'Ship Hydrodynamics', desc: '배가 물 위나 물속에서 움직일 때 받는 저항, 부력, 조종성 등을 다루는 유체역학의 응용 분야.' },
+          { ko: '선체구조설계', en: 'Hull Structural Design', desc: '파도와 하중을 견디도록 배의 뼈대와 외판을 설계하는 구조공학.' },
+          { ko: '해양플랜트공학', en: 'Offshore Plant Engineering', desc: '바다 위에서 석유·가스를 시추하거나 에너지를 생산하는 대형 해양 구조물을 설계·건조하는 기술.' },
+          { ko: '친환경 선박 추진시스템', en: 'Eco-Friendly Ship Propulsion (LNG/Ammonia)', desc: '기존 화석연료 대신 LNG나 암모니아 등을 연료로 사용해 탄소 배출을 줄이는 차세대 선박 추진 기술.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
+  { href: '/mechanical/automotive', title: '자동차공학/미래모빌리티', subtitle: 'Automotive Engineering' },
+  { href: '/mechanical/robotics', title: '로봇공학/메카트로닉스', subtitle: 'Robotics & Mechatronics' },
+  { href: '/mechanical/energy', title: '에너지기계/열유체', subtitle: 'Energy & Thermo-Fluid' },
+  { href: '/mechanical/manufacturing', title: '정밀기계/생산', subtitle: 'Precision & Production' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 조선해양공학 전공 맛보기 | 대치프라임"
+  metaDescription="선박유체역학, 선체구조, 해양플랜트까지 조선해양공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="조선해양공학과"
+  descriptionPrefix={`배와 해양 구조물을 설계·건조하는 학과예요. 선박 유체역학부터 해양플랜트, 친환경 추진시스템까지 다룹니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 선체구조, 해양플랜트, LNG추진)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

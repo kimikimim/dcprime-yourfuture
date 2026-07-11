@@ -1,0 +1,41 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '생명화학공학 / 바이오화학공학과',
+    subtitle: 'Biochemical Engineering',
+    careers: ['바이오/제약 기업(삼성바이오로직스·셀트리온·SK바이오사이언스)', '식품 및 화장품 기업'],
+    courses: [
+      {
+        name: '생명화학공학',
+        nameEn: 'Biochemical Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '생물반응기 설계', en: 'Bioreactor Design', desc: '미생물이나 세포를 대량으로 배양해 원하는 물질을 생산하는 반응기를 설계하는 기술.' },
+          { ko: '바이오의약품 정제공정', en: 'Biopharmaceutical Purification', desc: '세포 배양액에서 목표 단백질(항체 등)만을 순수하게 분리·정제하는 다단계 공정.' },
+          { ko: '발효공정', en: 'Fermentation Process', desc: '미생물의 대사 작용을 이용해 원하는 물질(알코올, 항생제 등)을 대량으로 생산하는 공정.' },
+          { ko: '효소공학', en: 'Enzyme Engineering (Michaelis-Menten Kinetics)', formula: 'v = \\frac{V_{max}[S]}{K_m+[S]}', desc: '효소가 기질 농도에 따라 얼마나 빠르게 반응을 촉매하는지를 기술하는 효소반응속도론과, 효소의 성능을 개량하는 공학적 접근.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/chemical', title: '화학공학', subtitle: 'Chemical Engineering' },
+  { href: '/chemical/polymer', title: '고분자공학', subtitle: 'Polymer Engineering' },
+  { href: '/chemical/energy', title: '에너지화학공학', subtitle: 'Energy Chemical Engineering' },
+  { href: '/chemical/environmental', title: '환경화학공학', subtitle: 'Environmental Chemical Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 생명화학공학 전공 맛보기 | 대치프라임"
+  metaDescription="바이오의약품, 발효, 효소공학까지 생명화학공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="생명화학공학 / 바이오화학공학과"
+  descriptionPrefix={`화학공학부 안에서 미생물, 세포, 효소를 이용해 의약품과 유용물질을 생산하는 학과예요. 바이오 산업과 가장 맞닿아 있습니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 생물반응기, 발효, 효소)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

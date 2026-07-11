@@ -1,0 +1,42 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '고분자공학과',
+    subtitle: 'Polymer Engineering',
+    careers: ['석유화학 및 소재 기업(금호석유화학·한화솔루션·효성첨단소재)', '타이어 제조사'],
+    courses: [
+      {
+        name: '고분자공학',
+        nameEn: 'Polymer Engineering',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '고분자 합성 기술', en: 'Polymerization (Addition/Condensation)', desc: '작은 단위체(모노머)가 반복적으로 연결되어 고분자를 만드는 반응. 이중결합이 연쇄적으로 열리는 부가중합과, 작은 분자를 방출하며 결합하는 축합중합으로 나뉨.' },
+          { ko: '고분자 물성', en: 'Polymer Properties (Crystallinity/Tg)', desc: '고분자 사슬이 규칙적으로 배열된 정도(결정화도)와, 사슬 운동이 얼어붙어 유리처럼 딱딱해지는 온도(유리전이온도)로 고분자의 기계적 성질을 이해함.' },
+          { ko: '플라스틱 및 고무 성형가공법', en: 'Plastic & Rubber Molding/Processing', desc: '사출성형, 압출 등의 방법으로 고분자를 원하는 형태의 제품으로 가공하는 기술.' },
+          { ko: '고기능성 섬유', en: 'High-Performance Fibers', desc: '아라미드, 탄소섬유 등 일반 섬유보다 훨씬 강하거나 내열성이 뛰어난 특수 섬유 소재.' },
+          { ko: '복합재료 유변학', en: 'Rheology of Composite Materials', desc: '고분자나 복합재료가 흐르고 변형되는 유동 특성을 연구하는 학문. 성형 공정 설계에 필수적.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/chemical', title: '화학공학', subtitle: 'Chemical Engineering' },
+  { href: '/chemical/energy', title: '에너지화학공학', subtitle: 'Energy Chemical Engineering' },
+  { href: '/chemical/bio', title: '생명화학공학', subtitle: 'Biochemical Engineering' },
+  { href: '/chemical/environmental', title: '환경화학공학', subtitle: 'Environmental Chemical Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 고분자공학 전공 맛보기 | 대치프라임"
+  metaDescription="고분자 합성부터 성형가공, 복합재료까지 고분자공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="고분자공학과"
+  descriptionPrefix={`화학공학부 안에서 플라스틱, 고무, 섬유 같은 고분자 소재를 다루는 학과예요. 합성부터 가공, 물성 평가까지 배웁니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 중합, 유리전이온도, 아라미드)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

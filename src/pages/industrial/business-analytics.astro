@@ -1,0 +1,53 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '데이터사이언스 / 비즈니스 애널리틱스',
+    subtitle: 'Data Science & Business Analytics',
+    careers: ['IT 기업(네이버·카카오)', '금융권 데이터 분석가', '대기업 DX(디지털 전환) 추진 부서'],
+    courses: [
+      {
+        name: '확률통계 및 시뮬레이션',
+        nameEn: 'Probability, Statistics & Simulation',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '가설검정', en: 'Hypothesis Testing', desc: '표본 데이터를 바탕으로 모집단에 대한 주장(가설)이 통계적으로 유의한지 판단하는 절차. 품질 개선, 공정 비교의 기본 도구.' },
+          { ko: '회귀분석', en: 'Regression Analysis', desc: '변수들 사이의 관계를 수식으로 모델링해 예측하거나 인과관계를 분석하는 통계 기법.' },
+          { ko: '대기행렬이론', en: 'Queueing Theory', formula: '\\rho = \\lambda / \\mu', desc: '고객(작업)이 도착해 서비스를 기다리는 시스템을 확률적으로 모델링하는 이론. 콜센터, 생산라인, 병원 설계에 응용됨.' },
+          { ko: '몬테카를로 시뮬레이션', en: 'Monte Carlo Simulation', desc: '난수를 이용해 복잡한 확률적 시스템을 반복 시행으로 근사하는 방법. 해석적으로 풀기 어려운 문제의 성능을 추정할 때 사용.' },
+        ],
+      },
+      {
+        name: '데이터분석 및 비즈니스 애널리틱스',
+        nameEn: 'Data Analytics & Business Analytics',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '데이터마이닝', en: 'Data Mining', desc: '대량의 데이터에서 유의미한 패턴이나 규칙을 자동으로 찾아내는 기법. 군집분석, 연관규칙분석 등이 대표적.' },
+          { ko: 'ERP 시스템', en: 'Enterprise Resource Planning', desc: '생산, 재무, 인사 등 기업의 전체 자원과 프로세스를 하나의 통합된 정보시스템으로 관리하는 체계.' },
+          { ko: '산업통계학', en: 'Industrial Statistics', desc: '제조·서비스 현장의 데이터를 통계적으로 분석해 공정 개선과 의사결정에 활용하는 응용통계 분야.' },
+          { ko: '비정형데이터분석', en: 'Unstructured Data Analysis', desc: '텍스트, 이미지 등 정형화되지 않은 데이터에서 패턴과 인사이트를 추출하는 분석 기법.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/industrial', title: '산업공학', subtitle: 'Industrial Engineering' },
+  { href: '/industrial/management', title: '경영공학', subtitle: 'Engineering Management' },
+  { href: '/industrial/quality', title: '품질경영/신뢰성공학', subtitle: 'Quality & Reliability Engineering' },
+  { href: '/industrial/logistics', title: '물류/유통시스템공학', subtitle: 'Logistics Engineering' },
+  { href: '/industrial/systems', title: '시스템공학', subtitle: 'Systems Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 데이터사이언스/비즈니스애널리틱스 전공 맛보기 | 대치프라임"
+  metaDescription="데이터마이닝, ERP, 산업통계학까지 데이터사이언스/비즈니스 애널리틱스학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="데이터사이언스 / 비즈니스 애널리틱스학과"
+  descriptionPrefix={`산업공학과 안에서 데이터로 기업의 의사결정을 돕는 학과예요. 확률통계부터 데이터마이닝, ERP까지 다룹니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 데이터마이닝, ERP, 몬테카를로)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

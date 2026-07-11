@@ -1,0 +1,45 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '자동차공학 / 미래모빌리티',
+    subtitle: 'Automotive Engineering & Future Mobility',
+    careers: ['완성차 업체(현대자동차·기아)', '자동차 부품사(현대모비스·HL만도)', '자율주행 스타트업'],
+    courses: [
+      {
+        name: '자동차공학 및 미래모빌리티',
+        nameEn: 'Automotive Engineering & Future Mobility',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '차량동역학', en: 'Vehicle Dynamics', desc: '자동차가 가속, 제동, 선회할 때 타이어와 차체에 작용하는 힘을 분석해 주행 성능과 안정성을 설계하는 학문.' },
+          { ko: '내연기관제어', en: 'Internal Combustion Engine Control', desc: '연료 분사 시기, 점화 타이밍 등을 정밀하게 제어해 엔진의 효율과 배출가스를 최적화하는 기술.' },
+          { ko: '전기차 배터리 패키징', en: 'EV Battery Packaging', desc: '전기차의 배터리 셀들을 안전하고 효율적으로 배치·냉각·보호하도록 설계하는 기술.' },
+          { ko: '자율주행 센서 융합', en: 'Autonomous Driving Sensor Fusion', desc: '카메라, 라이다, 레이더 등 여러 센서의 정보를 통합해 주변 환경을 정확하게 인식하는 기술.' },
+          { ko: '샤시설계', en: 'Chassis Design', desc: '차량의 뼈대와 서스펜션, 조향 장치 등을 설계해 주행 안정성과 승차감을 결정하는 영역.' },
+          { ko: '동력전달계통', en: 'Powertrain', desc: '엔진이나 모터에서 만든 동력을 바퀴까지 전달하는 변속기, 구동축 등의 시스템.' },
+          { ko: '서스펜션 및 타이어 역학', en: 'Suspension & Tire Dynamics', desc: '노면의 충격을 흡수하고 차체의 자세를 안정시키는 서스펜션과, 타이어와 노면 사이의 마찰력을 다루는 역학.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
+  { href: '/mechanical/robotics', title: '로봇공학/메카트로닉스', subtitle: 'Robotics & Mechatronics' },
+  { href: '/mechanical/energy', title: '에너지기계/열유체', subtitle: 'Energy & Thermo-Fluid' },
+  { href: '/mechanical/manufacturing', title: '정밀기계/생산', subtitle: 'Precision & Production' },
+  { href: '/mechanical/naval', title: '조선해양공학', subtitle: 'Naval Architecture' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 자동차공학 전공 맛보기 | 대치프라임"
+  metaDescription="차량동역학, 전기차, 자율주행까지 자동차공학/미래모빌리티학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="자동차공학 / 미래모빌리티학과"
+  descriptionPrefix={`기계공학부 안에서 자동차와 차세대 모빌리티에 특화된 학과예요. 내연기관부터 전기차, 자율주행까지 다룹니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 차량동역학, 배터리, SLAM)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

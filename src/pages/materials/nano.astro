@@ -1,0 +1,43 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '나노소재공학과',
+    subtitle: 'Nanomaterials Engineering',
+    careers: ['차세대 디스플레이 및 배터리 연구소', '정부출연연구기관(한국과학기술연구원(KIST)·한국화학연구원)'],
+    courses: [
+      {
+        name: '나노소재공학',
+        nameEn: 'Nanomaterials Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '양자점', en: 'Quantum Dots', desc: '나노미터 크기의 반도체 입자로, 크기에 따라 발광 파장이 달라지는 양자구속효과를 나타냄. 디스플레이, 바이오 이미징에 활용.' },
+          { ko: '나노입자 합성', en: 'Nanoparticle Synthesis', desc: '화학적 환원, 졸-겔법 등을 통해 나노미터 크기의 입자를 제어된 형태와 크기로 만들어내는 기법.' },
+          { ko: '표면적 대 부피비 효과', en: 'Surface-to-Volume Ratio Effect', desc: '입자가 작아질수록 표면적이 부피에 비해 급격히 커져 반응성, 촉매 활성 등이 크게 달라지는 나노 스케일 고유의 현상.' },
+          { ko: '탄소나노튜브 및 그래핀', en: 'Carbon Nanotubes & Graphene', desc: '탄소 원자가 육각형 격자로 이루어진 나노 소재. 탄소나노튜브는 원통형, 그래핀은 단일층 평면 구조로 매우 뛰어난 전기전도성과 강도를 가짐.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
+  { href: '/materials/metal', title: '금속공학', subtitle: 'Metallurgical Engineering' },
+  { href: '/materials/ceramic', title: '세라믹공학', subtitle: 'Ceramic Engineering' },
+  { href: '/materials/electronic', title: '전자재료공학', subtitle: 'Electronic Materials Engineering' },
+  { href: '/materials/bio', title: '생체재료공학', subtitle: 'Biomaterials Engineering' },
+  { href: '/materials/composite', title: '복합재료공학', subtitle: 'Composite Materials Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 나노소재공학 전공 맛보기 | 대치프라임"
+  metaDescription="양자점, 그래핀, 나노입자까지 나노소재공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="나노소재공학과"
+  descriptionPrefix={`신소재공학부 안에서 나노미터 크기의 소재를 다루는 최신 학과예요. 양자점, 그래핀 등 차세대 소재를 배웁니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 양자점, 그래핀, 나노입자)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

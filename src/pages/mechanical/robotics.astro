@@ -1,0 +1,45 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '로봇공학 / 메카트로닉스공학과',
+    subtitle: 'Robotics & Mechatronics Engineering',
+    careers: ['로봇 제조사(두산로보틱스·레인보우로보틱스)', '대기업 로봇 사업부(삼성·LG·현대)', '자동화 설비 기업'],
+    courses: [
+      {
+        name: '로봇공학 및 메카트로닉스',
+        nameEn: 'Robotics & Mechatronics',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '로봇 기구학', en: 'Robot Kinematics', desc: '관절 각도로부터 말단 장치의 위치를 구하는 순기구학과, 원하는 말단 위치로부터 필요한 관절 각도를 구하는 역기구학.' },
+          { ko: '모터 및 액추에이터 제어', en: 'Motor & Actuator Control', desc: '로봇의 움직임을 만들어내는 모터와 액추에이터를 정밀하게 구동·제어하는 기술.' },
+          { ko: '임베디드 시스템', en: 'Embedded Systems for Robotics', desc: '로봇 내부에 탑재되어 센서와 모터를 실시간으로 제어하는 마이크로컨트롤러 프로그래밍.' },
+          { ko: '센서 응용', en: 'Sensor Applications', desc: '힘, 거리, 자세 등을 측정하는 다양한 센서를 로봇에 응용하는 기술.' },
+          { ko: 'SLAM', en: 'Simultaneous Localization and Mapping', desc: '로봇이 미지의 환경을 돌아다니며 동시에 자기 위치를 추정하고 주변 지도를 작성하는 자율주행 로봇의 핵심 기술.' },
+          { ko: '자유도', en: 'Degrees of Freedom (DOF)', desc: '시스템의 상태를 완전히 기술하는 데 필요한 독립적인 변수의 개수. 로봇 팔이나 기구의 움직임 범위를 나타내는 지표.' },
+          { ko: '피드백 제어', en: 'Feedback Control', desc: '시스템의 출력을 측정해 입력을 조정함으로써 원하는 상태를 유지하는 제어 방식. 로봇, 자동차, 공정 제어 전반의 기본 원리.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
+  { href: '/mechanical/automotive', title: '자동차공학/미래모빌리티', subtitle: 'Automotive Engineering' },
+  { href: '/mechanical/energy', title: '에너지기계/열유체', subtitle: 'Energy & Thermo-Fluid' },
+  { href: '/mechanical/manufacturing', title: '정밀기계/생산', subtitle: 'Precision & Production' },
+  { href: '/mechanical/naval', title: '조선해양공학', subtitle: 'Naval Architecture' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 로봇공학 전공 맛보기 | 대치프라임"
+  metaDescription="로봇 기구학, 제어, SLAM까지 로봇공학/메카트로닉스공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="로봇공학 / 메카트로닉스공학과"
+  descriptionPrefix={`기계공학부 안에서 로봇의 움직임과 지능을 설계하는 학과예요. 기구학, 센서, 제어, 자율주행 기술을 다룹니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: SLAM, 기구학, 액추에이터)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

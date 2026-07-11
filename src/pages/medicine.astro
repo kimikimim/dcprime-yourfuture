@@ -3,6 +3,33 @@ import GlossaryLayout from '../layouts/GlossaryLayout.astro';
 
 const TRACKS = [
   {
+    title: '의예과',
+    subtitle: '본과에 들어가기 전 2년간 배우는 자연과학·인문학 기초 과정. 의학을 이해하기 위한 생물학적·화학적 기초를 다집니다.',
+    courses: [
+      {
+        name: '의예과 기초과학',
+        nameEn: 'Pre-Medical Basic Sciences',
+        year: '의예과 1~2학년',
+        terms: [
+          { ko: '일반생물학', en: 'General Biology', desc: '세포, 유전, 생리 등 생명현상의 기본 원리를 다루는 과목. 본과에서 배울 인체생리학의 기초.', example: '세포막을 통한 물질 이동 원리가 나중에 약물이 세포에 흡수되는 과정을 이해하는 기초가 됨.' },
+          { ko: '유기화학', en: 'Organic Chemistry', desc: '탄소 화합물의 구조와 반응을 다루는 화학. 약물, 호르몬, 대사물질을 이해하는 데 필수.', example: '약물이 몸속에서 어떻게 변형되는지(대사) 이해하는 화학적 기초.' },
+          { ko: '생화학', en: 'Biochemistry', desc: '단백질, 효소, 대사 경로 등 생명체 안에서 일어나는 화학 반응을 다루는 학문.', example: '당뇨병에서 혈당이 어떻게 조절되는지를 분자 수준에서 이해하는 기초.' },
+          { ko: '물리학(의학용)', en: 'Physics for Medicine', desc: '압력, 유체역학, 방사선 등 의료기기와 인체 생리 현상을 이해하는 데 필요한 물리 원리.', example: '혈압계가 혈압을 측정하는 원리, X선 촬영의 물리적 원리.' },
+          { ko: '의학용어 및 해부학개론', en: 'Medical Terminology & Introductory Anatomy', desc: '라틴어·그리스어 기반의 의학 용어 체계와 인체 기본 구조를 익히는 입문 과목.', example: '진단서나 의무기록에 쓰이는 전문 용어를 읽고 쓸 수 있게 되는 시작점.' },
+        ],
+      },
+      {
+        name: '의료인문학',
+        nameEn: 'Medical Humanities',
+        year: '의예과 2학년',
+        terms: [
+          { ko: '의료윤리 개론', en: 'Introduction to Medical Ethics', desc: '환자의 자율성, 선행, 악행금지, 정의 등 의료 현장에서 마주치는 윤리적 원칙을 다루는 과목.', example: '연명치료 중단처럼 어려운 결정을 내릴 때 참고하는 윤리적 틀.' },
+          { ko: '의사소통기술', en: 'Clinical Communication Skills', desc: '환자와 신뢰관계를 형성하고 정확한 병력을 청취하는 대화 기법을 배우는 과목.', example: '"어디가 아프세요?"부터 시작해 정확한 진단에 필요한 정보를 이끌어내는 문진 기술.' },
+        ],
+      },
+    ],
+  },
+  {
     title: '내과계열',
     subtitle: '신체 내부 장기의 질환을 수술 없이 약물과 처치로 진단·치료하는 분야',
     careers: ['내과 전문의', '소아청소년과 전문의', '정신건강의학과 전문의'],

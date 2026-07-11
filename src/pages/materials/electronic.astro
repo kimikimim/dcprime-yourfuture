@@ -1,0 +1,46 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '전자재료공학과',
+    subtitle: 'Electronic Materials Engineering',
+    careers: ['종합 반도체 기업(삼성전자·SK하이닉스)', '디스플레이 제조사(LG디스플레이·삼성디스플레이)', '반도체 소재사'],
+    courses: [
+      {
+        name: '전자재료공학',
+        nameEn: 'Electronic Materials Engineering',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '밴드갭', en: 'Band Gap', desc: '전자가 존재할 수 없는 전도띠와 가전자띠 사이의 에너지 간격. 물질이 도체, 반도체, 절연체 중 무엇인지, 어떤 색의 빛을 내는지를 결정함.' },
+          { ko: '유전율', en: 'Permittivity (Dielectric Constant)', desc: '물질이 전기장에 반응해 분극되는 정도를 나타내는 값. 커패시터, 절연체 재료 선정의 핵심 지표.' },
+          { ko: '압전 효과', en: 'Piezoelectric Effect', desc: '특정 결정에 기계적 응력을 가하면 전압이 발생하고, 반대로 전압을 가하면 변형이 일어나는 현상. 센서와 액추에이터에 활용.' },
+          { ko: '초전도', en: 'Superconductivity', desc: '특정 임계온도 이하에서 전기 저항이 완전히 0이 되는 현상. MRI, 자기부상열차 등 초강력 전자석 응용의 핵심.' },
+          { ko: '반도체 박막공학', en: 'Semiconductor Thin Film Engineering', desc: '반도체 소자 제작에 필요한 나노미터 두께의 얇은 막을 증착·제어하는 기술.' },
+          { ko: 'OLED 발광소재 디스플레이', en: 'OLED Emissive Materials for Displays', desc: '스스로 빛을 내는 유기 발광 소재를 이용한 디스플레이용 재료 기술.' },
+          { ko: '유연소자 재료', en: 'Materials for Flexible Devices', desc: '휘어지거나 늘어나는 전자소자를 구현하기 위한 신축성 있는 전자재료.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
+  { href: '/materials/metal', title: '금속공학', subtitle: 'Metallurgical Engineering' },
+  { href: '/materials/ceramic', title: '세라믹공학', subtitle: 'Ceramic Engineering' },
+  { href: '/materials/nano', title: '나노소재공학', subtitle: 'Nanomaterials Engineering' },
+  { href: '/materials/bio', title: '생체재료공학', subtitle: 'Biomaterials Engineering' },
+  { href: '/materials/composite', title: '복합재료공학', subtitle: 'Composite Materials Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 전자재료공학 전공 맛보기 | 대치프라임"
+  metaDescription="반도체 박막, OLED 소재, 유연소자까지 전자재료공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="전자재료공학과"
+  descriptionPrefix={`신소재공학부 안에서 반도체·디스플레이용 전자재료를 다루는 학과예요. 밴드갭부터 유연소자 재료까지 폭넓게 배웁니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 밴드갭, OLED, 초전도)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

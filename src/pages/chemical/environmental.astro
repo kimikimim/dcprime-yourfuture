@@ -1,0 +1,41 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '환경화학공학과',
+    subtitle: 'Environmental Chemical Engineering',
+    careers: ['기업 내 ESG/환경안전 부서', '환경 전문 엔지니어링 기업', '한국환경공단 등 공공기관'],
+    courses: [
+      {
+        name: '환경화학공학',
+        nameEn: 'Environmental Chemical Engineering',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '탄소포집·활용·저장', en: 'Carbon Capture, Utilization & Storage (CCUS)', desc: '공장이나 발전소에서 배출되는 이산화탄소를 포집해 활용하거나 땅속에 저장함으로써 탄소 배출을 줄이는 기술.' },
+          { ko: '폐수 및 폐기물 화학적 처리', en: 'Chemical Treatment of Wastewater & Waste', desc: '물리적, 화학적, 생물학적 처리 단계를 거쳐 폐수·폐기물의 오염물질을 제거하고 배출 기준을 만족시키는 공정.' },
+          { ko: '대기오염 방지공정', en: 'Air Pollution Control Process', desc: '황산화물, 질소산화물 등 배출가스 중 오염물질을 흡수, 흡착, 촉매 반응 등으로 제거하는 공정 기술.' },
+          { ko: '친환경 대체 공정', en: 'Eco-Friendly Alternative Processes', desc: '유해 물질 사용을 줄이거나 에너지 소비를 낮추는 방향으로 기존 화학 공정을 재설계하는 접근법.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/chemical', title: '화학공학', subtitle: 'Chemical Engineering' },
+  { href: '/chemical/polymer', title: '고분자공학', subtitle: 'Polymer Engineering' },
+  { href: '/chemical/energy', title: '에너지화학공학', subtitle: 'Energy Chemical Engineering' },
+  { href: '/chemical/bio', title: '생명화학공학', subtitle: 'Biochemical Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 환경화학공학 전공 맛보기 | 대치프라임"
+  metaDescription="탄소포집, 폐수처리, 대기오염 방지까지 환경화학공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="환경화학공학과"
+  descriptionPrefix={`화학공학부 안에서 오염물질을 처리하고 탄소중립을 실현하는 공정을 다루는 학과예요. ESG 시대에 수요가 커지고 있습니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: CCUS, 폐수처리, 대기오염)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

@@ -1,0 +1,59 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '품질경영 / 신뢰성공학과',
+    subtitle: 'Quality Management & Reliability Engineering',
+    careers: ['모든 제조 기업의 품질보증(QA) 및 품질관리(QC) 직무', '공인 시험인증 기관'],
+    courses: [
+      {
+        name: '품질관리',
+        nameEn: 'Quality Control',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '통계적 공정관리', en: 'Statistical Process Control (SPC)', desc: '관리도(Control Chart)를 이용해 공정이 정상 범위 안에서 운영되는지 실시간으로 감시하는 품질관리 기법.' },
+          { ko: '6시그마', en: 'Six Sigma', desc: '공정의 결함률을 백만 개당 3.4개 이하로 낮추는 것을 목표로 하는 품질 경영 방법론. DMAIC 절차로 문제를 개선함.' },
+          { ko: '신뢰성 공학', en: 'Reliability Engineering', desc: '제품이나 시스템이 고장 없이 얼마나 오래 작동하는지를 정량적으로 분석하는 분야. 평균고장간격(MTBF) 등의 지표를 사용함.' },
+        ],
+      },
+      {
+        name: '신뢰성 시험 및 수명예측',
+        nameEn: 'Reliability Testing & Life Prediction',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '신뢰성 시험 분석', en: 'Reliability Testing Analysis', desc: '제품을 실제 사용 환경과 유사한 조건에서 시험해 고장 데이터를 수집·분석하는 기법.' },
+          { ko: '수명예측모델링', en: 'Life Prediction Modeling', desc: '와이블 분포 등 통계 모델을 이용해 제품의 수명과 고장 확률을 예측하는 기법.' },
+        ],
+      },
+      {
+        name: '안전공학',
+        nameEn: 'Safety Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '위험성평가', en: 'Risk Assessment', desc: '작업장이나 공정에서 발생할 수 있는 위험 요인을 식별하고, 그 발생 가능성과 심각도를 평가해 대책을 마련하는 절차.' },
+          { ko: 'FMEA', en: 'Failure Mode and Effects Analysis', desc: '시스템의 각 구성요소가 고장 날 수 있는 방식(고장모드)과 그 영향을 사전에 체계적으로 분석하는 신뢰성·안전성 분석 기법.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/industrial', title: '산업공학', subtitle: 'Industrial Engineering' },
+  { href: '/industrial/business-analytics', title: '데이터사이언스/BA', subtitle: 'Data Science & Business Analytics' },
+  { href: '/industrial/management', title: '경영공학', subtitle: 'Engineering Management' },
+  { href: '/industrial/logistics', title: '물류/유통시스템공학', subtitle: 'Logistics Engineering' },
+  { href: '/industrial/systems', title: '시스템공학', subtitle: 'Systems Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 품질경영/신뢰성공학 전공 맛보기 | 대치프라임"
+  metaDescription="6시그마, 신뢰성 시험, 안전공학까지 품질경영/신뢰성공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="품질경영 / 신뢰성공학과"
+  descriptionPrefix={`산업공학과 안에서 제품과 공정의 품질·안전을 지키는 학과예요. 6시그마부터 수명예측, FMEA까지 다룹니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 6시그마, MTBF, FMEA)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

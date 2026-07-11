@@ -1,0 +1,42 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '에너지기계 / 열유체공학과',
+    subtitle: 'Energy Machinery & Thermo-Fluid Engineering',
+    careers: ['가전 기업(LG전자·삼성전자)', '엔지니어링 및 건설사(현대엔지니어링·삼성엔지니어링)', '발전공기업'],
+    courses: [
+      {
+        name: '에너지기계 및 열유체공학',
+        nameEn: 'Energy Machinery & Thermo-Fluid Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '공조냉동 (HVAC)', en: 'Heating, Ventilation & Air Conditioning', desc: '실내 공간의 온도, 습도, 공기질을 원하는 상태로 유지하는 냉난방·환기 시스템을 설계하는 기술.' },
+          { ko: '열교환기 설계', en: 'Heat Exchanger Design', desc: '두 유체 사이에서 열을 효율적으로 교환하도록 설계하는 장치. 발전소, 화학플랜트, 냉동기 전반에 필수적인 요소.' },
+          { ko: '가스터빈 및 발전설비', en: 'Gas Turbines & Power Generation Equipment', desc: '고온·고압의 연소 가스로 터빈을 돌려 전기를 생산하는 발전 설비를 설계하는 기술.' },
+          { ko: '전자기기 열관리', en: 'Thermal Management for Electronics', desc: '스마트폰, 서버 등 전자기기에서 발생하는 열을 효과적으로 방출해 성능 저하와 고장을 막는 기술.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
+  { href: '/mechanical/automotive', title: '자동차공학/미래모빌리티', subtitle: 'Automotive Engineering' },
+  { href: '/mechanical/robotics', title: '로봇공학/메카트로닉스', subtitle: 'Robotics & Mechatronics' },
+  { href: '/mechanical/manufacturing', title: '정밀기계/생산', subtitle: 'Precision & Production' },
+  { href: '/mechanical/naval', title: '조선해양공학', subtitle: 'Naval Architecture' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 에너지기계공학 전공 맛보기 | 대치프라임"
+  metaDescription="공조냉동, 발전설비, 열관리까지 에너지기계/열유체공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="에너지기계 / 열유체공학과"
+  descriptionPrefix={`기계공학부 안에서 열과 유체를 다뤄 에너지를 만들고 관리하는 학과예요. 냉난방, 발전설비, 전자기기 열관리까지 폭넓게 다룹니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: HVAC, 가스터빈, 열교환기)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

@@ -1,0 +1,44 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '세라믹공학과',
+    subtitle: 'Ceramic Engineering',
+    careers: ['반도체 부품사', '세라믹 소재 기업(포스코케미칼·KCC)', '유리 가공 기업'],
+    courses: [
+      {
+        name: '세라믹공학',
+        nameEn: 'Ceramic Engineering',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '세라믹의 결합 특성', en: 'Ionic & Covalent Bonding in Ceramics', desc: '세라믹은 주로 이온결합과 공유결합으로 이루어져 금속보다 단단하고 녹는점이 높지만 전위 이동이 어려움.' },
+          { ko: '세라믹의 취성', en: 'Brittleness of Ceramics', desc: '세라믹이 소성 변형 없이 갑자기 파괴되는 성질. 미세한 균열이 응력집중을 일으켜 쉽게 파괴로 이어짐.' },
+          { ko: '무기재료 열역학', en: 'Thermodynamics of Inorganic Materials', desc: '세라믹, 유리 등 무기재료의 상변화와 반응을 열역학적으로 다루는 학문.' },
+          { ko: '결정학', en: 'Crystallography', desc: '세라믹 등 결정성 재료의 원자 배열과 대칭성을 체계적으로 분석하는 학문.' },
+          { ko: '절연 및 자성 세라믹 소재', en: 'Insulating & Magnetic Ceramic Materials', desc: '전기를 통하지 않는 절연 세라믹과, 자성을 띠는 페라이트 등 기능성 세라믹 소재.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
+  { href: '/materials/metal', title: '금속공학', subtitle: 'Metallurgical Engineering' },
+  { href: '/materials/electronic', title: '전자재료공학', subtitle: 'Electronic Materials Engineering' },
+  { href: '/materials/nano', title: '나노소재공학', subtitle: 'Nanomaterials Engineering' },
+  { href: '/materials/bio', title: '생체재료공학', subtitle: 'Biomaterials Engineering' },
+  { href: '/materials/composite', title: '복합재료공학', subtitle: 'Composite Materials Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 세라믹공학 전공 맛보기 | 대치프라임"
+  metaDescription="결정학, 무기재료 열역학, 기능성 세라믹까지 세라믹공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="세라믹공학과"
+  descriptionPrefix={`신소재공학부 안에서 도자기, 유리, 반도체 부품용 세라믹까지 무기재료를 다루는 학과예요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 결정학, 취성, 절연세라믹)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

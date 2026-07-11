@@ -1,0 +1,44 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '경영공학과',
+    subtitle: 'Engineering Management',
+    careers: ['글로벌 전략 컨설팅 펌', '기업 기획실', '벤처캐피탈(VC)', '증권사 리서치 센터'],
+    courses: [
+      {
+        name: '경영공학',
+        nameEn: 'Engineering Management',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '의사결정분석', en: 'Decision Analysis', desc: '불확실한 상황에서 여러 대안 중 최선의 선택을 체계적으로 고르는 방법론. 의사결정나무, 기대값 계산 등을 활용함.' },
+          { ko: '게임이론', en: 'Game Theory', desc: '여러 의사결정자의 전략이 서로에게 영향을 미치는 상황을 수학적으로 분석하는 이론. 내쉬균형이 대표적 개념으로, 가격 경쟁·입찰 전략 분석에 쓰임.' },
+          { ko: '공학경제학', en: 'Engineering Economics', desc: '투자안의 경제성을 현재가치, 내부수익률 등으로 평가해 최적의 공학적 의사결정을 내리는 학문.' },
+          { ko: '기술경영', en: 'Management of Technology (MOT)', desc: '기술을 기업의 전략적 자산으로 관리하며 R&D 투자, 기술 로드맵을 수립하는 경영 분야.' },
+          { ko: '재무 리스크 관리', en: 'Financial Risk Management', desc: '시장, 신용, 운영 등 다양한 위험 요인을 정량적으로 측정하고 관리하는 기법.' },
+          { ko: '투자 타당성 분석', en: 'Investment Feasibility Analysis', desc: '새로운 사업이나 설비 투자가 경제적으로 타당한지를 순현재가치(NPV) 등으로 평가하는 분석.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/industrial', title: '산업공학', subtitle: 'Industrial Engineering' },
+  { href: '/industrial/business-analytics', title: '데이터사이언스/BA', subtitle: 'Data Science & Business Analytics' },
+  { href: '/industrial/quality', title: '품질경영/신뢰성공학', subtitle: 'Quality & Reliability Engineering' },
+  { href: '/industrial/logistics', title: '물류/유통시스템공학', subtitle: 'Logistics Engineering' },
+  { href: '/industrial/systems', title: '시스템공학', subtitle: 'Systems Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 경영공학 전공 맛보기 | 대치프라임"
+  metaDescription="공학경제학, 기술경영, 재무리스크관리까지 경영공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="경영공학과"
+  descriptionPrefix={`산업공학과 안에서 공학적 사고와 경영학을 결합한 학과예요. 투자분석, 기술경영, 게임이론까지 다룹니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 게임이론, MOT, NPV)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

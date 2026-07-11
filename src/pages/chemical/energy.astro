@@ -1,0 +1,42 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '에너지화학공학과',
+    subtitle: 'Energy Chemical Engineering',
+    careers: ['이차전지 배터리 제조사(LG에너지솔루션·SK온·삼성SDI)', '배터리 소재사(포스코퓨처엠·에코프로비엠)'],
+    courses: [
+      {
+        name: '에너지화학공학',
+        nameEn: 'Energy Chemical Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '배터리 셀 설계', en: 'Battery Cell Design', desc: '양극, 음극, 전해질, 분리막을 조합해 에너지 밀도와 안전성을 최적화하는 배터리 셀 구조 설계.' },
+          { ko: '양극재와 음극재 합성', en: 'Cathode & Anode Material Synthesis', desc: '리튬이온을 저장하는 배터리의 핵심 소재인 양극재와 음극재를 화학적으로 합성하는 기술.' },
+          { ko: '수소 연료전지', en: 'Hydrogen Fuel Cell', desc: '수소와 산소의 전기화학 반응을 통해 연소 없이 직접 전기를 생산하는 장치. 부산물이 물뿐이라 친환경 에너지원으로 주목받음.' },
+          { ko: '태양광 소재', en: 'Photovoltaic Materials', desc: '빛 에너지를 전기로 변환하는 태양전지의 핵심 반도체 소재를 연구하는 분야.' },
+          { ko: '차세대 전기화학 소자', en: 'Next-Gen Electrochemical Devices', desc: '전고체전지, 슈퍼커패시터 등 기존 리튬이온전지의 한계를 넘어서려는 차세대 에너지 저장·변환 소자.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/chemical', title: '화학공학', subtitle: 'Chemical Engineering' },
+  { href: '/chemical/polymer', title: '고분자공학', subtitle: 'Polymer Engineering' },
+  { href: '/chemical/bio', title: '생명화학공학', subtitle: 'Biochemical Engineering' },
+  { href: '/chemical/environmental', title: '환경화학공학', subtitle: 'Environmental Chemical Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 에너지화학공학 전공 맛보기 | 대치프라임"
+  metaDescription="배터리, 연료전지, 태양광 소재까지 에너지화학공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="에너지화학공학과"
+  descriptionPrefix={`화학공학부 안에서 이차전지, 연료전지, 태양광처럼 에너지를 저장·생산하는 화학 소재를 다루는 학과예요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 배터리셀, 양극재, 연료전지)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

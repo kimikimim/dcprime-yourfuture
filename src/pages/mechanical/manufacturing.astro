@@ -1,0 +1,42 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '정밀기계 / 생산공학과',
+    subtitle: 'Precision Machinery & Production Engineering',
+    careers: ['공작기계 제조사(DN솔루션즈)', '반도체·디스플레이 장비사(ASML·원익IPS)', '생산기술 연구소'],
+    courses: [
+      {
+        name: '정밀기계 및 생산공학',
+        nameEn: 'Precision Machinery & Production Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '컴퓨터지원제조', en: 'Computer-Aided Manufacturing (CAM)', desc: 'CAD로 설계한 형상을 바탕으로 공작기계가 자동으로 가공하도록 프로그래밍하는 기술.' },
+          { ko: '정밀가공학', en: 'Precision Machining', desc: '마이크로미터 수준의 오차 범위 안에서 부품을 가공하는 초정밀 가공 기술.' },
+          { ko: '스마트팩토리 공정제어', en: 'Smart Factory Process Control', desc: '센서와 데이터를 활용해 생산 공정을 실시간으로 모니터링하고 자동 제어하는 기술.' },
+          { ko: '나노정밀측정', en: 'Nano-Precision Metrology', desc: '나노미터 단위의 미세한 치수와 형상을 측정하는 초정밀 계측 기술.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
+  { href: '/mechanical/automotive', title: '자동차공학/미래모빌리티', subtitle: 'Automotive Engineering' },
+  { href: '/mechanical/robotics', title: '로봇공학/메카트로닉스', subtitle: 'Robotics & Mechatronics' },
+  { href: '/mechanical/energy', title: '에너지기계/열유체', subtitle: 'Energy & Thermo-Fluid' },
+  { href: '/mechanical/naval', title: '조선해양공학', subtitle: 'Naval Architecture' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 정밀기계공학 전공 맛보기 | 대치프라임"
+  metaDescription="CAM, 정밀가공, 스마트팩토리까지 정밀기계/생산공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="정밀기계 / 생산공학과"
+  descriptionPrefix={`기계공학부 안에서 부품을 정밀하게 가공하고 생산 공정을 설계하는 학과예요. 반도체·디스플레이 장비 산업과도 밀접합니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: CAM, 정밀가공, 스마트팩토리)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

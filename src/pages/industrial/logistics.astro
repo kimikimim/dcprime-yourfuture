@@ -1,0 +1,43 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '물류 / 유통시스템공학과',
+    subtitle: 'Logistics & Distribution Systems Engineering',
+    careers: ['이커머스 기업(쿠팡·네이버)', '대형 유통·물류사(CJ대한통운·현대글로비스)'],
+    courses: [
+      {
+        name: '물류 및 유통시스템공학',
+        nameEn: 'Logistics & Distribution Systems Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '시설입지선정', en: 'Facility Location', desc: '물류센터, 공장 등을 어디에 배치해야 운송비와 서비스 시간을 최소화할 수 있는지를 결정하는 최적화 문제.' },
+          { ko: '차량경로문제', en: 'Vehicle Routing Problem (VRP)', desc: '여러 고객에게 물건을 배송할 때, 제한된 차량으로 총 이동거리나 비용을 최소화하는 배송 경로를 짜는 조합 최적화 문제.' },
+          { ko: '물류센터 운영 최적화', en: 'Distribution Center Operations Optimization', desc: '입고, 보관, 피킹, 출고 등 물류센터 내부 작업 흐름을 효율화하는 기법.' },
+          { ko: '재고 통제 시스템', en: 'Inventory Control Systems', desc: '수요 변동에 대응하면서도 재고 비용을 최소화하도록 재고 수준을 관리하는 시스템.' },
+          { ko: '화물운송공학', en: 'Freight Transportation Engineering', desc: '트럭, 철도, 해상 등 다양한 운송 수단을 이용해 화물을 효율적으로 이동시키는 방법을 연구하는 분야.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/industrial', title: '산업공학', subtitle: 'Industrial Engineering' },
+  { href: '/industrial/business-analytics', title: '데이터사이언스/BA', subtitle: 'Data Science & Business Analytics' },
+  { href: '/industrial/management', title: '경영공학', subtitle: 'Engineering Management' },
+  { href: '/industrial/quality', title: '품질경영/신뢰성공학', subtitle: 'Quality & Reliability Engineering' },
+  { href: '/industrial/systems', title: '시스템공학', subtitle: 'Systems Engineering' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 물류/유통시스템공학 전공 맛보기 | 대치프라임"
+  metaDescription="물류센터 최적화, 배송 라우팅까지 물류/유통시스템공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="물류 / 유통시스템공학과"
+  descriptionPrefix={`산업공학과 안에서 물건이 가장 빠르고 저렴하게 이동하는 경로를 설계하는 학과예요. 쿠팡·CJ대한통운 같은 물류기업과 직결됩니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: VRP, 물류센터, 재고관리)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>
