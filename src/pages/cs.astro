@@ -161,6 +161,13 @@ const TRACKS = [
 ];
 
 const CAREERS = ['백엔드 개발자', '프론트엔드 개발자', '시스템 엔지니어', '임베디드 개발자', 'DevOps 엔지니어'];
+
+const RELATED_MAJORS = [
+  { href: '/cs/software', title: '소프트웨어학과', subtitle: 'Software Engineering' },
+  { href: '/cs/security', title: '정보보안학과', subtitle: 'Cyber Security' },
+  { href: '/cs/ai', title: '인공지능학과', subtitle: 'Artificial Intelligence' },
+  { href: '/cs/data-science', title: '데이터사이언스학과', subtitle: 'Data Science' },
+];
 ---
 
 <GlossaryLayout
@@ -171,4 +178,5 @@ const CAREERS = ['백엔드 개발자', '프론트엔드 개발자', '시스템 
   searchPlaceholder="개념 이름으로 검색 (예: 다익스트라, TCP, 캐시)"
   tracks={TRACKS}
   careers={CAREERS}
+  relatedMajors={RELATED_MAJORS}
 />

@@ -24,6 +24,12 @@ interface Track {
   careers?: string[];
 }
 
+interface RelatedMajor {
+  href: string;
+  title: string;
+  subtitle: string;
+}
+
 interface Props {
   metaTitle: string;
   metaDescription: string;
@@ -33,6 +39,7 @@ interface Props {
   searchPlaceholder: string;
   tracks: Track[];
   careers?: string[];
+  relatedMajors?: RelatedMajor[];
 }
 
 const {
@@ -44,6 +51,7 @@ const {
   searchPlaceholder,
   tracks,
   careers,
+  relatedMajors,
 } = Astro.props;
 
 const totalCourseCount = tracks.reduce((sum, t) => sum + t.courses.length, 0);
@@ -84,6 +92,25 @@ const totalTermCount = tracks.reduce((sum, t) => sum + t.courses.reduce((s, c) =
           )}
         </div>
       </div>
+
+      {relatedMajors && relatedMajors.length > 0 && (
+        <div class="border-b border-gray-200 bg-white">
+          <div class="container mx-auto px-4 py-4 sm:py-5">
+            <p class="text-xs font-semibold text-gray-400 mb-3">관련 학과</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {relatedMajors.map((m) => (
+                <a
+                  href={m.href}
+                  class="block bg-gray-50 rounded-lg border border-gray-100 px-3 py-2.5 hover:border-brand hover:bg-brand-light transition-colors"
+                >
+                  <p class="text-sm font-bold text-gray-900">{m.title}</p>
+                  <p class="text-[10px] text-gray-400">{m.subtitle}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       <div class="sticky top-0 z-40 bg-white border-b border-gray-200">
         <div class="container mx-auto px-4 py-3 sm:py-4">

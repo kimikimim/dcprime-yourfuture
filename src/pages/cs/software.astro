@@ -1,5 +1,5 @@
 ---
-import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
 
 const TRACKS = [
   {
@@ -125,6 +125,13 @@ const TRACKS = [
 ];
 
 const CAREERS = ['풀스택 개발자', '서비스 기획자', 'QA 엔지니어', '앱 개발자', '프로덕트 매니저'];
+
+const RELATED_MAJORS = [
+  { href: '/cs', title: '컴퓨터공학', subtitle: 'Computer Science' },
+  { href: '/cs/security', title: '정보보안학과', subtitle: 'Cyber Security' },
+  { href: '/cs/ai', title: '인공지능학과', subtitle: 'Artificial Intelligence' },
+  { href: '/cs/data-science', title: '데이터사이언스학과', subtitle: 'Data Science' },
+];
 ---
 
 <GlossaryLayout
@@ -135,4 +142,5 @@ const CAREERS = ['풀스택 개발자', '서비스 기획자', 'QA 엔지니어'
   searchPlaceholder="개념 이름으로 검색 (예: MVC, Git, REST)"
   tracks={TRACKS}
   careers={CAREERS}
+  relatedMajors={RELATED_MAJORS}
 />

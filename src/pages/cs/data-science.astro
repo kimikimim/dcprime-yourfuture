@@ -1,5 +1,5 @@
 ---
-import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
 
 const TRACKS = [
   {
@@ -104,6 +104,13 @@ const TRACKS = [
 ];
 
 const CAREERS = ['데이터 분석가', '비즈니스 인텔리전스(BI) 전문가', '데이터 엔지니어', '데이터 과학자'];
+
+const RELATED_MAJORS = [
+  { href: '/cs', title: '컴퓨터공학', subtitle: 'Computer Science' },
+  { href: '/cs/software', title: '소프트웨어학과', subtitle: 'Software Engineering' },
+  { href: '/cs/security', title: '정보보안학과', subtitle: 'Cyber Security' },
+  { href: '/cs/ai', title: '인공지능학과', subtitle: 'Artificial Intelligence' },
+];
 ---
 
 <GlossaryLayout
@@ -114,4 +121,5 @@ const CAREERS = ['데이터 분석가', '비즈니스 인텔리전스(BI) 전문
   searchPlaceholder="개념 이름으로 검색 (예: 하둡, 스파크, KPI)"
   tracks={TRACKS}
   careers={CAREERS}
+  relatedMajors={RELATED_MAJORS}
 />
