@@ -19,6 +19,16 @@ const TRACKS = [
         ],
       },
       {
+        name: '다변수해석학',
+        nameEn: 'Multivariable Analysis',
+        year: '2학년 1학기',
+        terms: [
+          { ko: '편미분과 그래디언트', en: 'Partial Derivatives & Gradient', formula: '\\nabla f = \\left(\\frac{\\partial f}{\\partial x}, \\frac{\\partial f}{\\partial y}\\right)', desc: '다변수함수의 각 변수에 대한 순간변화율(편미분)과, 이를 모아 함수가 가장 빠르게 증가하는 방향을 알려주는 벡터(그래디언트).' },
+          { ko: '그린 정리', en: "Green's Theorem", formula: '\\oint_C (Ldx+Mdy) = \\iint_D \\left(\\frac{\\partial M}{\\partial x} - \\frac{\\partial L}{\\partial y}\\right) dA', desc: '평면 위의 선적분을 영역에 대한 이중적분으로 바꿔주는 정리. 스토크스 정리의 2차원 특수한 경우.' },
+          { ko: '스토크스 정리', en: "Stokes' Theorem", desc: '곡면 위의 선적분(경계를 따라)을 곡면에 대한 면적분으로 연결하는 정리. 그린 정리를 3차원으로 일반화한 것.' },
+        ],
+      },
+      {
         name: '복소해석학',
         nameEn: 'Complex Analysis',
         year: '3학년 1학기',
@@ -27,6 +37,16 @@ const TRACKS = [
           { ko: '코시 적분 공식', en: "Cauchy's Integral Formula", desc: '복소해석학에서 정칙함수의 내부 값이 경계에서의 선적분으로 완전히 결정된다는 정리.' },
           { ko: '르베그 적분', en: 'Lebesgue Integral', desc: '치역을 쪼개어 측정(Measure, 측도)하는 방식으로 정의한 현대적 적분. 리만 적분이 불가능한 디리클레 함수 같은 경우도 적분 가능함.' },
           { ko: '디리클레 판정법', en: "Dirichlet's Test", desc: '무한급수의 수렴 여부를 판정할 때 사용하는 방법으로, 교대급수 판정법을 일반화한 형태.' },
+        ],
+      },
+      {
+        name: '측도론',
+        nameEn: 'Measure Theory',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '시그마 대수', en: 'Sigma-Algebra', desc: '측정 가능한 집합들의 모임이 만족해야 할 대수적 구조. 확률론과 적분론을 엄밀하게 세우는 기초.' },
+          { ko: '르베그 측도', en: 'Lebesgue Measure', desc: '구간의 길이 개념을 일반적인 집합으로 확장한 측도. 르베그 적분을 정의하는 데 필수적.' },
+          { ko: '지배수렴정리', en: 'Dominated Convergence Theorem', desc: '특정 조건 아래에서 함수열의 극한과 적분의 순서를 바꿀 수 있다는 정리. 해석학 전반에서 매우 자주 쓰이는 도구.' },
         ],
       },
     ],
@@ -64,6 +84,15 @@ const TRACKS = [
           { ko: '실로우 정리', en: 'Sylow Theorems', desc: '유한군의 구조를 파악할 때 사용되는 정리로, 군의 위수의 소인수 분해 결과에 대응하는 특정 부분군(실로우 부분군)의 존재와 개수를 보장함.' },
         ],
       },
+      {
+        name: '갈루아이론',
+        nameEn: 'Galois Theory',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '갈루아 군', en: 'Galois Group', desc: '체 확장의 자기동형사상들이 이루는 군. 방정식의 대수적 가해성을 군론적으로 판단하는 도구.' },
+          { ko: '5차방정식의 비가해성', en: 'Insolvability of the Quintic', desc: '갈루아 군이 가해군이 아니면 방정식의 해를 사칙연산과 거듭제곱근만으로 나타낼 수 없다는 정리. 5차 이상의 일반 방정식에는 근의 공식이 존재하지 않음을 보임.' },
+        ],
+      },
     ],
   },
   {
@@ -88,6 +117,16 @@ const TRACKS = [
           { ko: '라플라스 변환', en: 'Laplace Transform', desc: '시간 영역의 미분방정식을 복소수 주파수 영역의 대수방정식으로 변환하여 초기값 문제를 해결하는 도구.' },
         ],
       },
+      {
+        name: '편미분방정식',
+        nameEn: 'Partial Differential Equations',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '라플라스 방정식', en: "Laplace's Equation", formula: '\\nabla^2 u = 0', desc: '조화함수를 정의하는 방정식으로, 정전기학·유체역학·열평형 등 다양한 물리 현상의 정상상태를 기술함.' },
+          { ko: '열방정식', en: 'Heat Equation', formula: '\\frac{\\partial u}{\\partial t} = k \\nabla^2 u', desc: '시간에 따라 열이 어떻게 확산되는지를 기술하는 포물선형 편미분방정식.' },
+          { ko: '파동방정식', en: 'Wave Equation', formula: '\\frac{\\partial^2 u}{\\partial t^2} = c^2 \\nabla^2 u', desc: '진동과 파동의 전파를 기술하는 쌍곡선형 편미분방정식. 현의 진동, 음파, 전자기파 등에 적용됨.' },
+        ],
+      },
     ],
   },
   {
@@ -103,6 +142,15 @@ const TRACKS = [
           { ko: '오일러 정리', en: "Euler's Theorem", formula: 'a^{\\varphi(n)} \\equiv 1 \\pmod{n}', desc: '페르마의 소정리를 일반화한 것으로, 서로 소인 두 정수 $a, n$에 대해 성립함.' },
         ],
       },
+      {
+        name: '해석적정수론',
+        nameEn: 'Analytic Number Theory',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '소수 정리', en: 'Prime Number Theorem', formula: '\\pi(x) \\sim \\frac{x}{\\ln x}', desc: '주어진 수 이하의 소수 개수가 얼마나 되는지를 근사적으로 알려주는 정리.' },
+          { ko: '리만 제타 함수', en: 'Riemann Zeta Function', formula: '\\zeta(s) = \\sum_{n=1}^{\\infty} \\frac{1}{n^s}', desc: '소수의 분포와 깊이 연관된 복소함수. 리만 가설은 이 함수의 영점 위치에 대한 미해결 추측.' },
+        ],
+      },
     ],
   },
   {
@@ -115,6 +163,8 @@ const TRACKS = [
         year: '3학년 2학기',
         terms: [
           { ko: '하우스도르프 공간', en: 'Hausdorff Space', desc: '서로 다른 두 점을 각각 포함하고 서로 겹치지 않는 열린 집합이 항상 존재하는 위상공간. 대부분의 대수적·해석적 위상 공간의 기본 전제 조건.' },
+          { ko: '연결공간', en: 'Connectedness', desc: '두 개의 서로소인 열린 집합으로 나눌 수 없는 위상공간. 중간값 정리를 일반적인 위상공간으로 확장하는 개념.' },
+          { ko: '컴팩트성', en: 'Compactness', desc: '모든 열린 덮개가 유한한 부분 덮개를 갖는 성질. 유클리드 공간에서는 하이네-보렐 정리로 유계·닫힘과 동치가 됨.' },
         ],
       },
       {
@@ -124,6 +174,15 @@ const TRACKS = [
         terms: [
           { ko: '가우스-보네 정리', en: 'Gauss-Bonnet Theorem', desc: '곡면의 기하학적 성질(곡률의 적분)과 위상적 성질(오일러 지표)을 연결하는 미분기하학의 핵심 정리.' },
           { ko: '리만 기하학', en: 'Riemannian Geometry', desc: '매끄러운 다양체 위에 내적(리만 계량)을 정의하여 휘어진 공간에서의 거리, 각도, 곡률을 다루는 기하학. 일반상대성이론의 수학적 토대.' },
+        ],
+      },
+      {
+        name: '대수적위상수학',
+        nameEn: 'Algebraic Topology',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '기본군', en: 'Fundamental Group', desc: '공간 위의 폐곡선들을 호모토피 동치로 묶어 만든 군. 공간의 구멍이나 연결 구조를 대수적으로 포착함.' },
+          { ko: '호몰로지', en: 'Homology', desc: '위상공간의 구멍의 개수와 차원을 대수적 불변량(호몰로지 군)으로 나타내는 이론. 기본군보다 계산이 쉬워 널리 쓰임.' },
         ],
       },
     ],
@@ -147,6 +206,51 @@ const TRACKS = [
         year: '4학년 1학기',
         terms: [
           { ko: '라그랑주 승수법', en: 'Lagrange Multiplier', desc: '제약 조건이 있는 최적화 문제를 해결하기 위해, 제약 식에 새로운 변수(승수)를 도입하여 무제약 극값 문제로 변환하는 방법.' },
+          { ko: '볼록함수와 전역 최적해', en: 'Convexity & Global Optima', desc: '함수가 볼록하면 지역 최적해가 곧 전역 최적해가 된다는 성질. 최적화 문제의 난이도를 가늠하는 핵심 기준.' },
+        ],
+      },
+      {
+        name: '볼록최적화',
+        nameEn: 'Convex Optimization',
+        year: '4학년 2학기',
+        terms: [
+          { ko: 'KKT 조건', en: 'Karush-Kuhn-Tucker Conditions', desc: '부등식 제약이 있는 최적화 문제에서 최적해가 만족해야 하는 필요조건. 라그랑주 승수법을 부등식 제약으로 일반화한 것.' },
+          { ko: '쌍대성', en: 'Duality', desc: '원래의 최적화 문제(원문제)와 짝을 이루는 다른 최적화 문제(쌍대문제) 사이의 관계를 다루는 이론. 최적값의 하한을 구하거나 문제를 더 쉬운 형태로 바꾸는 데 활용됨.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '응용수학',
+    subtitle: 'Applied Mathematics',
+    courses: [
+      {
+        name: '이산수학',
+        nameEn: 'Discrete Mathematics',
+        year: '1학년 2학기',
+        terms: [
+          { ko: '그래프 이론', en: 'Graph Theory', desc: '정점과 간선으로 이루어진 구조를 다루는 수학 분야. 네트워크, 알고리즘, 화학구조 등 다양한 분야의 기초 언어.' },
+          { ko: '조합론', en: 'Combinatorics', desc: '경우의 수를 세는 방법을 체계적으로 다루는 분야. 순열, 조합, 이항정리 등이 기본 도구.' },
+          { ko: '수학적 귀납법', en: 'Mathematical Induction', desc: '자연수에 대한 명제를 기저 단계와 귀납 단계로 나누어 증명하는 방법. 알고리즘의 정확성 증명에도 널리 쓰임.' },
+        ],
+      },
+      {
+        name: '확률론',
+        nameEn: 'Probability Theory',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '확률공간과 확률변수', en: 'Probability Space & Random Variables', desc: '표본공간, 사건, 확률측도로 이루어진 확률공간과, 그 위에서 정의된 확률변수의 개념. 현대 확률론의 공리적 출발점(콜모고로프 공리).' },
+          { ko: '대수의 법칙과 중심극한정리', en: 'Law of Large Numbers & CLT', desc: '독립시행을 반복할 때 표본평균이 어떻게 모평균에 수렴하고, 그 분포가 어떤 모양을 갖는지를 설명하는 확률론의 두 핵심 극한정리.' },
+          { ko: '마르코프 연쇄', en: 'Markov Chain', desc: '다음 상태가 현재 상태에만 의존하고 과거 이력과는 무관한 확률 과정. 랜덤워크, 페이지랭크 알고리즘 등에 응용됨.' },
+        ],
+      },
+      {
+        name: '수리논리학',
+        nameEn: 'Mathematical Logic',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '명제논리와 술어논리', en: 'Propositional & Predicate Logic', desc: '참/거짓을 다루는 명제논리와, 변수와 한정기호(모든, 존재)를 포함하는 술어논리. 수학적 증명의 형식적 토대.' },
+          { ko: '괴델의 불완전성 정리', en: "Gödel's Incompleteness Theorems", desc: '일관된 공리 체계 안에는 참이지만 증명할 수 없는 명제가 반드시 존재한다는 정리. 수학 기초론에 큰 충격을 준 결과.' },
         ],
       },
     ],

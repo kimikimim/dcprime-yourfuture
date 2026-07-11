@@ -36,6 +36,16 @@ const TRACKS = [
           { ko: '진동 및 공진', en: 'Vibration & Resonance', desc: '외력의 진동수가 계의 고유진동수와 일치할 때 진폭이 급격히 커지는 현상. 기계 설계에서 반드시 피해야 하는 조건.' },
         ],
       },
+      {
+        name: '진동학',
+        nameEn: 'Vibration Engineering',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '다자유도계 진동', en: 'Multi-Degree-of-Freedom Vibration', desc: '여러 개의 질량과 스프링이 연결된 시스템의 진동을 행렬 형태의 운동방정식으로 다루는 이론. 고유진동수와 모드 형상을 함께 구함.' },
+          { ko: '감쇠', en: 'Damping', desc: '진동 에너지가 마찰이나 저항에 의해 서서히 사라지는 현상. 감쇠비에 따라 과감쇠, 임계감쇠, 부족감쇠로 나뉨.' },
+          { ko: '고유진동수와 공진 회피', en: 'Natural Frequency & Resonance Avoidance', desc: '구조물이나 기계의 고유진동수를 파악해 외력의 진동수와 겹치지 않도록 설계함으로써 공진에 의한 파손을 막는 설계 원칙.' },
+        ],
+      },
     ],
   },
   {
@@ -65,6 +75,24 @@ const TRACKS = [
           { ko: '연속 방정식', en: 'Continuity Equation', desc: '유체의 질량이 보존된다는 원리를 유동장에 적용한 방정식. 단면적이 줄면 유속이 빨라지는 관계를 설명함.' },
         ],
       },
+      {
+        name: '열전달',
+        nameEn: 'Heat Transfer',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '전도, 대류, 복사', en: 'Conduction, Convection & Radiation', desc: '열이 전달되는 세 가지 기본 메커니즘. 고체 내부 확산(전도), 유체의 흐름을 동반한 전달(대류), 전자기파를 통한 전달(복사).' },
+          { ko: '열교환기 설계', en: 'Heat Exchanger Design', desc: '두 유체 사이에서 열을 효율적으로 교환하도록 설계하는 장치. 대수평균온도차(LMTD)법 등으로 필요 전열 면적을 계산함.' },
+        ],
+      },
+      {
+        name: '압축성유동',
+        nameEn: 'Compressible Flow',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '마하수와 충격파', en: 'Mach Number & Shock Waves', desc: '유동 속도와 음속의 비인 마하수로 유동의 압축성 정도를 판단하며, 초음속 유동에서는 압력이 불연속적으로 급변하는 충격파가 발생함.' },
+          { ko: '노즐 유동', en: 'Nozzle Flow', desc: '단면적 변화를 통해 유체를 가속·감속시키는 노즐 내부의 유동 해석. 로켓 엔진, 제트 엔진 설계의 핵심.' },
+        ],
+      },
     ],
   },
   {
@@ -90,6 +118,50 @@ const TRACKS = [
           { ko: '순기구학과 역기구학', en: 'Forward & Inverse Kinematics', desc: '관절 각도로부터 말단 장치의 위치를 구하는 것(순기구학)과, 원하는 말단 위치로부터 필요한 관절 각도를 구하는 것(역기구학).' },
           { ko: '자유도', en: 'Degrees of Freedom (DOF)', desc: '시스템의 상태를 완전히 기술하는 데 필요한 독립적인 변수의 개수. 로봇 팔이나 기구의 움직임 범위를 나타내는 지표.' },
           { ko: '피드백 제어', en: 'Feedback Control', desc: '시스템의 출력을 측정해 입력을 조정함으로써 원하는 상태를 유지하는 제어 방식. 로봇, 자동차, 공정 제어 전반의 기본 원리.' },
+        ],
+      },
+      {
+        name: 'CAD/CAM 및 제조공학',
+        nameEn: 'CAD/CAM & Manufacturing Engineering',
+        year: '3학년 2학기',
+        terms: [
+          { ko: 'CNC 가공', en: 'CNC Machining', desc: '컴퓨터 수치제어로 공구의 움직임을 자동화해 정밀하게 재료를 깎아내는 가공 방식.' },
+          { ko: '적층제조 (3D프린팅)', en: 'Additive Manufacturing (3D Printing)', desc: '재료를 층층이 쌓아 올려 형상을 만드는 제조 방식. 복잡한 형상을 금형 없이 제작할 수 있음.' },
+          { ko: '공차설계', en: 'Tolerance Design', desc: '부품 치수의 허용 오차 범위를 설계해, 조립성과 성능을 만족시키면서도 제조 비용을 낮추는 기법.' },
+        ],
+      },
+      {
+        name: '자동차공학',
+        nameEn: 'Automotive Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '동력전달계통', en: 'Powertrain', desc: '엔진이나 모터에서 만든 동력을 바퀴까지 전달하는 변속기, 구동축 등의 시스템.' },
+          { ko: '서스펜션 및 타이어 역학', en: 'Suspension & Tire Dynamics', desc: '노면의 충격을 흡수하고 차체의 자세를 안정시키는 서스펜션과, 타이어와 노면 사이의 마찰력을 다루는 역학.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '재료 및 신뢰성',
+    subtitle: 'Materials & Reliability',
+    courses: [
+      {
+        name: '기계재료학',
+        nameEn: 'Mechanical Materials',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '금속의 소성변형', en: 'Plastic Deformation of Metals', desc: '항복점을 넘어서면 하중을 제거해도 원래대로 돌아오지 않는 영구 변형. 전위의 이동으로 설명되며 가공경화를 동반함.' },
+          { ko: '복합재료', en: 'Composite Materials', desc: '서로 다른 재료를 결합해 가볍고 강한 물성을 얻는 재료. 항공기, 자동차 경량화 설계에 널리 쓰임.' },
+          { ko: '재료 선정 기준', en: 'Materials Selection Criteria', desc: '강도, 무게, 비용, 가공성 등 여러 요구조건을 종합적으로 고려해 부품에 맞는 최적 재료를 고르는 공학적 의사결정 과정.' },
+        ],
+      },
+      {
+        name: '파괴역학',
+        nameEn: 'Fracture Mechanics',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '응력집중', en: 'Stress Concentration', desc: '구멍, 노치 등 형상이 급격히 변하는 부위에 응력이 국부적으로 크게 집중되는 현상. 균열 발생의 주요 원인.' },
+          { ko: '파괴인성', en: 'Fracture Toughness', desc: '재료 내부에 균열이 있을 때 그 균열이 급격히 전파되는 것을 얼마나 잘 견디는지를 나타내는 물성치. 구조물의 안전 설계에 핵심적인 지표.' },
         ],
       },
     ],

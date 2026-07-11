@@ -28,6 +28,24 @@ const TRACKS = [
           { ko: '몬테카를로 시뮬레이션', en: 'Monte Carlo Simulation', desc: '난수를 이용해 복잡한 확률적 시스템을 반복 시행으로 근사하는 방법. 해석적으로 풀기 어려운 문제의 성능을 추정할 때 사용.' },
         ],
       },
+      {
+        name: '경영과학',
+        nameEn: 'Management Science',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '의사결정분석', en: 'Decision Analysis', desc: '불확실한 상황에서 여러 대안 중 최선의 선택을 체계적으로 고르는 방법론. 의사결정나무, 기대값 계산 등을 활용함.' },
+          { ko: '게임이론', en: 'Game Theory', desc: '여러 의사결정자의 전략이 서로에게 영향을 미치는 상황을 수학적으로 분석하는 이론. 내쉬균형이 대표적 개념으로, 가격 경쟁·입찰 전략 분석에 쓰임.' },
+        ],
+      },
+      {
+        name: '데이터분석 및 경영정보시스템',
+        nameEn: 'Data Analytics & Management Information Systems',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '데이터마이닝', en: 'Data Mining', desc: '대량의 데이터에서 유의미한 패턴이나 규칙을 자동으로 찾아내는 기법. 군집분석, 연관규칙분석 등이 대표적.' },
+          { ko: 'ERP 시스템', en: 'Enterprise Resource Planning', desc: '생산, 재무, 인사 등 기업의 전체 자원과 프로세스를 하나의 통합된 정보시스템으로 관리하는 체계.' },
+        ],
+      },
     ],
   },
   {
@@ -55,6 +73,24 @@ const TRACKS = [
           { ko: '신뢰성 공학', en: 'Reliability Engineering', desc: '제품이나 시스템이 고장 없이 얼마나 오래 작동하는지를 정량적으로 분석하는 분야. 평균고장간격(MTBF) 등의 지표를 사용함.' },
         ],
       },
+      {
+        name: '물류공학',
+        nameEn: 'Logistics Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '시설입지선정', en: 'Facility Location', desc: '물류센터, 공장 등을 어디에 배치해야 운송비와 서비스 시간을 최소화할 수 있는지를 결정하는 최적화 문제.' },
+          { ko: '차량경로문제', en: 'Vehicle Routing Problem (VRP)', desc: '여러 고객에게 물건을 배송할 때, 제한된 차량으로 총 이동거리나 비용을 최소화하는 배송 경로를 짜는 조합 최적화 문제.' },
+        ],
+      },
+      {
+        name: '안전공학',
+        nameEn: 'Safety Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '위험성평가', en: 'Risk Assessment', desc: '작업장이나 공정에서 발생할 수 있는 위험 요인을 식별하고, 그 발생 가능성과 심각도를 평가해 대책을 마련하는 절차.' },
+          { ko: 'FMEA', en: 'Failure Mode and Effects Analysis', desc: '시스템의 각 구성요소가 고장 날 수 있는 방식(고장모드)과 그 영향을 사전에 체계적으로 분석하는 신뢰성·안전성 분석 기법.' },
+        ],
+      },
     ],
   },
   {
@@ -63,12 +99,21 @@ const TRACKS = [
     courses: [
       {
         name: '인간공학',
-        nameEn: 'Ergonomics & Systems Engineering',
+        nameEn: 'Ergonomics',
         year: '4학년 1학기',
         terms: [
           { ko: '인간공학', en: 'Ergonomics', desc: '사람의 신체적·인지적 특성에 맞춰 제품이나 작업환경을 설계하는 학문. 안전과 효율, 편의성을 동시에 추구함.' },
           { ko: '시스템 신뢰도', en: 'System Reliability', desc: '여러 구성요소로 이루어진 시스템 전체가 고장 없이 작동할 확률. 구성요소가 직렬/병렬로 연결된 방식에 따라 계산법이 달라짐.' },
           { ko: '작업연구', en: 'Time & Motion Study', desc: '작업 동작과 소요 시간을 분석해 표준 작업 시간을 정하고 비효율을 제거하는 산업공학의 고전적 기법.' },
+        ],
+      },
+      {
+        name: '시스템공학',
+        nameEn: 'Systems Engineering',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '시스템 수명주기', en: 'System Life Cycle', desc: '요구분석, 설계, 구현, 운영, 폐기까지 시스템이 거치는 전체 단계를 체계적으로 관리하는 접근법.' },
+          { ko: '요구공학', en: 'Requirements Engineering', desc: '이해관계자의 요구사항을 수집, 분석, 명세, 검증하는 과정. 시스템 개발 실패의 상당수가 요구사항 정의 단계의 오류에서 비롯됨.' },
         ],
       },
     ],

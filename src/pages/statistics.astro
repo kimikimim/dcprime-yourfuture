@@ -26,6 +26,15 @@ const TRACKS = [
           { ko: '결합분포와 공분산', en: 'Joint Distribution & Covariance', formula: '\\text{Cov}(X,Y) = E[(X-\\mu_X)(Y-\\mu_Y)]', desc: '두 개 이상의 확률변수가 함께 어떻게 분포하는지, 그리고 서로 얼마나 같이 변하는지를 나타내는 척도.' },
         ],
       },
+      {
+        name: '확률과정론',
+        nameEn: 'Stochastic Processes',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '포아송 과정', en: 'Poisson Process', desc: '일정한 평균 발생률로 무작위 사건이 독립적으로 일어나는 확률 과정. 콜센터 전화 도착, 방사성 붕괴 등을 모델링함.' },
+          { ko: '브라운 운동', en: 'Brownian Motion', desc: '미세 입자가 무작위로 불규칙하게 움직이는 현상을 수학적으로 모델링한 연속시간 확률과정. 주가 변동 모델링(블랙-숄즈)의 기초.' },
+        ],
+      },
     ],
   },
   {
@@ -52,6 +61,24 @@ const TRACKS = [
           { ko: '다중공선성', en: 'Multicollinearity', desc: '회귀모형에서 독립변수들끼리 강한 상관관계를 가져 계수 추정이 불안정해지는 문제.' },
         ],
       },
+      {
+        name: '다변량분석',
+        nameEn: 'Multivariate Analysis',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '주성분분석', en: 'Principal Component Analysis (PCA)', desc: '여러 변수 사이의 상관관계를 이용해 데이터의 분산을 최대한 보존하는 소수의 새로운 축(주성분)으로 차원을 축소하는 기법.' },
+          { ko: '요인분석', en: 'Factor Analysis', desc: '관측된 여러 변수들의 상관관계 뒤에 숨어 있는 소수의 잠재적 요인을 찾아내는 통계 기법. 심리검사, 설문조사 분석에 널리 쓰임.' },
+        ],
+      },
+      {
+        name: '실험계획법',
+        nameEn: 'Design of Experiments',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '분산분석', en: 'Analysis of Variance (ANOVA)', desc: '셋 이상의 집단 간 평균 차이가 통계적으로 유의한지를 분산의 비교를 통해 검정하는 방법.' },
+          { ko: '요인설계', en: 'Factorial Design', desc: '여러 개의 실험 요인을 동시에 조합해 각 요인의 주효과와 요인들 간의 상호작용 효과를 효율적으로 파악하는 실험 설계 방법.' },
+        ],
+      },
     ],
   },
   {
@@ -76,6 +103,39 @@ const TRACKS = [
           { ko: '정상성', en: 'Stationarity', desc: '시계열의 평균과 분산 등 통계적 성질이 시간에 따라 변하지 않는 성질. 대부분의 시계열 모형이 성립하기 위한 전제 조건.' },
           { ko: '자기상관', en: 'Autocorrelation', desc: '시계열 데이터가 자기 자신의 과거 값과 얼마나 상관관계를 갖는지를 나타내는 척도. ACF/PACF로 시각화해 모형 차수를 결정함.' },
           { ko: 'ARIMA 모형', en: 'ARIMA Model', desc: '자기회귀(AR), 차분(I), 이동평균(MA)을 결합해 시계열의 추세와 패턴을 모델링하고 예측하는 대표적 시계열 분석 기법.' },
+        ],
+      },
+      {
+        name: '빅데이터처리',
+        nameEn: 'Big Data Processing',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '분산처리', en: 'Distributed Processing (MapReduce)', desc: '대용량 데이터를 여러 컴퓨터에 나누어 병렬로 처리하고 결과를 취합하는 계산 모델. 하둡, 스파크 등의 기반 원리.' },
+          { ko: '표본추출과 빅데이터 편향', en: 'Sampling & Big Data Bias', desc: '데이터가 아무리 많아도 특정 집단이 체계적으로 누락되면 편향된 결론에 이를 수 있다는, 표본 설계의 중요성을 다루는 주제.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '베이지안 및 생존분석',
+    subtitle: 'Bayesian Statistics & Survival Analysis',
+    courses: [
+      {
+        name: '베이지안통계학',
+        nameEn: 'Bayesian Statistics',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '사전분포와 사후분포', en: 'Prior & Posterior Distribution', desc: '데이터를 관측하기 전 모수에 대한 믿음(사전분포)을, 데이터를 반영해 베이즈 정리로 갱신한 믿음(사후분포)으로 업데이트하는 베이지안 추론의 핵심 개념.' },
+          { ko: 'MCMC', en: 'Markov Chain Monte Carlo', desc: '복잡해서 직접 계산하기 어려운 사후분포를, 마르코프 연쇄를 이용한 반복 시뮬레이션으로 근사해 표본을 뽑아내는 방법.' },
+        ],
+      },
+      {
+        name: '생존분석',
+        nameEn: 'Survival Analysis',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '생존함수와 위험함수', en: 'Survival & Hazard Function', desc: '특정 시점까지 사건(고장, 사망 등)이 일어나지 않을 확률(생존함수)과, 그 순간 사건이 일어날 순간적인 위험률(위험함수).' },
+          { ko: '콕스 비례위험모형', en: 'Cox Proportional Hazards Model', desc: '여러 공변량이 사건 발생 위험률에 미치는 영향을 분석하는 대표적인 생존분석 회귀모형. 의학 연구에서 널리 사용됨.' },
         ],
       },
     ],

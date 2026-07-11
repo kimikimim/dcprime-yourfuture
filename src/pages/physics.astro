@@ -27,6 +27,15 @@ const TRACKS = [
           { ko: '케플러의 법칙', en: "Kepler's Laws", desc: '행성이 태양 주위를 타원 궤도로 돈다는 것을 포함한 세 가지 경험 법칙. 이후 뉴턴의 중력 법칙으로부터 유도됨.' },
         ],
       },
+      {
+        name: '유체역학 및 연속체역학',
+        nameEn: 'Fluid & Continuum Mechanics',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '유체정역학', en: 'Fluid Statics', formula: 'P = \\rho g h', desc: '정지한 유체 내부의 압력 분포를 다루는 역학. 부력, 대기압 등의 현상을 설명함.' },
+          { ko: '탄성체의 응력텐서', en: 'Stress Tensor in Elastic Media', desc: '연속체 내부의 응력 상태를 방향에 따라 완전히 기술하는 2차 텐서. 고체와 유체를 아우르는 연속체역학의 핵심 도구.' },
+        ],
+      },
     ],
   },
   {
@@ -60,6 +69,15 @@ const TRACKS = [
         terms: [
           { ko: '간섭과 회절', en: 'Interference & Diffraction', desc: '두 개 이상의 파동이 중첩되어 보강/상쇄되는 간섭과, 파동이 장애물을 만나 휘어져 퍼지는 회절 현상. 빛의 파동성을 보여주는 대표적 현상.' },
           { ko: '편광', en: 'Polarization', desc: '빛의 전기장 진동 방향이 한쪽으로 정렬된 상태. LCD 디스플레이, 편광 선글라스 등에 응용됨.' },
+        ],
+      },
+      {
+        name: '레이저물리학',
+        nameEn: 'Laser Physics',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '유도방출과 레이저 발진', en: 'Stimulated Emission & Laser Oscillation', desc: '들뜬 원자가 외부 광자에 의해 위상이 같은 광자를 추가로 방출하는 유도방출 현상을 이용해 빛을 증폭시키는 원리.' },
+          { ko: '광공진기', en: 'Optical Resonator', desc: '두 개의 거울 사이에서 빛이 반복적으로 왕복하며 증폭되도록 만드는 구조. 레이저 발진에 필요한 광궤환을 제공함.' },
         ],
       },
     ],
@@ -103,6 +121,48 @@ const TRACKS = [
         terms: [
           { ko: '특수상대성이론과 로런츠 변환', en: 'Special Relativity & Lorentz Transformation', desc: '빛의 속도가 모든 관성계에서 동일하다는 가정으로부터 시간 지연, 길이 수축 등이 유도되는 이론. 좌표 변환은 로런츠 변환을 따름.' },
           { ko: '질량-에너지 등가', en: 'Mass-Energy Equivalence', formula: 'E = mc^2', desc: '질량과 에너지가 본질적으로 같은 것이며 서로 전환될 수 있다는 특수상대성이론의 귀결. 핵반응 에너지 계산의 기초.' },
+        ],
+      },
+      {
+        name: '응집물질물리학',
+        nameEn: 'Condensed Matter Physics',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '초전도 현상', en: 'Superconductivity', desc: '특정 임계온도 이하에서 전기저항이 완전히 사라지고 자기장을 밀어내는(마이스너 효과) 현상. BCS 이론으로 저온초전도를 설명함.' },
+          { ko: '페르미 액체 이론', en: 'Fermi Liquid Theory', desc: '강하게 상호작용하는 전자들의 집합을 마치 상호작용이 약한 준입자들의 모임처럼 다룰 수 있다는 이론. 금속의 전자 물성을 설명하는 표준적 틀.' },
+        ],
+      },
+      {
+        name: '입자물리학',
+        nameEn: 'Particle Physics',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '표준모형', en: 'Standard Model', desc: '자연계를 이루는 기본 입자(쿼크, 렙톤)와 이들 사이의 상호작용(강력, 약력, 전자기력)을 기술하는 입자물리학의 현재 가장 성공적인 이론.' },
+          { ko: '쿼크와 강한상호작용', en: 'Quarks & Strong Interaction', desc: '양성자, 중성자 등을 구성하는 더 근본적인 입자인 쿼크와, 이들을 결합시키는 강한 핵력(색전하를 매개로 하는 상호작용).' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '천체물리 및 계산물리',
+    subtitle: 'Astrophysics & Computational Physics',
+    courses: [
+      {
+        name: '천체물리학',
+        nameEn: 'Astrophysics',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '항성 진화', en: 'Stellar Evolution', desc: '별이 핵융합 연료를 소진하며 주계열성에서 적색거성, 백색왜성 또는 초신성·중성자별·블랙홀로 변해가는 일생의 과정.' },
+          { ko: '블랙홀과 사건의 지평선', en: 'Black Holes & Event Horizon', desc: '중력이 너무 강해 빛조차 빠져나올 수 없는 천체(블랙홀)와, 그 경계가 되는 사건의 지평선.' },
+        ],
+      },
+      {
+        name: '계산물리학',
+        nameEn: 'Computational Physics',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '몬테카를로 방법', en: 'Monte Carlo Methods in Physics', desc: '난수를 이용해 통계역학적 시스템이나 복잡한 적분을 수치적으로 계산하는 방법. 상전이 시뮬레이션 등에 널리 쓰임.' },
+          { ko: '유한차분법', en: 'Finite Difference Method', desc: '미분방정식의 도함수를 이산적인 차분으로 근사해 컴퓨터로 수치해를 구하는 방법. 열방정식, 파동방정식 등의 수치해석에 사용.' },
         ],
       },
     ],

@@ -36,6 +36,15 @@ const TRACKS = [
           { ko: '촉매 작용', en: 'Catalysis', desc: '반응의 활성화 에너지를 낮춰 반응 속도를 높이지만 반응 전후 자신은 변하지 않는 물질의 작용. 효소, 산업 촉매 공정의 기반.' },
         ],
       },
+      {
+        name: '양자화학',
+        nameEn: 'Quantum Chemistry',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '오비탈 이론', en: 'Atomic Orbital Theory', desc: '전자가 원자핵 주위 특정 공간(오비탈)에 확률적으로 존재한다는 양자역학적 원자 모델. s, p, d 오비탈의 모양과 에너지 준위를 다룸.' },
+          { ko: '분자궤도함수 이론', en: 'Molecular Orbital Theory', desc: '원자 오비탈들이 결합해 분자 전체에 걸친 분자궤도함수를 형성한다는 이론. 결합성/반결합성 오비탈로 화학결합의 안정성을 설명함.' },
+        ],
+      },
     ],
   },
   {
@@ -62,6 +71,15 @@ const TRACKS = [
           { ko: '방향족성과 휴켈 규칙', en: "Aromaticity & Hückel's Rule", formula: '4n+2', desc: '벤젠처럼 고리 모양의 비편재화된 파이 전자계가 특별한 안정성을 갖는 조건을 정량화한 규칙.' },
         ],
       },
+      {
+        name: '고분자화학',
+        nameEn: 'Polymer Chemistry',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '라디칼 중합', en: 'Radical Polymerization', desc: '짝을 이루지 않은 전자(라디칼)가 연쇄적으로 이중결합을 열며 고분자를 만드는 중합 반응. 폴리에틸렌, 폴리스티렌 등의 합성에 사용됨.' },
+          { ko: '배위중합', en: 'Coordination Polymerization (Ziegler-Natta)', desc: '전이금속 촉매가 단위체를 특정 방향으로 배열시키며 중합시키는 방법. 입체규칙성이 높은 고분자를 만들 수 있음.' },
+        ],
+      },
     ],
   },
   {
@@ -85,6 +103,39 @@ const TRACKS = [
         terms: [
           { ko: '배위 화합물과 리간드', en: 'Coordination Compounds & Ligands', desc: '중심 금속 이온을 전자쌍을 제공하는 리간드가 배위 결합으로 둘러싼 화합물. 촉매, 색소, 생체분자(헤모글로빈 등)에서 핵심적 역할.' },
           { ko: '결정장 이론', en: 'Crystal Field Theory', desc: '배위 화합물에서 리간드가 만드는 전기장에 의해 중심 금속의 d 오비탈 에너지 준위가 갈라지는 현상을 설명하는 이론. 전이금속 화합물의 색과 자성을 설명함.' },
+        ],
+      },
+      {
+        name: '전기화학',
+        nameEn: 'Electrochemistry',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '네른스트 식', en: 'Nernst Equation', formula: 'E = E^\\circ - \\frac{RT}{nF}\\ln Q', desc: '전극 반응의 실제 농도 조건에서 전지의 전위를 계산하는 식. 표준 전위로부터 실제 전위를 구하는 데 사용됨.' },
+          { ko: '전기분해', en: 'Electrolysis', desc: '외부 전원을 가해 자발적이지 않은 산화환원 반응을 강제로 일으키는 과정. 금속 정제, 물의 전기분해 등에 활용됨.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '생화학 및 응용화학',
+    subtitle: 'Biochemistry & Applied Chemistry',
+    courses: [
+      {
+        name: '생화학',
+        nameEn: 'Biochemistry',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '단백질 구조와 효소', en: 'Protein Structure & Enzymes', desc: '아미노산이 사슬로 연결되어 접힌 3차원 구조(단백질)와, 특정 반응을 촉매하는 단백질(효소)의 작용 원리.' },
+          { ko: 'DNA와 핵산화학', en: 'DNA & Nucleic Acid Chemistry', desc: '뉴클레오타이드가 이중나선으로 결합된 DNA의 화학적 구조와, 유전정보 저장·복제의 화학적 기반.' },
+        ],
+      },
+      {
+        name: '재료화학',
+        nameEn: 'Materials Chemistry',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '졸-겔법', en: 'Sol-Gel Process', desc: '액체 상태의 전구체(졸)를 화학반응을 통해 고체 네트워크(겔)로 전환시켜 세라믹이나 산화물 재료를 합성하는 저온 공정.' },
+          { ko: '나노화학', en: 'Nanochemistry', desc: '나노미터 크기의 물질을 화학적으로 합성하고 그 독특한 성질을 다루는 화학의 한 분야. 촉매, 센서, 에너지 소재 개발에 응용됨.' },
         ],
       },
     ],

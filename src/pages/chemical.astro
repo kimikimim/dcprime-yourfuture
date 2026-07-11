@@ -29,6 +29,16 @@ const TRACKS = [
           { ko: '반응차수', en: 'Reaction Order', desc: '반응 속도가 반응물 농도의 몇 제곱에 비례하는지를 나타내는 지수. 실험적으로 결정되며 반응 메커니즘을 추론하는 단서가 됨.' },
         ],
       },
+      {
+        name: '촉매공학',
+        nameEn: 'Catalysis Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '불균일 촉매', en: 'Heterogeneous Catalysis', desc: '반응물과 다른 상(고체)에 있는 촉매 표면에서 반응이 일어나는 촉매 작용. 대부분의 대규모 화학 공정에서 사용됨.' },
+          { ko: '촉매 피독', en: 'Catalyst Poisoning', desc: '불순물이 촉매 표면의 활성 자리를 막아 촉매 성능이 저하되는 현상. 촉매 수명과 공정 경제성에 직결됨.' },
+          { ko: '흡착 등온선', en: 'Adsorption Isotherm (Langmuir)', desc: '일정 온도에서 촉매나 흡착제 표면에 반응물이 얼마나 흡착되는지를 압력(농도)의 함수로 나타낸 관계식.' },
+        ],
+      },
     ],
   },
   {
@@ -57,6 +67,15 @@ const TRACKS = [
           { ko: '막분리', en: 'Membrane Separation', desc: '선택적으로 투과되는 막을 이용해 혼합물을 분리하는 공정. 해수 담수화의 역삼투가 대표적.' },
         ],
       },
+      {
+        name: '환경공학',
+        nameEn: 'Environmental Engineering',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '대기오염물질 처리', en: 'Air Pollution Control', desc: '황산화물, 질소산화물 등 배출가스 중 오염물질을 흡수, 흡착, 촉매 반응 등으로 제거하는 공정 기술.' },
+          { ko: '폐수처리 공정', en: 'Wastewater Treatment', desc: '물리적, 화학적, 생물학적 처리 단계를 거쳐 폐수의 오염물질을 제거하고 방류 기준을 만족시키는 공정.' },
+        ],
+      },
     ],
   },
   {
@@ -78,6 +97,40 @@ const TRACKS = [
         year: '4학년 2학기',
         terms: [
           { ko: '공정 제어 루프', en: 'Process Control Loop', desc: '센서로 측정한 변수를 목표값과 비교해 제어기가 밸브 등 조작 변수를 조정하는 피드백 구조. 온도, 압력, 유량 제어에 사용.' },
+          { ko: '이상감지 및 경보시스템', en: 'Anomaly Detection & Alarm Management', desc: '공정 변수가 정상 범위를 벗어나는 이상 상태를 실시간으로 감지하고 운전원에게 경보하는 안전 관리 시스템.' },
+        ],
+      },
+      {
+        name: '고분자공학',
+        nameEn: 'Polymer Engineering',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '중합반응', en: 'Polymerization (Addition/Condensation)', desc: '작은 단위체(모노머)가 반복적으로 연결되어 고분자를 만드는 반응. 이중결합이 연쇄적으로 열리는 부가중합과, 작은 분자를 방출하며 결합하는 축합중합으로 나뉨.' },
+          { ko: '고분자 물성', en: 'Polymer Properties (Crystallinity/Tg)', desc: '고분자 사슬이 규칙적으로 배열된 정도(결정화도)와, 사슬 운동이 얼어붙어 유리처럼 딱딱해지는 온도(유리전이온도)로 고분자의 기계적 성질을 이해함.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '에너지 및 생물화학공학',
+    subtitle: 'Energy & Biochemical Engineering',
+    courses: [
+      {
+        name: '에너지공학',
+        nameEn: 'Energy Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '연료전지', en: 'Fuel Cell', desc: '수소와 산소의 전기화학 반응을 통해 연소 없이 직접 전기를 생산하는 장치. 부산물이 물뿐이라 친환경 에너지원으로 주목받음.' },
+          { ko: '이차전지', en: 'Lithium-Ion Battery', desc: '충전과 방전을 반복할 수 있는 전지로, 리튬 이온이 양극과 음극 사이를 오가며 전기 에너지를 저장·방출함.' },
+        ],
+      },
+      {
+        name: '생물공정공학',
+        nameEn: 'Bioprocess Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '발효공정', en: 'Fermentation Process', desc: '미생물의 대사 작용을 이용해 원하는 물질(알코올, 항생제 등)을 대량으로 생산하는 공정.' },
+          { ko: '효소반응속도론', en: 'Enzyme Kinetics (Michaelis-Menten)', formula: 'v = \\frac{V_{max}[S]}{K_m+[S]}', desc: '효소가 기질 농도에 따라 얼마나 빠르게 반응을 촉매하는지를 기술하는 대표적인 반응속도 모델.' },
         ],
       },
     ],
