@@ -1,0 +1,120 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '머신러닝 기초',
+    subtitle: 'Machine Learning Fundamentals',
+    courses: [
+      {
+        name: '기계학습',
+        nameEn: 'Machine Learning',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '경사하강법', en: 'Gradient Descent', formula: '\\theta_{t+1} = \\theta_t - \\eta \\nabla L(\\theta_t)', desc: '손실 함수의 기울기 반대 방향으로 파라미터를 조금씩 이동시켜 최솟값을 찾아가는 최적화 알고리즘.' },
+          { ko: '과적합과 정규화', en: 'Overfitting & Regularization', desc: '모델이 학습 데이터에만 지나치게 맞춰져 일반화 성능이 떨어지는 현상(과적합)과, 이를 막기 위한 L1/L2 페널티, 드롭아웃 등의 기법.' },
+          { ko: '서포트 벡터 머신', en: 'Support Vector Machine', desc: '두 클래스를 가장 큰 마진으로 분리하는 초평면을 찾는 지도학습 분류 모델. 커널 트릭으로 비선형 분류도 가능.' },
+        ],
+      },
+      {
+        name: '지도학습 및 비지도학습',
+        nameEn: 'Supervised & Unsupervised Learning',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '결정트리와 랜덤포레스트', en: 'Decision Tree & Random Forest', desc: '데이터를 조건에 따라 가지를 치며 분류/회귀하는 결정트리와, 여러 결정트리를 앙상블해 성능과 안정성을 높인 랜덤포레스트.' },
+          { ko: 'k-평균 군집화', en: 'k-Means Clustering', desc: '데이터를 k개의 그룹으로 나누되, 각 데이터가 가장 가까운 중심점에 속하도록 반복적으로 군집을 갱신하는 대표적인 비지도학습 알고리즘.' },
+          { ko: '앙상블학습', en: 'Ensemble Learning (Boosting/Bagging)', desc: '여러 개의 약한 모델을 결합해 하나의 강한 모델을 만드는 기법. 순차적으로 오차를 보완하는 부스팅과, 병렬로 여러 모델을 학습시켜 평균내는 배깅으로 나뉨.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '딥러닝',
+    subtitle: 'Deep Learning',
+    courses: [
+      {
+        name: '딥러닝',
+        nameEn: 'Deep Learning',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '역전파', en: 'Backpropagation', desc: '연쇄법칙(Chain Rule)을 이용해 신경망의 각 가중치에 대한 손실 함수의 기울기를 출력층에서 입력층 방향으로 계산하는 알고리즘.' },
+          { ko: '어텐션 메커니즘', en: 'Attention Mechanism', desc: '입력 시퀀스의 각 부분에 다른 가중치를 부여해 중요한 정보에 집중하는 방식. 트랜스포머 구조의 핵심 아이디어.' },
+        ],
+      },
+      {
+        name: '신경망구조',
+        nameEn: 'Neural Network Architectures',
+        year: '4학년 1학기',
+        terms: [
+          { ko: 'CNN', en: 'Convolutional Neural Network', desc: '합성곱 연산으로 이미지의 지역적 패턴(경계, 질감 등)을 추출하는 신경망 구조. 이미지 분류, 객체 탐지의 표준 구조.' },
+          { ko: 'GAN', en: 'Generative Adversarial Network', desc: '가짜 데이터를 만드는 생성자와 이를 판별하는 판별자가 서로 경쟁하며 학습해, 실제와 유사한 데이터를 생성하는 신경망 구조.' },
+          { ko: '트랜스포머 구조', en: 'Transformer Architecture', desc: '어텐션 메커니즘만으로 시퀀스를 병렬적으로 처리하는 신경망 구조. GPT, BERT 등 현대 대규모 언어모델의 기반.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '자연어처리 및 컴퓨터비전',
+    subtitle: 'Natural Language Processing & Computer Vision',
+    courses: [
+      {
+        name: '자연어처리',
+        nameEn: 'Natural Language Processing',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '토큰화와 워드 임베딩', en: 'Tokenization & Word Embedding', desc: '텍스트를 의미 있는 단위(토큰)로 쪼개고, 각 단어를 의미를 반영한 벡터 공간에 표현하는 자연어처리의 기초 과정.' },
+          { ko: '언어모델과 퍼플렉서티', en: 'Language Model & Perplexity', desc: '다음 단어를 예측하는 확률 모델(언어모델)과, 그 성능을 평가하는 지표인 퍼플렉서티.' },
+          { ko: 'RNN과 LSTM', en: 'Recurrent Neural Networks & LSTM', desc: '순서가 있는 데이터를 처리하기 위해 이전 상태를 기억하며 순차적으로 계산하는 신경망 구조. LSTM은 장기 의존성 문제를 게이트 구조로 완화함.' },
+        ],
+      },
+      {
+        name: '컴퓨터비전',
+        nameEn: 'Computer Vision',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '이미지 분류와 객체 탐지', en: 'Image Classification & Object Detection', desc: '이미지 전체에 하나의 라벨을 부여하는 분류와, 이미지 안에서 여러 객체의 위치와 종류를 동시에 찾아내는 객체 탐지.' },
+          { ko: '이미지 분할', en: 'Image Segmentation', desc: '이미지의 각 픽셀을 어떤 객체나 영역에 속하는지 분류하는 작업. 자율주행, 의료 영상 분석 등에 핵심적으로 쓰임.' },
+          { ko: '영상처리 기초', en: 'Image Processing Basics (Filtering/Edge Detection)', desc: '노이즈 제거, 경계 검출 등 이미지를 딥러닝에 넣기 전이나 전통적 컴퓨터비전에서 사용하는 기초적인 필터링 기법.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '수학적 기초 및 MLOps',
+    subtitle: 'Mathematical Foundations & MLOps',
+    courses: [
+      {
+        name: '선형대수 및 확률통계',
+        nameEn: 'Linear Algebra & Probability for AI',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '행렬연산과 텐서', en: 'Matrix Operations & Tensors', desc: '신경망의 데이터와 가중치를 표현하고 연산하는 다차원 배열(텐서)과 행렬 곱셈. 딥러닝 프레임워크 연산의 기본 단위.' },
+          { ko: '베이즈 추론', en: 'Bayesian Inference in AI', desc: '관측된 데이터를 바탕으로 모델 파라미터나 예측에 대한 확률적 믿음을 갱신하는 추론 방식. 불확실성을 정량화하는 AI 모델에 활용됨.' },
+          { ko: '최대우도추정', en: 'Maximum Likelihood Estimation for Model Parameters', desc: '신경망 등 모델의 파라미터를, 관측된 데이터가 나타날 가능성(우도)을 최대화하는 방향으로 학습시키는 원리. 대부분의 손실함수 설계의 이론적 근거.' },
+        ],
+      },
+      {
+        name: 'MLOps',
+        nameEn: 'MLOps',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '모델 배포 및 서빙', en: 'Model Deployment & Serving', desc: '학습이 끝난 모델을 실제 서비스 환경에 올려 API 형태로 예측 요청을 처리할 수 있게 만드는 과정.' },
+          { ko: '모델 모니터링과 드리프트 탐지', en: 'Model Monitoring & Drift Detection', desc: '운영 중인 모델의 성능을 지속적으로 관찰하고, 실제 데이터 분포가 학습 시점과 달라지는 드리프트를 감지해 재학습 시점을 판단하는 활동.' },
+        ],
+      },
+    ],
+  },
+];
+
+const CAREERS = ['AI 연구원', '데이터 사이언티스트', 'MLOps 엔지니어', '컴퓨터비전 엔지니어', 'NLP 엔지니어'];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 인공지능학과 전공 맛보기 | 대치프라임"
+  metaDescription="데이터를 학습하여 스스로 판단하고 예측하는 시스템을 연구하는 인공지능학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="인공지능학과"
+  descriptionPrefix={`최근 몇 년간 가장 급격히 늘어난 학과로, 데이터를 학습해 스스로 판단하고 예측하는 시스템을 연구해요. 수학적 통계와 알고리즘 모델링의 비중이 매우 높습니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: CNN, 트랜스포머, 경사하강법)"
+  tracks={TRACKS}
+  careers={CAREERS}
+/>

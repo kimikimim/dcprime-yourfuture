@@ -1,0 +1,117 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '데이터 수집 및 전처리',
+    subtitle: 'Data Collection & Preprocessing',
+    courses: [
+      {
+        name: '데이터수집 및 전처리',
+        nameEn: 'Data Collection & Preprocessing',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '웹크롤링과 API 수집', en: 'Web Crawling & API Collection', desc: '웹페이지를 자동으로 순회하며 데이터를 긁어오는 크롤링과, 서비스가 제공하는 API를 통해 정형화된 데이터를 수집하는 방법.' },
+          { ko: '결측치와 이상치 처리', en: 'Handling Missing Values & Outliers', desc: '데이터에 비어있는 값(결측치)이나 비정상적으로 튀는 값(이상치)을 식별하고, 제거·대체하는 전처리 기법.' },
+          { ko: '데이터 정제', en: 'Data Cleaning (ETL)', desc: '원본 데이터를 추출(Extract)하고, 분석에 적합한 형태로 변환(Transform)한 뒤, 저장소에 적재(Load)하는 데이터 파이프라인 과정.' },
+        ],
+      },
+      {
+        name: '데이터베이스 및 데이터웨어하우스',
+        nameEn: 'Databases & Data Warehousing',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '데이터웨어하우스 설계', en: 'Data Warehouse Design (Star Schema)', desc: '분석에 최적화된 형태로 데이터를 저장하기 위해 사실 테이블과 차원 테이블을 별 모양으로 구성하는 설계 방식.' },
+          { ko: 'OLAP과 OLTP', en: 'OLAP vs OLTP', desc: '대량의 데이터를 다각도로 집계·분석하는 OLAP(온라인분석처리)와, 실시간 거래 처리에 최적화된 OLTP(온라인거래처리)의 차이.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '데이터 분석 및 마이닝',
+    subtitle: 'Data Analysis & Mining',
+    courses: [
+      {
+        name: '데이터마이닝',
+        nameEn: 'Data Mining',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '연관규칙분석', en: 'Association Rule Mining', desc: '"빵을 산 사람은 우유도 산다"처럼 항목들 사이의 동시 발생 패턴을 찾아내는 기법. 장바구니 분석의 대표적 방법.' },
+          { ko: '군집분석', en: 'Cluster Analysis', desc: '유사한 특성을 가진 데이터끼리 그룹으로 묶어 데이터의 숨은 구조를 파악하는 비지도학습 기법.' },
+          { ko: '분류 및 예측 모델', en: 'Classification & Prediction Models', desc: '과거 데이터를 학습해 새로운 데이터가 어떤 범주에 속할지, 혹은 어떤 값을 가질지 예측하는 모델.' },
+        ],
+      },
+      {
+        name: '통계적 데이터 분석',
+        nameEn: 'Statistical Data Analysis',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '기술통계와 탐색적 데이터 분석', en: 'Descriptive Statistics & EDA', desc: '평균, 분산 등으로 데이터를 요약하는 기술통계와, 시각화·통계량을 통해 데이터의 특징과 패턴을 탐색하는 과정.' },
+          { ko: 'A/B 테스트', en: 'A/B Testing', desc: '두 가지 이상의 버전을 무작위로 나누어 실험군에 노출시키고, 어느 쪽이 더 나은 성과를 내는지 통계적으로 검증하는 실험 기법.' },
+        ],
+      },
+      {
+        name: '예측모델링',
+        nameEn: 'Predictive Modeling',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '시계열 예측', en: 'Time Series Forecasting', desc: '과거의 시간에 따른 패턴을 학습해 매출, 수요 등 미래 값을 예측하는 비즈니스 중심의 시계열 분석.' },
+          { ko: '수요예측을 위한 회귀모델', en: 'Regression Models for Demand Forecasting', desc: '가격, 계절성 등 여러 변수를 반영해 제품이나 서비스의 수요를 예측하는 회귀 기반 모델.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '빅데이터 처리',
+    subtitle: 'Big Data Processing',
+    courses: [
+      {
+        name: '빅데이터인프라',
+        nameEn: 'Big Data Infrastructure',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '하둡 생태계', en: 'Hadoop Ecosystem (HDFS/MapReduce)', desc: '대용량 데이터를 여러 서버에 분산 저장하는 HDFS와, 이를 분산 병렬로 처리하는 MapReduce로 구성된 빅데이터 처리 프레임워크.' },
+          { ko: '스파크 분산처리', en: 'Apache Spark', desc: '데이터를 메모리에 올려 반복 연산을 빠르게 처리하는 인메모리 기반 분산처리 엔진. 하둡보다 훨씬 빠른 속도로 대용량 데이터를 처리함.' },
+          { ko: 'NoSQL 데이터베이스', en: 'NoSQL Databases', desc: '고정된 테이블 스키마 없이 문서, 키-값, 그래프 등 유연한 형태로 대용량 데이터를 저장하는 데이터베이스. MongoDB, Cassandra 등이 대표적.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '데이터 시각화 및 비즈니스 인텔리전스',
+    subtitle: 'Data Visualization & Business Intelligence',
+    courses: [
+      {
+        name: '데이터시각화',
+        nameEn: 'Data Visualization',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '시각화 문법', en: 'Grammar of Graphics', desc: '데이터, 좌표계, 기하 객체 등을 조합해 체계적으로 그래프를 구성하는 시각화 이론. ggplot2 같은 도구의 이론적 기반.' },
+          { ko: '대시보드 설계', en: 'Dashboard Design', desc: '여러 핵심 지표를 한눈에 파악할 수 있도록 차트와 표를 배치한 대시보드를 설계하는 기법. 의사결정자를 위한 데이터 커뮤니케이션의 핵심.' },
+        ],
+      },
+      {
+        name: '비즈니스 인텔리전스',
+        nameEn: 'Business Intelligence',
+        year: '4학년 1학기',
+        terms: [
+          { ko: 'KPI 설계와 지표 관리', en: 'KPI Design & Metrics Management', desc: '조직의 목표 달성 정도를 측정할 핵심성과지표(KPI)를 정의하고 지속적으로 추적·관리하는 방법.' },
+          { ko: '데이터 기반 의사결정', en: 'Data-Driven Decision Making', desc: '직관이나 경험이 아닌, 데이터 분석 결과를 근거로 비즈니스 의사결정을 내리는 조직 운영 방식.' },
+        ],
+      },
+    ],
+  },
+];
+
+const CAREERS = ['데이터 분석가', '비즈니스 인텔리전스(BI) 전문가', '데이터 엔지니어', '데이터 과학자'];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 데이터사이언스학과 전공 맛보기 | 대치프라임"
+  metaDescription="대용량 데이터를 수집, 정제, 분석하여 인사이트를 도출하는 데이터사이언스학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="데이터사이언스학과"
+  descriptionPrefix={`인공지능학과와 겹치는 부분이 많지만, 대용량 데이터(Big Data)를 수집, 정제, 분석해 의미 있는 인사이트를 도출하는 데 더 방점이 찍혀 있어요. 통계학과 컴퓨터공학의 융합 성격이 강합니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 하둡, 스파크, KPI)"
+  tracks={TRACKS}
+  careers={CAREERS}
+/>

@@ -1,0 +1,126 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '암호학',
+    subtitle: 'Cryptography',
+    courses: [
+      {
+        name: '암호학기초',
+        nameEn: 'Cryptography Fundamentals',
+        year: '2학년 2학기',
+        terms: [
+          { ko: '대칭키 암호', en: 'Symmetric-Key Cryptography (AES)', desc: '암호화와 복호화에 같은 키를 사용하는 암호 방식. 빠른 속도가 장점이며 AES가 현재 표준으로 널리 쓰임.' },
+          { ko: '공개키 암호', en: 'Public-Key Cryptography (RSA)', desc: '공개키로 암호화하고 개인키로만 복호화할 수 있는 비대칭 암호 방식. 큰 수의 소인수분해가 어렵다는 사실에 안전성이 기반함.' },
+          { ko: '해시함수와 전자서명', en: 'Hash Functions & Digital Signatures', desc: '임의 길이 데이터를 고정 길이로 압축하는 해시함수와, 이를 이용해 메시지의 무결성과 발신자를 증명하는 전자서명.' },
+        ],
+      },
+      {
+        name: '응용암호학',
+        nameEn: 'Applied Cryptography',
+        year: '3학년 1학기',
+        terms: [
+          { ko: 'PKI와 인증서', en: 'Public Key Infrastructure & Certificates', desc: '공개키의 소유자를 신뢰할 수 있는 기관(CA)이 보증하는 인증서 발급 체계. HTTPS 통신 신뢰의 기반.' },
+          { ko: '영지식증명', en: 'Zero-Knowledge Proof', desc: '어떤 정보를 알고 있다는 사실을, 그 정보 자체를 노출하지 않고 증명하는 암호학적 기법. 블록체인 프라이버시 기술 등에 응용됨.' },
+        ],
+      },
+      {
+        name: '암호학의 수학적 기초',
+        nameEn: 'Mathematical Foundations of Cryptography',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '이산로그 문제', en: 'Discrete Logarithm Problem', desc: '모듈러 연산에서 지수를 거꾸로 찾기 어렵다는 문제. Diffie-Hellman 키 교환 등 여러 암호 프로토콜의 안전성 근거.' },
+          { ko: '타원곡선암호', en: 'Elliptic Curve Cryptography (ECC)', desc: '타원곡선 위의 점 연산을 이용한 공개키 암호 방식. RSA보다 짧은 키 길이로 동등한 안전성을 제공해 모바일 기기 등에서 선호됨.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '시스템 및 네트워크 보안',
+    subtitle: 'System & Network Security',
+    courses: [
+      {
+        name: '네트워크보안',
+        nameEn: 'Network Security',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '방화벽과 IDS/IPS', en: 'Firewall & Intrusion Detection/Prevention Systems', desc: '허용되지 않은 트래픽을 차단하는 방화벽과, 침입 시도를 탐지(IDS)하거나 실시간으로 차단(IPS)하는 시스템.' },
+          { ko: 'VPN과 터널링', en: 'VPN & Tunneling', desc: '공용 네트워크 위에 암호화된 가상의 사설 통신 경로를 만들어 안전하게 데이터를 주고받는 기술.' },
+          { ko: 'DDoS 공격과 방어', en: 'DDoS Attacks & Mitigation', desc: '다수의 시스템에서 동시에 트래픽을 퍼부어 서비스를 마비시키는 공격과, 이를 탐지·완화하는 방어 기법.' },
+        ],
+      },
+      {
+        name: '시스템보안',
+        nameEn: 'System Security',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '접근제어', en: 'Access Control (RBAC)', desc: '사용자의 역할에 따라 시스템 자원에 대한 권한을 부여하는 역할기반접근제어(RBAC) 등의 모델. 최소 권한 원칙의 실제 구현 수단.' },
+          { ko: '버퍼 오버플로우', en: 'Buffer Overflow', desc: '할당된 메모리 버퍼 크기를 초과하는 데이터를 입력해 인접 메모리를 덮어써 실행 흐름을 조작하는 고전적이면서도 여전히 중요한 취약점.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '공격 기법 및 대응',
+    subtitle: 'Offensive Security & Analysis',
+    courses: [
+      {
+        name: '모의해킹',
+        nameEn: 'Penetration Testing',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '취약점 스캐닝', en: 'Vulnerability Scanning', desc: '시스템이나 네트워크에서 알려진 보안 취약점을 자동으로 탐색하는 과정. 모의해킹의 첫 단계로 공격 표면을 파악함.' },
+          { ko: 'SQL 인젝션과 XSS', en: 'SQL Injection & Cross-Site Scripting', desc: '입력값 검증 미흡을 악용해 데이터베이스 쿼리나 스크립트를 주입하는 대표적인 웹 공격 기법과 실제 침투 시나리오.' },
+          { ko: '소셜 엔지니어링', en: 'Social Engineering', desc: '기술적 취약점이 아닌 사람의 심리를 이용해 정보를 빼내거나 시스템에 접근하는 공격 기법. 피싱 메일이 대표적.' },
+        ],
+      },
+      {
+        name: '리버스엔지니어링',
+        nameEn: 'Reverse Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '디스어셈블리와 디버깅', en: 'Disassembly & Debugging', desc: '컴파일된 실행 파일을 어셈블리 코드로 역변환하고, 디버거로 프로그램의 실행 흐름을 추적해 내부 동작을 분석하는 기법.' },
+          { ko: '안티디버깅 기법', en: 'Anti-Debugging Techniques', desc: '프로그램이 디버거에 의해 분석되고 있는지를 탐지해 분석을 방해하는 기법. 악성코드나 상용 소프트웨어의 보호 로직에 사용됨.' },
+        ],
+      },
+      {
+        name: '악성코드분석',
+        nameEn: 'Malware Analysis',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '정적분석과 동적분석', en: 'Static & Dynamic Analysis', desc: '실행하지 않고 코드/구조를 분석하는 정적분석과, 실제로 실행시켜 행동을 관찰하는 동적분석. 악성코드 분석의 두 가지 기본 접근법.' },
+          { ko: '샌드박스 탐지 회피', en: 'Sandbox Evasion', desc: '악성코드가 분석 환경(샌드박스)에서 실행되고 있음을 감지해 정상적인 악성 행위를 숨기는 회피 기법.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '보안 관리 및 대응체계',
+    subtitle: 'Security Management & Incident Response',
+    courses: [
+      {
+        name: '침해사고대응',
+        nameEn: 'Incident Response',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '디지털 포렌식', en: 'Digital Forensics', desc: '침해사고 이후 시스템에 남은 로그, 파일, 메모리 등의 흔적을 수집·분석해 사고의 원인과 경위를 규명하는 기법.' },
+          { ko: '사고대응 프로세스', en: 'Incident Response Process (SOC/CERT)', desc: '보안 사고를 탐지, 억제, 제거, 복구하는 표준화된 절차. 보안관제센터(SOC)와 침해사고대응팀(CERT)이 수행함.' },
+        ],
+      },
+    ],
+  },
+];
+
+const CAREERS = ['보안 컨설턴트', '보안 솔루션 개발자', 'CERT(침해사고대응팀)', '화이트해커', '포렌식 전문가'];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 정보보안학과 전공 맛보기 | 대치프라임"
+  metaDescription="해킹 방어, 시스템 취약점 분석, 데이터 암호화 등 정보기술 자산을 보호하는 정보보안학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="정보보안학과"
+  descriptionPrefix={`해킹 방어, 시스템 취약점 분석, 데이터 암호화 등 정보기술(IT) 자산을 보호하는 기술을 전문적으로 다루는 학과예요. 암호학 같은 수학적 베이스와 시스템·네트워크에 대한 깊은 이해가 동시에 요구됩니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: RSA, XSS, 포렌식)"
+  tracks={TRACKS}
+  careers={CAREERS}
+/>

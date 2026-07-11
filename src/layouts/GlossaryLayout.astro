@@ -31,6 +31,7 @@ interface Props {
   descriptionPrefix: string;
   searchPlaceholder: string;
   tracks: Track[];
+  careers?: string[];
 }
 
 const {
@@ -41,6 +42,7 @@ const {
   descriptionPrefix,
   searchPlaceholder,
   tracks,
+  careers,
 } = Astro.props;
 
 const totalCourseCount = tracks.reduce((sum, t) => sum + t.courses.length, 0);
@@ -71,6 +73,14 @@ const totalTermCount = tracks.reduce((sum, t) => sum + t.courses.reduce((s, c) =
           <p class="text-sm text-gray-500 mt-2 leading-relaxed">
             {descriptionPrefix} 과목 {totalCourseCount}개 · 개념 {totalTermCount}개.
           </p>
+          {careers && careers.length > 0 && (
+            <div class="mt-4 flex flex-wrap items-center gap-2">
+              <span class="text-xs font-semibold text-gray-400 mr-1">진로</span>
+              {careers.map((c) => (
+                <span class="text-xs text-brand-dark bg-brand-light px-2.5 py-1 rounded-full">{c}</span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
