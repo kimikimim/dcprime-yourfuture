@@ -260,17 +260,6 @@ const TRACKS = [
     ],
   },
 ];
-
-const RELATED_MAJORS = [
-  { href: '/cs', title: '컴퓨터공학', subtitle: 'Computer Science' },
-  { href: '/semiconductor', title: '반도체공학', subtitle: 'Semiconductor Engineering' },
-  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
-  { href: '/chemical', title: '화학공학', subtitle: 'Chemical Engineering' },
-  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
-  { href: '/industrial', title: '산업공학', subtitle: 'Industrial Engineering' },
-  { href: '/architecture', title: '건축토목공학부', subtitle: 'Architecture & Civil Engineering' },
-  { href: '/aerospace', title: '항공우주공학과', subtitle: 'Aerospace Engineering' },
-];
 ---
 
 <GlossaryLayout
@@ -280,5 +269,4 @@ const RELATED_MAJORS = [
   descriptionPrefix={`전기전자공학과에 가면 실제로 배우게 될 내용을 6개 세부 분야(반도체·소자, 회로설계, 신호처리·임베디드, 통신·RF, 제어·로봇, 전기·전력)로 묶어뒀습니다. 분야를 눌러보면 관련 과목과 개념이 펼쳐져요.`}
   searchPlaceholder="개념 이름으로 검색 (예: 맥스웰, PID, MOSFET, 5G)"
   tracks={TRACKS}
-  relatedMajors={RELATED_MAJORS}
 />

@@ -95,17 +95,6 @@ const TRACKS = [
     ],
   },
 ];
-
-const RELATED_MAJORS = [
-  { href: '/cs', title: '컴퓨터공학', subtitle: 'Computer Science' },
-  { href: '/ee', title: '전기전자공학', subtitle: 'Electrical & Electronic Engineering' },
-  { href: '/semiconductor', title: '반도체공학', subtitle: 'Semiconductor Engineering' },
-  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
-  { href: '/chemical', title: '화학공학', subtitle: 'Chemical Engineering' },
-  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
-  { href: '/industrial', title: '산업공학', subtitle: 'Industrial Engineering' },
-  { href: '/architecture', title: '건축토목공학부', subtitle: 'Architecture & Civil Engineering' },
-];
 ---
 
 <GlossaryLayout
@@ -115,5 +104,4 @@ const RELATED_MAJORS = [
   descriptionPrefix={`지구 대기권 내를 비행하는 항공기(Aeronautics)와 대기권 밖을 비행하는 우주선 및 발사체(Astronautics)를 연구하는 첨단 공학 분야예요. 5개 세부 트랙으로 나누어뒀습니다.`}
   searchPlaceholder="개념 이름으로 검색 (예: 로켓추진, SLAM, 위성탑재체)"
   tracks={TRACKS}
-  relatedMajors={RELATED_MAJORS}
 />

@@ -147,17 +147,6 @@ const TRACKS = [
     ],
   },
 ];
-
-const RELATED_MAJORS = [
-  { href: '/cs', title: '컴퓨터공학', subtitle: 'Computer Science' },
-  { href: '/ee', title: '전기전자공학', subtitle: 'Electrical & Electronic Engineering' },
-  { href: '/mechanical', title: '기계공학', subtitle: 'Mechanical Engineering' },
-  { href: '/chemical', title: '화학공학', subtitle: 'Chemical Engineering' },
-  { href: '/materials', title: '신소재공학', subtitle: 'Materials Science & Engineering' },
-  { href: '/industrial', title: '산업공학', subtitle: 'Industrial Engineering' },
-  { href: '/architecture', title: '건축토목공학부', subtitle: 'Architecture & Civil Engineering' },
-  { href: '/aerospace', title: '항공우주공학과', subtitle: 'Aerospace Engineering' },
-];
 ---
 
 <GlossaryLayout
@@ -167,5 +156,4 @@ const RELATED_MAJORS = [
   descriptionPrefix={`반도체공학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
   searchPlaceholder="개념 이름으로 검색 (예: 포토리소그래피, 문턱전압, 수율)"
   tracks={TRACKS}
-  relatedMajors={RELATED_MAJORS}
 />
