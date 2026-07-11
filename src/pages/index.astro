@@ -86,6 +86,27 @@ const ENGINEERING_CONTENTS = [
     desc: '항공기 구조, 추진기관, 유도제어, 위성시스템 맛보기.',
   },
 ];
+
+const MEDICAL_CONTENTS = [
+  {
+    href: '/medicine',
+    title: '의학과',
+    subtitle: 'Medicine',
+    desc: '내과·외과·진단지원·특수진료계열 대표 진료과 맛보기.',
+  },
+  {
+    href: '/pharmacy',
+    title: '약학과',
+    subtitle: 'Pharmacy',
+    desc: '약물학부터 신약개발, 임상 조제까지 핵심 과목 맛보기.',
+  },
+  {
+    href: '/nursing',
+    title: '간호학과',
+    subtitle: 'Nursing',
+    desc: '임상간호, 지역사회·정신간호, 간호관리 핵심 과목 맛보기.',
+  },
+];
 ---
 
 <!doctype html>
@@ -157,6 +178,24 @@ const ENGINEERING_CONTENTS = [
                 <p class="text-sm text-brand font-semibold mt-4">자세히 보기 →</p>
               </a>
             )
+          ))}
+        </div>
+
+        <div class="mb-4 mt-12">
+          <h2 class="text-base sm:text-lg font-bold text-gray-900">의과대학</h2>
+          <p class="text-xs text-gray-400">Medicine</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {MEDICAL_CONTENTS.map((c) => (
+            <a
+              href={c.href}
+              class="block bg-white rounded-xl border border-gray-100 p-6 shadow-sm hover:border-brand hover:shadow-md transition-all"
+            >
+              <p class="text-lg font-bold text-gray-900">{c.title}</p>
+              <p class="text-xs text-gray-400 mb-3">{c.subtitle}</p>
+              <p class="text-sm text-gray-600 leading-relaxed">{c.desc}</p>
+              <p class="text-sm text-brand font-semibold mt-4">자세히 보기 →</p>
+            </a>
           ))}
         </div>
       </div>

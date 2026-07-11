@@ -1,0 +1,114 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '간호학기초',
+    subtitle: '환자를 돌보는 데 필요한 가장 기본적인 지식과 술기를 익히는 분야',
+    careers: ['병원간호사', '간호대학 조교', '간호연구원'],
+    courses: [
+      {
+        name: '기본간호학',
+        nameEn: 'Fundamentals of Nursing',
+        year: '1~2학년',
+        terms: [
+          { ko: '활력징후 측정', en: 'Vital Signs Assessment', desc: '체온, 맥박, 호흡, 혈압 등 생명 유지에 필수적인 지표를 측정하고 평가하는 간호의 가장 기본적인 술기.', example: '입원하면 간호사가 매일 정해진 시간에 체온과 혈압을 재는 이유.' },
+          { ko: '무균술과 감염관리', en: 'Aseptic Technique & Infection Control', desc: '병원 내 감염을 예방하기 위해 손 위생, 멸균 기구 사용 등을 지키는 절차.', example: '수술 전 의료진이 철저히 손을 씻고 멸균 장갑을 착용하는 과정.' },
+        ],
+      },
+      {
+        name: '해부생리학(간호관점)',
+        nameEn: 'Anatomy & Physiology for Nursing',
+        year: '1학년',
+        terms: [
+          { ko: '인체 항상성 이해', en: 'Homeostasis in the Human Body', desc: '체온, 혈당, 산-염기 균형 등 몸이 스스로 안정 상태를 유지하는 원리를 간호 실무에 적용하는 지식.', example: '고열 환자에게 해열제와 물수건을 함께 적용하는 이유를 이해하는 기초.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '임상간호',
+    subtitle: '병동에서 실제 환자를 대상으로 하는 전문 간호 영역',
+    careers: ['병원간호사', '수술실간호사', '중환자실간호사'],
+    courses: [
+      {
+        name: '성인간호학',
+        nameEn: 'Adult Health Nursing',
+        year: '2~3학년',
+        terms: [
+          { ko: '만성질환자 간호', en: 'Chronic Disease Nursing Care', desc: '당뇨, 고혈압 등 오래 관리해야 하는 질환을 가진 환자의 일상 관리를 돕는 간호.', example: '당뇨 환자에게 인슐린 자가주사법을 교육하는 간호사의 역할.' },
+          { ko: '수술 전후 간호', en: 'Perioperative Nursing', desc: '수술을 앞둔 환자의 불안을 관리하고, 수술 후 회복 과정을 모니터링하는 간호.', example: '수술 후 환자의 통증과 활력징후를 지속적으로 관찰하는 회복실 간호.' },
+        ],
+      },
+      {
+        name: '아동/모성간호학',
+        nameEn: 'Child & Maternal Health Nursing',
+        year: '3학년',
+        terms: [
+          { ko: '신생아 간호', en: 'Neonatal Nursing Care', desc: '갓 태어난 아기의 체온 유지, 수유, 황달 관찰 등을 담당하는 전문 간호.', example: '신생아실에서 아기의 상태를 24시간 관찰하는 간호사의 업무.' },
+          { ko: '분만 간호', en: 'Labor & Delivery Nursing', desc: '출산 과정에서 산모와 태아의 상태를 모니터링하고 돕는 간호.', example: '분만실에서 산모의 진통 간격과 태아 심박수를 확인하는 과정.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '지역사회 및 정신간호',
+    subtitle: '병원 밖 지역사회와 정신건강 영역까지 넓어진 간호의 역할',
+    careers: ['보건소 간호직 공무원', '보건교사', '정신전문간호사'],
+    courses: [
+      {
+        name: '지역사회간호학',
+        nameEn: 'Community Health Nursing',
+        year: '3~4학년',
+        terms: [
+          { ko: '방문간호', en: 'Home Visiting Nursing', desc: '거동이 불편한 노인, 만성질환자 등을 직접 찾아가 건강을 관리해주는 지역사회 간호 서비스.', example: '보건소 간호사가 독거노인 가정을 방문해 혈압을 체크하는 활동.' },
+          { ko: '건강증진 프로그램', en: 'Health Promotion Programs', desc: '지역 주민의 질병을 예방하고 건강한 생활습관을 유도하는 교육·캠페인 활동.', example: '지역 보건소에서 진행하는 금연 클리닉, 비만 관리 프로그램.' },
+        ],
+      },
+      {
+        name: '정신간호학',
+        nameEn: 'Psychiatric-Mental Health Nursing',
+        year: '3~4학년',
+        terms: [
+          { ko: '정신질환자 간호', en: 'Psychiatric Patient Nursing Care', desc: '조현병, 우울증 등 정신질환을 가진 환자의 치료와 일상생활 회복을 돕는 간호.', example: '정신병동에서 환자와의 신뢰 관계를 바탕으로 진행하는 치료적 대화.' },
+          { ko: '위기중재', en: 'Crisis Intervention', desc: '자살 위험, 급성 정신증 등 응급 상황에서 환자를 안전하게 보호하는 간호 개입.', example: '자살 시도 위험이 있는 환자를 안전하게 지키는 응급 개입.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '간호관리 및 전문분야',
+    subtitle: '간호 조직을 운영하거나, 더 깊이 있는 전문 영역으로 나아가는 분야',
+    careers: ['간호관리자(수간호사)', '전문간호사(APN)', '산업간호사'],
+    courses: [
+      {
+        name: '간호관리학',
+        nameEn: 'Nursing Management',
+        year: '4학년',
+        terms: [
+          { ko: '간호인력 배치', en: 'Nurse Staffing', desc: '병동의 환자 중증도에 맞게 간호사 인력을 효율적으로 배치하는 관리 활동.', example: '중환자실에는 간호사 한 명당 담당 환자 수를 적게 배정하는 이유.' },
+          { ko: '병원감염관리', en: 'Hospital Infection Control Management', desc: '병원 내에서 감염이 확산되지 않도록 전체 시스템을 관리하는 활동.', example: '병원 내 다제내성균 확산을 막기 위한 격리 프로토콜 운영.' },
+        ],
+      },
+      {
+        name: '전문간호사 영역',
+        nameEn: 'Advanced Practice Nurse (APN)',
+        year: '4학년',
+        terms: [
+          { ko: '중환자전문간호사', en: 'Critical Care Advanced Practice Nurse', desc: '생명이 위급한 중환자실 환자를 전문적으로 간호하는 자격을 갖춘 전문간호사.', example: '인공호흡기를 단 중환자의 상태를 세밀하게 모니터링하는 전문 간호사.' },
+          { ko: '마취전문간호사', en: 'Anesthesia Advanced Practice Nurse', desc: '수술 중 마취 관리를 전문적으로 보조하는 전문간호사.', example: '수술실에서 마취과 전문의와 함께 환자의 마취 상태를 관리.' },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 간호학과 전공 맛보기 | 대치프라임"
+  metaDescription="병원부터 지역사회까지, 간호학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="간호학과"
+  descriptionPrefix={`간호학과에 가면 실제로 배우게 될 내용을 간호학기초, 임상간호, 지역사회·정신간호, 간호관리·전문분야 4개 분야로 나누어뒀습니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 활력징후, 방문간호, APN)"
+  tracks={TRACKS}
+/>

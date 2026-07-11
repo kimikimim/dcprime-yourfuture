@@ -194,7 +194,7 @@ const totalTermCount = tracks.reduce((sum, t) => sum + t.courses.reduce((s, c) =
                         <p class="text-sm text-gray-600 leading-relaxed" set:html={t.desc.replace(/\$([^$]+)\$/g, '<span class="katex-inline" data-formula="$1"></span>')} />
                         {t.example && (
                           <p class="text-xs text-brand-dark bg-brand-light rounded-md px-2 py-1.5 mt-2 leading-relaxed">
-                            <span class="font-semibold">예</span> {t.example}
+                            <span class="font-semibold">ex)</span> {t.example}
                           </p>
                         )}
                       </div>
