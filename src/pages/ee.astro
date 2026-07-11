@@ -12,9 +12,9 @@ const TRACKS = [
         nameEn: 'Semiconductor Device Engineering',
         year: '2학년 2학기',
         terms: [
-          { ko: 'PN 접합 다이오드', en: 'PN Junction Diode', desc: 'p형과 n형 반도체의 접합으로 만들어져, 한쪽 방향으로만 전류를 흐르게 하는 정류 소자.' },
-          { ko: 'BJT 동작원리', en: 'Bipolar Junction Transistor Operation', desc: '베이스 전류로 컬렉터-이미터 전류를 제어하는 전류 제어형 트랜지스터의 동작 원리. 증폭기, 스위치로 활용됨.' },
-          { ko: 'MOSFET 구조', en: 'MOSFET Structure', desc: '게이트, 소스, 드레인, 바디로 이루어진 전압 제어형 트랜지스터의 물리적 구조. 현대 디지털·아날로그 회로의 핵심 소자.' },
+          { ko: 'PN 접합 다이오드', en: 'PN Junction Diode', desc: 'p형과 n형 반도체의 접합으로 만들어져, 한쪽 방향으로만 전류를 흐르게 하는 정류 소자.', example: '휴대폰 충전기(AC 어댑터) 안에서 교류를 직류로 바꾸는 정류 회로에 쓰임.' },
+          { ko: 'BJT 동작원리', en: 'Bipolar Junction Transistor Operation', desc: '베이스 전류로 컬렉터-이미터 전류를 제어하는 전류 제어형 트랜지스터의 동작 원리. 증폭기, 스위치로 활용됨.', example: '기타 앰프, 마이크 프리앰프 등 오디오 신호 증폭 회로에 흔히 쓰임.' },
+          { ko: 'MOSFET 구조', en: 'MOSFET Structure', desc: '게이트, 소스, 드레인, 바디로 이루어진 전압 제어형 트랜지스터의 물리적 구조. 현대 디지털·아날로그 회로의 핵심 소자.', example: 'CPU 한 칩 안에 들어있는 수십억 개의 트랜지스터가 거의 다 이 구조.' },
         ],
       },
       {
@@ -22,9 +22,9 @@ const TRACKS = [
         nameEn: 'Display Engineering',
         year: '4학년 1학기',
         terms: [
-          { ko: 'OLED 발광 원리', en: 'OLED Light Emission Principle', desc: '유기 발광 물질에 전류를 흘려 스스로 빛을 내는 소자. 백라이트가 필요 없어 얇고 명암비가 뛰어남.' },
-          { ko: '유연 소자', en: 'Flexible Display', desc: '휘어지거나 접을 수 있는 얇고 유연한 기판 위에 디스플레이를 구현하는 기술. 폴더블·롤러블 스마트폰의 핵심.' },
-          { ko: '차세대 발광 소자', en: 'Next-Gen Light-Emitting Devices (Micro LED)', desc: 'OLED를 넘어 더 밝고 수명이 긴, 마이크로미터 크기의 무기 발광 다이오드를 화소로 사용하는 차세대 디스플레이 기술.' },
+          { ko: 'OLED 발광 원리', en: 'OLED Light Emission Principle', desc: '유기 발광 물질에 전류를 흘려 스스로 빛을 내는 소자. 백라이트가 필요 없어 얇고 명암비가 뛰어남.', example: '갤럭시·아이폰의 OLED 화면이 검은 화면에서 완전한 검정을 표현하는 이유.' },
+          { ko: '유연 소자', en: 'Flexible Display', desc: '휘어지거나 접을 수 있는 얇고 유연한 기판 위에 디스플레이를 구현하는 기술. 폴더블·롤러블 스마트폰의 핵심.', example: '갤럭시 Z 폴드처럼 반으로 접히는 스마트폰 화면.' },
+          { ko: '차세대 발광 소자', en: 'Next-Gen Light-Emitting Devices (Micro LED)', desc: 'OLED를 넘어 더 밝고 수명이 긴, 마이크로미터 크기의 무기 발광 다이오드를 화소로 사용하는 차세대 디스플레이 기술.', example: '삼성 "더 월(The Wall)" 같은 초대형 프리미엄 TV 패널.' },
         ],
       },
       {
@@ -32,8 +32,8 @@ const TRACKS = [
         nameEn: 'Nanodevices & Electronic Materials',
         year: '4학년 1학기',
         terms: [
-          { ko: '나노소자', en: 'Nanodevices', desc: '물리·화학적 지식을 기반으로 기존 실리콘 소자의 한계를 넘어서는, 더 작고 빠른 차세대 트랜지스터 구조를 연구하는 분야.' },
-          { ko: '전자재료', en: 'Electronic Materials', desc: '반도체, 절연체, 도전성 재료 등 전자소자의 성능을 좌우하는 신소재를 개발하는 연구 영역.' },
+          { ko: '나노소자', en: 'Nanodevices', desc: '물리·화학적 지식을 기반으로 기존 실리콘 소자의 한계를 넘어서는, 더 작고 빠른 차세대 트랜지스터 구조를 연구하는 분야.', example: '삼성전자·TSMC의 3나노 공정으로 만드는 최신 스마트폰 AP.' },
+          { ko: '전자재료', en: 'Electronic Materials', desc: '반도체, 절연체, 도전성 재료 등 전자소자의 성능을 좌우하는 신소재를 개발하는 연구 영역.', example: '반도체 웨이퍼의 원재료인 고순도 단결정 실리콘 개발.' },
         ],
       },
     ],
@@ -48,11 +48,11 @@ const TRACKS = [
         nameEn: 'Circuit Theory',
         year: '1학년 2학기',
         terms: [
-          { ko: '키르히호프 법칙', en: "Kirchhoff's Laws", formula: '\\sum I_{in} = \\sum I_{out}, \\quad \\sum V = 0', desc: '전류 법칙(KCL, 마디에 들어오고 나가는 전류의 합은 0)과 전압 법칙(KVL, 폐회로의 전압 강하 합은 0)으로 구성된 회로 해석의 기본 법칙.' },
-          { ko: '테브난 정리', en: "Thevenin's Theorem", desc: '복잡한 선형 회로를 하나의 등가 전압원과 직렬 저항으로 단순화할 수 있다는 정리. 부하 저항 변화에 따른 해석을 쉽게 해줌.' },
-          { ko: '노턴 정리', en: "Norton's Theorem", desc: '테브난 정리의 쌍대 개념으로, 회로를 하나의 등가 전류원과 병렬 저항으로 단순화하는 정리.' },
-          { ko: '중첩의 원리', en: 'Superposition Theorem', desc: '여러 개의 독립 전원이 있는 선형 회로에서, 각 전원이 단독으로 있을 때의 응답을 합산하면 전체 응답과 같다는 원리.' },
-          { ko: 'RLC 공진', en: 'RLC Resonance', formula: '\\omega_0 = \\frac{1}{\\sqrt{LC}}', desc: '인덕터와 커패시터의 리액턴스가 서로 상쇄되어 회로가 순저항처럼 동작하는 주파수. 필터, 튜너 설계의 핵심.' },
+          { ko: '키르히호프 법칙', en: "Kirchhoff's Laws", formula: '\\sum I_{in} = \\sum I_{out}, \\quad \\sum V = 0', desc: '전류 법칙(KCL, 마디에 들어오고 나가는 전류의 합은 0)과 전압 법칙(KVL, 폐회로의 전압 강하 합은 0)으로 구성된 회로 해석의 기본 법칙.', example: '회로 시뮬레이터(SPICE)가 내부적으로 모든 노드의 전압·전류를 계산할 때 쓰는 기본 규칙.' },
+          { ko: '테브난 정리', en: "Thevenin's Theorem", desc: '복잡한 선형 회로를 하나의 등가 전압원과 직렬 저항으로 단순화할 수 있다는 정리. 부하 저항 변화에 따른 해석을 쉽게 해줌.', example: '이어폰 임피던스에 따라 앰프가 전달하는 최대 출력을 계산할 때.' },
+          { ko: '노턴 정리', en: "Norton's Theorem", desc: '테브난 정리의 쌍대 개념으로, 회로를 하나의 등가 전류원과 병렬 저항으로 단순화하는 정리.', example: '태양전지 패널을 등가 전류원 모델로 단순화해 해석할 때.' },
+          { ko: '중첩의 원리', en: 'Superposition Theorem', desc: '여러 개의 독립 전원이 있는 선형 회로에서, 각 전원이 단독으로 있을 때의 응답을 합산하면 전체 응답과 같다는 원리.', example: '여러 악기 신호가 섞이는 오디오 믹서 회로를 분석할 때.' },
+          { ko: 'RLC 공진', en: 'RLC Resonance', formula: '\\omega_0 = \\frac{1}{\\sqrt{LC}}', desc: '인덕터와 커패시터의 리액턴스가 서로 상쇄되어 회로가 순저항처럼 동작하는 주파수. 필터, 튜너 설계의 핵심.', example: 'AM/FM 라디오가 특정 방송국 주파수만 골라 수신하는 튜닝 회로.' },
         ],
       },
       {
@@ -60,9 +60,9 @@ const TRACKS = [
         nameEn: 'Digital Logic Design',
         year: '2학년 1학기',
         terms: [
-          { ko: '부울대수', en: 'Boolean Algebra', desc: '참/거짓 두 값과 AND, OR, NOT 연산으로 논리를 다루는 대수 체계. 디지털 회로 설계의 수학적 기초.' },
-          { ko: '카르노 맵', en: 'Karnaugh Map', desc: '논리식을 시각적으로 배열해 최소항을 묶어냄으로써 부울식을 간소화하는 도구.' },
-          { ko: '플립플롭', en: 'Flip-Flop', desc: '1비트의 정보를 저장할 수 있는 순차 논리 회로의 기본 소자. 레지스터, 카운터 등 순차회로 구성의 기본 단위.' },
+          { ko: '부울대수', en: 'Boolean Algebra', desc: '참/거짓 두 값과 AND, OR, NOT 연산으로 논리를 다루는 대수 체계. 디지털 회로 설계의 수학적 기초.', example: '디지털 도어락이 비밀번호 일치 여부를 판단하는 논리 회로의 기초.' },
+          { ko: '카르노 맵', en: 'Karnaugh Map', desc: '논리식을 시각적으로 배열해 최소항을 묶어냄으로써 부울식을 간소화하는 도구.', example: '엘리베이터 제어 로직을 최소한의 게이트로 구현할 때 회로를 간소화하는 데 사용.' },
+          { ko: '플립플롭', en: 'Flip-Flop', desc: '1비트의 정보를 저장할 수 있는 순차 논리 회로의 기본 소자. 레지스터, 카운터 등 순차회로 구성의 기본 단위.', example: 'CPU 레지스터와 메모리 셀 하나하나가 플립플롭으로 이루어져 있음.' },
         ],
       },
       {
@@ -70,8 +70,8 @@ const TRACKS = [
         nameEn: 'Electronic Circuits',
         year: '2학년 2학기',
         terms: [
-          { ko: '연산증폭기', en: 'Operational Amplifier (Op-amp)', desc: '두 입력 단자 전압 차를 매우 큰 이득으로 증폭하는 소자. 부궤환 회로에서는 가상 단락(Virtual Short) 개념으로 해석함.' },
-          { ko: 'MOSFET 동작 영역', en: 'MOSFET Operating Regions', desc: '게이트-소스 전압에 따라 차단, 삼극(Triode), 포화(Saturation) 영역으로 나뉘는 트랜지스터의 동작 상태. 증폭과 스위칭의 기반.' },
+          { ko: '연산증폭기', en: 'Operational Amplifier (Op-amp)', desc: '두 입력 단자 전압 차를 매우 큰 이득으로 증폭하는 소자. 부궤환 회로에서는 가상 단락(Virtual Short) 개념으로 해석함.', example: '마이크의 미세한 전기 신호를 스피커가 울릴 만큼 키우는 프리앰프.' },
+          { ko: 'MOSFET 동작 영역', en: 'MOSFET Operating Regions', desc: '게이트-소스 전압에 따라 차단, 삼극(Triode), 포화(Saturation) 영역으로 나뉘는 트랜지스터의 동작 상태. 증폭과 스위칭의 기반.', example: '스마트폰 전원관리칩(PMIC)이 배터리 전압을 필요한 전압으로 스위칭할 때.' },
         ],
       },
       {
@@ -79,10 +79,10 @@ const TRACKS = [
         nameEn: 'Intro to VLSI Design',
         year: '3학년 1학기',
         terms: [
-          { ko: '아날로그 회로와 디지털 회로 설계', en: 'Analog vs Digital Circuit Design', desc: '연속적인 값을 다루는 아날로그 회로 설계와, 0/1 이산 값을 다루는 디지털 회로 설계로 나뉘는 VLSI 설계의 두 갈래.' },
-          { ko: 'CMOS 논리게이트 설계', en: 'CMOS Logic Gate Design', desc: 'PMOS와 NMOS 트랜지스터를 조합해 NAND, NOR 등 기본 논리 게이트를 구현하는 방법. 모든 디지털 회로의 최하위 구성 단위.' },
-          { ko: '타이밍 분석', en: 'Timing Analysis', desc: '신호가 회로를 통과하는 데 걸리는 시간(지연)을 분석해 클럭 주파수의 한계와 셋업/홀드 시간 위반 여부를 검증하는 과정.' },
-          { ko: '저전력 설계 기법', en: 'Low-Power Design Techniques', desc: '클럭 게이팅, 전압 스케일링 등을 통해 칩의 소비 전력을 줄이는 설계 기법. 모바일 기기 배터리 수명에 직결됨.' },
+          { ko: '아날로그 회로와 디지털 회로 설계', en: 'Analog vs Digital Circuit Design', desc: '연속적인 값을 다루는 아날로그 회로 설계와, 0/1 이산 값을 다루는 디지털 회로 설계로 나뉘는 VLSI 설계의 두 갈래.', example: '스마트폰 AP는 디지털 설계, 전원관리칩(PMIC)은 아날로그 설계가 각각 담당.' },
+          { ko: 'CMOS 논리게이트 설계', en: 'CMOS Logic Gate Design', desc: 'PMOS와 NMOS 트랜지스터를 조합해 NAND, NOR 등 기본 논리 게이트를 구현하는 방법. 모든 디지털 회로의 최하위 구성 단위.', example: 'CPU·GPU 내부 논리 회로 전체가 이 게이트들의 조합으로 만들어짐.' },
+          { ko: '타이밍 분석', en: 'Timing Analysis', desc: '신호가 회로를 통과하는 데 걸리는 시간(지연)을 분석해 클럭 주파수의 한계와 셋업/홀드 시간 위반 여부를 검증하는 과정.', example: 'CPU를 3GHz, 4GHz로 얼마나 높여도 오동작하지 않는지 검증하는 과정.' },
+          { ko: '저전력 설계 기법', en: 'Low-Power Design Techniques', desc: '클럭 게이팅, 전압 스케일링 등을 통해 칩의 소비 전력을 줄이는 설계 기법. 모바일 기기 배터리 수명에 직결됨.', example: '스마트폰 화면이 꺼져 있을 때 AP가 배터리를 최소로만 소비하게 하는 기술.' },
         ],
       },
       {
@@ -90,8 +90,8 @@ const TRACKS = [
         nameEn: 'Hardware System Design',
         year: '4학년 1학기',
         terms: [
-          { ko: '메인보드(PCB) 설계', en: 'Motherboard/PCB Design', desc: '스마트폰, 컴퓨터, 가전제품 내부에서 각종 부품을 전기적으로 연결하는 인쇄회로기판을 설계하는 기술.' },
-          { ko: '전원공급시스템 설계', en: 'Power Supply System Design', desc: '기기에 필요한 다양한 전압을 안정적으로 공급하는 전원 회로를 설계하는 영역.' },
+          { ko: '메인보드(PCB) 설계', en: 'Motherboard/PCB Design', desc: '스마트폰, 컴퓨터, 가전제품 내부에서 각종 부품을 전기적으로 연결하는 인쇄회로기판을 설계하는 기술.', example: '노트북을 열었을 때 보이는 초록색 기판 위 부품 배치와 배선 설계.' },
+          { ko: '전원공급시스템 설계', en: 'Power Supply System Design', desc: '기기에 필요한 다양한 전압을 안정적으로 공급하는 전원 회로를 설계하는 영역.', example: '데스크톱 컴퓨터의 파워서플라이(SMPS) 내부 회로.' },
         ],
       },
     ],
@@ -106,10 +106,10 @@ const TRACKS = [
         nameEn: 'Signals and Systems',
         year: '3학년 1학기',
         terms: [
-          { ko: '표본화 정리', en: 'Sampling Theorem (Nyquist)', formula: 'f_s \\ge 2f_{max}', desc: '아날로그 신호를 왜곡 없이 디지털로 복원하려면, 표본화 주파수가 신호 최대 주파수의 2배 이상이어야 한다는 정리.' },
-          { ko: '컨볼루션', en: 'Convolution', desc: '두 함수를 하나로 합성해 시스템의 출력을 구하는 연산. 선형 시불변(LTI) 시스템의 입출력 관계를 정의하는 핵심 도구.' },
-          { ko: '임펄스 응답', en: 'Impulse Response', desc: '단위 임펄스 신호를 입력했을 때 시스템이 내놓는 출력. LTI 시스템의 특성을 완전히 결정짓는 함수.' },
-          { ko: 'z-변환', en: 'Z-Transform', desc: '이산 시간 신호를 복소 주파수 영역으로 변환하는 도구. 디지털 필터 설계와 이산 시스템의 안정도 해석에 사용됨.' },
+          { ko: '표본화 정리', en: 'Sampling Theorem (Nyquist)', formula: 'f_s \\ge 2f_{max}', desc: '아날로그 신호를 왜곡 없이 디지털로 복원하려면, 표본화 주파수가 신호 최대 주파수의 2배 이상이어야 한다는 정리.', example: '오디오 CD가 소리를 44.1kHz로 샘플링하는 이유(사람 가청주파수 20kHz의 2배 이상).' },
+          { ko: '컨볼루션', en: 'Convolution', desc: '두 함수를 하나로 합성해 시스템의 출력을 구하는 연산. 선형 시불변(LTI) 시스템의 입출력 관계를 정의하는 핵심 도구.', example: '카메라 앱의 흐림(블러)이나 선명화 필터가 이미지에 적용하는 연산.' },
+          { ko: '임펄스 응답', en: 'Impulse Response', desc: '단위 임펄스 신호를 입력했을 때 시스템이 내놓는 출력. LTI 시스템의 특성을 완전히 결정짓는 함수.', example: '콘서트홀의 잔향을 녹음해 만드는 리버브(reverb) 이펙트 플러그인.' },
+          { ko: 'z-변환', en: 'Z-Transform', desc: '이산 시간 신호를 복소 주파수 영역으로 변환하는 도구. 디지털 필터 설계와 이산 시스템의 안정도 해석에 사용됨.', example: '음악 앱의 디지털 이퀄라이저(EQ) 필터를 설계할 때.' },
         ],
       },
       {
@@ -117,8 +117,8 @@ const TRACKS = [
         nameEn: 'Digital Signal Processing',
         year: '3학년 2학기',
         terms: [
-          { ko: 'FIR/IIR 필터', en: 'FIR/IIR Filters', desc: '유한한 개수의 과거 입력만 사용하는 FIR 필터와, 출력값도 되먹임하는 IIR 필터. 디지털 신호에서 원하는 주파수 성분만 걸러내는 데 사용.' },
-          { ko: '고속 푸리에 변환', en: 'Fast Fourier Transform (FFT)', desc: '이산 푸리에 변환을 $O(n\\log n)$ 시간에 계산하는 알고리즘. 신호의 주파수 성분을 실시간으로 분석하는 데 필수적.' },
+          { ko: 'FIR/IIR 필터', en: 'FIR/IIR Filters', desc: '유한한 개수의 과거 입력만 사용하는 FIR 필터와, 출력값도 되먹임하는 IIR 필터. 디지털 신호에서 원하는 주파수 성분만 걸러내는 데 사용.', example: '노이즈캔슬링 이어폰이 주변 소음 주파수만 걸러내는 필터.' },
+          { ko: '고속 푸리에 변환', en: 'Fast Fourier Transform (FFT)', desc: '이산 푸리에 변환을 $O(n\\log n)$ 시간에 계산하는 알고리즘. 신호의 주파수 성분을 실시간으로 분석하는 데 필수적.', example: '시리·빅스비 같은 음성비서가 목소리의 주파수 특징을 실시간 분석할 때.' },
         ],
       },
       {
@@ -126,8 +126,8 @@ const TRACKS = [
         nameEn: 'Image & Audio Signal Processing',
         year: '3학년 2학기',
         terms: [
-          { ko: '영상처리', en: 'Image/Video Signal Processing', desc: 'CCTV, 자율주행 카메라 등에서 촬영된 영상 신호를 분석·보정·압축하는 기술.' },
-          { ko: '음성신호처리', en: 'Audio Signal Processing', desc: '오디오 장비나 마이크에서 들어오는 음성 신호의 잡음을 제거하고 필터링하는 기술.' },
+          { ko: '영상처리', en: 'Image/Video Signal Processing', desc: 'CCTV, 자율주행 카메라 등에서 촬영된 영상 신호를 분석·보정·압축하는 기술.', example: '자율주행차가 카메라 영상에서 차선과 신호등을 인식하는 전처리 과정.' },
+          { ko: '음성신호처리', en: 'Audio Signal Processing', desc: '오디오 장비나 마이크에서 들어오는 음성 신호의 잡음을 제거하고 필터링하는 기술.', example: '화상회의 프로그램(줌 등)이 배경 소음을 자동으로 지워주는 기능.' },
         ],
       },
       {
@@ -135,8 +135,8 @@ const TRACKS = [
         nameEn: 'Embedded Systems',
         year: '3학년 2학기',
         terms: [
-          { ko: '마이크로컨트롤러와 인터럽트', en: 'Microcontroller & Interrupts', desc: 'CPU, 메모리, 입출력을 하나의 칩에 통합한 마이크로컨트롤러와, 외부 이벤트 발생 시 즉시 처리 루틴으로 전환하는 인터럽트 메커니즘.' },
-          { ko: '실시간 운영체제', en: 'Real-Time Operating System (RTOS)', desc: '정해진 시간 안에 반드시 작업을 완료해야 하는 임베디드 시스템을 위해 설계된, 예측 가능한 스케줄링을 제공하는 운영체제.' },
+          { ko: '마이크로컨트롤러와 인터럽트', en: 'Microcontroller & Interrupts', desc: 'CPU, 메모리, 입출력을 하나의 칩에 통합한 마이크로컨트롤러와, 외부 이벤트 발생 시 즉시 처리 루틴으로 전환하는 인터럽트 메커니즘.', example: '전자레인지나 세탁기의 버튼을 눌렀을 때 즉시 반응하는 제어 칩.' },
+          { ko: '실시간 운영체제', en: 'Real-Time Operating System (RTOS)', desc: '정해진 시간 안에 반드시 작업을 완료해야 하는 임베디드 시스템을 위해 설계된, 예측 가능한 스케줄링을 제공하는 운영체제.', example: '자동차 에어백처럼 정해진 밀리초 안에 반드시 반응해야 하는 안전 제어기.' },
         ],
       },
     ],
@@ -151,10 +151,10 @@ const TRACKS = [
         nameEn: 'Electromagnetics',
         year: '2학년 1~2학기',
         terms: [
-          { ko: '가우스 법칙', en: "Gauss's Law", desc: '임의의 폐곡면을 통과하는 전기선속은 그 안에 있는 전하량에 비례한다는 법칙. 대칭성이 좋은 전하 분포의 전기장을 쉽게 구할 수 있게 해줌.' },
-          { ko: '패러데이 유도 법칙', en: "Faraday's Law of Induction", formula: '\\varepsilon = -\\frac{d\\Phi_B}{dt}', desc: '시간에 따라 변하는 자기선속이 기전력을 유도한다는 법칙. 발전기, 변압기 동작의 원리.' },
-          { ko: '맥스웰 방정식', en: "Maxwell's Equations", formula: '\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}', desc: '전기장과 자기장의 관계를 기술하는 4개의 방정식. 전자기파의 존재와 빛의 속도를 예측함으로써 전자기학을 완성시킴.' },
-          { ko: '포인팅 벡터', en: 'Poynting Vector', desc: '전자기장이 단위 시간, 단위 면적당 운반하는 에너지의 양과 방향을 나타내는 벡터. 전자기파의 에너지 흐름을 기술함.' },
+          { ko: '가우스 법칙', en: "Gauss's Law", desc: '임의의 폐곡면을 통과하는 전기선속은 그 안에 있는 전하량에 비례한다는 법칙. 대칭성이 좋은 전하 분포의 전기장을 쉽게 구할 수 있게 해줌.', example: '커패시터(콘덴서) 내부 전기장을 계산하는 기본 도구.' },
+          { ko: '패러데이 유도 법칙', en: "Faraday's Law of Induction", formula: '\\varepsilon = -\\frac{d\\Phi_B}{dt}', desc: '시간에 따라 변하는 자기선속이 기전력을 유도한다는 법칙. 발전기, 변압기 동작의 원리.', example: '스마트폰을 무선 충전 패드 위에 올리면 충전되는 원리.' },
+          { ko: '맥스웰 방정식', en: "Maxwell's Equations", formula: '\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}', desc: '전기장과 자기장의 관계를 기술하는 4개의 방정식. 전자기파의 존재와 빛의 속도를 예측함으로써 전자기학을 완성시킴.', example: '와이파이 공유기 안테나가 전파를 얼마나 멀리, 어느 방향으로 뿌리는지 시뮬레이션할 때.' },
+          { ko: '포인팅 벡터', en: 'Poynting Vector', desc: '전자기장이 단위 시간, 단위 면적당 운반하는 에너지의 양과 방향을 나타내는 벡터. 전자기파의 에너지 흐름을 기술함.', example: '전자레인지 마그네트론이 음식에 전달하는 마이크로파 에너지량 계산.' },
         ],
       },
       {
@@ -162,9 +162,9 @@ const TRACKS = [
         nameEn: 'Communication Engineering',
         year: '3학년 2학기',
         terms: [
-          { ko: '샤논의 채널 용량', en: "Shannon's Channel Capacity", formula: 'C = B \\log_2(1 + S/N)', desc: '잡음이 있는 채널에서 오류 없이 전송 가능한 최대 정보량을 대역폭과 신호대잡음비로 나타낸 정보이론의 핵심 정리.' },
-          { ko: '변조', en: 'Modulation (AM/FM)', desc: '정보 신호를 전송에 적합한 반송파에 실어보내는 과정. 진폭을 바꾸면 AM, 주파수를 바꾸면 FM.' },
-          { ko: '비트오류율', en: 'Bit Error Rate (BER)', desc: '전송된 비트 중 잘못 수신된 비트의 비율. 통신 시스템의 품질을 평가하는 핵심 지표.' },
+          { ko: '샤논의 채널 용량', en: "Shannon's Channel Capacity", formula: 'C = B \\log_2(1 + S/N)', desc: '잡음이 있는 채널에서 오류 없이 전송 가능한 최대 정보량을 대역폭과 신호대잡음비로 나타낸 정보이론의 핵심 정리.', example: '5G가 4G보다 훨씬 빠른 속도를 낼 수 있는 이론적 한계를 설명하는 공식.' },
+          { ko: '변조', en: 'Modulation (AM/FM)', desc: '정보 신호를 전송에 적합한 반송파에 실어보내는 과정. 진폭을 바꾸면 AM, 주파수를 바꾸면 FM.', example: '자동차 라디오에서 채널을 돌려 AM/FM 방송을 골라 듣는 것.' },
+          { ko: '비트오류율', en: 'Bit Error Rate (BER)', desc: '전송된 비트 중 잘못 수신된 비트의 비율. 통신 시스템의 품질을 평가하는 핵심 지표.', example: '와이파이 신호가 약할 때 영상 스트리밍이 끊기거나 화질이 깨지는 원인.' },
         ],
       },
       {
@@ -172,8 +172,8 @@ const TRACKS = [
         nameEn: 'Information & Communication Engineering',
         year: '4학년 1학기',
         terms: [
-          { ko: '5G/6G 무선통신', en: '5G/6G Wireless Communication', desc: '더 빠른 속도와 낮은 지연시간을 목표로 하는 차세대 이동통신 기술과 그 물리 계층 프로토콜.' },
-          { ko: '광통신 시스템', en: 'Optical Communication Systems', desc: '빛(레이저)을 이용해 광섬유를 통해 대용량 데이터를 장거리로 전송하는 통신 기술.' },
+          { ko: '5G/6G 무선통신', en: '5G/6G Wireless Communication', desc: '더 빠른 속도와 낮은 지연시간을 목표로 하는 차세대 이동통신 기술과 그 물리 계층 프로토콜.', example: '스마트폰에 내장된 5G 모뎀 칩과 기지국 사이의 통신 규격.' },
+          { ko: '광통신 시스템', en: 'Optical Communication Systems', desc: '빛(레이저)을 이용해 광섬유를 통해 대용량 데이터를 장거리로 전송하는 통신 기술.', example: '한국과 미국을 잇는 해저 광케이블을 통한 국제 인터넷 트래픽.' },
         ],
       },
       {
@@ -181,9 +181,9 @@ const TRACKS = [
         nameEn: 'RF & Microwave Engineering',
         year: '4학년 1학기',
         terms: [
-          { ko: '안테나 이득과 방사패턴', en: 'Antenna Gain & Radiation Pattern', desc: '안테나가 특정 방향으로 얼마나 강하게 전파를 방사하는지를 나타내는 이득과, 그 방향별 세기를 시각화한 방사패턴.' },
-          { ko: '전파 전파와 감쇠', en: 'Radio Wave Propagation & Attenuation', desc: '전자기파가 공간을 진행하며 거리, 장애물, 대기 조건에 따라 세기가 줄어드는 현상. 통신 링크 설계의 핵심 고려사항.' },
-          { ko: '레이더 시스템', en: 'Radar Systems', desc: '전자기파를 발사하고 반사되어 돌아오는 신호를 분석해 물체의 위치와 속도를 탐지하는 시스템. 자율주행, 기상관측, 국방 분야에 핵심적으로 쓰임.' },
+          { ko: '안테나 이득과 방사패턴', en: 'Antenna Gain & Radiation Pattern', desc: '안테나가 특정 방향으로 얼마나 강하게 전파를 방사하는지를 나타내는 이득과, 그 방향별 세기를 시각화한 방사패턴.', example: '아이폰 테두리 안에 숨겨진 여러 개의 안테나를 배치·설계할 때.' },
+          { ko: '전파 전파와 감쇠', en: 'Radio Wave Propagation & Attenuation', desc: '전자기파가 공간을 진행하며 거리, 장애물, 대기 조건에 따라 세기가 줄어드는 현상. 통신 링크 설계의 핵심 고려사항.', example: '통신사가 새 기지국을 어디에 세울지, 몇 미터 간격으로 세울지 정할 때.' },
+          { ko: '레이더 시스템', en: 'Radar Systems', desc: '전자기파를 발사하고 반사되어 돌아오는 신호를 분석해 물체의 위치와 속도를 탐지하는 시스템. 자율주행, 기상관측, 국방 분야에 핵심적으로 쓰임.', example: '자율주행차가 전방 차량과의 거리·속도를 감지하는 어댑티브 크루즈 컨트롤.' },
         ],
       },
     ],
@@ -198,10 +198,10 @@ const TRACKS = [
         nameEn: 'Control Systems',
         year: '3학년 2학기',
         terms: [
-          { ko: '전달함수', en: 'Transfer Function', desc: '시스템의 입력과 출력 사이의 관계를 라플라스 영역에서 나타낸 함수. 시스템의 동적 특성을 대수적으로 다룰 수 있게 해줌.' },
-          { ko: '근궤적법', en: 'Root Locus', desc: '이득 값이 변할 때 폐루프 시스템의 극점이 s-평면 위에서 이동하는 궤적을 그려 안정도를 분석하는 방법.' },
-          { ko: '보드 선도', en: 'Bode Plot', desc: '시스템의 주파수 응답을 크기와 위상으로 나누어 로그 스케일로 나타낸 그래프. 이득 여유와 위상 여유를 통해 안정도를 판단함.' },
-          { ko: 'PID 제어', en: 'PID Control', formula: 'u(t) = K_p e(t) + K_i \\int e(t)\\,dt + K_d \\frac{de(t)}{dt}', desc: '오차의 비례, 적분, 미분 항을 조합해 제어 입력을 계산하는 가장 널리 쓰이는 피드백 제어 방식.' },
+          { ko: '전달함수', en: 'Transfer Function', desc: '시스템의 입력과 출력 사이의 관계를 라플라스 영역에서 나타낸 함수. 시스템의 동적 특성을 대수적으로 다룰 수 있게 해줌.', example: '에어컨이 설정 온도에 도달하는 속도와 패턴을 수학적으로 분석할 때.' },
+          { ko: '근궤적법', en: 'Root Locus', desc: '이득 값이 변할 때 폐루프 시스템의 극점이 s-평면 위에서 이동하는 궤적을 그려 안정도를 분석하는 방법.', example: '드론이 바람에 흔들려도 넘어지지 않도록 자세 제어기 이득을 튜닝할 때.' },
+          { ko: '보드 선도', en: 'Bode Plot', desc: '시스템의 주파수 응답을 크기와 위상으로 나누어 로그 스케일로 나타낸 그래프. 이득 여유와 위상 여유를 통해 안정도를 판단함.', example: '오디오 앰프가 어떤 주파수 대역에서 소리를 왜곡 없이 증폭하는지 확인할 때.' },
+          { ko: 'PID 제어', en: 'PID Control', formula: 'u(t) = K_p e(t) + K_i \\int e(t)\\,dt + K_d \\frac{de(t)}{dt}', desc: '오차의 비례, 적분, 미분 항을 조합해 제어 입력을 계산하는 가장 널리 쓰이는 피드백 제어 방식.', example: '보일러가 설정한 실내 온도를 유지하도록 화력을 자동 조절하는 원리.' },
         ],
       },
       {
@@ -209,8 +209,8 @@ const TRACKS = [
         nameEn: 'Control & Instrumentation Engineering',
         year: '4학년 1학기',
         terms: [
-          { ko: '스마트팩토리 자동화', en: 'Smart Factory Automation', desc: '공장의 생산 라인을 센서와 제어 시스템으로 자동화해 효율과 품질을 높이는 기술.' },
-          { ko: '자동항법장치', en: 'Autopilot & Navigation Systems', desc: '비행기나 선박이 사람의 직접 조작 없이도 정해진 경로를 따라가도록 제어하는 시스템.' },
+          { ko: '스마트팩토리 자동화', en: 'Smart Factory Automation', desc: '공장의 생산 라인을 센서와 제어 시스템으로 자동화해 효율과 품질을 높이는 기술.', example: '삼성전자 반도체 공장의 무인 자동화 생산 라인.' },
+          { ko: '자동항법장치', en: 'Autopilot & Navigation Systems', desc: '비행기나 선박이 사람의 직접 조작 없이도 정해진 경로를 따라가도록 제어하는 시스템.', example: '여객기가 순항 중 조종사 개입 없이 자동으로 비행하는 오토파일럿.' },
         ],
       },
       {
@@ -218,8 +218,8 @@ const TRACKS = [
         nameEn: 'Robotics',
         year: '4학년 2학기',
         terms: [
-          { ko: '로봇 관절 제어', en: 'Robot Joint Control', desc: '로봇 팔이나 다리의 각 관절 모터를 정밀하게 제어해 원하는 동작을 만들어내는 기술.' },
-          { ko: 'SLAM', en: 'Simultaneous Localization and Mapping', desc: '로봇이 미지의 환경을 돌아다니며 동시에 자기 위치를 추정하고 주변 지도를 작성하는 자율주행 로봇의 핵심 기술.' },
+          { ko: '로봇 관절 제어', en: 'Robot Joint Control', desc: '로봇 팔이나 다리의 각 관절 모터를 정밀하게 제어해 원하는 동작을 만들어내는 기술.', example: '자동차 공장에서 용접·조립을 수행하는 산업용 로봇팔.' },
+          { ko: 'SLAM', en: 'Simultaneous Localization and Mapping', desc: '로봇이 미지의 환경을 돌아다니며 동시에 자기 위치를 추정하고 주변 지도를 작성하는 자율주행 로봇의 핵심 기술.', example: '로봇청소기가 처음 방문한 집 구조를 스스로 파악해 청소 경로를 짜는 기술.' },
         ],
       },
     ],
@@ -234,9 +234,9 @@ const TRACKS = [
         nameEn: 'Power Electronics',
         year: '4학년 1학기',
         terms: [
-          { ko: 'DC-DC 컨버터', en: 'DC-DC Converter', desc: '직류 전압의 크기를 원하는 값으로 바꿔주는 회로(벅, 부스트 컨버터 등). 배터리 관리, 전원 공급 장치에 필수.' },
-          { ko: '인버터와 정류기', en: 'Inverter & Rectifier', desc: '직류를 교류로 바꾸는 인버터와, 교류를 직류로 바꾸는 정류기. 태양광 발전, 전기차 구동 등에 핵심적으로 쓰임.' },
-          { ko: '스위칭 손실', en: 'Switching Losses', desc: '전력용 반도체 소자가 켜지고 꺼지는 순간 발생하는 에너지 손실. 전력변환 효율을 좌우하는 주요 요인.' },
+          { ko: 'DC-DC 컨버터', en: 'DC-DC Converter', desc: '직류 전압의 크기를 원하는 값으로 바꿔주는 회로(벅, 부스트 컨버터 등). 배터리 관리, 전원 공급 장치에 필수.', example: '노트북 충전기 어댑터 내부에서 220V를 노트북용 19V로 낮추는 회로.' },
+          { ko: '인버터와 정류기', en: 'Inverter & Rectifier', desc: '직류를 교류로 바꾸는 인버터와, 교류를 직류로 바꾸는 정류기. 태양광 발전, 전기차 구동 등에 핵심적으로 쓰임.', example: '태양광 패널이 만든 직류 전기를 가정에서 쓸 수 있는 교류로 바꾸는 인버터.' },
+          { ko: '스위칭 손실', en: 'Switching Losses', desc: '전력용 반도체 소자가 켜지고 꺼지는 순간 발생하는 에너지 손실. 전력변환 효율을 좌우하는 주요 요인.', example: '전기차 급속충전기가 얼마나 효율적으로 배터리를 충전하는지를 좌우하는 요인.' },
         ],
       },
       {
@@ -244,8 +244,8 @@ const TRACKS = [
         nameEn: 'Power Systems Engineering',
         year: '4학년 1학기',
         terms: [
-          { ko: '송배전망', en: 'Transmission & Distribution Networks', desc: '발전소에서 생산한 전기를 가정과 공장까지 손실을 최소화하며 보내는 전력망 인프라.' },
-          { ko: '스마트그리드', en: 'Smart Grid', desc: '정보통신기술을 접목해 전력 생산과 소비를 실시간으로 파악하고 효율적으로 관리하는 차세대 전력망.' },
+          { ko: '송배전망', en: 'Transmission & Distribution Networks', desc: '발전소에서 생산한 전기를 가정과 공장까지 손실을 최소화하며 보내는 전력망 인프라.', example: '한국전력이 전국에 세운 송전탑과 변전소, 배전선로 네트워크.' },
+          { ko: '스마트그리드', en: 'Smart Grid', desc: '정보통신기술을 접목해 전력 생산과 소비를 실시간으로 파악하고 효율적으로 관리하는 차세대 전력망.', example: '태양광·풍력처럼 발전량이 들쭉날쭉한 신재생에너지를 실시간으로 관리하는 시스템.' },
         ],
       },
       {
@@ -253,8 +253,8 @@ const TRACKS = [
         nameEn: 'Electric Machines & Energy Engineering',
         year: '4학년 2학기',
         terms: [
-          { ko: '전기자동차용 모터', en: 'EV Traction Motors', desc: '전기자동차를 구동하는 고효율 전기모터의 설계와 제어 기술.' },
-          { ko: '신재생에너지 발전시스템', en: 'Renewable Energy Generation Systems', desc: '태양광, 풍력 등 재생 가능한 에너지원으로부터 전기를 생산하는 발전 시스템 기술.' },
+          { ko: '전기자동차용 모터', en: 'EV Traction Motors', desc: '전기자동차를 구동하는 고효율 전기모터의 설계와 제어 기술.', example: '테슬라 모델3나 아이오닉의 바퀴를 직접 구동하는 전기모터.' },
+          { ko: '신재생에너지 발전시스템', en: 'Renewable Energy Generation Systems', desc: '태양광, 풍력 등 재생 가능한 에너지원으로부터 전기를 생산하는 발전 시스템 기술.', example: '제주도 앞바다에 설치된 해상풍력 발전단지.' },
         ],
       },
     ],

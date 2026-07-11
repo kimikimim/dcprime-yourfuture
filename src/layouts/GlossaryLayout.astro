@@ -8,6 +8,7 @@ interface Term {
   en: string;
   formula?: string;
   desc: string;
+  example?: string;
 }
 
 interface Course {
@@ -183,7 +184,7 @@ const totalTermCount = tracks.reduce((sum, t) => sum + t.courses.reduce((s, c) =
                     {course.terms.map((t) => (
                       <div
                         class="term-card bg-gray-50 rounded-lg border border-gray-100 p-4"
-                        data-search={`${t.ko} ${t.en} ${t.desc}`.toLowerCase()}
+                        data-search={`${t.ko} ${t.en} ${t.desc} ${t.example ?? ''}`.toLowerCase()}
                       >
                         <p class="text-sm font-bold text-gray-900">{t.ko}</p>
                         <p class="text-xs text-gray-400 mb-2">{t.en}</p>
@@ -191,6 +192,11 @@ const totalTermCount = tracks.reduce((sum, t) => sum + t.courses.reduce((s, c) =
                           <div class="katex-formula text-sm text-brand my-2 overflow-x-auto" data-formula={t.formula}></div>
                         )}
                         <p class="text-sm text-gray-600 leading-relaxed" set:html={t.desc.replace(/\$([^$]+)\$/g, '<span class="katex-inline" data-formula="$1"></span>')} />
+                        {t.example && (
+                          <p class="text-xs text-brand-dark bg-brand-light rounded-md px-2 py-1.5 mt-2 leading-relaxed">
+                            <span class="font-semibold">예</span> {t.example}
+                          </p>
+                        )}
                       </div>
                     ))}
                   </div>
