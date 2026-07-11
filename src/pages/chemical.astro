@@ -3,8 +3,9 @@ import GlossaryLayout from '../layouts/GlossaryLayout.astro';
 
 const TRACKS = [
   {
-    title: '열역학 및 반응공학',
-    subtitle: 'Thermodynamics & Reaction Engineering',
+    title: '화학공학과 (전통 화공·공정)',
+    subtitle: '화공 열역학, 반응공학, 단위조작(Unit Operations), 화학 공정 제어 및 설계를 다루는 화학공학의 근간 분야입니다.',
+    careers: ['정유 및 석유화학사(GS칼텍스·SK이노베이션·LG화학·S-Oil)', '플랜트 엔지니어링 기업'],
     courses: [
       {
         name: '화공열역학',
@@ -39,12 +40,6 @@ const TRACKS = [
           { ko: '흡착 등온선', en: 'Adsorption Isotherm (Langmuir)', desc: '일정 온도에서 촉매나 흡착제 표면에 반응물이 얼마나 흡착되는지를 압력(농도)의 함수로 나타낸 관계식.' },
         ],
       },
-    ],
-  },
-  {
-    title: '이동현상 및 분리공정',
-    subtitle: 'Transport Phenomena & Separation Processes',
-    courses: [
       {
         name: '이동현상',
         nameEn: 'Transport Phenomena',
@@ -68,20 +63,14 @@ const TRACKS = [
         ],
       },
       {
-        name: '환경공학',
-        nameEn: 'Environmental Engineering',
+        name: '단위조작 및 공정 시뮬레이션',
+        nameEn: 'Unit Operations & Process Simulation',
         year: '3학년 2학기',
         terms: [
-          { ko: '대기오염물질 처리', en: 'Air Pollution Control', desc: '황산화물, 질소산화물 등 배출가스 중 오염물질을 흡수, 흡착, 촉매 반응 등으로 제거하는 공정 기술.' },
-          { ko: '폐수처리 공정', en: 'Wastewater Treatment', desc: '물리적, 화학적, 생물학적 처리 단계를 거쳐 폐수의 오염물질을 제거하고 방류 기준을 만족시키는 공정.' },
+          { ko: '단위조작 개념', en: 'Unit Operations Concept', desc: '증류, 흡수, 열교환 등 화학공정을 구성하는 개별적인 물리적 처리 단계를 표준화된 단위로 다루는 화공 설계의 기본 접근법.' },
+          { ko: '공정 시뮬레이션', en: 'Process Simulation', desc: 'Aspen Plus 등 소프트웨어로 화학 공정 전체를 컴퓨터 모델로 구현해 설계 전에 성능을 예측하는 기법.' },
         ],
       },
-    ],
-  },
-  {
-    title: '공정설계 및 제어',
-    subtitle: 'Process Design & Control',
-    courses: [
       {
         name: '공정설계',
         nameEn: 'Process Design',
@@ -100,37 +89,78 @@ const TRACKS = [
           { ko: '이상감지 및 경보시스템', en: 'Anomaly Detection & Alarm Management', desc: '공정 변수가 정상 범위를 벗어나는 이상 상태를 실시간으로 감지하고 운전원에게 경보하는 안전 관리 시스템.' },
         ],
       },
+    ],
+  },
+  {
+    title: '고분자공학과',
+    subtitle: 'Polymer Engineering',
+    careers: ['석유화학 및 소재 기업(금호석유화학·한화솔루션·효성첨단소재)', '타이어 제조사'],
+    courses: [
       {
         name: '고분자공학',
         nameEn: 'Polymer Engineering',
         year: '3학년 1학기',
         terms: [
-          { ko: '중합반응', en: 'Polymerization (Addition/Condensation)', desc: '작은 단위체(모노머)가 반복적으로 연결되어 고분자를 만드는 반응. 이중결합이 연쇄적으로 열리는 부가중합과, 작은 분자를 방출하며 결합하는 축합중합으로 나뉨.' },
+          { ko: '고분자 합성 기술', en: 'Polymerization (Addition/Condensation)', desc: '작은 단위체(모노머)가 반복적으로 연결되어 고분자를 만드는 반응. 이중결합이 연쇄적으로 열리는 부가중합과, 작은 분자를 방출하며 결합하는 축합중합으로 나뉨.' },
           { ko: '고분자 물성', en: 'Polymer Properties (Crystallinity/Tg)', desc: '고분자 사슬이 규칙적으로 배열된 정도(결정화도)와, 사슬 운동이 얼어붙어 유리처럼 딱딱해지는 온도(유리전이온도)로 고분자의 기계적 성질을 이해함.' },
+          { ko: '플라스틱 및 고무 성형가공법', en: 'Plastic & Rubber Molding/Processing', desc: '사출성형, 압출 등의 방법으로 고분자를 원하는 형태의 제품으로 가공하는 기술.' },
+          { ko: '고기능성 섬유', en: 'High-Performance Fibers', desc: '아라미드, 탄소섬유 등 일반 섬유보다 훨씬 강하거나 내열성이 뛰어난 특수 섬유 소재.' },
+          { ko: '복합재료 유변학', en: 'Rheology of Composite Materials', desc: '고분자나 복합재료가 흐르고 변형되는 유동 특성을 연구하는 학문. 성형 공정 설계에 필수적.' },
         ],
       },
     ],
   },
   {
-    title: '에너지 및 생물화학공학',
-    subtitle: 'Energy & Biochemical Engineering',
+    title: '에너지화학공학과',
+    subtitle: 'Energy Chemical Engineering',
+    careers: ['이차전지 배터리 제조사(LG에너지솔루션·SK온·삼성SDI)', '배터리 소재사(포스코퓨처엠·에코프로비엠)'],
     courses: [
       {
-        name: '에너지공학',
-        nameEn: 'Energy Engineering',
+        name: '에너지화학공학',
+        nameEn: 'Energy Chemical Engineering',
         year: '4학년 1학기',
         terms: [
-          { ko: '연료전지', en: 'Fuel Cell', desc: '수소와 산소의 전기화학 반응을 통해 연소 없이 직접 전기를 생산하는 장치. 부산물이 물뿐이라 친환경 에너지원으로 주목받음.' },
-          { ko: '이차전지', en: 'Lithium-Ion Battery', desc: '충전과 방전을 반복할 수 있는 전지로, 리튬 이온이 양극과 음극 사이를 오가며 전기 에너지를 저장·방출함.' },
+          { ko: '배터리 셀 설계', en: 'Battery Cell Design', desc: '양극, 음극, 전해질, 분리막을 조합해 에너지 밀도와 안전성을 최적화하는 배터리 셀 구조 설계.' },
+          { ko: '양극재와 음극재 합성', en: 'Cathode & Anode Material Synthesis', desc: '리튬이온을 저장하는 배터리의 핵심 소재인 양극재와 음극재를 화학적으로 합성하는 기술.' },
+          { ko: '수소 연료전지', en: 'Hydrogen Fuel Cell', desc: '수소와 산소의 전기화학 반응을 통해 연소 없이 직접 전기를 생산하는 장치. 부산물이 물뿐이라 친환경 에너지원으로 주목받음.' },
+          { ko: '태양광 소재', en: 'Photovoltaic Materials', desc: '빛 에너지를 전기로 변환하는 태양전지의 핵심 반도체 소재를 연구하는 분야.' },
+          { ko: '차세대 전기화학 소자', en: 'Next-Gen Electrochemical Devices', desc: '전고체전지, 슈퍼커패시터 등 기존 리튬이온전지의 한계를 넘어서려는 차세대 에너지 저장·변환 소자.' },
         ],
       },
+    ],
+  },
+  {
+    title: '생명화학공학 / 바이오화학공학과',
+    subtitle: 'Biochemical Engineering',
+    careers: ['바이오/제약 기업(삼성바이오로직스·셀트리온·SK바이오사이언스)', '식품 및 화장품 기업'],
+    courses: [
       {
-        name: '생물공정공학',
-        nameEn: 'Bioprocess Engineering',
+        name: '생명화학공학',
+        nameEn: 'Biochemical Engineering',
         year: '4학년 1학기',
         terms: [
+          { ko: '생물반응기 설계', en: 'Bioreactor Design', desc: '미생물이나 세포를 대량으로 배양해 원하는 물질을 생산하는 반응기를 설계하는 기술.' },
+          { ko: '바이오의약품 정제공정', en: 'Biopharmaceutical Purification', desc: '세포 배양액에서 목표 단백질(항체 등)만을 순수하게 분리·정제하는 다단계 공정.' },
           { ko: '발효공정', en: 'Fermentation Process', desc: '미생물의 대사 작용을 이용해 원하는 물질(알코올, 항생제 등)을 대량으로 생산하는 공정.' },
-          { ko: '효소반응속도론', en: 'Enzyme Kinetics (Michaelis-Menten)', formula: 'v = \\frac{V_{max}[S]}{K_m+[S]}', desc: '효소가 기질 농도에 따라 얼마나 빠르게 반응을 촉매하는지를 기술하는 대표적인 반응속도 모델.' },
+          { ko: '효소공학', en: 'Enzyme Engineering (Michaelis-Menten Kinetics)', formula: 'v = \\frac{V_{max}[S]}{K_m+[S]}', desc: '효소가 기질 농도에 따라 얼마나 빠르게 반응을 촉매하는지를 기술하는 효소반응속도론과, 효소의 성능을 개량하는 공학적 접근.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '환경화학공학과',
+    subtitle: 'Environmental Chemical Engineering',
+    careers: ['기업 내 ESG/환경안전 부서', '환경 전문 엔지니어링 기업', '한국환경공단 등 공공기관'],
+    courses: [
+      {
+        name: '환경화학공학',
+        nameEn: 'Environmental Chemical Engineering',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '탄소포집·활용·저장', en: 'Carbon Capture, Utilization & Storage (CCUS)', desc: '공장이나 발전소에서 배출되는 이산화탄소를 포집해 활용하거나 땅속에 저장함으로써 탄소 배출을 줄이는 기술.' },
+          { ko: '폐수 및 폐기물 화학적 처리', en: 'Chemical Treatment of Wastewater & Waste', desc: '물리적, 화학적, 생물학적 처리 단계를 거쳐 폐수·폐기물의 오염물질을 제거하고 배출 기준을 만족시키는 공정.' },
+          { ko: '대기오염 방지공정', en: 'Air Pollution Control Process', desc: '황산화물, 질소산화물 등 배출가스 중 오염물질을 흡수, 흡착, 촉매 반응 등으로 제거하는 공정 기술.' },
+          { ko: '친환경 대체 공정', en: 'Eco-Friendly Alternative Processes', desc: '유해 물질 사용을 줄이거나 에너지 소비를 낮추는 방향으로 기존 화학 공정을 재설계하는 접근법.' },
         ],
       },
     ],
@@ -140,9 +170,9 @@ const TRACKS = [
 
 <GlossaryLayout
   metaTitle="Your Future - 화학공학 전공 맛보기 | 대치프라임"
-  metaDescription="대학 화학공학과 커리큘럼을 기반으로 재구성한 전공 맛보기 페이지입니다."
+  metaDescription="대학 화학공학부 커리큘럼을 전통 화공과 4개 세부 전공(고분자, 에너지화학, 생명화학, 환경화학)으로 나누어 재구성한 전공 맛보기 페이지입니다."
   heading="화학공학"
-  descriptionPrefix={`화학공학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
-  searchPlaceholder="개념 이름으로 검색 (예: 아레니우스, 증류, CSTR)"
+  descriptionPrefix={`화학공학부에 가면 실제로 배우게 될 내용을 전통 화공·공정 기초와 4개 세부 전공(고분자, 에너지화학, 생명화학, 환경화학)으로 나누어뒀습니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 아레니우스, 배터리셀, CCUS)"
   tracks={TRACKS}
 />

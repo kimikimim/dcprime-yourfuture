@@ -3,8 +3,45 @@ import GlossaryLayout from '../layouts/GlossaryLayout.astro';
 
 const TRACKS = [
   {
-    title: '회로 및 소자',
-    subtitle: 'Circuits & Devices',
+    title: '반도체 및 소자 분야',
+    subtitle: '물질의 물리적 특성을 이용해 하드웨어의 가장 기본 단위인 칩과 소자를 설계·제작하는 분야. 최근 기업 수요가 가장 높은 영역입니다.',
+    careers: ['반도체 소자 엔지니어', '디스플레이 연구원', '나노소재 연구원'],
+    courses: [
+      {
+        name: '반도체소자공학',
+        nameEn: 'Semiconductor Device Engineering',
+        year: '2학년 2학기',
+        terms: [
+          { ko: 'PN 접합 다이오드', en: 'PN Junction Diode', desc: 'p형과 n형 반도체의 접합으로 만들어져, 한쪽 방향으로만 전류를 흐르게 하는 정류 소자.' },
+          { ko: 'BJT 동작원리', en: 'Bipolar Junction Transistor Operation', desc: '베이스 전류로 컬렉터-이미터 전류를 제어하는 전류 제어형 트랜지스터의 동작 원리. 증폭기, 스위치로 활용됨.' },
+          { ko: 'MOSFET 구조', en: 'MOSFET Structure', desc: '게이트, 소스, 드레인, 바디로 이루어진 전압 제어형 트랜지스터의 물리적 구조. 현대 디지털·아날로그 회로의 핵심 소자.' },
+        ],
+      },
+      {
+        name: '디스플레이공학',
+        nameEn: 'Display Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: 'OLED 발광 원리', en: 'OLED Light Emission Principle', desc: '유기 발광 물질에 전류를 흘려 스스로 빛을 내는 소자. 백라이트가 필요 없어 얇고 명암비가 뛰어남.' },
+          { ko: '유연 소자', en: 'Flexible Display', desc: '휘어지거나 접을 수 있는 얇고 유연한 기판 위에 디스플레이를 구현하는 기술. 폴더블·롤러블 스마트폰의 핵심.' },
+          { ko: '차세대 발광 소자', en: 'Next-Gen Light-Emitting Devices (Micro LED)', desc: 'OLED를 넘어 더 밝고 수명이 긴, 마이크로미터 크기의 무기 발광 다이오드를 화소로 사용하는 차세대 디스플레이 기술.' },
+        ],
+      },
+      {
+        name: '나노소자 및 전자재료',
+        nameEn: 'Nanodevices & Electronic Materials',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '나노소자', en: 'Nanodevices', desc: '물리·화학적 지식을 기반으로 기존 실리콘 소자의 한계를 넘어서는, 더 작고 빠른 차세대 트랜지스터 구조를 연구하는 분야.' },
+          { ko: '전자재료', en: 'Electronic Materials', desc: '반도체, 절연체, 도전성 재료 등 전자소자의 성능을 좌우하는 신소재를 개발하는 연구 영역.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '회로 설계 분야',
+    subtitle: '반도체 소자들을 연결하여 특정 목적을 수행하는 회로 기판이나 IC(집적회로) 칩 내부를 설계하는 분야입니다.',
+    careers: ['IC설계 엔지니어', 'PCB설계 엔지니어', '하드웨어 엔지니어'],
     courses: [
       {
         name: '회로이론',
@@ -38,53 +75,31 @@ const TRACKS = [
         ],
       },
       {
-        name: '집적회로설계',
+        name: '집적회로설계 (VLSI)',
         nameEn: 'Intro to VLSI Design',
         year: '3학년 1학기',
         terms: [
+          { ko: '아날로그 회로와 디지털 회로 설계', en: 'Analog vs Digital Circuit Design', desc: '연속적인 값을 다루는 아날로그 회로 설계와, 0/1 이산 값을 다루는 디지털 회로 설계로 나뉘는 VLSI 설계의 두 갈래.' },
           { ko: 'CMOS 논리게이트 설계', en: 'CMOS Logic Gate Design', desc: 'PMOS와 NMOS 트랜지스터를 조합해 NAND, NOR 등 기본 논리 게이트를 구현하는 방법. 모든 디지털 회로의 최하위 구성 단위.' },
           { ko: '타이밍 분석', en: 'Timing Analysis', desc: '신호가 회로를 통과하는 데 걸리는 시간(지연)을 분석해 클럭 주파수의 한계와 셋업/홀드 시간 위반 여부를 검증하는 과정.' },
           { ko: '저전력 설계 기법', en: 'Low-Power Design Techniques', desc: '클럭 게이팅, 전압 스케일링 등을 통해 칩의 소비 전력을 줄이는 설계 기법. 모바일 기기 배터리 수명에 직결됨.' },
         ],
       },
-    ],
-  },
-  {
-    title: '전자기학',
-    subtitle: 'Electromagnetics',
-    courses: [
       {
-        name: '전자기학1',
-        nameEn: 'Electromagnetics 1',
-        year: '2학년 1학기',
-        terms: [
-          { ko: '가우스 법칙', en: "Gauss's Law", desc: '임의의 폐곡면을 통과하는 전기선속은 그 안에 있는 전하량에 비례한다는 법칙. 대칭성이 좋은 전하 분포의 전기장을 쉽게 구할 수 있게 해줌.' },
-          { ko: '패러데이 유도 법칙', en: "Faraday's Law of Induction", formula: '\\varepsilon = -\\frac{d\\Phi_B}{dt}', desc: '시간에 따라 변하는 자기선속이 기전력을 유도한다는 법칙. 발전기, 변압기 동작의 원리.' },
-        ],
-      },
-      {
-        name: '전자기학2',
-        nameEn: 'Electromagnetics 2',
-        year: '2학년 2학기',
-        terms: [
-          { ko: '맥스웰 방정식', en: "Maxwell's Equations", formula: '\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}', desc: '전기장과 자기장의 관계를 기술하는 4개의 방정식. 전자기파의 존재와 빛의 속도를 예측함으로써 전자기학을 완성시킴.' },
-          { ko: '포인팅 벡터', en: 'Poynting Vector', desc: '전자기장이 단위 시간, 단위 면적당 운반하는 에너지의 양과 방향을 나타내는 벡터. 전자기파의 에너지 흐름을 기술함.' },
-        ],
-      },
-      {
-        name: '안테나 및 전파공학',
-        nameEn: 'Antenna & Propagation Engineering',
+        name: '하드웨어시스템설계',
+        nameEn: 'Hardware System Design',
         year: '4학년 1학기',
         terms: [
-          { ko: '안테나 이득과 방사패턴', en: 'Antenna Gain & Radiation Pattern', desc: '안테나가 특정 방향으로 얼마나 강하게 전파를 방사하는지를 나타내는 이득과, 그 방향별 세기를 시각화한 방사패턴.' },
-          { ko: '전파 전파와 감쇠', en: 'Radio Wave Propagation & Attenuation', desc: '전자기파가 공간을 진행하며 거리, 장애물, 대기 조건에 따라 세기가 줄어드는 현상. 통신 링크 설계의 핵심 고려사항.' },
+          { ko: '메인보드(PCB) 설계', en: 'Motherboard/PCB Design', desc: '스마트폰, 컴퓨터, 가전제품 내부에서 각종 부품을 전기적으로 연결하는 인쇄회로기판을 설계하는 기술.' },
+          { ko: '전원공급시스템 설계', en: 'Power Supply System Design', desc: '기기에 필요한 다양한 전압을 안정적으로 공급하는 전원 회로를 설계하는 영역.' },
         ],
       },
     ],
   },
   {
-    title: '신호·통신·제어',
-    subtitle: 'Signals, Communications & Control',
+    title: '신호처리 및 임베디드 분야',
+    subtitle: '현실 세계의 아날로그 신호(빛, 소리, 전파)를 디지털로 바꾸어 컴퓨터가 이해하게 만들거나, 하드웨어를 제어하는 소프트웨어를 만드는 컴퓨터공학과의 접점 영역입니다.',
+    careers: ['영상처리 엔지니어', '음성신호처리 엔지니어', '임베디드 소프트웨어 엔지니어'],
     courses: [
       {
         name: '신호및시스템',
@@ -107,24 +122,12 @@ const TRACKS = [
         ],
       },
       {
-        name: '통신공학',
-        nameEn: 'Communication Engineering',
+        name: '영상 및 음성신호처리',
+        nameEn: 'Image & Audio Signal Processing',
         year: '3학년 2학기',
         terms: [
-          { ko: '샤논의 채널 용량', en: "Shannon's Channel Capacity", formula: 'C = B \\log_2(1 + S/N)', desc: '잡음이 있는 채널에서 오류 없이 전송 가능한 최대 정보량을 대역폭과 신호대잡음비로 나타낸 정보이론의 핵심 정리.' },
-          { ko: '변조', en: 'Modulation (AM/FM)', desc: '정보 신호를 전송에 적합한 반송파에 실어보내는 과정. 진폭을 바꾸면 AM, 주파수를 바꾸면 FM.' },
-          { ko: '비트오류율', en: 'Bit Error Rate (BER)', desc: '전송된 비트 중 잘못 수신된 비트의 비율. 통신 시스템의 품질을 평가하는 핵심 지표.' },
-        ],
-      },
-      {
-        name: '제어시스템',
-        nameEn: 'Control Systems',
-        year: '3학년 2학기',
-        terms: [
-          { ko: '전달함수', en: 'Transfer Function', desc: '시스템의 입력과 출력 사이의 관계를 라플라스 영역에서 나타낸 함수. 시스템의 동적 특성을 대수적으로 다룰 수 있게 해줌.' },
-          { ko: '근궤적법', en: 'Root Locus', desc: '이득 값이 변할 때 폐루프 시스템의 극점이 s-평면 위에서 이동하는 궤적을 그려 안정도를 분석하는 방법.' },
-          { ko: '보드 선도', en: 'Bode Plot', desc: '시스템의 주파수 응답을 크기와 위상으로 나누어 로그 스케일로 나타낸 그래프. 이득 여유와 위상 여유를 통해 안정도를 판단함.' },
-          { ko: 'PID 제어', en: 'PID Control', formula: 'u(t) = K_p e(t) + K_i \\int e(t)\\,dt + K_d \\frac{de(t)}{dt}', desc: '오차의 비례, 적분, 미분 항을 조합해 제어 입력을 계산하는 가장 널리 쓰이는 피드백 제어 방식.' },
+          { ko: '영상처리', en: 'Image/Video Signal Processing', desc: 'CCTV, 자율주행 카메라 등에서 촬영된 영상 신호를 분석·보정·압축하는 기술.' },
+          { ko: '음성신호처리', en: 'Audio Signal Processing', desc: '오디오 장비나 마이크에서 들어오는 음성 신호의 잡음을 제거하고 필터링하는 기술.' },
         ],
       },
       {
@@ -139,19 +142,93 @@ const TRACKS = [
     ],
   },
   {
-    title: '반도체 및 전력전자',
-    subtitle: 'Semiconductor Devices & Power Electronics',
+    title: '통신 및 네트워크 분야',
+    subtitle: '데이터를 무선 전파나 유선 광케이블을 통해 주고받는 하드웨어 인프라를 다루는 분야입니다.',
+    careers: ['통신시스템 엔지니어', 'RF 엔지니어', '위성통신 연구원'],
     courses: [
       {
-        name: '반도체소자공학',
-        nameEn: 'Semiconductor Device Engineering',
-        year: '2학년 2학기',
+        name: '전자기학',
+        nameEn: 'Electromagnetics',
+        year: '2학년 1~2학기',
         terms: [
-          { ko: 'PN 접합 다이오드', en: 'PN Junction Diode', desc: 'p형과 n형 반도체의 접합으로 만들어져, 한쪽 방향으로만 전류를 흐르게 하는 정류 소자.' },
-          { ko: 'BJT 동작원리', en: 'Bipolar Junction Transistor Operation', desc: '베이스 전류로 컬렉터-이미터 전류를 제어하는 전류 제어형 트랜지스터의 동작 원리. 증폭기, 스위치로 활용됨.' },
-          { ko: 'MOSFET 구조', en: 'MOSFET Structure', desc: '게이트, 소스, 드레인, 바디로 이루어진 전압 제어형 트랜지스터의 물리적 구조. 현대 디지털·아날로그 회로의 핵심 소자.' },
+          { ko: '가우스 법칙', en: "Gauss's Law", desc: '임의의 폐곡면을 통과하는 전기선속은 그 안에 있는 전하량에 비례한다는 법칙. 대칭성이 좋은 전하 분포의 전기장을 쉽게 구할 수 있게 해줌.' },
+          { ko: '패러데이 유도 법칙', en: "Faraday's Law of Induction", formula: '\\varepsilon = -\\frac{d\\Phi_B}{dt}', desc: '시간에 따라 변하는 자기선속이 기전력을 유도한다는 법칙. 발전기, 변압기 동작의 원리.' },
+          { ko: '맥스웰 방정식', en: "Maxwell's Equations", formula: '\\nabla \\times \\mathbf{E} = -\\frac{\\partial \\mathbf{B}}{\\partial t}', desc: '전기장과 자기장의 관계를 기술하는 4개의 방정식. 전자기파의 존재와 빛의 속도를 예측함으로써 전자기학을 완성시킴.' },
+          { ko: '포인팅 벡터', en: 'Poynting Vector', desc: '전자기장이 단위 시간, 단위 면적당 운반하는 에너지의 양과 방향을 나타내는 벡터. 전자기파의 에너지 흐름을 기술함.' },
         ],
       },
+      {
+        name: '통신공학',
+        nameEn: 'Communication Engineering',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '샤논의 채널 용량', en: "Shannon's Channel Capacity", formula: 'C = B \\log_2(1 + S/N)', desc: '잡음이 있는 채널에서 오류 없이 전송 가능한 최대 정보량을 대역폭과 신호대잡음비로 나타낸 정보이론의 핵심 정리.' },
+          { ko: '변조', en: 'Modulation (AM/FM)', desc: '정보 신호를 전송에 적합한 반송파에 실어보내는 과정. 진폭을 바꾸면 AM, 주파수를 바꾸면 FM.' },
+          { ko: '비트오류율', en: 'Bit Error Rate (BER)', desc: '전송된 비트 중 잘못 수신된 비트의 비율. 통신 시스템의 품질을 평가하는 핵심 지표.' },
+        ],
+      },
+      {
+        name: '정보통신공학',
+        nameEn: 'Information & Communication Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '5G/6G 무선통신', en: '5G/6G Wireless Communication', desc: '더 빠른 속도와 낮은 지연시간을 목표로 하는 차세대 이동통신 기술과 그 물리 계층 프로토콜.' },
+          { ko: '광통신 시스템', en: 'Optical Communication Systems', desc: '빛(레이저)을 이용해 광섬유를 통해 대용량 데이터를 장거리로 전송하는 통신 기술.' },
+        ],
+      },
+      {
+        name: 'RF 및 초고주파공학',
+        nameEn: 'RF & Microwave Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '안테나 이득과 방사패턴', en: 'Antenna Gain & Radiation Pattern', desc: '안테나가 특정 방향으로 얼마나 강하게 전파를 방사하는지를 나타내는 이득과, 그 방향별 세기를 시각화한 방사패턴.' },
+          { ko: '전파 전파와 감쇠', en: 'Radio Wave Propagation & Attenuation', desc: '전자기파가 공간을 진행하며 거리, 장애물, 대기 조건에 따라 세기가 줄어드는 현상. 통신 링크 설계의 핵심 고려사항.' },
+          { ko: '레이더 시스템', en: 'Radar Systems', desc: '전자기파를 발사하고 반사되어 돌아오는 신호를 분석해 물체의 위치와 속도를 탐지하는 시스템. 자율주행, 기상관측, 국방 분야에 핵심적으로 쓰임.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '제어 및 로봇공학 분야',
+    subtitle: '센서로부터 들어온 값을 분석하여 모터나 기계를 원하는 대로 정확하게 움직이게 만드는 시스템을 다룹니다. 기계공학과와의 융합 성격이 강합니다.',
+    careers: ['제어시스템 엔지니어', '로봇공학 엔지니어', '스마트팩토리 엔지니어'],
+    courses: [
+      {
+        name: '제어시스템',
+        nameEn: 'Control Systems',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '전달함수', en: 'Transfer Function', desc: '시스템의 입력과 출력 사이의 관계를 라플라스 영역에서 나타낸 함수. 시스템의 동적 특성을 대수적으로 다룰 수 있게 해줌.' },
+          { ko: '근궤적법', en: 'Root Locus', desc: '이득 값이 변할 때 폐루프 시스템의 극점이 s-평면 위에서 이동하는 궤적을 그려 안정도를 분석하는 방법.' },
+          { ko: '보드 선도', en: 'Bode Plot', desc: '시스템의 주파수 응답을 크기와 위상으로 나누어 로그 스케일로 나타낸 그래프. 이득 여유와 위상 여유를 통해 안정도를 판단함.' },
+          { ko: 'PID 제어', en: 'PID Control', formula: 'u(t) = K_p e(t) + K_i \\int e(t)\\,dt + K_d \\frac{de(t)}{dt}', desc: '오차의 비례, 적분, 미분 항을 조합해 제어 입력을 계산하는 가장 널리 쓰이는 피드백 제어 방식.' },
+        ],
+      },
+      {
+        name: '제어계측공학',
+        nameEn: 'Control & Instrumentation Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '스마트팩토리 자동화', en: 'Smart Factory Automation', desc: '공장의 생산 라인을 센서와 제어 시스템으로 자동화해 효율과 품질을 높이는 기술.' },
+          { ko: '자동항법장치', en: 'Autopilot & Navigation Systems', desc: '비행기나 선박이 사람의 직접 조작 없이도 정해진 경로를 따라가도록 제어하는 시스템.' },
+        ],
+      },
+      {
+        name: '로봇공학',
+        nameEn: 'Robotics',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '로봇 관절 제어', en: 'Robot Joint Control', desc: '로봇 팔이나 다리의 각 관절 모터를 정밀하게 제어해 원하는 동작을 만들어내는 기술.' },
+          { ko: 'SLAM', en: 'Simultaneous Localization and Mapping', desc: '로봇이 미지의 환경을 돌아다니며 동시에 자기 위치를 추정하고 주변 지도를 작성하는 자율주행 로봇의 핵심 기술.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '전기 및 전력 시스템 분야',
+    subtitle: `일반적인 '전자(Electronics)'가 약한 전류로 데이터를 다룬다면, '전기(Electrical)'는 강한 전류로 거대한 에너지를 생성하고 수송하는 분야입니다.`,
+    careers: ['전력계통 엔지니어', '전력전자 엔지니어', '신재생에너지 연구원'],
+    courses: [
       {
         name: '전력전자공학',
         nameEn: 'Power Electronics',
@@ -162,6 +239,24 @@ const TRACKS = [
           { ko: '스위칭 손실', en: 'Switching Losses', desc: '전력용 반도체 소자가 켜지고 꺼지는 순간 발생하는 에너지 손실. 전력변환 효율을 좌우하는 주요 요인.' },
         ],
       },
+      {
+        name: '전력시스템공학',
+        nameEn: 'Power Systems Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '송배전망', en: 'Transmission & Distribution Networks', desc: '발전소에서 생산한 전기를 가정과 공장까지 손실을 최소화하며 보내는 전력망 인프라.' },
+          { ko: '스마트그리드', en: 'Smart Grid', desc: '정보통신기술을 접목해 전력 생산과 소비를 실시간으로 파악하고 효율적으로 관리하는 차세대 전력망.' },
+        ],
+      },
+      {
+        name: '전기기기 및 에너지공학',
+        nameEn: 'Electric Machines & Energy Engineering',
+        year: '4학년 2학기',
+        terms: [
+          { ko: '전기자동차용 모터', en: 'EV Traction Motors', desc: '전기자동차를 구동하는 고효율 전기모터의 설계와 제어 기술.' },
+          { ko: '신재생에너지 발전시스템', en: 'Renewable Energy Generation Systems', desc: '태양광, 풍력 등 재생 가능한 에너지원으로부터 전기를 생산하는 발전 시스템 기술.' },
+        ],
+      },
     ],
   },
 ];
@@ -169,9 +264,9 @@ const TRACKS = [
 
 <GlossaryLayout
   metaTitle="Your Future - 전기전자공학 전공 맛보기 | 대치프라임"
-  metaDescription="대학 전기전자공학과 커리큘럼을 기반으로 재구성한 전공 맛보기 페이지입니다."
+  metaDescription="대학 전기전자공학과 커리큘럼을 6개 세부 분야로 나누어 재구성한 전공 맛보기 페이지입니다."
   heading="전기전자공학"
-  descriptionPrefix={`전기전자공학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
-  searchPlaceholder="개념 이름으로 검색 (예: 맥스웰, PID, MOSFET)"
+  descriptionPrefix={`전기전자공학과에 가면 실제로 배우게 될 내용을 6개 세부 분야(반도체·소자, 회로설계, 신호처리·임베디드, 통신·RF, 제어·로봇, 전기·전력)로 묶어뒀습니다. 분야를 눌러보면 관련 과목과 개념이 펼쳐져요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 맥스웰, PID, MOSFET, 5G)"
   tracks={TRACKS}
 />

@@ -1,0 +1,127 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '건축학과',
+    subtitle: 'Architecture (보통 5년제 운영) — 건물의 예술적·기능적·환경적 측면을 고려해 공간을 디자인하는 영역',
+    careers: ['건축사사무소(삼우·희림·정림 등)', '종합건설사 설계 부서', '인테리어 디자인 회사', '지자체 건축직 공무원'],
+    courses: [
+      {
+        name: '건축학',
+        nameEn: 'Architecture',
+        year: '전공필수',
+        terms: [
+          { ko: '건축 디자인', en: 'Architectural Design', desc: '건물의 기능, 미학, 공간 경험을 통합적으로 고려해 형태와 배치를 창조하는 설계 작업. 건축학 교육의 핵심 축.' },
+          { ko: '건축사(建築史)', en: 'History of Architecture', desc: '시대와 지역에 따라 변화해온 건축 양식과 사조를 연구해 설계에 영감을 얻는 학문.' },
+          { ko: '도시설계', en: 'Urban Design', desc: '개별 건물을 넘어 거리, 공원, 블록 등 도시 공간 전체의 짜임새와 사용자 경험을 계획하는 분야.' },
+          { ko: '인테리어 디자인', en: 'Interior Design', desc: '건물 내부 공간의 마감, 가구, 조명 등을 계획해 기능적이고 심미적인 실내 환경을 만드는 작업.' },
+          { ko: '공간 인지 이론', en: 'Spatial Cognition Theory', desc: '사람이 건축 공간을 어떻게 인식하고 경험하는지를 다루는 이론. 사용자 중심 설계의 이론적 기반.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '건축공학과',
+    subtitle: 'Architectural Engineering (4년제) — 설계된 건물이 무너지지 않게 구조를 계산하고, 안전하고 효율적으로 짓는 공학적 영역',
+    careers: ['대형 종합건설사(현대건설·삼성물산·GS건설 등)', '건축 구조설계사무소', '건설사업관리(CM) 전문 기업', '안전진단 전문 기업'],
+    courses: [
+      {
+        name: '건축공학',
+        nameEn: 'Architectural Engineering',
+        year: '전공필수',
+        terms: [
+          { ko: '건축 구조역학', en: 'Building Structural Mechanics (Concrete/Steel)', desc: '콘크리트 구조와 강구조 등 건물의 뼈대가 하중을 안전하게 견디도록 계산하고 설계하는 학문.' },
+          { ko: '건축 시공 및 적산', en: 'Construction Methods & Cost Estimation', desc: '설계도를 실제 현장에서 시공하는 방법과, 필요한 자재·인력의 물량과 비용을 산출하는 적산 기법.' },
+          { ko: '건설 공정관리', en: 'Construction Project Management (PM)', desc: '공사 일정, 자원, 품질, 안전을 통합적으로 관리해 정해진 기간과 예산 안에 건물을 완공시키는 관리 기법.' },
+          { ko: '건축 환경설비', en: 'Building Environmental Systems (HVAC/Acoustics/Lighting)', desc: '냉난방, 음향, 조명 등 건물 내부 환경을 쾌적하게 유지하는 설비 시스템을 설계하는 분야.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '토목구조 및 교량공학 트랙',
+    subtitle: 'Structural & Bridge Engineering (토목공학/건설환경공학) — 대형 교량, 터널, 댐 등 국가 기간 인프라의 뼈대를 설계·분석',
+    careers: ['토목 엔지니어링 사(도화엔지니어링·한국종합기술 등)', '종합건설사 토목사업부', '한국도로공사', '국가철도공단'],
+    courses: [
+      {
+        name: '토목구조 및 교량공학',
+        nameEn: 'Structural & Bridge Engineering',
+        year: '전공필수',
+        terms: [
+          { ko: '재료역학', en: 'Mechanics of Materials', desc: '하중을 받는 부재 내부의 응력과 변형을 다루는 구조공학의 가장 기초적인 학문.' },
+          { ko: '구조역학', en: 'Structural Mechanics', desc: '하중을 받는 구조물 내부에 발생하는 힘과 변형을 해석해 안전성을 검증하는 토목공학의 기초 학문.' },
+          { ko: '교량공학', en: 'Bridge Engineering', desc: '강, 계곡, 도로 위를 건너는 교량의 형식(사장교, 현수교 등)을 선정하고 구조를 설계하는 학문.' },
+          { ko: '콘크리트 및 강구조 설계', en: 'Concrete & Steel Structure Design', desc: '철근콘크리트와 강재를 이용한 대형 구조물의 부재를 설계하는 기술.' },
+          { ko: '터널공학', en: 'Tunnel Engineering', desc: '산이나 지하를 뚫어 도로, 철도, 지하철이 지나갈 통로를 안전하게 설계·시공하는 학문.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '토질 및 지반공학 트랙',
+    subtitle: 'Geotechnical Engineering (토목공학/건설환경공학) — 구조물이 들어설 땅의 성질을 파악하고 기초를 다지는 영역',
+    careers: ['지반 엔지니어링 전문 회사', '건설사 현장 지반 담당', '한국토지주택공사(LH)', '수자원공사'],
+    courses: [
+      {
+        name: '토질 및 지반공학',
+        nameEn: 'Geotechnical Engineering',
+        year: '전공필수',
+        terms: [
+          { ko: '토질역학', en: 'Soil Mechanics', desc: '흙의 강도, 압축성, 투수성 등 역학적 성질을 연구해 지반 위 구조물의 안전성을 평가하는 학문.' },
+          { ko: '기초공학', en: 'Foundation Engineering', desc: '건물이나 교량의 하중을 지반에 안전하게 전달하는 기초(말뚝, 매트기초 등)를 설계하는 학문.' },
+          { ko: '암반공학', en: 'Rock Mechanics', desc: '터널이나 사면처럼 암반을 다루는 공사에서 암석의 강도와 절리 특성을 분석하는 학문.' },
+          { ko: '지하수 역학', en: 'Groundwater Hydraulics', desc: '땅속을 흐르는 지하수의 움직임을 다루는 학문. 굴착 공사의 배수 계획, 오염 확산 예측 등에 활용됨.' },
+          { ko: '사면 안정 분석', en: 'Slope Stability Analysis', desc: '경사진 지반이나 절개지가 붕괴되지 않고 안정을 유지할 수 있는지를 해석하는 기법.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '수자원 및 해안공학 트랙',
+    subtitle: 'Water Resources & Coastal Engineering (토목공학/건설환경공학) — 홍수를 막고 상하수도와 해안 구조물을 설계하는 영역',
+    careers: ['한국수자원공사(K-water)', '해양 환경 관련 엔지니어링 사', '수처리 설비 기업'],
+    courses: [
+      {
+        name: '수자원 및 해안공학',
+        nameEn: 'Water Resources & Coastal Engineering',
+        year: '전공필수',
+        terms: [
+          { ko: '수리학', en: 'Hydraulics', desc: '관이나 수로를 흐르는 물의 압력, 유량, 속도를 다루는 학문. 상하수도, 댐 설계의 기초.' },
+          { ko: '수문학', en: 'Hydrology', desc: '강수, 증발, 유출 등 자연계에서 물이 순환하는 과정을 연구해 홍수와 가뭄을 예측하는 학문.' },
+          { ko: '상하수도공학', en: 'Water Supply & Sewerage Engineering', desc: '깨끗한 물을 가정에 공급하고, 사용한 물을 처리해 배출하는 인프라 시스템을 설계하는 학문.' },
+          { ko: '해안 및 항만공학', en: 'Coastal & Harbor Engineering', desc: '파도와 조류로부터 해안을 보호하는 구조물과, 선박이 정박하는 항만 시설을 설계하는 학문.' },
+          { ko: '하천관측', en: 'River Monitoring', desc: '하천의 수위, 유량, 유사량 등을 지속적으로 관측해 치수 계획과 재해 예방에 활용하는 기술.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '교통시스템공학 트랙',
+    subtitle: 'Transportation Systems Engineering (토목공학/교통공학) — 도로·철도망을 최적화하고 자율주행 인프라와 융합하는 영역',
+    careers: ['교통 관련 국책연구원(한국교통연구원 등)', '지자체 교통 직렬 공무원', '교통 컨설팅 기업', '모빌리티 플랫폼 기업'],
+    courses: [
+      {
+        name: '교통시스템공학',
+        nameEn: 'Transportation Systems Engineering',
+        year: '전공필수',
+        terms: [
+          { ko: '교통계획', en: 'Transportation Planning', desc: '도시의 인구, 토지이용을 고려해 도로망과 대중교통 체계를 장기적으로 계획하는 학문.' },
+          { ko: '교통신호제어', en: 'Traffic Signal Control', desc: '교차로의 신호 주기를 최적화해 교통 흐름을 원활하게 하고 정체를 줄이는 기술.' },
+          { ko: '도로공학', en: 'Highway Engineering', desc: '도로의 선형, 포장, 배수 등을 설계해 안전하고 효율적인 도로를 건설하는 학문.' },
+          { ko: '지능형교통시스템', en: 'Intelligent Transportation Systems (ITS)', desc: '센서, 통신, 자율주행 인프라(C-ITS)를 접목해 교통 흐름을 실시간으로 관리하고 최적화하는 차세대 교통 시스템.' },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 건축토목공학부 전공 맛보기 | 대치프라임"
+  metaDescription="건축학, 건축공학, 토목공학 3대 축으로 나누어 재구성한 건축토목공학부 전공 맛보기 페이지입니다."
+  heading="건축토목공학부"
+  descriptionPrefix={`인간이 안전하고 편리하게 살아갈 주거 공간과 국가 인프라(도로, 교량, 댐 등)를 건설하는 학문이에요. 대다수 대학에서 건축학, 건축공학, 토목공학 3대 축으로 나누어 운영합니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 도시설계, 교량공학, 수문학)"
+  tracks={TRACKS}
+/>

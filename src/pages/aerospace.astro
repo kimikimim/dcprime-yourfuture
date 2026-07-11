@@ -1,0 +1,107 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '항공기 구조 및 설계 트랙',
+    subtitle: 'Aircraft Structures & Design',
+    careers: ['한국항공우주산업(KAI)', '대한항공 항공우주사업본부', '무인기(드론) 개발 스타트업'],
+    courses: [
+      {
+        name: '항공기 구조 및 설계',
+        nameEn: 'Aircraft Structures & Design',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '비행체 개념설계', en: 'Aircraft Conceptual Design', desc: '요구 성능(항속거리, 탑재량 등)으로부터 비행체의 크기, 형상, 무게를 초기 단계에서 결정하는 설계 과정.' },
+          { ko: '기체 구조역학', en: 'Airframe Structural Mechanics', desc: '비행 중 날개와 동체에 작용하는 양력, 항력, 관성력을 견디도록 기체 구조를 해석·설계하는 학문.' },
+          { ko: '피로 및 파괴역학', en: 'Fatigue & Fracture Mechanics', desc: '반복되는 비행 하중(이착륙, 돌풍 등)에 의해 기체에 균열이 생기고 성장하는 과정을 예측해 안전 수명을 설계하는 학문.' },
+          { ko: '스마트 복합재료', en: 'Smart Composite Materials', desc: '센서나 액추에이터 기능을 내장해 스스로 손상을 감지하거나 형상을 바꿀 수 있는 차세대 항공 복합재료.' },
+          { ko: '스텔스 형상설계', en: 'Stealth Shape Design', desc: '레이더 반사 신호(RCS)를 최소화하도록 기체의 형상과 표면 소재를 설계하는 기술. 전투기 등 방산 항공기 설계의 핵심.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '공기역학 및 열유체 트랙',
+    subtitle: 'Aerodynamics & Thermo-Fluids',
+    careers: ['국방과학연구소(ADD)', '한국항공우주연구원(KARI)', '자동차/열차 등 지상 모빌리티 유체해석 부서'],
+    courses: [
+      {
+        name: '공기역학 및 열유체',
+        nameEn: 'Aerodynamics & Thermo-Fluids',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '압축성/비압축성 유체역학', en: 'Compressible & Incompressible Fluid Dynamics', desc: '유동 속도에 따라 유체의 밀도 변화를 무시할 수 있는 저속 영역과, 밀도 변화가 중요해지는 고속 영역을 구분해 다루는 유체역학.' },
+          { ko: '초음속/극초음속 유동해석', en: 'Supersonic/Hypersonic Flow Analysis (CFD)', desc: '음속을 넘는 초음속과 마하 5 이상의 극초음속 유동을 전산유체역학(CFD)으로 시뮬레이션해 충격파와 열적 하중을 해석하는 기술.' },
+          { ko: '비행체 주위의 열전달', en: 'Aerothermal Heat Transfer', desc: '고속 비행 시 공기와의 마찰로 기체 표면이 가열되는 공력가열 현상과, 이를 견디기 위한 열 방호 설계.' },
+          { ko: '소음 저감 기술', en: 'Aeroacoustic Noise Reduction', desc: '엔진과 날개 주변에서 발생하는 공력 소음을 줄이기 위한 형상 설계와 재료 기술.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '항공우주 추진기관 트랙',
+    subtitle: 'Aerospace Propulsion',
+    careers: ['한화에어로스페이스', '현대로템(방산 부문)', '한국항공우주연구원(KARI) 발사체 연구소'],
+    courses: [
+      {
+        name: '항공우주 추진기관',
+        nameEn: 'Aerospace Propulsion',
+        year: '3학년 2학기',
+        terms: [
+          { ko: '가스터빈(제트) 엔진', en: 'Gas Turbine/Jet Engine', desc: '공기를 압축하고 연료를 연소시켜 고속으로 분사함으로써 추력을 얻는 항공기 엔진. 압축기, 연소기, 터빈으로 구성됨.' },
+          { ko: '액체/고체 로켓추진', en: 'Liquid/Solid Rocket Propulsion', desc: '산화제와 연료를 액체 또는 고체 형태로 저장했다가 연소시켜 추력을 얻는 로켓 추진 방식. 우주 발사체의 핵심 기술.' },
+          { ko: '차세대 이온추진', en: 'Next-Gen Ion Propulsion', desc: '전기장으로 이온을 가속해 매우 낮은 추력이지만 높은 효율로 장기간 우주선을 가속하는 전기 추진 방식.' },
+          { ko: '연소공학', en: 'Combustion Engineering', desc: '연료와 산화제가 반응해 열과 추력을 만들어내는 연소 과정을 화학적·유체역학적으로 분석하는 학문.' },
+          { ko: '터보기계 설계', en: 'Turbomachinery Design', desc: '제트엔진의 압축기, 터빈처럼 회전하는 날개(블레이드)로 유체와 에너지를 주고받는 기계를 설계하는 학문.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '유도제어 및 항법(Avionics) 트랙',
+    subtitle: 'Guidance, Control & Navigation (Avionics)',
+    careers: ['LIG넥스원', '한화시스템', '국방과학연구소(ADD)', '자율주행 및 UAM(도심항공교통) 개발 기업'],
+    courses: [
+      {
+        name: '유도제어 및 항법',
+        nameEn: 'Guidance, Control & Navigation',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '비행동역학 및 제어', en: 'Flight Dynamics & Control', desc: '비행체에 작용하는 힘과 모멘트를 분석해 자세와 궤적을 원하는 대로 제어하는 학문.' },
+          { ko: 'GPS/INS 결합 항법시스템', en: 'GPS/INS Integrated Navigation', desc: '위성항법(GPS)과 관성항법(INS, 자이로/가속도계)을 결합해 위치와 자세를 정밀하고 안정적으로 추정하는 시스템.' },
+          { ko: '미사일 유도알고리즘', en: 'Missile Guidance Algorithms', desc: '목표물을 향해 미사일이 스스로 경로를 수정하며 명중하도록 만드는 제어 알고리즘.' },
+          { ko: '자율비행 제어', en: 'Autonomous Flight Control', desc: '조종사 없이 센서 정보만으로 스스로 판단하고 비행 경로를 결정하는 무인기(드론) 제어 기술.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '우주궤도 및 위성시스템 트랙',
+    subtitle: 'Orbital Mechanics & Satellite Systems',
+    careers: ['쎄트렉아이', '한화시스템', '한국항공우주연구원(KARI) 위성연구소', '우주 스타트업(컨텍·페리지에어로스페이스 등)'],
+    courses: [
+      {
+        name: '우주궤도 및 위성시스템',
+        nameEn: 'Orbital Mechanics & Satellite Systems',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '우주역학', en: 'Astrodynamics', desc: '케플러 법칙과 뉴턴 역학을 바탕으로 인공위성이나 우주선의 궤도 운동을 다루는 학문.' },
+          { ko: '인공위성 궤도 및 자세제어', en: 'Satellite Orbit & Attitude Control', desc: '위성이 원하는 궤도를 유지하고, 태양전지판이나 안테나가 올바른 방향을 향하도록 자세를 제어하는 기술.' },
+          { ko: '위성 탑재체 설계', en: 'Satellite Payload Design (Cameras/Radar)', desc: '위성이 임무를 수행하기 위해 싣는 카메라, 레이더 등 관측 장비를 설계하는 기술.' },
+          { ko: '우주환경 시험', en: 'Space Environment Testing', desc: '진공, 극한 온도, 방사선 등 우주 환경을 지상에서 재현해 위성과 부품이 정상 작동하는지 검증하는 시험.' },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 항공우주공학과 전공 맛보기 | 대치프라임"
+  metaDescription="대기권 내를 비행하는 항공기와 대기권 밖을 비행하는 우주선·발사체를 연구하는 항공우주공학과 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="항공우주공학과"
+  descriptionPrefix={`지구 대기권 내를 비행하는 항공기(Aeronautics)와 대기권 밖을 비행하는 우주선 및 발사체(Astronautics)를 연구하는 첨단 공학 분야예요. 5개 세부 트랙으로 나누어뒀습니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 로켓추진, SLAM, 위성탑재체)"
+  tracks={TRACKS}
+/>

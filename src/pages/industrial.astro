@@ -3,11 +3,24 @@ import GlossaryLayout from '../layouts/GlossaryLayout.astro';
 
 const TRACKS = [
   {
-    title: '운영과학 및 통계',
-    subtitle: 'Operations Research & Statistics',
+    title: '생산관리 / 제조공학 트랙',
+    subtitle: 'Production Management & Manufacturing Engineering',
+    careers: ['제조 대기업의 생산관리(PM) 및 SCM 부서', '글로벌 물류 기업'],
     courses: [
       {
-        name: '운영과학',
+        name: '생산계획 및 통제',
+        nameEn: 'Production Planning & Control',
+        year: '3학년 1학기',
+        terms: [
+          { ko: '린 생산방식', en: 'Lean Manufacturing', desc: '낭비를 최소화하고 필요한 만큼만 생산하는 도요타 생산방식에서 비롯된 생산 철학. 재고, 대기시간, 불량 등 7가지 낭비 제거를 추구.' },
+          { ko: '경제적 주문량', en: 'Economic Order Quantity (EOQ)', formula: 'Q^* = \\sqrt{\\frac{2DS}{H}}', desc: '주문 비용과 재고 유지 비용의 합을 최소화하는 최적 주문량을 구하는 재고관리 모델.' },
+          { ko: '작업 스케줄링', en: 'Job Scheduling', desc: '한정된 자원(기계, 인력)에 여러 작업을 어떤 순서로 배정할지 결정하는 문제. 납기 준수와 생산성 향상이 목표.' },
+          { ko: '공급사슬관리', en: 'Supply Chain Management (SCM)', desc: '원자재 조달부터 생산, 유통, 고객 전달까지 전체 흐름을 계획하고 조율하는 경영 기법.' },
+          { ko: '공장 배치론', en: 'Facility Layout Planning', desc: '생산 설비와 작업 공간을 효율적으로 배치해 자재 이동 거리와 생산 흐름을 최적화하는 기법.' },
+        ],
+      },
+      {
+        name: '최적화이론 (OR)',
         nameEn: 'Operations Research',
         year: '2학년 2학기',
         terms: [
@@ -17,6 +30,13 @@ const TRACKS = [
           { ko: '동적계획법', en: 'Dynamic Programming', desc: '복잡한 의사결정 문제를 단계별 부분 문제로 나누어 순차적으로 최적해를 구하는 기법. 재고, 설비투자 등 다단계 의사결정에 활용.' },
         ],
       },
+    ],
+  },
+  {
+    title: '데이터사이언스 / 비즈니스 애널리틱스',
+    subtitle: 'Data Science & Business Analytics',
+    careers: ['IT 기업(네이버·카카오)', '금융권 데이터 분석가', '대기업 DX(디지털 전환) 추진 부서'],
+    courses: [
       {
         name: '확률통계 및 시뮬레이션',
         nameEn: 'Probability, Statistics & Simulation',
@@ -29,40 +49,43 @@ const TRACKS = [
         ],
       },
       {
-        name: '경영과학',
-        nameEn: 'Management Science',
-        year: '3학년 2학기',
-        terms: [
-          { ko: '의사결정분석', en: 'Decision Analysis', desc: '불확실한 상황에서 여러 대안 중 최선의 선택을 체계적으로 고르는 방법론. 의사결정나무, 기대값 계산 등을 활용함.' },
-          { ko: '게임이론', en: 'Game Theory', desc: '여러 의사결정자의 전략이 서로에게 영향을 미치는 상황을 수학적으로 분석하는 이론. 내쉬균형이 대표적 개념으로, 가격 경쟁·입찰 전략 분석에 쓰임.' },
-        ],
-      },
-      {
-        name: '데이터분석 및 경영정보시스템',
-        nameEn: 'Data Analytics & Management Information Systems',
+        name: '데이터분석 및 비즈니스 애널리틱스',
+        nameEn: 'Data Analytics & Business Analytics',
         year: '4학년 1학기',
         terms: [
           { ko: '데이터마이닝', en: 'Data Mining', desc: '대량의 데이터에서 유의미한 패턴이나 규칙을 자동으로 찾아내는 기법. 군집분석, 연관규칙분석 등이 대표적.' },
           { ko: 'ERP 시스템', en: 'Enterprise Resource Planning', desc: '생산, 재무, 인사 등 기업의 전체 자원과 프로세스를 하나의 통합된 정보시스템으로 관리하는 체계.' },
+          { ko: '산업통계학', en: 'Industrial Statistics', desc: '제조·서비스 현장의 데이터를 통계적으로 분석해 공정 개선과 의사결정에 활용하는 응용통계 분야.' },
+          { ko: '비정형데이터분석', en: 'Unstructured Data Analysis', desc: '텍스트, 이미지 등 정형화되지 않은 데이터에서 패턴과 인사이트를 추출하는 분석 기법.' },
         ],
       },
     ],
   },
   {
-    title: '생산·품질시스템',
-    subtitle: 'Production & Quality Systems',
+    title: '경영공학과',
+    subtitle: 'Engineering Management',
+    careers: ['글로벌 전략 컨설팅 펌', '기업 기획실', '벤처캐피탈(VC)', '증권사 리서치 센터'],
     courses: [
       {
-        name: '생산시스템',
-        nameEn: 'Production Systems',
-        year: '3학년 1학기',
+        name: '경영공학',
+        nameEn: 'Engineering Management',
+        year: '4학년 1학기',
         terms: [
-          { ko: '린 생산방식', en: 'Lean Manufacturing', desc: '낭비를 최소화하고 필요한 만큼만 생산하는 도요타 생산방식에서 비롯된 생산 철학. 재고, 대기시간, 불량 등 7가지 낭비 제거를 추구.' },
-          { ko: '경제적 주문량', en: 'Economic Order Quantity (EOQ)', formula: 'Q^* = \\sqrt{\\frac{2DS}{H}}', desc: '주문 비용과 재고 유지 비용의 합을 최소화하는 최적 주문량을 구하는 재고관리 모델.' },
-          { ko: '작업 스케줄링', en: 'Job Scheduling', desc: '한정된 자원(기계, 인력)에 여러 작업을 어떤 순서로 배정할지 결정하는 문제. 납기 준수와 생산성 향상이 목표.' },
-          { ko: '공급사슬관리', en: 'Supply Chain Management (SCM)', desc: '원자재 조달부터 생산, 유통, 고객 전달까지 전체 흐름을 계획하고 조율하는 경영 기법.' },
+          { ko: '의사결정분석', en: 'Decision Analysis', desc: '불확실한 상황에서 여러 대안 중 최선의 선택을 체계적으로 고르는 방법론. 의사결정나무, 기대값 계산 등을 활용함.' },
+          { ko: '게임이론', en: 'Game Theory', desc: '여러 의사결정자의 전략이 서로에게 영향을 미치는 상황을 수학적으로 분석하는 이론. 내쉬균형이 대표적 개념으로, 가격 경쟁·입찰 전략 분석에 쓰임.' },
+          { ko: '공학경제학', en: 'Engineering Economics', desc: '투자안의 경제성을 현재가치, 내부수익률 등으로 평가해 최적의 공학적 의사결정을 내리는 학문.' },
+          { ko: '기술경영', en: 'Management of Technology (MOT)', desc: '기술을 기업의 전략적 자산으로 관리하며 R&D 투자, 기술 로드맵을 수립하는 경영 분야.' },
+          { ko: '재무 리스크 관리', en: 'Financial Risk Management', desc: '시장, 신용, 운영 등 다양한 위험 요인을 정량적으로 측정하고 관리하는 기법.' },
+          { ko: '투자 타당성 분석', en: 'Investment Feasibility Analysis', desc: '새로운 사업이나 설비 투자가 경제적으로 타당한지를 순현재가치(NPV) 등으로 평가하는 분석.' },
         ],
       },
+    ],
+  },
+  {
+    title: '품질경영 / 신뢰성공학과',
+    subtitle: 'Quality Management & Reliability Engineering',
+    careers: ['모든 제조 기업의 품질보증(QA) 및 품질관리(QC) 직무', '공인 시험인증 기관'],
+    courses: [
       {
         name: '품질관리',
         nameEn: 'Quality Control',
@@ -74,12 +97,12 @@ const TRACKS = [
         ],
       },
       {
-        name: '물류공학',
-        nameEn: 'Logistics Engineering',
+        name: '신뢰성 시험 및 수명예측',
+        nameEn: 'Reliability Testing & Life Prediction',
         year: '4학년 1학기',
         terms: [
-          { ko: '시설입지선정', en: 'Facility Location', desc: '물류센터, 공장 등을 어디에 배치해야 운송비와 서비스 시간을 최소화할 수 있는지를 결정하는 최적화 문제.' },
-          { ko: '차량경로문제', en: 'Vehicle Routing Problem (VRP)', desc: '여러 고객에게 물건을 배송할 때, 제한된 차량으로 총 이동거리나 비용을 최소화하는 배송 경로를 짜는 조합 최적화 문제.' },
+          { ko: '신뢰성 시험 분석', en: 'Reliability Testing Analysis', desc: '제품을 실제 사용 환경과 유사한 조건에서 시험해 고장 데이터를 수집·분석하는 기법.' },
+          { ko: '수명예측모델링', en: 'Life Prediction Modeling', desc: '와이블 분포 등 통계 모델을 이용해 제품의 수명과 고장 확률을 예측하는 기법.' },
         ],
       },
       {
@@ -94,19 +117,47 @@ const TRACKS = [
     ],
   },
   {
-    title: '인간공학 및 시스템공학',
-    subtitle: 'Human Factors & Systems Engineering',
+    title: '인간공학 / UX 디자인 트랙',
+    subtitle: 'Human Factors & UX Design',
+    careers: ['IT 기업 및 제조사의 UX 리서처', '가전/자동차 내장 UI/UX 기획 부서'],
     courses: [
       {
-        name: '인간공학',
-        nameEn: 'Ergonomics',
+        name: '인간공학 및 UX디자인',
+        nameEn: 'Human Factors & UX Design',
         year: '4학년 1학기',
         terms: [
           { ko: '인간공학', en: 'Ergonomics', desc: '사람의 신체적·인지적 특성에 맞춰 제품이나 작업환경을 설계하는 학문. 안전과 효율, 편의성을 동시에 추구함.' },
-          { ko: '시스템 신뢰도', en: 'System Reliability', desc: '여러 구성요소로 이루어진 시스템 전체가 고장 없이 작동할 확률. 구성요소가 직렬/병렬로 연결된 방식에 따라 계산법이 달라짐.' },
           { ko: '작업연구', en: 'Time & Motion Study', desc: '작업 동작과 소요 시간을 분석해 표준 작업 시간을 정하고 비효율을 제거하는 산업공학의 고전적 기법.' },
+          { ko: '사용자 경험(UX) 데이터 분석', en: 'UX Data Analysis', desc: '사용자의 행동 로그, 클릭 패턴 등을 분석해 인터페이스 개선점을 찾아내는 기법.' },
+          { ko: '인지공학', en: 'Cognitive Engineering', desc: '인간의 인지적 정보처리 과정을 이해하고, 이를 바탕으로 오류를 줄이는 인터페이스와 시스템을 설계하는 학문.' },
         ],
       },
+    ],
+  },
+  {
+    title: '물류 / 유통시스템공학과',
+    subtitle: 'Logistics & Distribution Systems Engineering',
+    careers: ['이커머스 기업(쿠팡·네이버)', '대형 유통·물류사(CJ대한통운·현대글로비스)'],
+    courses: [
+      {
+        name: '물류 및 유통시스템공학',
+        nameEn: 'Logistics & Distribution Systems Engineering',
+        year: '4학년 1학기',
+        terms: [
+          { ko: '시설입지선정', en: 'Facility Location', desc: '물류센터, 공장 등을 어디에 배치해야 운송비와 서비스 시간을 최소화할 수 있는지를 결정하는 최적화 문제.' },
+          { ko: '차량경로문제', en: 'Vehicle Routing Problem (VRP)', desc: '여러 고객에게 물건을 배송할 때, 제한된 차량으로 총 이동거리나 비용을 최소화하는 배송 경로를 짜는 조합 최적화 문제.' },
+          { ko: '물류센터 운영 최적화', en: 'Distribution Center Operations Optimization', desc: '입고, 보관, 피킹, 출고 등 물류센터 내부 작업 흐름을 효율화하는 기법.' },
+          { ko: '재고 통제 시스템', en: 'Inventory Control Systems', desc: '수요 변동에 대응하면서도 재고 비용을 최소화하도록 재고 수준을 관리하는 시스템.' },
+          { ko: '화물운송공학', en: 'Freight Transportation Engineering', desc: '트럭, 철도, 해상 등 다양한 운송 수단을 이용해 화물을 효율적으로 이동시키는 방법을 연구하는 분야.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '시스템공학과',
+    subtitle: 'Systems Engineering',
+    careers: ['방위산업체', '항공우주 대형 프로젝트 총괄 팀', '대규모 건설 및 인프라 사업단'],
+    courses: [
       {
         name: '시스템공학',
         nameEn: 'Systems Engineering',
@@ -114,6 +165,9 @@ const TRACKS = [
         terms: [
           { ko: '시스템 수명주기', en: 'System Life Cycle', desc: '요구분석, 설계, 구현, 운영, 폐기까지 시스템이 거치는 전체 단계를 체계적으로 관리하는 접근법.' },
           { ko: '요구공학', en: 'Requirements Engineering', desc: '이해관계자의 요구사항을 수집, 분석, 명세, 검증하는 과정. 시스템 개발 실패의 상당수가 요구사항 정의 단계의 오류에서 비롯됨.' },
+          { ko: '시스템 아키텍처 정의', en: 'System Architecture Definition', desc: '복잡한 시스템을 구성하는 하위 시스템들과 그 인터페이스를 체계적으로 정의하는 작업.' },
+          { ko: '프로젝트 위험 관리', en: 'Project Risk Management', desc: '대규모 프로젝트에서 발생할 수 있는 위험 요인을 식별, 평가, 대응하는 관리 기법.' },
+          { ko: '요구사항 추적 및 검증', en: 'Requirements Traceability & Verification', desc: '초기에 정의된 요구사항이 최종 시스템에 빠짐없이 반영되었는지 추적하고 검증하는 활동.' },
         ],
       },
     ],
@@ -123,9 +177,9 @@ const TRACKS = [
 
 <GlossaryLayout
   metaTitle="Your Future - 산업공학 전공 맛보기 | 대치프라임"
-  metaDescription="대학 산업공학과 커리큘럼을 기반으로 재구성한 전공 맛보기 페이지입니다."
+  metaDescription="대학 산업공학과 커리큘럼을 7개 세부 트랙(생산관리, 데이터사이언스, 경영공학, 품질경영, 인간공학/UX, 물류, 시스템공학)으로 나누어 재구성한 전공 맛보기 페이지입니다."
   heading="산업공학"
-  descriptionPrefix={`산업공학과에 가면 실제로 배우게 될 과목들을 트랙별로 묶어뒀습니다. 과목을 눌러보면 그 안에서 다루는 핵심 개념이 펼쳐져요.`}
-  searchPlaceholder="개념 이름으로 검색 (예: 선형계획법, EOQ, 6시그마)"
+  descriptionPrefix={`산업공학과에 가면 실제로 배우게 될 내용을 7개 세부 트랙(생산관리·제조, 데이터사이언스·BA, 경영공학, 품질경영·신뢰성, 인간공학·UX, 물류·유통, 시스템공학)으로 나누어뒀습니다.`}
+  searchPlaceholder="개념 이름으로 검색 (예: EOQ, 6시그마, VRP)"
   tracks={TRACKS}
 />
