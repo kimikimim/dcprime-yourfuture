@@ -11,9 +11,9 @@ const TRACKS = [
         nameEn: 'Machine Learning',
         year: '3학년 1학기',
         terms: [
-          { ko: '경사하강법', en: 'Gradient Descent', formula: '\\theta_{t+1} = \\theta_t - \\eta \\nabla L(\\theta_t)', desc: '손실 함수의 기울기 반대 방향으로 파라미터를 조금씩 이동시켜 최솟값을 찾아가는 최적화 알고리즘.' },
-          { ko: '과적합과 정규화', en: 'Overfitting & Regularization', desc: '모델이 학습 데이터에만 지나치게 맞춰져 일반화 성능이 떨어지는 현상(과적합)과, 이를 막기 위한 L1/L2 페널티, 드롭아웃 등의 기법.' },
-          { ko: '서포트 벡터 머신', en: 'Support Vector Machine', desc: '두 클래스를 가장 큰 마진으로 분리하는 초평면을 찾는 지도학습 분류 모델. 커널 트릭으로 비선형 분류도 가능.' },
+          { ko: '경사하강법', en: 'Gradient Descent', formula: '\\theta_{t+1} = \\theta_t - \\eta \\nabla L(\\theta_t)', desc: '손실 함수 $L$을 파라미터 $\\theta$로 미분한 기울기 $\\nabla L$은 손실이 가장 가파르게 증가하는 방향을 가리키므로, 그 반대 방향으로 학습률 $\\eta$만큼씩 이동하며 최솟값을 찾아가는 최적화 알고리즘. $\\eta$가 너무 크면 최솟값 근처에서 진동하고, 너무 작으면 수렴이 지나치게 느려짐.' },
+          { ko: '과적합과 정규화', en: 'Overfitting & Regularization', formula: 'L_{reg} = L + \\lambda \\sum \\theta_i^2', desc: '모델이 학습 데이터의 노이즈까지 외워버려 새로운 데이터에서는 성능이 뚝 떨어지는 현상이 과적합. 손실 함수에 가중치 제곱합(L2, 위 식) 또는 절댓값합(L1)을 페널티로 더해 가중치가 커지지 못하게 억제하거나, 학습 중 일부 뉴런을 무작위로 꺼버리는 드롭아웃으로 모델이 특정 패턴에 과의존하지 못하게 함.' },
+          { ko: '서포트 벡터 머신', en: 'Support Vector Machine', desc: '두 클래스를 나누는 경계선(초평면)을 그리되, 경계에 가장 가까운 데이터(서포트 벡터)까지의 거리인 마진을 최대로 넓히는 방향으로 초평면을 정하는 분류 모델. 데이터를 원래 차원에서는 직선으로 못 나눠도, 커널 함수로 더 높은 차원에 투영하면 나눠지는 경우가 많다는 커널 트릭으로 비선형 분류도 가능함.' },
         ],
       },
       {
@@ -21,9 +21,9 @@ const TRACKS = [
         nameEn: 'Supervised & Unsupervised Learning',
         year: '3학년 2학기',
         terms: [
-          { ko: '결정트리와 랜덤포레스트', en: 'Decision Tree & Random Forest', desc: '데이터를 조건에 따라 가지를 치며 분류/회귀하는 결정트리와, 여러 결정트리를 앙상블해 성능과 안정성을 높인 랜덤포레스트.' },
-          { ko: 'k-평균 군집화', en: 'k-Means Clustering', desc: '데이터를 k개의 그룹으로 나누되, 각 데이터가 가장 가까운 중심점에 속하도록 반복적으로 군집을 갱신하는 대표적인 비지도학습 알고리즘.' },
-          { ko: '앙상블학습', en: 'Ensemble Learning (Boosting/Bagging)', desc: '여러 개의 약한 모델을 결합해 하나의 강한 모델을 만드는 기법. 순차적으로 오차를 보완하는 부스팅과, 병렬로 여러 모델을 학습시켜 평균내는 배깅으로 나뉨.' },
+          { ko: '결정트리와 랜덤포레스트', en: 'Decision Tree & Random Forest', desc: '각 분기마다 데이터를 가장 잘 구분해주는 질문(불순도가 가장 많이 줄어드는 기준, 예: 지니 불순도나 정보이득)을 골라 나무 형태로 분류·회귀하는 결정트리. 여러 결정트리를 서로 다른 데이터 부분집합과 특징 부분집합으로 학습시킨 뒤 결과를 투표·평균내는 랜덤포레스트는 개별 트리의 과적합 경향을 줄여줌.' },
+          { ko: 'k-평균 군집화', en: 'k-Means Clustering', desc: 'k개의 중심점을 무작위로 잡고, ①각 데이터를 가장 가까운 중심점의 군집으로 배정 ②각 군집의 평균으로 중심점을 다시 계산, 이 두 단계를 중심점이 더 이상 안 바뀔 때까지 반복하는 비지도학습 알고리즘.' },
+          { ko: '앙상블학습', en: 'Ensemble Learning (Boosting/Bagging)', desc: '전체 데이터에서 중복을 허용해 여러 번 무작위 샘플링(부트스트랩)한 뒤 각각 독립적으로 모델을 학습시켜 평균내는 배깅과, 이전 모델이 틀린 데이터에 더 큰 가중치를 주며 다음 모델을 순차적으로 학습시켜 오차를 점점 줄여가는 부스팅. 배깅은 분산을, 부스팅은 편향을 줄이는 데 특히 효과적.' },
         ],
       },
     ],
@@ -37,8 +37,8 @@ const TRACKS = [
         nameEn: 'Deep Learning',
         year: '3학년 2학기',
         terms: [
-          { ko: '역전파', en: 'Backpropagation', desc: '연쇄법칙(Chain Rule)을 이용해 신경망의 각 가중치에 대한 손실 함수의 기울기를 출력층에서 입력층 방향으로 계산하는 알고리즘.' },
-          { ko: '어텐션 메커니즘', en: 'Attention Mechanism', desc: '입력 시퀀스의 각 부분에 다른 가중치를 부여해 중요한 정보에 집중하는 방식. 트랜스포머 구조의 핵심 아이디어.' },
+          { ko: '역전파', en: 'Backpropagation', formula: '\\frac{\\partial L}{\\partial w_i} = \\frac{\\partial L}{\\partial y} \\cdot \\frac{\\partial y}{\\partial w_i}', desc: '출력층의 손실을 입력층 방향으로 거슬러 올라가며, 연쇄법칙(chain rule)으로 각 층 가중치가 손실에 미치는 영향(기울기)을 층마다 재사용해 계산하는 알고리즘. 모든 가중치에 대한 기울기를 순전파 한 번, 역전파 한 번으로 전부 구할 수 있어 신경망 학습을 실용적으로 만든 핵심 알고리즘.' },
+          { ko: '어텐션 메커니즘', en: 'Attention Mechanism', formula: '\\text{Attn}(Q,K,V) = \\text{softmax}\\!\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right)V', desc: '질의(Q)와 각 위치의 키(K)의 유사도를 계산해 소프트맥스로 가중치(합이 1)를 만들고, 그 가중치로 값(V)들을 가중평균해 지금 필요한 정보에 더 집중하는 연산. $\\sqrt{d_k}$로 나누는 건 내적 값이 차원이 커질수록 지나치게 커져 소프트맥스가 한쪽으로 쏠리는 걸 막기 위함.' },
         ],
       },
       {
@@ -46,9 +46,9 @@ const TRACKS = [
         nameEn: 'Neural Network Architectures',
         year: '4학년 1학기',
         terms: [
-          { ko: 'CNN', en: 'Convolutional Neural Network', desc: '합성곱 연산으로 이미지의 지역적 패턴(경계, 질감 등)을 추출하는 신경망 구조. 이미지 분류, 객체 탐지의 표준 구조.' },
-          { ko: 'GAN', en: 'Generative Adversarial Network', desc: '가짜 데이터를 만드는 생성자와 이를 판별하는 판별자가 서로 경쟁하며 학습해, 실제와 유사한 데이터를 생성하는 신경망 구조.' },
-          { ko: '트랜스포머 구조', en: 'Transformer Architecture', desc: '어텐션 메커니즘만으로 시퀀스를 병렬적으로 처리하는 신경망 구조. GPT, BERT 등 현대 대규모 언어모델의 기반.' },
+          { ko: 'CNN', en: 'Convolutional Neural Network', desc: '작은 크기(예: 3×3)의 필터(커널)를 이미지 위에서 슬라이딩하며 각 위치에서 필터와 겹치는 픽셀들의 곱의 합을 계산하는 합성곱 연산으로 경계·질감 같은 지역적 패턴을 추출하는 구조. 같은 필터를 이미지 전체에 재사용(가중치 공유)해서 완전연결 신경망보다 훨씬 적은 파라미터로 이미지를 처리함.' },
+          { ko: 'GAN', en: 'Generative Adversarial Network', formula: '\\min_G \\max_D\\ \\mathbb{E}[\\log D(x)] + \\mathbb{E}[\\log(1-D(G(z)))]', desc: '무작위 노이즈에서 가짜 데이터를 만드는 생성자(G)와, 진짜와 가짜를 구분하려는 판별자(D)를 서로 경쟁시켜, D는 판별을 더 잘하도록, G는 D를 더 잘 속이도록 번갈아 학습시키는 구조. 이 경쟁이 균형에 이르면 G가 만드는 데이터는 실제 데이터 분포와 구분이 안 될 정도로 정교해짐.' },
+          { ko: '트랜스포머 구조', en: 'Transformer Architecture', desc: '순서 정보를 순환 없이 위치 인코딩으로 따로 주입하고, 여러 개의 어텐션을 병렬로 두어(멀티헤드 어텐션) 서로 다른 관점의 관계를 동시에 포착하는 구조. RNN처럼 한 스텝씩 순차 계산할 필요가 없어 GPU로 완전히 병렬 학습이 가능해졌고, 이게 GPT·BERT 같은 대규모 언어모델을 가능하게 한 결정적 이유.' },
         ],
       },
     ],
@@ -62,9 +62,9 @@ const TRACKS = [
         nameEn: 'Natural Language Processing',
         year: '4학년 1학기',
         terms: [
-          { ko: '토큰화와 워드 임베딩', en: 'Tokenization & Word Embedding', desc: '텍스트를 의미 있는 단위(토큰)로 쪼개고, 각 단어를 의미를 반영한 벡터 공간에 표현하는 자연어처리의 기초 과정.' },
-          { ko: '언어모델과 퍼플렉서티', en: 'Language Model & Perplexity', desc: '다음 단어를 예측하는 확률 모델(언어모델)과, 그 성능을 평가하는 지표인 퍼플렉서티.' },
-          { ko: 'RNN과 LSTM', en: 'Recurrent Neural Networks & LSTM', desc: '순서가 있는 데이터를 처리하기 위해 이전 상태를 기억하며 순차적으로 계산하는 신경망 구조. LSTM은 장기 의존성 문제를 게이트 구조로 완화함.' },
+          { ko: '토큰화와 워드 임베딩', en: 'Tokenization & Word Embedding', desc: '텍스트를 단어·서브워드 단위(토큰)로 쪼갠 뒤, 각 토큰을 수백 차원의 실수 벡터로 표현하는 과정. word2vec 같은 초기 임베딩 기법은 "주변 단어로 그 단어를 예측"하도록 학습시켜서, 의미가 비슷한 단어일수록 벡터 공간에서 가까운 위치에 놓이게 만듦.' },
+          { ko: '언어모델과 퍼플렉서티', en: 'Language Model & Perplexity', formula: '\\text{PPL} = 2^{H(p)} = \\exp\\!\\left(-\\frac{1}{N}\\sum \\log p(w_i)\\right)', desc: '이전 단어들이 주어졌을 때 다음 단어의 확률분포 $p$를 예측하는 모델이 언어모델. 퍼플렉서티는 모델이 정답 단어에 준 확률의 역수를 기하평균낸 값으로, 값이 낮을수록 모델이 실제 다음 단어를 더 확신 있게 잘 맞췄다는 뜻.' },
+          { ko: 'RNN과 LSTM', en: 'Recurrent Neural Networks & LSTM', formula: 'h_t = f(Wx_t + Uh_{t-1})', desc: '매 시점의 은닉상태 $h_t$가 현재 입력 $x_t$뿐 아니라 직전 은닉상태 $h_{t-1}$에도 의존하도록 만들어 순서 정보를 처리하는 RNN. 다만 시퀀스가 길어지면 기울기가 지수적으로 작아지는 기울기 소실 문제가 생기는데, LSTM은 정보를 유지·삭제할지 게이트(입력·망각·출력 게이트)로 조절하는 별도의 셀 상태를 둬서 이 문제를 완화함.' },
         ],
       },
       {
@@ -72,9 +72,9 @@ const TRACKS = [
         nameEn: 'Computer Vision',
         year: '4학년 1학기',
         terms: [
-          { ko: '이미지 분류와 객체 탐지', en: 'Image Classification & Object Detection', desc: '이미지 전체에 하나의 라벨을 부여하는 분류와, 이미지 안에서 여러 객체의 위치와 종류를 동시에 찾아내는 객체 탐지.' },
-          { ko: '이미지 분할', en: 'Image Segmentation', desc: '이미지의 각 픽셀을 어떤 객체나 영역에 속하는지 분류하는 작업. 자율주행, 의료 영상 분석 등에 핵심적으로 쓰임.' },
-          { ko: '영상처리 기초', en: 'Image Processing Basics (Filtering/Edge Detection)', desc: '노이즈 제거, 경계 검출 등 이미지를 딥러닝에 넣기 전이나 전통적 컴퓨터비전에서 사용하는 기초적인 필터링 기법.' },
+          { ko: '이미지 분류와 객체 탐지', en: 'Image Classification & Object Detection', desc: '이미지 하나에 클래스 확률 벡터 하나만 출력하는 분류와 달리, 객체 탐지는 이미지를 격자로 나누고 각 격자마다 "여기 물체가 있는가, 있다면 어디부터 어디까지(바운딩박스 좌표)이고 어떤 클래스인가"를 동시에 예측하는 문제 — YOLO 계열이 이 방식의 대표적 구현.' },
+          { ko: '이미지 분할', en: 'Image Segmentation', desc: '이미지를 사각형 박스로 뭉뚱그리는 객체 탐지와 달리, 픽셀 하나하나에 클래스를 부여하는 문제. 같은 클래스면 다 같은 라벨을 주는 시맨틱 분할과, 같은 클래스라도 개체별로 구분해서 라벨을 주는(사람1, 사람2) 인스턴스 분할로 나뉨.' },
+          { ko: '영상처리 기초', en: 'Image Processing Basics (Filtering/Edge Detection)', desc: '픽셀 밝기가 급격히 변하는 곳(경계)을 찾기 위해 소벨(Sobel) 필터 같은 작은 커널을 이미지에 합성곱시켜 각 방향의 밝기 변화율(그래디언트)을 계산하는 등, 딥러닝 이전부터 쓰여온 고전적 영상처리 기법.' },
         ],
       },
     ],
@@ -88,9 +88,9 @@ const TRACKS = [
         nameEn: 'Linear Algebra & Probability for AI',
         year: '3학년 1학기',
         terms: [
-          { ko: '행렬연산과 텐서', en: 'Matrix Operations & Tensors', desc: '신경망의 데이터와 가중치를 표현하고 연산하는 다차원 배열(텐서)과 행렬 곱셈. 딥러닝 프레임워크 연산의 기본 단위.' },
-          { ko: '베이즈 추론', en: 'Bayesian Inference in AI', desc: '관측된 데이터를 바탕으로 모델 파라미터나 예측에 대한 확률적 믿음을 갱신하는 추론 방식. 불확실성을 정량화하는 AI 모델에 활용됨.' },
-          { ko: '최대우도추정', en: 'Maximum Likelihood Estimation for Model Parameters', desc: '신경망 등 모델의 파라미터를, 관측된 데이터가 나타날 가능성(우도)을 최대화하는 방향으로 학습시키는 원리. 대부분의 손실함수 설계의 이론적 근거.' },
+          { ko: '행렬연산과 텐서', en: 'Matrix Operations & Tensors', desc: '신경망의 한 층은 입력 벡터에 가중치 행렬을 곱하고 편향을 더하는 선형변환($y=Wx+b$)으로 표현되며, 배치 데이터·이미지의 채널까지 포함하면 2차원을 넘어선 다차원 배열인 텐서로 다뤄야 함. GPU가 딥러닝에 강한 이유가 바로 이 행렬곱을 대량 병렬로 처리하는 데 최적화돼 있기 때문.' },
+          { ko: '베이즈 추론', en: 'Bayesian Inference in AI', formula: 'P(\\theta|D) \\propto P(D|\\theta)P(\\theta)', desc: '모델 파라미터 $\\theta$에 대한 사전 믿음 $P(\\theta)$을, 관측 데이터 $D$가 주어졌을 때의 가능도 $P(D|\\theta)$와 곱해 사후 확률 $P(\\theta|D)$로 갱신하는 추론 방식. 점 추정값 하나만 내놓는 대신 파라미터의 불확실성 자체를 확률분포로 다룰 수 있음.' },
+          { ko: '최대우도추정', en: 'Maximum Likelihood Estimation for Model Parameters', formula: '\\hat\\theta = \\arg\\max_\\theta \\prod_i P(x_i|\\theta)', desc: '관측된 데이터가 나타날 확률(가능도)을 가장 크게 만드는 파라미터 $\\theta$를 모델의 추정값으로 선택하는 원리. 딥러닝에서 흔히 쓰는 교차 엔트로피 손실을 최소화하는 것이 바로 이 가능도를 최대화하는 것과 수학적으로 동치임.' },
         ],
       },
       {
@@ -98,8 +98,8 @@ const TRACKS = [
         nameEn: 'MLOps',
         year: '4학년 2학기',
         terms: [
-          { ko: '모델 배포 및 서빙', en: 'Model Deployment & Serving', desc: '학습이 끝난 모델을 실제 서비스 환경에 올려 API 형태로 예측 요청을 처리할 수 있게 만드는 과정.' },
-          { ko: '모델 모니터링과 드리프트 탐지', en: 'Model Monitoring & Drift Detection', desc: '운영 중인 모델의 성능을 지속적으로 관찰하고, 실제 데이터 분포가 학습 시점과 달라지는 드리프트를 감지해 재학습 시점을 판단하는 활동.' },
+          { ko: '모델 배포 및 서빙', en: 'Model Deployment & Serving', desc: '학습이 끝난 모델을 REST/gRPC API 형태로 감싸 실시간 요청에 응답하게 만드는 과정. 요청이 몰릴 때 여러 요청을 모아 한 번에 GPU로 계산하는 배치 처리(batching)로 처리량을 늘리는 게 실무의 핵심 최적화 포인트.' },
+          { ko: '모델 모니터링과 드리프트 탐지', en: 'Model Monitoring & Drift Detection', desc: '운영 중 들어오는 실제 데이터의 통계적 분포가 학습 시점의 데이터 분포와 얼마나 달라졌는지(예: KL divergence 같은 지표로) 지속적으로 측정해, 모델 성능이 저하되기 전에 재학습 시점을 판단하는 활동.' },
         ],
       },
     ],

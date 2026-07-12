@@ -11,9 +11,9 @@ const TRACKS = [
         nameEn: 'Cryptography Fundamentals',
         year: '2학년 2학기',
         terms: [
-          { ko: '대칭키 암호', en: 'Symmetric-Key Cryptography (AES)', desc: '암호화와 복호화에 같은 키를 사용하는 암호 방식. 빠른 속도가 장점이며 AES가 현재 표준으로 널리 쓰임.' },
-          { ko: '공개키 암호', en: 'Public-Key Cryptography (RSA)', desc: '공개키로 암호화하고 개인키로만 복호화할 수 있는 비대칭 암호 방식. 큰 수의 소인수분해가 어렵다는 사실에 안전성이 기반함.' },
-          { ko: '해시함수와 전자서명', en: 'Hash Functions & Digital Signatures', desc: '임의 길이 데이터를 고정 길이로 압축하는 해시함수와, 이를 이용해 메시지의 무결성과 발신자를 증명하는 전자서명.' },
+          { ko: '대칭키 암호', en: 'Symmetric-Key Cryptography (AES)', desc: '평문을 128비트 블록 단위로 잘라, 같은 128/192/256비트 키로 여러 라운드에 걸쳐 치환(Substitution)과 순열(Permutation)을 반복하는 SPN 구조로 암복호화하는 방식. 같은 키로 암복호화하기 때문에 속도는 빠르지만, 키를 상대방에게 안전하게 전달하는 문제가 남음.' },
+          { ko: '공개키 암호', en: 'Public-Key Cryptography (RSA)', formula: 'c = m^e \\bmod n, \\quad m = c^d \\bmod n', desc: '두 개의 큰 소수 $p, q$의 곱 $n=pq$를 공개하고, 공개키 $e$로 암호화한 뒤 개인키 $d$로만 복호화되도록 설계된 방식. $n$이 충분히 크면 $n$을 소인수분해해서 $d$를 역산하는 게 현재 컴퓨팅 능력으로는 사실상 불가능하다는 데 안전성이 기반함.' },
+          { ko: '해시함수와 전자서명', en: 'Hash Functions & Digital Signatures', desc: '입력이 아무리 길어도 SHA-256이면 항상 256비트 고정 길이 출력을 내놓고, 입력을 조금만 바꿔도 출력이 완전히 달라지며(눈사태 효과), 같은 출력을 내는 서로 다른 입력을 찾기 어려운(충돌 저항성) 일방향 함수. 문서의 해시값을 개인키로 암호화한 것이 전자서명이며, 상대방은 공개키로 복호화해 해시값이 일치하는지 확인해 위변조 여부를 검증함.' },
         ],
       },
       {
@@ -21,8 +21,8 @@ const TRACKS = [
         nameEn: 'Applied Cryptography',
         year: '3학년 1학기',
         terms: [
-          { ko: 'PKI와 인증서', en: 'Public Key Infrastructure & Certificates', desc: '공개키의 소유자를 신뢰할 수 있는 기관(CA)이 보증하는 인증서 발급 체계. HTTPS 통신 신뢰의 기반.' },
-          { ko: '영지식증명', en: 'Zero-Knowledge Proof', desc: '어떤 정보를 알고 있다는 사실을, 그 정보 자체를 노출하지 않고 증명하는 암호학적 기법. 블록체인 프라이버시 기술 등에 응용됨.' },
+          { ko: 'PKI와 인증서', en: 'Public Key Infrastructure & Certificates', desc: '신뢰할 수 있는 인증기관(CA)이 어떤 공개키가 특정 서버의 것이 맞다고 서명해준 X.509 인증서 체계. 브라우저는 미리 신뢰하는 최상위 CA로부터 시작해 중간 CA를 거쳐 서버 인증서까지 이어지는 신뢰 사슬(chain of trust)을 검증해 HTTPS 통신을 신뢰함.' },
+          { ko: '영지식증명', en: 'Zero-Knowledge Proof', desc: '증명자가 비밀 값 자체는 절대 공개하지 않으면서도, 그 비밀을 실제로 알고 있다는 사실만 검증자에게 확률적으로 납득시키는 프로토콜. 참인 주장은 항상 증명 가능하다는 완전성, 거짓 주장은 통과할 수 없다는 건전성, 비밀 정보가 노출되지 않는다는 영지식성 세 조건을 만족해야 함.' },
         ],
       },
       {
@@ -30,8 +30,8 @@ const TRACKS = [
         nameEn: 'Mathematical Foundations of Cryptography',
         year: '3학년 1학기',
         terms: [
-          { ko: '이산로그 문제', en: 'Discrete Logarithm Problem', desc: '모듈러 연산에서 지수를 거꾸로 찾기 어렵다는 문제. Diffie-Hellman 키 교환 등 여러 암호 프로토콜의 안전성 근거.' },
-          { ko: '타원곡선암호', en: 'Elliptic Curve Cryptography (ECC)', desc: '타원곡선 위의 점 연산을 이용한 공개키 암호 방식. RSA보다 짧은 키 길이로 동등한 안전성을 제공해 모바일 기기 등에서 선호됨.' },
+          { ko: '이산로그 문제', en: 'Discrete Logarithm Problem', formula: 'g^x \\equiv y \\pmod{p}', desc: '$g, y, p$를 알아도 $g^x \\equiv y \\pmod p$를 만족하는 $x$를 구하는 게 계산적으로 매우 어렵다는 문제. 반대로 $x$를 알면 $y$를 계산하는 건 쉬워서, 디피-헬만 키교환 같은 프로토콜이 이 비대칭성 위에 안전성을 세움.' },
+          { ko: '타원곡선암호', en: 'Elliptic Curve Cryptography (ECC)', formula: 'y^2 = x^3 + ax + b \\pmod p', desc: '위 방정식을 만족하는 점들이 이루는 타원곡선 위에서 점 덧셈이라는 연산을 정의하고, 그 위의 이산로그 문제(어떤 점을 몇 번 더해야 다른 점이 나오는지 찾기)의 어려움에 기반한 암호. RSA보다 훨씬 짧은 키 길이로 동등한 안전성을 내서 모바일·IoT 기기에 많이 쓰임.' },
         ],
       },
     ],
@@ -45,9 +45,9 @@ const TRACKS = [
         nameEn: 'Network Security',
         year: '3학년 1학기',
         terms: [
-          { ko: '방화벽과 IDS/IPS', en: 'Firewall & Intrusion Detection/Prevention Systems', desc: '허용되지 않은 트래픽을 차단하는 방화벽과, 침입 시도를 탐지(IDS)하거나 실시간으로 차단(IPS)하는 시스템.' },
-          { ko: 'VPN과 터널링', en: 'VPN & Tunneling', desc: '공용 네트워크 위에 암호화된 가상의 사설 통신 경로를 만들어 안전하게 데이터를 주고받는 기술.' },
-          { ko: 'DDoS 공격과 방어', en: 'DDoS Attacks & Mitigation', desc: '다수의 시스템에서 동시에 트래픽을 퍼부어 서비스를 마비시키는 공격과, 이를 탐지·완화하는 방어 기법.' },
+          { ko: '방화벽과 IDS/IPS', en: 'Firewall & Intrusion Detection/Prevention Systems', desc: '출발지·목적지 IP와 포트 규칙으로 패킷을 걸러내는 방화벽과, 알려진 공격 패턴(시그니처) 또는 평소와 다른 트래픽 양상(이상탐지)으로 침입을 감지하는 IDS, 감지한 트래픽을 실시간으로 차단까지 하는 IPS.' },
+          { ko: 'VPN과 터널링', en: 'VPN & Tunneling', desc: 'IPsec이나 TLS로 원본 패킷 전체를 암호화한 뒤 새로운 헤더로 한 번 더 감싸(캡슐화) 공용 네트워크 위로 전송하는 기술. 중간 구간에서는 암호화된 내용물만 보이기 때문에 마치 사설망처럼 안전하게 통신할 수 있음.' },
+          { ko: 'DDoS 공격과 방어', en: 'DDoS Attacks & Mitigation', desc: '예를 들어 SYN 패킷만 대량으로 보내 서버가 SYN-ACK을 보내고 마지막 ACK을 무한정 기다리게 만드는 SYN 플러딩처럼, 다수의 시스템이 동시에 요청을 퍼부어 정상 서비스를 마비시키는 공격. 요청 빈도를 제한하는 레이트리미팅과 트래픽을 분산 흡수하는 CDN·스크러빙 센터로 방어함.' },
         ],
       },
       {
@@ -55,8 +55,8 @@ const TRACKS = [
         nameEn: 'System Security',
         year: '3학년 2학기',
         terms: [
-          { ko: '접근제어', en: 'Access Control (RBAC)', desc: '사용자의 역할에 따라 시스템 자원에 대한 권한을 부여하는 역할기반접근제어(RBAC) 등의 모델. 최소 권한 원칙의 실제 구현 수단.' },
-          { ko: '버퍼 오버플로우', en: 'Buffer Overflow', desc: '할당된 메모리 버퍼 크기를 초과하는 데이터를 입력해 인접 메모리를 덮어써 실행 흐름을 조작하는 고전적이면서도 여전히 중요한 취약점.' },
+          { ko: '접근제어', en: 'Access Control (RBAC)', desc: '사용자에게 직접 권한을 주는 대신 "관리자", "일반사용자" 같은 역할(role)에 권한을 매핑하고 사용자에게는 역할만 부여하는 방식. 사람이 바뀌어도 역할-권한 매핑은 그대로라 최소 권한 원칙을 유지·관리하기 쉬움.' },
+          { ko: '버퍼 오버플로우', en: 'Buffer Overflow', desc: '고정 크기로 할당된 버퍼보다 긴 데이터를 입력해 스택에 저장된 함수의 복귀 주소(return address)까지 덮어써서, 함수가 끝날 때 공격자가 원하는 코드 주소로 실행 흐름을 튀게 만드는 공격. 스택 카나리(값이 바뀌면 실행 중단)와 ASLR(메모리 주소를 매번 무작위 배치)로 방어함.' },
         ],
       },
     ],
@@ -70,9 +70,9 @@ const TRACKS = [
         nameEn: 'Penetration Testing',
         year: '3학년 2학기',
         terms: [
-          { ko: '취약점 스캐닝', en: 'Vulnerability Scanning', desc: '시스템이나 네트워크에서 알려진 보안 취약점을 자동으로 탐색하는 과정. 모의해킹의 첫 단계로 공격 표면을 파악함.' },
-          { ko: 'SQL 인젝션과 XSS', en: 'SQL Injection & Cross-Site Scripting', desc: '입력값 검증 미흡을 악용해 데이터베이스 쿼리나 스크립트를 주입하는 대표적인 웹 공격 기법과 실제 침투 시나리오.' },
-          { ko: '소셜 엔지니어링', en: 'Social Engineering', desc: '기술적 취약점이 아닌 사람의 심리를 이용해 정보를 빼내거나 시스템에 접근하는 공격 기법. 피싱 메일이 대표적.' },
+          { ko: '취약점 스캐닝', en: 'Vulnerability Scanning', desc: '공개된 취약점 데이터베이스(CVE)와 대조해 대상 시스템에 알려진 취약점이 있는지 자동으로 점검하는 과정. 열린 포트, 오래된 소프트웨어 버전 등을 찾아 공격 표면을 파악하는 모의해킹의 첫 단계.' },
+          { ko: 'SQL 인젝션과 XSS', en: 'SQL Injection & Cross-Site Scripting', desc: "입력값을 검증 없이 그대로 쿼리에 끼워 넣으면 `' OR '1'='1`같은 입력으로 인증을 우회하는 SQL 인젝션이나, 게시판에 `<script>` 태그를 삽입해 다른 사용자 브라우저에서 악성 스크립트가 실행되게 하는 XSS 공격이 가능해짐. 입력값 이스케이프·파라미터화 쿼리로 방어함.", },
+          { ko: '소셜 엔지니어링', en: 'Social Engineering', desc: '기술적 취약점이 아니라 신뢰, 권위, 긴급함 같은 심리적 요인을 이용해 사람이 스스로 정보를 넘기거나 악성 링크를 클릭하게 유도하는 공격. 아무리 시스템이 안전해도 사람이 뚫리면 무력화되는 게 핵심 위협.' },
         ],
       },
       {
@@ -80,8 +80,8 @@ const TRACKS = [
         nameEn: 'Reverse Engineering',
         year: '4학년 1학기',
         terms: [
-          { ko: '디스어셈블리와 디버깅', en: 'Disassembly & Debugging', desc: '컴파일된 실행 파일을 어셈블리 코드로 역변환하고, 디버거로 프로그램의 실행 흐름을 추적해 내부 동작을 분석하는 기법.' },
-          { ko: '안티디버깅 기법', en: 'Anti-Debugging Techniques', desc: '프로그램이 디버거에 의해 분석되고 있는지를 탐지해 분석을 방해하는 기법. 악성코드나 상용 소프트웨어의 보호 로직에 사용됨.' },
+          { ko: '디스어셈블리와 디버깅', en: 'Disassembly & Debugging', desc: '컴파일된 기계어를 x86/ARM 같은 어셈블리 명령어로 역변환(디스어셈블)하고, 특정 지점에 중단점(breakpoint)을 걸어 실행을 멈춰가며 레지스터·메모리 상태를 관찰해 프로그램의 실제 동작을 역으로 파악하는 기법.' },
+          { ko: '안티디버깅 기법', en: 'Anti-Debugging Techniques', desc: '디버거가 붙어 있으면 실행 속도가 눈에 띄게 느려진다는 점을 이용한 타이밍 체크나, OS가 제공하는 디버거 감지 API(예: IsDebuggerPresent)를 호출해 디버깅 여부를 스스로 확인하고, 감지되면 정상 동작을 숨기거나 종료하는 보호 기법.' },
         ],
       },
       {
@@ -89,8 +89,8 @@ const TRACKS = [
         nameEn: 'Malware Analysis',
         year: '4학년 1학기',
         terms: [
-          { ko: '정적분석과 동적분석', en: 'Static & Dynamic Analysis', desc: '실행하지 않고 코드/구조를 분석하는 정적분석과, 실제로 실행시켜 행동을 관찰하는 동적분석. 악성코드 분석의 두 가지 기본 접근법.' },
-          { ko: '샌드박스 탐지 회피', en: 'Sandbox Evasion', desc: '악성코드가 분석 환경(샌드박스)에서 실행되고 있음을 감지해 정상적인 악성 행위를 숨기는 회피 기법.' },
+          { ko: '정적분석과 동적분석', en: 'Static & Dynamic Analysis', desc: '실행하지 않고 바이너리의 문자열·구조·디스어셈블 코드를 살펴보는 정적분석과, 격리된 환경(샌드박스)에서 실제로 실행시켜 파일 생성·네트워크 통신 등 행동을 관찰하는 동적분석. 두 방식을 함께 써서 난독화된 악성코드도 파악함.' },
+          { ko: '샌드박스 탐지 회피', en: 'Sandbox Evasion', desc: '가상머신 특유의 레지스트리 값, 비정상적으로 적은 CPU 코어 수, 마우스 움직임이 없는 것 등을 확인해 자신이 분석 환경(샌드박스)에서 실행되고 있다고 판단하면, 악성 행위를 하지 않고 정상 프로그램처럼 위장하는 회피 기법.' },
         ],
       },
     ],
@@ -104,8 +104,8 @@ const TRACKS = [
         nameEn: 'Incident Response',
         year: '4학년 2학기',
         terms: [
-          { ko: '디지털 포렌식', en: 'Digital Forensics', desc: '침해사고 이후 시스템에 남은 로그, 파일, 메모리 등의 흔적을 수집·분석해 사고의 원인과 경위를 규명하는 기법.' },
-          { ko: '사고대응 프로세스', en: 'Incident Response Process (SOC/CERT)', desc: '보안 사고를 탐지, 억제, 제거, 복구하는 표준화된 절차. 보안관제센터(SOC)와 침해사고대응팀(CERT)이 수행함.' },
+          { ko: '디지털 포렌식', en: 'Digital Forensics', desc: '원본이 훼손되지 않도록 디스크·메모리를 비트 단위로 그대로 복제(이미징)한 뒤, 그 사본에서 로그·삭제된 파일·네트워크 흔적을 분석해 침해 경위를 재구성하는 기법. 법적 증거로 쓰이려면 증거가 수집된 순간부터 누가 어떻게 다뤘는지 기록하는 관리연속성(chain of custody)을 지켜야 함.' },
+          { ko: '사고대응 프로세스', en: 'Incident Response Process (SOC/CERT)', desc: '준비 → 탐지·분석 → 억제 → 근절 → 복구 → 사후분석 6단계로 이루어진 표준 대응 절차(NIST 프레임워크 기반). 보안관제센터(SOC)가 24시간 탐지를 담당하고, 실제 사고가 확인되면 침해사고대응팀(CERT)이 이 절차에 따라 대응함.' },
         ],
       },
     ],

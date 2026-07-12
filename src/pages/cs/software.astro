@@ -11,9 +11,9 @@ const TRACKS = [
         nameEn: 'Software Engineering',
         year: '3학년 1학기',
         terms: [
-          { ko: '애자일 방법론', en: 'Agile Methodology', desc: '짧은 주기로 반복 개발하며 변화하는 요구사항에 유연하게 대응하는 소프트웨어 개발 방법론. 스크럼, 칸반이 대표적 실천법.' },
-          { ko: '디자인 패턴', en: 'Design Patterns', desc: '소프트웨어 설계에서 반복적으로 나타나는 문제에 대한 검증된 해결책을 정리한 것. 싱글턴, 옵저버, 팩토리 패턴 등이 있음.' },
-          { ko: '단위테스트와 TDD', en: 'Unit Testing & Test-Driven Development', desc: '코드의 가장 작은 단위를 독립적으로 검증하는 단위테스트와, 테스트를 먼저 작성하고 이를 통과하는 코드를 구현하는 개발 방법론.' },
+          { ko: '애자일 방법론', en: 'Agile Methodology', desc: '1~4주짜리 짧은 반복 주기(스프린트)마다 실제로 동작하는 결과물을 내놓고 피드백을 반영하는 개발 방법론. 스크럼에서는 스프린트 시작 때 할 일을 정하는 스프린트 플래닝, 매일 진행상황을 공유하는 데일리 스탠드업, 끝나고 개선점을 논의하는 회고(retrospective)를 정해진 리듬으로 반복함.', example: '카카오·네이버 같은 IT기업 개발팀이 2주 단위로 기능을 배포하는 방식.' },
+          { ko: '디자인 패턴', en: 'Design Patterns', desc: '생성자를 private으로 막고 클래스 안에 정적 인스턴스 하나만 두어 어디서든 같은 객체를 참조하게 만드는 싱글턴, 어떤 객체(주체)의 상태가 바뀌면 등록된 관찰자들에게 자동으로 알림을 보내는 옵저버 패턴처럼, 반복되는 설계 문제에 대한 검증된 해결책을 정리해둔 것.', example: '설정값을 앱 전체에서 하나만 유지하는 Config 객체가 싱글턴 패턴의 전형적인 예.' },
+          { ko: '단위테스트와 TDD', en: 'Unit Testing & Test-Driven Development', desc: '실패하는 테스트를 먼저 작성(Red)하고, 그 테스트를 통과할 최소한의 코드를 작성(Green)한 뒤, 동작은 그대로 두고 코드 구조만 개선(Refactor)하는 사이클을 반복하는 개발 방법론.', example: '"이 함수는 짝수만 걸러야 한다"는 테스트를 먼저 쓰고 나서 실제 필터링 로직을 짜는 순서.' },
         ],
       },
       {
@@ -21,8 +21,8 @@ const TRACKS = [
         nameEn: 'Version Control & Collaboration',
         year: '2학년 2학기',
         terms: [
-          { ko: 'Git과 버전관리', en: 'Git & Version Control', desc: '코드의 변경 이력을 기록하고 여러 사람이 동시에 작업한 내용을 병합할 수 있게 해주는 분산 버전관리 시스템. 브랜치, 커밋, 머지가 기본 단위.' },
-          { ko: '코드 리뷰 문화', en: 'Code Review Culture', desc: '동료가 작성한 코드를 검토해 버그를 조기에 발견하고 코드 품질과 팀의 지식을 공유하는 협업 관행.' },
+          { ko: 'Git과 버전관리', en: 'Git & Version Control', desc: '각 커밋을 이전 커밋을 가리키는 SHA-1 해시값으로 식별해 방향성 비순환 그래프(DAG)로 이력을 관리하는 분산 버전관리 시스템. 두 브랜치를 합칠 때는 공통 조상, 브랜치A, 브랜치B 세 지점을 비교해 변경사항을 자동으로 합치는 3-way merge 알고리즘을 사용함.', example: '코드의 변경 이력을 기록하고 여러 사람이 동시에 작업한 내용을 병합할 수 있게 해주는 시스템.' },
+          { ko: '코드 리뷰 문화', en: 'Code Review Culture', desc: '변경된 부분(diff)만 비교해 보여주는 화면에서 동료가 로직 오류, 네이밍, 잠재적 버그를 지적하고 승인해야 병합(merge)되도록 하는 협업 관행. 리뷰가 병목이 되지 않도록 변경량을 작게(스몰 커밋) 유지하는 게 실무의 핵심 요령.', example: 'GitHub Pull Request에서 코드 옆에 코멘트를 남기고 승인 버튼을 눌러야 배포되는 절차.' },
         ],
       },
       {
@@ -30,9 +30,9 @@ const TRACKS = [
         nameEn: 'Software Architecture',
         year: '3학년 2학기',
         terms: [
-          { ko: 'MVC 패턴', en: 'Model-View-Controller Pattern', desc: '데이터(모델), 화면(뷰), 로직(컨트롤러)을 분리해 유지보수성을 높이는 대표적인 소프트웨어 설계 패턴.' },
-          { ko: '마이크로서비스 아키텍처', en: 'Microservices Architecture', desc: '하나의 큰 애플리케이션을 독립적으로 배포 가능한 작은 서비스들로 나누어 구성하는 아키텍처 스타일. 확장성과 배포 유연성이 높음.' },
-          { ko: 'RESTful API 설계', en: 'RESTful API Design', desc: '자원을 URI로 표현하고 HTTP 메서드(GET/POST/PUT/DELETE)로 조작하는 표준적인 웹 API 설계 방식.' },
+          { ko: 'MVC 패턴', en: 'Model-View-Controller Pattern', desc: '사용자 입력을 받은 컨트롤러가 모델(데이터·비즈니스 로직)을 갱신하고, 모델이 바뀌면 이를 구독하는 뷰(화면)가 자동으로 갱신되는 단방향에 가까운 데이터 흐름을 갖는 설계 패턴. 화면·로직·데이터를 분리해 한쪽을 바꿔도 다른 쪽에 영향이 적게 만듦.' },
+          { ko: '마이크로서비스 아키텍처', en: 'Microservices Architecture', desc: '하나의 거대한 애플리케이션(모놀리스)을 기능 단위로 쪼개 각자 독립적으로 배포·확장 가능한 서비스로 만들고, 서비스끼리는 REST API나 gRPC로 통신하는 구조. 서비스마다 별도 DB를 두는 경우가 많아 여러 서비스에 걸친 데이터 일관성을 즉시 보장하기보다 지연을 허용하는 최종 일관성(eventual consistency)으로 타협하는 경우가 많음.' },
+          { ko: 'RESTful API 설계', en: 'RESTful API Design', desc: '자원을 URI로 표현하고, GET(조회)·PUT(전체수정)·DELETE(삭제)는 여러 번 호출해도 결과가 같은 멱등(idempotent) 연산으로, POST(생성)는 멱등하지 않게 설계하는 게 원칙인 API 설계 방식. 응답에는 성공(2xx), 클라이언트 오류(4xx), 서버 오류(5xx)를 구분하는 HTTP 상태 코드를 붙임.' },
         ],
       },
     ],
@@ -46,9 +46,9 @@ const TRACKS = [
         nameEn: 'Web Development',
         year: '3학년 1학기',
         terms: [
-          { ko: '클라이언트-서버 모델', en: 'Client-Server Model', desc: '요청을 보내는 클라이언트(브라우저)와 이를 처리해 응답하는 서버로 역할을 나누는 웹의 기본 구조.' },
-          { ko: '프론트엔드 프레임워크', en: 'Frontend Frameworks & Virtual DOM', desc: 'React, Vue 등 UI를 컴포넌트 단위로 구성하고, 실제 DOM 조작을 최소화하는 가상 DOM으로 렌더링 성능을 높이는 프레임워크.' },
-          { ko: '세션, 쿠키, JWT 인증', en: 'Sessions, Cookies & JWT Authentication', desc: '상태가 없는 HTTP 프로토콜 위에서 사용자의 로그인 상태를 유지하는 방법들. 서버에 상태를 저장하는 세션, 클라이언트에 저장하는 쿠키, 토큰 기반의 JWT.' },
+          { ko: '클라이언트-서버 모델', en: 'Client-Server Model', desc: '클라이언트(브라우저)가 HTTP 요청을 보내면 서버가 이를 처리해 HTML·JSON 등을 응답으로 돌려주는 요청-응답 구조. HTTP는 상태를 저장하지 않는(stateless) 프로토콜이라, 로그인 상태 같은 걸 유지하려면 세션이나 토큰 같은 별도 장치가 필요함.' },
+          { ko: '프론트엔드 프레임워크', en: 'Frontend Frameworks & Virtual DOM', desc: '실제 DOM을 매번 직접 조작하면 느리기 때문에, 메모리 상의 가상 DOM 트리를 먼저 갱신하고 이전 트리와 비교(diffing)해 실제로 바뀐 부분만 골라 진짜 DOM에 반영(reconciliation)하는 방식으로 렌더링 성능을 높이는 React 등의 프레임워크.', example: 'React, Vue 등 UI를 컴포넌트 단위로 구성하는 프레임워크.' },
+          { ko: '세션, 쿠키, JWT 인증', en: 'Sessions, Cookies & JWT Authentication', desc: '세션은 서버가 사용자 상태를 저장하고 클라이언트에는 세션ID만 쿠키로 주는 방식이고, JWT는 `헤더.페이로드.서명` 세 부분을 base64url로 인코딩한 토큰 자체에 사용자 정보를 담아 서버가 상태를 안 갖고도(stateless) 서명만 검증해 인증하는 방식.', example: '로그인 후 서버 상태 없이 토큰만으로 API 호출을 인증하는 최신 웹서비스 방식.' },
         ],
       },
       {
@@ -56,8 +56,8 @@ const TRACKS = [
         nameEn: 'Mobile App Development',
         year: '3학년 2학기',
         terms: [
-          { ko: '네이티브 앱과 크로스플랫폼', en: 'Native vs Cross-Platform (React Native/Flutter)', desc: '각 운영체제 전용 언어로 개발하는 네이티브 방식과, 하나의 코드베이스로 iOS·안드로이드를 동시에 개발하는 크로스플랫폼 방식의 장단점.' },
-          { ko: '반응형 UI 설계', en: 'Responsive UI Design', desc: '다양한 화면 크기와 해상도에서도 일관되고 사용하기 편한 사용자 인터페이스를 구성하는 설계 원칙.' },
+          { ko: '네이티브 앱과 크로스플랫폼', en: 'Native vs Cross-Platform (React Native/Flutter)', desc: 'iOS는 Swift, 안드로이드는 Kotlin으로 각각 개발하는 네이티브 방식은 성능과 플랫폼 기능 접근이 유리하고, React Native나 Flutter로 한 코드베이스를 양쪽에 컴파일하는 크로스플랫폼 방식은 개발 속도와 유지보수 비용에서 유리한 트레이드오프가 있음.' },
+          { ko: '반응형 UI 설계', en: 'Responsive UI Design', desc: '화면 너비에 따라 다른 스타일을 적용하는 미디어쿼리와, 요소를 한 줄/여러 줄로 유연하게 배치하는 flexbox·grid 레이아웃을 조합해 같은 코드가 휴대폰·태블릿·PC 어디서든 자연스럽게 보이도록 만드는 설계 원칙.' },
         ],
       },
     ],
@@ -71,10 +71,10 @@ const TRACKS = [
         nameEn: 'Database Systems',
         year: '3학년 1학기',
         terms: [
-          { ko: 'ACID', en: 'ACID Properties', desc: '트랜잭션이 안전하게 처리되기 위해 보장해야 할 원자성(Atomicity), 일관성(Consistency), 고립성(Isolation), 지속성(Durability).' },
-          { ko: '정규화', en: 'Normalization', desc: '데이터 중복과 이상 현상을 줄이기 위해 테이블을 분해하는 과정. 1NF부터 BCNF까지 단계적으로 진행.' },
-          { ko: '트랜잭션 격리 수준', en: 'Transaction Isolation Levels', desc: '동시에 실행되는 트랜잭션들이 서로에게 미치는 영향을 어느 정도까지 허용할지 정하는 수준 (Read Uncommitted ~ Serializable).' },
-          { ko: 'B+ 트리 인덱스', en: 'B+ Tree Index', desc: '데이터베이스에서 대용량 데이터를 빠르게 탐색하기 위해 사용하는 균형 트리 구조 인덱스. 리프 노드끼리 연결되어 범위 탐색에 유리함.' },
+          { ko: 'ACID', en: 'ACID Properties', desc: '트랜잭션은 전부 실행되거나 전혀 안 되거나 둘 중 하나인 원자성(Atomicity), 제약조건을 항상 만족하는 상태로만 전이하는 일관성(Consistency), 동시 실행 트랜잭션이 서로 간섭하지 않는 것처럼 보이는 고립성(Isolation), 커밋된 결과는 장애 후에도 유지되는 지속성(Durability)을 보장해야 한다는 원칙.' },
+          { ko: '정규화', en: 'Normalization', desc: '한 속성 값이 다른 속성 값을 결정하는 함수적 종속성을 분석해, 기본키 일부에만 종속되는 부분종속(2NF 위반)이나 비키 속성을 거쳐서만 종속되는 이행종속(3NF 위반)을 제거하도록 테이블을 쪼개는 과정. 중복은 줄지만 조인이 늘어 조회 성능이 떨어질 수 있는 트레이드오프가 있음.' },
+          { ko: '트랜잭션 격리 수준', en: 'Transaction Isolation Levels', desc: '커밋 안 된 데이터를 읽는 더티 리드, 같은 행을 두 번 읽었는데 값이 바뀌는 반복불가능 읽기, 조건은 같은데 행 개수가 달라지는 팬텀 읽기를 어디까지 허용하느냐에 따라 Read Uncommitted < Read Committed < Repeatable Read < Serializable 순으로 격리 수준이 강해짐.' },
+          { ko: 'B+ 트리 인덱스', en: 'B+ Tree Index', desc: '한 노드가 여러 키를 갖도록 만들어 트리 높이를 낮춘 균형 탐색 트리. 데이터는 리프에만 두고 리프끼리 연결리스트로 이어, 탐색은 $O(\\log_b n)$이고 범위 탐색도 리프를 순서대로 따라가면 되어 효율적임.' },
         ],
       },
       {
@@ -82,9 +82,9 @@ const TRACKS = [
         nameEn: 'System Design',
         year: '4학년 1학기',
         terms: [
-          { ko: '캐싱 전략', en: 'Caching Strategies', desc: '자주 조회되는 데이터를 빠른 저장소에 미리 저장해 응답 속도를 높이고 데이터베이스 부하를 줄이는 기법. Redis 등이 널리 쓰임.' },
-          { ko: '메시지 큐', en: 'Message Queue', desc: '서비스 간 요청을 큐에 쌓아두고 비동기적으로 처리함으로써 시스템 간 결합도를 낮추고 트래픽 급증에 대응하는 아키텍처 요소.' },
-          { ko: '확장성', en: 'Scalability (Vertical/Horizontal Scaling)', desc: '서버 한 대의 성능을 높이는 수직 확장과, 서버 대수를 늘리는 수평 확장 중 무엇을 택할지 고민하는 시스템 설계의 핵심 문제.' },
+          { ko: '캐싱 전략', en: 'Caching Strategies', desc: '조회 시 캐시를 먼저 보고 없으면 DB에서 가져와 캐시에 채우는 cache-aside 방식과, 쓰기 시점에 캐시와 DB를 동시에 갱신하는 write-through 방식이 대표적. 어떤 데이터를 캐시에서 내릴지는 가장 오래 안 쓴 항목부터 지우는 LRU가 흔히 쓰임.' },
+          { ko: '메시지 큐', en: 'Message Queue', desc: '생산자(producer)가 큐에 작업을 쌓아두면 소비자(consumer)가 자기 속도에 맞춰 꺼내 처리하는 비동기 구조. 특정 소비자 하나만 받는 점대점 방식과, 여러 구독자에게 같은 메시지를 뿌리는 발행-구독(pub-sub) 방식이 있어 서비스 간 결합도를 낮추고 트래픽 급증을 완충함.' },
+          { ko: '확장성', en: 'Scalability (Vertical/Horizontal Scaling)', desc: '서버 한 대의 CPU·메모리를 늘리는 수직 확장은 한계가 명확한 반면, 같은 서버를 여러 대 두고 로드밸런서로 요청을 분산하는 수평 확장은 이론상 대수를 늘릴수록 처리량이 거의 선형으로 늘어나지만, 여러 대 사이의 데이터 동기화·일관성 문제가 새로 생기는 트레이드오프가 있음.' },
         ],
       },
     ],
@@ -98,8 +98,8 @@ const TRACKS = [
         nameEn: 'Human-Computer Interaction',
         year: '3학년 2학기',
         terms: [
-          { ko: '사용성 휴리스틱', en: 'Usability Heuristics', desc: '인터페이스가 사용하기 쉬운지를 평가하는 경험적 원칙들(닐슨의 10대 휴리스틱 등). 시스템 상태 가시성, 오류 방지 등을 포함.' },
-          { ko: '사용자 중심 설계', en: 'User-Centered Design', desc: '개발 전 과정에서 실제 사용자의 요구와 행동을 반복적으로 조사·반영하며 인터페이스를 설계하는 방법론.' },
+          { ko: '사용성 휴리스틱', en: 'Usability Heuristics', desc: '시스템이 지금 뭘 하고 있는지 사용자가 알 수 있게 하는 "시스템 상태의 가시성", 실수해도 쉽게 되돌릴 수 있게 하는 "실행 취소 지원" 등 닐슨이 정리한 10가지 경험적 원칙으로 인터페이스를 평가하는 방법.' },
+          { ko: '사용자 중심 설계', en: 'User-Centered Design', desc: '설계-프로토타입 제작-사용자 테스트-피드백 반영을 짧은 주기로 반복하며, 매 단계에서 실제 사용자의 행동을 관찰·검증해 인터페이스를 다듬는 방법론.' },
         ],
       },
       {
@@ -107,8 +107,8 @@ const TRACKS = [
         nameEn: 'QA & Testing',
         year: '3학년 2학기',
         terms: [
-          { ko: '통합테스트와 E2E테스트', en: 'Integration & End-to-End Testing', desc: '여러 모듈이 결합했을 때 올바르게 동작하는지 검증하는 통합테스트와, 사용자 시나리오 전체 흐름을 검증하는 E2E테스트.' },
-          { ko: '회귀테스트', en: 'Regression Testing', desc: '코드를 수정한 후에도 기존 기능이 여전히 정상 동작하는지 재확인하는 테스트. 자동화된 테스트 스위트로 반복 실행하는 경우가 많음.' },
+          { ko: '통합테스트와 E2E테스트', en: 'Integration & End-to-End Testing', desc: '개별 모듈은 정상이어도 모듈 간 인터페이스가 안 맞으면 문제가 생기므로, 여러 모듈을 결합한 상태로 검증하는 통합테스트와, 실제 사용자처럼 브라우저를 자동 조작해 로그인부터 결제까지 전체 흐름을 검증하는 E2E테스트.' },
+          { ko: '회귀테스트', en: 'Regression Testing', desc: '기존에 통과했던 테스트 케이스들을 코드 수정 후 다시 실행해, 새로운 변경이 이전에 잘 되던 기능을 망가뜨리지 않았는지 확인하는 테스트. CI 파이프라인에 자동화해 커밋마다 돌리는 것이 일반적.' },
         ],
       },
       {
@@ -116,8 +116,8 @@ const TRACKS = [
         nameEn: 'Project Management',
         year: '3학년 1학기',
         terms: [
-          { ko: '워터폴과 애자일 방법론 비교', en: 'Waterfall vs Agile', desc: '순차적으로 단계를 진행하는 워터폴 방식과, 짧은 주기로 반복하며 유연하게 대응하는 애자일 방식의 차이와 각각이 적합한 상황.' },
-          { ko: '사용자 스토리와 백로그 관리', en: 'User Stories & Backlog Management', desc: '기능 요구사항을 사용자 관점에서 짧은 문장으로 정리한 사용자 스토리와, 이를 우선순위에 따라 관리하는 백로그.' },
+          { ko: '워터폴과 애자일 방법론 비교', en: 'Waterfall vs Agile', desc: '요구분석-설계-구현-테스트를 순서대로 한 번씩 거치는 워터폴은 요구사항이 명확한 프로젝트에 적합하고, 짧은 주기로 반복하며 요구사항 변화에 대응하는 애자일은 불확실성이 큰 프로젝트에 적합하다는 게 일반적 구분.' },
+          { ko: '사용자 스토리와 백로그 관리', en: 'User Stories & Backlog Management', desc: '"~로서 나는 ~하고 싶다, 왜냐하면 ~이기 때문이다" 형식으로 요구사항을 사용자 관점에서 짧게 적은 사용자 스토리를 우선순위에 따라 쌓아둔 목록(백로그)으로 관리하며 스프린트마다 상위 항목부터 꺼내 작업함.' },
         ],
       },
     ],
