@@ -1,0 +1,40 @@
+---
+import GlossaryLayout from '../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '보건학 공통 기초',
+    subtitle: '임상보건·재활치료·보건관리 등 모든 보건계열 학과가 공통으로 배우는 기초 과목',
+    courses: [
+      {
+        name: '보건학 기초과목',
+        nameEn: 'Health Sciences Foundations',
+        year: '1~2학년 공통',
+        terms: [
+          { ko: '인체해부생리학', en: 'Human Anatomy & Physiology', desc: '뼈·근육·장기의 구조(해부학)와 그것들이 어떻게 기능해 생명을 유지하는지(생리학)를 함께 배우는, 모든 보건의료 전공의 가장 기본이 되는 공통 기초 학문. 방사선사가 어디를 촬영해야 할지, 물리치료사가 어떤 근육을 치료해야 할지 판단하는 근본 지식이 됨.', example: '물리치료사가 환자 통증 부위의 근육·신경 경로를 해부학 지식으로 파악해 치료 부위를 정확히 짚어내는 것.' },
+          { ko: '공중보건학 개론', en: 'Introduction to Public Health', desc: '개인 치료를 넘어 지역사회·인구 집단 전체의 건강을 예방적으로 관리하는 관점을 배우는 과목으로, 질병 예방·환경보건·보건정책이 국민 건강 수준 전반에 어떻게 영향을 미치는지 이해하는 보건계열 공통 기초.', example: '상수도 정수 시스템 개선이 개별 치료보다 훨씬 많은 사람의 건강을 지킨 역사적 공중보건 사례.' },
+          { ko: '보건통계학 기초', en: 'Basic Biostatistics', desc: '질병 발생률, 치료 효과, 검사 결과의 정상범위 등을 통계적으로 해석하는 능력은 모든 보건의료 직종의 기본 소양으로, 일부 표본에서 얻은 데이터로 전체 인구에 대한 결론을 내리는 추론통계의 기초를 배움.', example: '신약 임상시험 결과가 우연이 아니라 실제 효과인지 통계적 유의성 검정으로 판단하는 것.' },
+          { ko: '의료관계법규', en: 'Healthcare-Related Law', desc: '의료기사 등에 관한 법률처럼 각 보건의료 직종이 수행할 수 있는 업무 범위와 자격 요건을 정한 법률을 이해하는 과목으로, 면허 없이 의료행위를 하면 처벌받는 이유와 각 직종의 법적 책임 범위를 배움.', example: '방사선사는 방사선 촬영은 할 수 있지만 진단은 의사만 할 수 있다는 업무 범위의 법적 경계.' },
+          { ko: '감염관리와 소독멸균', en: 'Infection Control & Sterilization', desc: '병원 내 여러 환자·의료진 사이에서 병원체가 전파되는 원내감염을 막기 위해, 기구를 완전한 무균 상태로 만드는 멸균과 병원체 수만 줄이는 소독의 차이를 이해하고 표준주의 지침에 따라 감염을 예방하는 모든 보건의료 직종의 필수 지식.', example: '치과에서 환자마다 기구를 고압증기멸균기로 완전히 소독해 재사용하는 감염관리 절차.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/health/clinical', title: '임상보건계열', subtitle: 'Clinical Health Sciences (6)' },
+  { href: '/health/rehab', title: '재활치료계열', subtitle: 'Rehabilitation Therapy (3)' },
+  { href: '/health/info', title: '보건관리 및 의료정보계열', subtitle: 'Health Administration & Informatics (2)' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 보건학 전공 맛보기 | 대치프라임"
+  metaDescription="임상보건, 재활치료, 보건관리 및 의료정보까지 보건학 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="보건학"
+  descriptionPrefix={`병원과 지역사회에서 다양한 보건의료 전문직으로 활동하는 11개 학과를 3개 계열로 나누어뒀어요. 아래는 공통 기초 과목이고, 계열별 학과들은 아래 링크에서 확인하세요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 해부생리학, 공중보건, 소독멸균)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>
