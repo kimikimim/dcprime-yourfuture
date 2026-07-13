@@ -1,0 +1,59 @@
+---
+import GlossaryLayout from '../../layouts/GlossaryLayout.astro';
+
+const TRACKS = [
+  {
+    title: '보건관리학과',
+    subtitle: 'Health Administration — 보건행정, 병원경영, 의료정보 등을 다루며 보건교육사·병원행정사 등의 자격을 취득',
+    careers: ['병원 원무·경영기획팀', '보건복지부 및 지자체 보건직 공무원', '국민건강보험공단·건강보험심사평가원', '의료 컨설팅 기업'],
+    courses: [
+      {
+        name: '보건행정학',
+        nameEn: 'Health Administration',
+        year: '전공필수',
+        terms: [
+          { ko: '보건정책과 의료제도', en: 'Health Policy & Healthcare System', desc: '국가가 국민 건강을 지키기 위해 의료 자원을 어떻게 배분하고 규제할지를 다루는 학문으로, 건강보험 제도·의료기관 인증제·공공보건정책이 실제로 국민 의료비 부담과 의료 접근성에 어떤 영향을 주는지 분석함.', example: '건강보험 보장성 확대 정책이 실제 국민의 의료비 부담을 얼마나 줄이는지 정책 효과를 평가하는 것.' },
+          { ko: '병원경영관리', en: 'Hospital Management', desc: '병원도 하나의 조직으로서 인력·병상·장비 같은 자원을 효율적으로 배분하고 수익성과 의료 질을 동시에 관리해야 하는데, 재무·인사·마케팅 같은 일반 경영학 원리를 의료기관이라는 특수한 공익적 맥락에 맞춰 적용하는 분야.', example: '병원이 병상 가동률과 평균 재원일수를 분석해 병상 운영 효율을 높이는 것.' },
+          { ko: '보건교육학', en: 'Health Education', desc: '흡연, 비만, 운동부족 같은 생활습관병의 원인이 되는 행동을 개인·집단 차원에서 어떻게 변화시킬 수 있는지 행동변화이론에 기반해 교육 프로그램을 설계·평가하는 학문.', example: '금연클리닉이 행동변화 단계이론에 맞춰 흡연자별로 다른 접근의 금연 프로그램을 제공하는 것.' },
+          { ko: '역학과 질병통계', en: 'Epidemiology & Disease Statistics', formula: '\\text{발생률} = \\frac{\\text{신규 환자 수}}{\\text{위험인구} \\times \\text{관찰기간}}', desc: '특정 질병이 인구 집단에서 얼마나 자주, 누구에게 발생하는지를 발생률·유병률 같은 지표로 정량화하고, 위험요인 노출군과 비노출군의 발병률을 비교해 인과관계를 통계적으로 추론하는 공중보건의 핵심 방법론.', example: '특정 지역에서 특정 질병 발생률이 전국 평균보다 유의하게 높은 원인을 역학조사로 추적하는 것.' },
+          { ko: '의료보험과 급여체계', en: 'Health Insurance & Reimbursement', desc: '의료 서비스마다 정해진 가격(수가)을 국가나 보험자가 어떻게 산정하고 병원에 지급하는지를 다루는 분야로, 행위별로 값을 매기는 행위별수가제와 질병군별로 정액을 지급하는 포괄수가제 등 지불 방식에 따라 병원의 진료 행태가 달라짐.', example: '포괄수가제가 적용되는 수술은 병원이 불필요한 검사를 줄이려는 유인이 생기는 것.' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '보건의료정보학과',
+    subtitle: 'Health Information Management — 의료 데이터 분석 및 스마트 헬스케어, 전자의무기록(EMR)을 다루는 보건의료정보관리사를 양성',
+    careers: ['대학병원 의무기록팀 및 병원정보시스템(HIS)팀', '헬스케어 IT 기업', '건강보험심사평가원', '의료 빅데이터 연구기관'],
+    courses: [
+      {
+        name: '보건의료정보학',
+        nameEn: 'Health Information Management',
+        year: '전공필수',
+        terms: [
+          { ko: '전자의무기록(EMR) 관리', en: 'Electronic Medical Records', desc: '종이차트 대신 환자의 진단·처방·검사결과를 디지털로 기록·저장해 여러 진료과·의료진이 실시간으로 공유하고, 과거 기록을 즉시 검색할 수 있게 하는 시스템으로, 정확한 데이터 입력과 표준화된 구조 설계가 핵심.', example: '응급실 의료진이 타 병원에서 이미 촬영한 영상 기록을 EMR로 즉시 확인해 중복 검사를 피하는 것.' },
+          { ko: '의료데이터 표준화(HL7/FHIR)', en: 'Healthcare Data Standards (HL7/FHIR)', desc: '서로 다른 병원의 각기 다른 전산 시스템이 환자 정보를 주고받으려면 데이터 형식이 통일돼 있어야 하는데, HL7이나 최신 표준인 FHIR 같은 국제 표준 프로토콜로 진단명·처방·검사결과의 데이터 형식을 통일해 시스템 간 상호운용성을 확보하는 기술.', example: '서로 다른 회사의 전산시스템을 쓰는 두 병원이 환자 진료기록을 표준 형식으로 정확히 주고받는 것.' },
+          { ko: '질병분류체계(ICD 코딩)', en: 'Disease Classification (ICD Coding)', desc: '전 세계에서 통일된 방식으로 질병과 사망 원인을 통계 낼 수 있도록, 세계보건기구가 정한 국제질병분류(ICD) 코드로 모든 진단명을 표준화된 번호로 변환해 기록하는 작업으로, 이 코드가 통계·보험청구·연구의 기초 데이터가 됨.', example: '진단서에 적힌 "제2형 당뇨병"이 ICD-10 코드 E11로 표준화되어 국가 통계에 집계되는 것.' },
+          { ko: '의료정보보안과 개인정보보호', en: 'Healthcare Information Security & Privacy', desc: '의료정보는 가장 민감한 개인정보 중 하나이므로, 접근 권한을 역할별로 제한하고 모든 접근 기록을 로그로 남겨 추적 가능하게 하며, 데이터 전송·저장 시 암호화를 적용해 유출과 오남용을 막는 보안 체계를 설계·운영하는 분야.', example: '담당 의료진만 특정 환자의 정신과 진료기록에 접근할 수 있도록 권한을 세분화하는 것.' },
+          { ko: '헬스케어 빅데이터 분석', en: 'Healthcare Big Data Analytics', desc: '수백만 명의 진료기록, 웨어러블 기기 데이터, 유전체 정보 등 방대한 의료 데이터를 통계·머신러닝 기법으로 분석해 질병 예측 모델을 만들거나 치료 효과를 대규모로 검증하는 최신 보건의료정보 분야.', example: '수십만 명의 당뇨병 환자 데이터를 분석해 합병증 발생을 예측하는 머신러닝 모델을 만드는 것.' },
+        ],
+      },
+    ],
+  },
+];
+
+const RELATED_MAJORS = [
+  { href: '/health/clinical', title: '임상보건계열', subtitle: 'Clinical Health Sciences' },
+  { href: '/health/rehab', title: '재활치료계열', subtitle: 'Rehabilitation Therapy' },
+];
+---
+
+<GlossaryLayout
+  metaTitle="Your Future - 보건관리 및 의료정보계열 전공 맛보기 | 대치프라임"
+  metaDescription="보건관리학과, 보건의료정보학과까지 보건관리 및 의료정보계열 커리큘럼을 재구성한 전공 맛보기 페이지입니다."
+  heading="보건관리 및 의료정보계열"
+  descriptionPrefix={`직접 환자를 치료하기보다, 병원과 보건의료 시스템 전체가 효율적으로 돌아가도록 정책·경영·데이터를 다루는 2개 학과를 모아뒀어요.`}
+  searchPlaceholder="개념 이름으로 검색 (예: 역학, EMR, ICD 코딩)"
+  tracks={TRACKS}
+  relatedMajors={RELATED_MAJORS}
+/>

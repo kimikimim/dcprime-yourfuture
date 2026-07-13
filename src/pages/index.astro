@@ -107,6 +107,27 @@ const MEDICAL_CONTENTS = [
     desc: '임상간호, 지역사회·정신간호, 간호관리 핵심 과목 맛보기.',
   },
 ];
+
+const HEALTH_CONTENTS = [
+  {
+    href: '/health/clinical',
+    title: '임상보건계열',
+    subtitle: 'Clinical Health Sciences',
+    desc: '방사선학과, 임상병리학과, 응급구조학과 등 임상 전문직 6개 학과 맛보기.',
+  },
+  {
+    href: '/health/rehab',
+    title: '재활치료계열',
+    subtitle: 'Rehabilitation Therapy',
+    desc: '물리치료학과, 작업치료학과, 언어치료학과 핵심 과목 맛보기.',
+  },
+  {
+    href: '/health/info',
+    title: '보건관리 및 의료정보계열',
+    subtitle: 'Health Administration & Informatics',
+    desc: '보건행정, 병원경영, 의료정보·빅데이터 핵심 과목 맛보기.',
+  },
+];
 ---
 
 <!doctype html>
@@ -187,6 +208,24 @@ const MEDICAL_CONTENTS = [
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {MEDICAL_CONTENTS.map((c) => (
+            <a
+              href={c.href}
+              class="block bg-white rounded-xl border border-gray-100 p-6 shadow-sm hover:border-brand hover:shadow-md transition-all"
+            >
+              <p class="text-lg font-bold text-gray-900">{c.title}</p>
+              <p class="text-xs text-gray-400 mb-3">{c.subtitle}</p>
+              <p class="text-sm text-gray-600 leading-relaxed">{c.desc}</p>
+              <p class="text-sm text-brand font-semibold mt-4">자세히 보기 →</p>
+            </a>
+          ))}
+        </div>
+
+        <div class="mb-4 mt-12">
+          <h2 class="text-base sm:text-lg font-bold text-gray-900">보건과학대학</h2>
+          <p class="text-xs text-gray-400">Health Sciences</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {HEALTH_CONTENTS.map((c) => (
             <a
               href={c.href}
               class="block bg-white rounded-xl border border-gray-100 p-6 shadow-sm hover:border-brand hover:shadow-md transition-all"
